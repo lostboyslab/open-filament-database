@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "definitions": {
+        "string_limit": {
+            "maxLength": 1000
+        }
+    },
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The ID for this store",
+            "$ref": "#/definitions/string_limit"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of this store",
+            "$ref": "#/definitions/string_limit"
+        },
+        "storefront_url": {
+            "type": "string",
+            "description": "A link to the storefront of this store",
+            "$ref": "#/definitions/string_limit"
+        },
+        "logo": {
+            "type": "string",
+            "description": "A link to the logo for this store",
+            "$ref": "#/definitions/string_limit"
+        },
+        "affiliate": {
+            "type": "boolean",
+            "description": "Specifies if the storefront link is an affiliate link",
+            "$ref": "#/definitions/string_limit"
+        },
+        "ships_from": {
+            "type": [
+                "array",
+                "string"
+            ],
+            "description": "A list of locations the shop linked ships from",
+            "items": {
+                "type": "string",
+                "$ref": "#/definitions/string_limit"
+            },
+            "$ref": "#/definitions/string_limit"
+        },
+        "ships_to": {
+            "type": [
+                "array",
+                "string"
+            ],
+            "description": "A list of locations the shop linked ships to",
+            "items": {
+                "type": "string",
+                "$ref": "#/definitions/string_limit"
+            },
+            "$ref": "#/definitions/string_limit"
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "storefront_url",
+        "affiliate",
+        "logo",
+        "ships_from",
+        "ships_to"
+    ]
+}

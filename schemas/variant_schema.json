@@ -1,0 +1,90 @@
+{
+    "type": "object",
+    "definitions": {
+        "string_limit": {
+            "maxLength": 1000
+        }
+    },
+    "properties": {
+        "color_name": {
+            "type": "string",
+            "description": "The manufacturer's name for this filament color",
+            "$ref": "#/definitions/string_limit"
+        },
+        "color_hex": {
+            "type": [
+                "string",
+                "array"
+            ],
+            "items": {
+                "type": "string",
+                "pattern": "^#?[a-fA-F0-9]{6}$"
+            },
+            "pattern": "^#?[a-fA-F0-9]{6}$",
+            "description": "The hex color code for this filament"
+        },
+        "discontinued": {
+            "type": "boolean"
+        },
+        "color_standards": {
+            "type": "object",
+            "properties": {
+                "ral": {
+                    "type": "string",
+                    "$ref": "#/definitions/string_limit"
+                },
+                "ncs":{
+                    "type": "string",
+                    "$ref": "#/definitions/string_limit"
+                },
+                "pantone": {
+                    "type": "string",
+                    "$ref": "#/definitions/string_limit"
+                },
+                "bs":{
+                    "type": "string",
+                    "$ref": "#/definitions/string_limit"
+                },
+                "munsell": {
+                    "type": "string",
+                    "$ref": "#/definitions/string_limit"
+                }
+            }
+        },
+        "traits": {
+            "type": "object",
+            "properties": {
+                "translucent": {
+                    "type": "boolean",
+                    "description": "Indicates that the filament is translucent"
+                },
+                "glow": {
+                    "type": "boolean",
+                    "description": "Indicates that the filament glows in the dark"
+                },
+                "matte": {
+                    "type": "boolean",
+                    "description": "Indicates that the filament has a matte finish"
+                },
+                "recycled": {
+                    "type": "boolean",
+                    "description": "Indicates that the filament was made of recycled materials"
+                },
+                "recyclable": {
+                    "type": "boolean",
+                    "description": "Indicates that the filament can be recycled"
+                },
+                "biodegradable": {
+                    "type": "boolean",
+                    "description": "Indicates if the filament will biodegrade"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "color_name",
+        "color_hex"
+    ]
+}

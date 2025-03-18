@@ -1,0 +1,10 @@
+{
+  "color_name": "Red",
+  "color_hex": "#A02128",
+  "color_standards": {
+    "ral": "3001"
+  },
+  "traits": {
+    "recyclable": true
+  }
+}

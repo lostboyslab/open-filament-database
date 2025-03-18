@@ -1,0 +1,11 @@
+{
+  "color_name": "Almost Black",
+  "color_hex": "#323232",
+  "color_standards": {
+    "ncs": "S 8000-N"
+  },
+  "traits": {
+    "recycled": true,
+    "recyclable": true
+  }
+}

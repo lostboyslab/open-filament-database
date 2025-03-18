@@ -1,0 +1,8 @@
+{
+  "id": "lostboyslab",
+  "name": "lostboyslab",
+  "storefront_url": "https://www.lostboyslab.shop/",
+  "affiliate": false,
+  "logo": "lostboyslab.jpg",
+  "ships_from": ["SE", "US"]
+}

@@ -1,0 +1,114 @@
+{
+    "type": "array",
+    "definitions": {
+        "string_limit": {
+            "maxLength": 1000
+        }
+    },
+    "items": {
+        "type": "object",
+        "properties": {
+            "filament_weight": {
+                "type": "number",
+                "description": "The weight of the filament alone (in grams)",
+                "default": 1000
+            },
+            "diameter": {
+                "type": "number",
+                "description": "The diameter of the filament (in mm)",
+                "default": 1.75
+            },
+            "empty_spool_weight": {
+                "type": "number",
+                "description": "The weight of a spool with no filament (in grams)"
+            },
+            "spool_core_diameter": {
+                "type": "number",
+                "description": "The diameter of the core of the spool"
+            },
+            "ean": {
+                "type": "string",
+                "$ref": "#/definitions/string_limit"
+            },
+            "article_number": {
+                "type": "string",
+                "$ref": "#/definitions/string_limit"
+            },
+            "barcode_identifier": {
+                "type": "string",
+                "$ref": "#/definitions/string_limit"
+            },
+            "nfc_identifier": {
+                "type": "string",
+                "$ref": "#/definitions/string_limit"
+            },
+            "qr_identifier": {
+                "type": "string",
+                "$ref": "#/definitions/string_limit"
+            },
+            "discontinued": {
+                "type": "boolean"
+            },
+            "purchase_links": {
+                "type": "array",
+                "description": "A list of places to purchase this filament",
+                "$comment": "The key for the pattern should be the name of the store",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "store_id": {
+                            "type": "string",
+                            "$ref": "#/definitions/string_limit"
+                        },
+                        "url": {
+                            "type": "string",
+                            "$ref": "#/definitions/string_limit"
+                        },
+                        "affiliate": {
+                            "type": "boolean"
+                        },
+                        "spool_refill": {
+                            "type": "boolean",
+                            "description": "Indicates if this is a refill for a reusable spool",
+                            "default": false
+                        },
+                        "ships_from": {
+                            "type": [
+                                "array",
+                                "string"
+                            ],
+                            "description": "A list of locations the shop ships from. Defining this here will override the definition from the shop.",
+                            "items": {
+                                "type": "string",
+                                "$ref": "#/definitions/string_limit"
+                            },
+                            "$ref": "#/definitions/string_limit"
+                        },
+                        "ships_to": {
+                            "type": [
+                                "array",
+                                "string"
+                            ],
+                            "description": "A list of locations the shop ships to. Defining this here will override the definition from the shop.",
+                            "items": {
+                                "type": "string",
+                                "$ref": "#/definitions/string_limit"
+                            },
+                            "$ref": "#/definitions/string_limit"
+                        }
+                    },
+                    "required": [
+                        "affiliate",
+                        "url"
+                    ]
+                }
+            }
+        },
+        "additionalProperties": false,
+        "required": [
+            "filament_weight",
+            "diameter"
+        ]
+    },
+    "minItems": 1
+}
