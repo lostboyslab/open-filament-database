@@ -3,7 +3,5 @@
     "name": "Bambu Lab Store",
     "storefront_url": "https://store.bambulab.com",
     "affiliate": false,
-    "logo": "nan",
-    "ships_to": "nan",
-    "ships_from": "nan"
+    "logo": "bambulab.svg"
 }
