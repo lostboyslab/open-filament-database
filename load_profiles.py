@@ -3,9 +3,8 @@ import json
 import os
 import re
 import shutil
-from enum import IntEnum
 from pathlib import Path
-from typing import Union, Optional
+from typing import Union
 from urllib.request import urlretrieve
 from zipfile import ZipFile
 
@@ -16,32 +15,15 @@ iniconfig.COMMENTCHARS = ""
 
 PathLike = Union[str, os.PathLike[str]]
 
-
-class LoadProfileType(IntEnum):
-    Undefined = 0
-    Filament = 1
-    Printer = 1 << 1
-    All = Filament + Printer
-
-
-run_type = LoadProfileType.Filament
-current_type: LoadProfileType
-
-# The output path currently being used. Set by run()
-profile_output_path: Path
-
-# The paths as set by the command line
-filament_output_path: Optional[Path] = None
-printer_output_path: Optional[Path] = None
+# The output path for the extracted profiles
+profile_output_path = Path("./profiles")
 
 PRUSASLICER_URL_PRUSA_FFF = "https://github.com/prusa3d/PrusaSlicer-settings-prusa-fff/archive/refs/heads/main.zip"
 PRUSASLICER_URL_NON_PRUSA_FFF = "https://github.com/prusa3d/PrusaSlicer-settings-non-prusa-fff/archive/refs/heads/main.zip"
 BAMBUSTUDIO_URL = "https://github.com/bambulab/BambuStudio/archive/refs/heads/master.zip"
 ORCASLICER_URL = "https://github.com/SoftFever/OrcaSlicer/archive/refs/heads/main.zip"
-CURA_FILAMENT_URL = "https://github.com/Ultimaker/fdm_materials/archive/refs/heads/master.zip"
-CURA_PRINTER_URL = "https://github.com/Ultimaker/cura/archive/refs/heads/main.zip"
+CURA_URL = "https://github.com/Ultimaker/fdm_materials/archive/refs/heads/master.zip"
 
-download_cache: dict[str, str] = {}
 
 
 def download_and_extract(slicer_name: str, url: str, member: str, pattern: str, ignore_existing=False):
@@ -52,13 +34,8 @@ def download_and_extract(slicer_name: str, url: str, member: str, pattern: str, 
     :param pattern: The pattern the file needs to match to be extracted. The match will be checked against the end of the string.
     :param ignore_existing: If there is an existing folder at the output path, it is typically removed. This option disables that functionality.
     """
-    # Download or get the cached file path
-    if url in download_cache:
-        zip_file_path = download_cache[url]
-    else:
-        print(f"Downloading {slicer_name} archive...")
-        zip_file_path = urlretrieve(url)[0]
-        download_cache[url] = zip_file_path
+    print(f"Downloading {slicer_name} archive...")
+    zip_file_path = urlretrieve(url)[0]
 
     print(f"Extracting {slicer_name} archive...")
     slicer_name = slicer_name.lower()
@@ -82,20 +59,11 @@ def download_and_extract(slicer_name: str, url: str, member: str, pattern: str, 
                 continue
             rel_path = Path(file).relative_to(member)
             dest_path = output_path.joinpath(rel_path)
-
-            # Remove unnecessary folders found in Orca/BBL
-            if slicer_name in ["orcaslicer", "bambustudio"]:
-                parts = dest_path.parts
-                idx = None
-                if "filament" in parts:
-                    idx = parts.index("filament")
-                elif "machine" in parts:
-                    idx = parts.index("machine")
-                if idx is not None:
-                    parts = parts[:idx] + parts[idx + 1:]
-                    dest_path = Path(*parts)
-
-            # Output the file to the filesystem
+            parts = dest_path.parts
+            if "filament" in parts:
+                idx = parts.index("filament")
+                parts = parts[:idx] + parts[idx + 1:]
+                dest_path = Path(*parts)
             dest_path.parent.mkdir(parents=True, exist_ok=True)
             with zip_f.open(file) as src, open(dest_path, "wb") as dst:
                 dst.write(src.read())
@@ -125,20 +93,9 @@ def split_prusaslicer_bundle(path: Path):
 
     # Gather all the profiles from the bundle
     for section in config:
-        name: str
-        if current_type == LoadProfileType.Filament:
-            if not section.name.startswith("filament:"):
-                continue
-            name = section.name.removeprefix("filament:")
-        elif current_type == LoadProfileType.Printer:
-            if section.name.startswith("printer_model:"):
-                name = section.name.removeprefix("printer_model:")
-            elif section.name.startswith("printer:"):
-                name = section.name.removeprefix("printer:")
-            else:
-                continue
-        else:
+        if not section.name.startswith("filament:"):
             continue
+        name = section.name.removeprefix("filament:")
         profiles[name] = dict(section.items())
 
     # Cached "squashed" profiles
@@ -214,120 +171,37 @@ def unpack_prusaslicer_bundles():
 def run():
     """
     Run the download and extract routine
-    Set global var 'run_type' to set what profiles will be extracted
-    Set global var 'filament_output_path' to set the output path for filaments
-    Set global var 'printer_output_path' to set the output path for printers
+    Set global var 'profile_output_path' to set the output path for the profiles
     """
-    global current_type
-    global profile_output_path
 
-    # ----------------------
-    # Run Filament
-    # ----------------------
-    if run_type & LoadProfileType.Filament:
-        current_type = LoadProfileType.Filament
-        global filament_output_path
-        if filament_output_path is None:
-            profile_output_path = Path("./profiles")
-        else:
-            profile_output_path = filament_output_path
+    # Download and unzip PrusaSlicer profiles
+    download_and_extract("PrusaSlicer", PRUSASLICER_URL_PRUSA_FFF, "PrusaSlicer-settings-prusa-fff-main/",
+                         r".*\.ini")
+    download_and_extract("PrusaSlicer", PRUSASLICER_URL_NON_PRUSA_FFF, "PrusaSlicer-settings-non-prusa-fff-main/",
+                         r".*\.ini", True)
 
-        print("Loading filament profiles...")
+    unpack_prusaslicer_bundles()
 
-        # Download and unzip PrusaSlicer profiles
-        download_and_extract("PrusaSlicer", PRUSASLICER_URL_PRUSA_FFF, "PrusaSlicer-settings-prusa-fff-main/",
-                             r".*\.ini")
-        download_and_extract("PrusaSlicer", PRUSASLICER_URL_NON_PRUSA_FFF, "PrusaSlicer-settings-non-prusa-fff-main/",
-                             r".*\.ini", True)
+    # Download and unzip BambuStudio profiles
+    download_and_extract("BambuStudio", BAMBUSTUDIO_URL, "BambuStudio-master/resources/profiles", ".*/filament/.*")
 
-        unpack_prusaslicer_bundles()
+    # Download and unzip OrcaSlicer profiles
+    download_and_extract("OrcaSlicer", ORCASLICER_URL, "OrcaSlicer-main/resources/profiles/", ".*/filament/.*")
 
-        # Download and unzip BambuStudio profiles
-        download_and_extract("BambuStudio", BAMBUSTUDIO_URL, "BambuStudio-master/resources/profiles", ".*/filament/.*")
+    # Download and unzip Cura profiles
+    download_and_extract("Cura", CURA_URL, "fdm_materials-master", ".*.fdm_material$")
 
-        # Download and unzip OrcaSlicer profiles
-        download_and_extract("OrcaSlicer", ORCASLICER_URL, "OrcaSlicer-main/resources/profiles/", ".*/filament/.*")
+    # TODO: Convert cura XML files to custom json
 
-        # Download and unzip Cura profiles
-        download_and_extract("Cura", CURA_FILAMENT_URL, "fdm_materials-master", ".*.fdm_material$")
-
-        # TODO: Convert cura XML files to custom json
-
-    # ----------------------
-    # Run Printer
-    # ----------------------
-    if run_type & LoadProfileType.Printer:
-        current_type = LoadProfileType.Printer
-        global printer_output_path
-        if printer_output_path is None:
-            profile_output_path = Path("./printer_profiles")
-        else:
-            profile_output_path = printer_output_path
-
-        print("Loading printer profiles...")
-
-        # Download and unzip PrusaSlicer profiles
-        download_and_extract("PrusaSlicer", PRUSASLICER_URL_PRUSA_FFF, "PrusaSlicer-settings-prusa-fff-main/",
-                             r".*\.ini")
-        download_and_extract("PrusaSlicer", PRUSASLICER_URL_NON_PRUSA_FFF, "PrusaSlicer-settings-non-prusa-fff-main/",
-                             r".*\.ini", True)
-
-        unpack_prusaslicer_bundles()
-
-        # Download and unzip BambuStudio profiles
-        download_and_extract("BambuStudio", BAMBUSTUDIO_URL, "BambuStudio-master/resources/profiles",
-                             r".*/machine/.*")
-
-        # Download and unzip OrcaSlicer profiles
-        download_and_extract("OrcaSlicer", ORCASLICER_URL, "OrcaSlicer-main/resources/profiles/",
-                             r".*/machine/.*")
-
-        # Download and unzip Cura profiles
-        download_and_extract("Cura", CURA_PRINTER_URL, "Cura-main/resources/definitions", r".*\.def\.json$")
-
-        # add temporary fix for errors in the profiles
-        with open(profile_output_path.joinpath("prusaslicer/RatRig/RatRig V-Minion-180 0.6Nozzle.json"), "r+") as f:
-            data = json.load(f)
-            f.seek(0)
-            data["printer_variant"] = "0.6"
-            json.dump(data, f, indent=4)
-            f.truncate()
-
-        with open(profile_output_path.joinpath("bambustudio/Creality/Creality K1 0.8 nozzle.json"), "r+") as f:
-            data = json.load(f)
-            f.seek(0)
-            data["printer_model"] = "Creality K1"
-            json.dump(data, f, indent=4)
-            f.truncate()
-
-
-# If running directly, provide argument parsing
+# If running from the command line, provide argument parsing
 if __name__ == "__main__":
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
-    parser.add_argument("-p", "--printers", action="store_true", help="Download and unpack printer profiles")
-    parser.add_argument("-f", "--filaments", action="store_true", help="Download and unpack filament profiles")
-    parser.add_argument("-a", "--all", action="store_true", help="Download and unpack printer and filament profiles")
-    parser.add_argument("--filament-path", help="The path to the parent folder of where to save the filament profiles")
-    parser.add_argument("--printer-path", help="The path to the parent folder of where to save the printer profiles")
+    parser.add_argument("--profile-path", help="Set the output path for the extracted profiles")
     args = parser.parse_args()
 
-    if args.all:
-        run_type = LoadProfileType.All
-    else:
-        tmp = 0
-        tmp |= int(args.filaments)
-        tmp |= int(args.printers) << 1
-        if tmp == 0:
-            parser.print_help()
-            parser.exit(-1, "No arguments were provided")
-        run_type = LoadProfileType(tmp)
-
-    if args.printer_path:
-        printer_output_path = Path(args.printer_path)
-
-    if args.filament_path:
-        filament_output_path = Path(args.filament_path)
+    if isinstance(args.profile_path, str):
+        profile_output_path = Path(args.profile_path)
 
     run()
