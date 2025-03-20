@@ -1,4 +1,4 @@
-name: Update Slicer Presets
+name: Update Slicer Profiles
 
 on:
     schedule:
@@ -6,7 +6,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    update_slicer_presets:
+    update_slicer_profiles:
         runs-on: ubuntu-latest
         permissions:
             contents: write
@@ -27,6 +27,6 @@ jobs:
             -   name: Commit changes
                 run: |
                     git add .
-                    if git commit -m "Update presets"; then
+                    if git commit -m "Update profiles"; then
                         git push origin
                     fi
