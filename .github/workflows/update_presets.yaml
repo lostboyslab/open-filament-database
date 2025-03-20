@@ -13,8 +13,6 @@ jobs:
         steps:
             -   name: Checkout
                 uses: actions/checkout@v4
-                with:
-                    persist-credentials: false
 
             -   name: Setup Git
                 run: |
@@ -29,5 +27,6 @@ jobs:
             -   name: Commit changes
                 run: |
                     git add .
-                    git commit -m "Update presets"
-                    git push origin
+                    if git commit -m "Update presets"; then
+                        git push origin
+                    fi
