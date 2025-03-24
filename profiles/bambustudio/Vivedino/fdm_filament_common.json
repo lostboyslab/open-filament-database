@@ -1,37 +1,37 @@
 {
     "type": "filament",
-    "name": "fdm_filament_common",
+    "name": "Generic PETG @Troodon",
     "from": "system",
-    "instantiation": "false",
-    "cool_plate_temp" : [
+    "instantiation": "true",
+    "cool_plate_temp": [
         "60"
     ],
-    "eng_plate_temp" : [
+    "eng_plate_temp": [
+        "0"
+    ],
+    "hot_plate_temp": [
+        "80"
+    ],
+    "textured_plate_temp": [
+        "80"
+    ],
+    "cool_plate_temp_initial_layer": [
         "60"
     ],
-    "hot_plate_temp" : [
-        "60"
+    "eng_plate_temp_initial_layer": [
+        "0"
     ],
-    "textured_plate_temp" : [
-        "60"
+    "hot_plate_temp_initial_layer": [
+        "80"
     ],
-    "cool_plate_temp_initial_layer" : [
-        "60"
-    ],
-    "eng_plate_temp_initial_layer" : [
-        "60"
-    ],
-    "hot_plate_temp_initial_layer" : [
-        "60"
-    ],
-    "textured_plate_temp_initial_layer" : [
-        "60"
+    "textured_plate_temp_initial_layer": [
+        "80"
     ],
     "overhang_fan_threshold": [
-        "95%"
+        "25%"
     ],
     "overhang_fan_speed": [
-        "100"
+        "90"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -43,19 +43,19 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "1"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "fan_cooling_layer_time": [
-        "60"
+        "30"
     ],
     "filament_cost": [
-        "0"
+        "30"
     ],
     "filament_density": [
-        "0"
+        "1.27"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -64,10 +64,10 @@
         "1.75"
     ],
     "filament_is_support": [
-        "0"
+        "1"
     ],
     "filament_max_volumetric_speed": [
-        "0"
+        "10"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -100,10 +100,10 @@
         ""
     ],
     "filament_soluble": [
-        "0"
+        "1"
     ],
     "filament_type": [
-        "PLA"
+        "PETG"
     ],
     "filament_vendor": [
         "Generic"
@@ -118,16 +118,16 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "200"
+        "255"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "100"
+        "90"
     ],
     "fan_min_speed": [
-        "35"
+        "40"
     ],
     "required_nozzle_HRC": [
         "3"
@@ -136,15 +136,30 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "8"
+        "2"
     ],
     "filament_start_gcode": [
-        "; Filament gcode\n"
+        "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "200"
+        "255"
     ],
     "temperature_vitrification": [
-        "100"
+        "80"
+    ],
+    "nozzle_temperature_range_low": [
+        "220"
+    ],
+    "nozzle_temperature_range_high": [
+        "260"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
+    "filament_id": "GFG99",
+    "setting_id": "GFSG99_Troodon_00",
+    "compatible_printers": [
+        "Troodon 2.0 Klipper 0.4 nozzle",
+        "Troodon 2.0 RRF 0.4 nozzle"
     ]
 }

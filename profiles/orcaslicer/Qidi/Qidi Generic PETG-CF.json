@@ -1,20 +1,8 @@
 {
     "type": "filament",
-    "filament_id": "GFG98",
-    "setting_id": "GFSG50",
     "name": "Qidi Generic PETG-CF",
     "from": "system",
     "instantiation": "true",
-    "inherits": "fdm_filament_pet",
-    "temperature_vitrification": [
-        "75"
-    ],
-    "overhang_fan_threshold": [
-        "25%"
-    ],
-    "overhang_fan_speed": [
-        "90"
-    ],
     "cool_plate_temp": [
         "0"
     ],
@@ -39,23 +27,26 @@
     "textured_plate_temp_initial_layer": [
         "70"
     ],
-    "required_nozzle_HRC": [
-        "40"
+    "overhang_fan_threshold": [
+        "25%"
     ],
-    "filament_type": [
-        "PETG-CF"
+    "overhang_fan_speed": [
+        "90"
     ],
-    "nozzle_temperature_range_low": [
-        "240"
+    "slow_down_for_layer_cooling": [
+        "1"
     ],
-    "nozzle_temperature_range_high": [
-        "290"
+    "close_fan_the_first_x_layers": [
+        "1"
     ],
-    "nozzle_temperature_initial_layer": [
-        "280"
+    "filament_flow_ratio": [
+        "0.95"
     ],
-    "nozzle_temperature": [
-        "280"
+    "reduce_fan_stop_start_freq": [
+        "1"
+    ],
+    "fan_cooling_layer_time": [
+        "30"
     ],
     "filament_cost": [
         "34.99"
@@ -63,17 +54,68 @@
     "filament_density": [
         "1.25"
     ],
+    "filament_deretraction_speed": [
+        "nil"
+    ],
+    "filament_diameter": [
+        "1.75"
+    ],
     "filament_max_volumetric_speed": [
         "8"
     ],
-    "slow_down_layer_time": [
-        "6"
+    "filament_minimal_purge_on_wipe_tower": [
+        "15"
     ],
-    "enable_pressure_advance": [
-        "1"
+    "filament_retraction_minimum_travel": [
+        "nil"
     ],
-    "fan_cooling_layer_time": [
-        "30"
+    "filament_retract_before_wipe": [
+        "nil"
+    ],
+    "filament_retract_when_changing_layer": [
+        "nil"
+    ],
+    "filament_retraction_length": [
+        "0.01"
+    ],
+    "filament_z_hop": [
+        "nil"
+    ],
+    "filament_z_hop_types": [
+        "nil"
+    ],
+    "filament_retract_restart_extra": [
+        "nil"
+    ],
+    "filament_retraction_speed": [
+        "nil"
+    ],
+    "filament_settings_id": [
+        "QIDI PA12-CF @Qidi Q1 Pro 0.6 nozzle"
+    ],
+    "filament_soluble": [
+        "0"
+    ],
+    "filament_type": [
+        "PETG-CF"
+    ],
+    "filament_vendor": [
+        "Generic"
+    ],
+    "filament_wipe": [
+        "nil"
+    ],
+    "filament_wipe_distance": [
+        "nil"
+    ],
+    "bed_type": [
+        "Cool Plate"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "280"
+    ],
+    "full_fan_speed_layer": [
+        "3"
     ],
     "fan_max_speed": [
         "30"
@@ -81,40 +123,61 @@
     "fan_min_speed": [
         "10"
     ],
-    "filament_flow_ratio": [
-        "0.95"
+    "slow_down_min_speed": [
+        "20"
     ],
-    "pressure_advance": [
-        "0.05"
+    "slow_down_layer_time": [
+        "6"
     ],
-    "filament_vendor": [
-        "Generic"
+    "nozzle_temperature": [
+        "280"
+    ],
+    "temperature_vitrification": [
+        "75"
+    ],
+    "during_print_exhaust_fan_speed": [
+        "0"
+    ],
+    "activate_air_filtration": [
+        "1"
+    ],
+    "activate_chamber_temp_control": [
+        "0"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "complete_print_exhaust_fan_speed": [
+        "0"
+    ],
+    "dont_slow_down_outer_wall": [
+        "0"
     ],
     "compatible_printers": [
         "Qidi X-Plus 0.2 nozzle",
         "Qidi X-Max 0.2 nozzle",
         "Qidi X-CF Pro 0.2 nozzle",
-		"Qidi X-Smart 3 0.2 nozzle",
-		"Qidi X-Plus 3 0.2 nozzle",
-		"Qidi X-Max 3 0.2 nozzle",
+        "Qidi X-Smart 3 0.2 nozzle",
+        "Qidi X-Plus 3 0.2 nozzle",
+        "Qidi X-Max 3 0.2 nozzle",
         "Qidi X-Plus 0.4 nozzle",
         "Qidi X-Max 0.4 nozzle",
         "Qidi X-CF Pro 0.4 nozzle",
-		"Qidi X-Smart 3 0.4 nozzle",
-		"Qidi X-Plus 3 0.4 nozzle",
-		"Qidi X-Max 3 0.4 nozzle",
+        "Qidi X-Smart 3 0.4 nozzle",
+        "Qidi X-Plus 3 0.4 nozzle",
+        "Qidi X-Max 3 0.4 nozzle",
         "Qidi X-Plus 0.6 nozzle",
         "Qidi X-Max 0.6 nozzle",
         "Qidi X-CF Pro 0.6 nozzle",
-		"Qidi X-Smart 3 0.6 nozzle",
-		"Qidi X-Plus 3 0.6 nozzle",
-		"Qidi X-Max 3 0.6 nozzle",
+        "Qidi X-Smart 3 0.6 nozzle",
+        "Qidi X-Plus 3 0.6 nozzle",
+        "Qidi X-Max 3 0.6 nozzle",
         "Qidi X-Plus 0.8 nozzle",
         "Qidi X-Max 0.8 nozzle",
         "Qidi X-CF Pro 0.8 nozzle",
-		"Qidi X-Smart 3 0.8 nozzle",
-		"Qidi X-Plus 3 0.8 nozzle",
-		"Qidi X-Max 3 0.8 nozzle",
+        "Qidi X-Smart 3 0.8 nozzle",
+        "Qidi X-Plus 3 0.8 nozzle",
+        "Qidi X-Max 3 0.8 nozzle",
         "Qidi Q1 Pro 0.2 nozzle",
         "Qidi Q1 Pro 0.4 nozzle",
         "Qidi Q1 Pro 0.6 nozzle",
@@ -123,5 +186,32 @@
         "Qidi X-Plus 4 0.4 nozzle",
         "Qidi X-Plus 4 0.6 nozzle",
         "Qidi X-Plus 4 0.8 nozzle"
+    ],
+    "required_nozzle_HRC": [
+        "40"
+    ],
+    "nozzle_temperature_range_low": [
+        "240"
+    ],
+    "nozzle_temperature_range_high": [
+        "290"
+    ],
+    "filament_id": "GFG98",
+    "setting_id": "GFSG50",
+    "pressure_advance": [
+        "0.05"
+    ],
+    "is_custom_defined": "0",
+    "additional_cooling_fan_speed": [
+        "0"
+    ],
+    "enable_overhang_bridge_fan": [
+        "0"
+    ],
+    "chamber_temperature": [
+        "60"
+    ],
+    "enable_volume_fan": [
+        "40"
     ]
 }

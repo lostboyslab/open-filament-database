@@ -1,37 +1,190 @@
 {
-	"type": "filament",
-	"filament_id": "GFA05",
-	"setting_id": "GFSL99_01",
-	"name": "Qidi Generic PLA Silk @Qidi Q1 Pro 0.4 nozzle",
-	"from": "system",
-	"instantiation": "true",
-	"inherits": "Qidi Generic PLA Silk",
-	"enable_pressure_advance":"1",
-	"pressure_advance": [
+    "type": "filament",
+    "name": "Qidi Generic PLA Silk @Qidi Q1 Pro 0.4 nozzle",
+    "from": "system",
+    "instantiation": "true",
+    "cool_plate_temp": [
+        "70"
+    ],
+    "eng_plate_temp": [
+        "70"
+    ],
+    "hot_plate_temp": [
+        "55"
+    ],
+    "textured_plate_temp": [
+        "70"
+    ],
+    "cool_plate_temp_initial_layer": [
+        "70"
+    ],
+    "eng_plate_temp_initial_layer": [
+        "70"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "55"
+    ],
+    "textured_plate_temp_initial_layer": [
+        "70"
+    ],
+    "overhang_fan_threshold": [
+        "10%"
+    ],
+    "overhang_fan_speed": [
+        "100"
+    ],
+    "slow_down_for_layer_cooling": [
+        "1"
+    ],
+    "close_fan_the_first_x_layers": [
+        "1"
+    ],
+    "filament_flow_ratio": [
+        "0.98"
+    ],
+    "reduce_fan_stop_start_freq": [
+        "1"
+    ],
+    "fan_cooling_layer_time": [
+        "60"
+    ],
+    "filament_cost": [
+        "20"
+    ],
+    "filament_density": [
+        "1.24"
+    ],
+    "filament_deretraction_speed": [
+        "nil"
+    ],
+    "filament_diameter": [
+        "1.75"
+    ],
+    "filament_max_volumetric_speed": [
+        "7.5"
+    ],
+    "filament_minimal_purge_on_wipe_tower": [
+        "15"
+    ],
+    "filament_retraction_minimum_travel": [
+        "nil"
+    ],
+    "filament_retract_before_wipe": [
+        "nil"
+    ],
+    "filament_retract_when_changing_layer": [
+        "nil"
+    ],
+    "filament_retraction_length": [
+        "0.5"
+    ],
+    "filament_z_hop": [
+        "nil"
+    ],
+    "filament_z_hop_types": [
+        "nil"
+    ],
+    "filament_retract_restart_extra": [
+        "nil"
+    ],
+    "filament_retraction_speed": [
+        "nil"
+    ],
+    "filament_settings_id": [
+        "QIDI PA-Ultra @Qidi X-Plus 4 0.6 nozzle"
+    ],
+    "filament_soluble": [
+        "1"
+    ],
+    "filament_type": [
+        "PVA"
+    ],
+    "filament_vendor": [
+        "Generic"
+    ],
+    "filament_wipe": [
+        "nil"
+    ],
+    "filament_wipe_distance": [
+        "nil"
+    ],
+    "bed_type": [
+        "Cool Plate"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "220"
+    ],
+    "full_fan_speed_layer": [
+        "3"
+    ],
+    "fan_max_speed": [
+        "40"
+    ],
+    "fan_min_speed": [
+        "20"
+    ],
+    "slow_down_min_speed": [
+        "20"
+    ],
+    "slow_down_layer_time": [
+        "8"
+    ],
+    "nozzle_temperature": [
+        "260"
+    ],
+    "temperature_vitrification": [
+        "55"
+    ],
+    "during_print_exhaust_fan_speed": [
+        "0"
+    ],
+    "activate_air_filtration": [
+        "1"
+    ],
+    "activate_chamber_temp_control": [
+        "0"
+    ],
+    "enable_pressure_advance": "1",
+    "complete_print_exhaust_fan_speed": [
+        "0"
+    ],
+    "dont_slow_down_outer_wall": [
+        "0"
+    ],
+    "compatible_printers": [
+        "Qidi Q1 Pro 0.4 nozzle"
+    ],
+    "required_nozzle_HRC": [
+        "3"
+    ],
+    "nozzle_temperature_range_low": [
+        "190"
+    ],
+    "nozzle_temperature_range_high": [
+        "240"
+    ],
+    "filament_id": "GFA05",
+    "setting_id": "GFSL99_01",
+    "pressure_advance": [
         "0.032"
     ],
-	"nozzle_temperature_initial_layer":[
-		"220"
-	],
-	"filament_max_volumetric_speed": [
-		"7.5"
-	],
-	"filament_retraction_length": [
-		"0.5"
-	],
-	"filament_flow_ratio": [
-		"0.98"
-	],
-	"slow_down_layer_time": [
-		"8"
-	],
-	"hot_plate_temp_initial_layer" : [
-        "55"
+    "is_custom_defined": "0",
+    "additional_cooling_fan_speed": [
+        "0"
     ],
-    "hot_plate_temp" : [
-        "55"
+    "enable_overhang_bridge_fan": [
+        "0"
     ],
-	"compatible_printers": [
-        "Qidi Q1 Pro 0.4 nozzle"
-	]
+    "chamber_temperature": [
+        "0"
+    ],
+    "enable_volume_fan": [
+        "40"
+    ],
+    "first_layer_temperature": [
+        "220"
+    ],
+    "filament_is_support": [
+        "1"
+    ]
 }

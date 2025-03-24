@@ -1,28 +1,28 @@
 {
     "type": "filament",
-    "name": "fdm_filament_common",
+    "name": "Generic PLA-CF @Prusa",
     "from": "system",
-    "instantiation": "false",
-    "cool_plate_temp" : [
-        "60"
+    "instantiation": "true",
+    "cool_plate_temp": [
+        "35"
     ],
-    "eng_plate_temp" : [
-        "60"
+    "eng_plate_temp": [
+        "0"
     ],
-    "hot_plate_temp" : [
-        "60"
+    "hot_plate_temp": [
+        "45"
     ],
-    "cool_plate_temp_initial_layer" : [
-        "60"
+    "cool_plate_temp_initial_layer": [
+        "35"
     ],
-    "eng_plate_temp_initial_layer" : [
-        "60"
+    "eng_plate_temp_initial_layer": [
+        "0"
     ],
-    "hot_plate_temp_initial_layer" : [
-        "60"
+    "hot_plate_temp_initial_layer": [
+        "45"
     ],
     "overhang_fan_threshold": [
-        "95%"
+        "50%"
     ],
     "overhang_fan_speed": [
         "100"
@@ -31,25 +31,25 @@
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "1"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "fan_cooling_layer_time": [
-        "60"
+        "100"
     ],
     "filament_cost": [
-        "0"
+        "20"
     ],
     "filament_density": [
-        "0"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -61,7 +61,7 @@
         "0"
     ],
     "filament_max_volumetric_speed": [
-        "0"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -94,7 +94,7 @@
         "0"
     ],
     "filament_type": [
-        "PLA"
+        "PLA-CF"
     ],
     "filament_vendor": [
         "Generic"
@@ -106,7 +106,7 @@
         "nil"
     ],
     "nozzle_temperature_initial_layer": [
-        "200"
+        "220"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -115,7 +115,7 @@
         "100"
     ],
     "fan_min_speed": [
-        "35"
+        "100"
     ],
     "required_nozzle_HRC": [
         "3"
@@ -124,15 +124,30 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "8"
+        "7"
     ],
     "filament_start_gcode": [
-        "; Filament gcode\n"
+        "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "200"
+        "220"
     ],
     "temperature_vitrification": [
-        "100"
+        "60"
+    ],
+    "nozzle_temperature_range_low": [
+        "190"
+    ],
+    "nozzle_temperature_range_high": [
+        "230"
+    ],
+    "filament_id": "GFL98",
+    "setting_id": "GFSL98_PRUSA_00",
+    "compatible_printers": [
+        "Prusa MK3S 0.4 nozzle",
+        "Prusa MINI 0.4 nozzle"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ]
 }

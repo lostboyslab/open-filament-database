@@ -1,34 +1,121 @@
 {
     "type": "filament",
-    "filament_id": "GFB98",
-    "setting_id": "GFSA04",
     "name": "SecKit Generic ASA",
     "from": "system",
     "instantiation": "true",
-    "inherits": "fdm_filament_asa",
-    "filament_flow_ratio": [
-        "0.93"
+    "cool_plate_temp": [
+        "105"
     ],
-    "filament_max_volumetric_speed": [
-        "19"
+    "eng_plate_temp": [
+        "105"
     ],
-    "filament_density": [
-        "1.1"
+    "hot_plate_temp": [
+        "105"
     ],
-	"filament_z_hop": [
-        "0"
+    "textured_plate_temp": [
+        "105"
     ],
-	"enable_pressure_advance": [
+    "cool_plate_temp_initial_layer": [
+        "105"
+    ],
+    "eng_plate_temp_initial_layer": [
+        "105"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "105"
+    ],
+    "textured_plate_temp_initial_layer": [
+        "105"
+    ],
+    "overhang_fan_threshold": [
+        "25%"
+    ],
+    "overhang_fan_speed": [
+        "25"
+    ],
+    "slow_down_for_layer_cooling": [
         "1"
-    ],
-	"pressure_advance": [
-        "0.033"
     ],
     "close_fan_the_first_x_layers": [
         "2"
     ],
+    "filament_end_gcode": [
+        "; filament end gcode \n"
+    ],
+    "filament_flow_ratio": [
+        "0.93"
+    ],
+    "reduce_fan_stop_start_freq": [
+        "1"
+    ],
     "fan_cooling_layer_time": [
         "10"
+    ],
+    "filament_cost": [
+        "20"
+    ],
+    "filament_density": [
+        "1.1"
+    ],
+    "filament_deretraction_speed": [
+        "nil"
+    ],
+    "filament_diameter": [
+        "1.75"
+    ],
+    "filament_max_volumetric_speed": [
+        "19"
+    ],
+    "filament_minimal_purge_on_wipe_tower": [
+        "15"
+    ],
+    "filament_retraction_minimum_travel": [
+        "nil"
+    ],
+    "filament_retract_before_wipe": [
+        "nil"
+    ],
+    "filament_retract_when_changing_layer": [
+        "nil"
+    ],
+    "filament_retraction_length": [
+        "nil"
+    ],
+    "filament_z_hop": [
+        "0"
+    ],
+    "filament_retract_restart_extra": [
+        "nil"
+    ],
+    "filament_retraction_speed": [
+        "nil"
+    ],
+    "filament_settings_id": [
+        ""
+    ],
+    "filament_soluble": [
+        "1"
+    ],
+    "filament_type": [
+        "ASA"
+    ],
+    "filament_vendor": [
+        "Generic"
+    ],
+    "filament_wipe": [
+        "nil"
+    ],
+    "filament_wipe_distance": [
+        "nil"
+    ],
+    "bed_type": [
+        "Cool Plate"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "260"
+    ],
+    "full_fan_speed_layer": [
+        "0"
     ],
     "fan_max_speed": [
         "30"
@@ -36,11 +123,43 @@
     "fan_min_speed": [
         "10"
     ],
-    "overhang_fan_speed": [
-        "25"
+    "slow_down_min_speed": [
+        "10"
+    ],
+    "slow_down_layer_time": [
+        "3"
+    ],
+    "filament_start_gcode": [
+        "; filament start gcode\n"
+    ],
+    "nozzle_temperature": [
+        "260"
+    ],
+    "temperature_vitrification": [
+        "110"
+    ],
+    "nozzle_temperature_range_low": [
+        "240"
+    ],
+    "nozzle_temperature_range_high": [
+        "270"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
+    "filament_id": "GFB98",
+    "setting_id": "GFSA04",
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.033"
     ],
     "compatible_printers": [
         "SecKit SK-Tank 0.4 nozzle",
-	  "SecKit Go3 0.4 nozzle"
+        "SecKit Go3 0.4 nozzle"
+    ],
+    "filament_is_support": [
+        "1"
     ]
 }

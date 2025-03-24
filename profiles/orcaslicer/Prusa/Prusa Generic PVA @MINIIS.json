@@ -1,29 +1,165 @@
 {
     "type": "filament",
-    "setting_id": "GFSA04",
     "name": "Prusa Generic PVA @MINIIS",
     "from": "system",
     "instantiation": "true",
-    "inherits": "fdm_filament_pva",
+    "cool_plate_temp": [
+        "35"
+    ],
+    "eng_plate_temp": [
+        "0"
+    ],
+    "hot_plate_temp": "110",
+    "cool_plate_temp_initial_layer": [
+        "35"
+    ],
+    "eng_plate_temp_initial_layer": [
+        "0"
+    ],
+    "hot_plate_temp_initial_layer": "100",
+    "overhang_fan_threshold": [
+        "50%"
+    ],
+    "overhang_fan_speed": "20",
+    "slow_down_for_layer_cooling": [
+        "1"
+    ],
+    "close_fan_the_first_x_layers": "4",
+    "filament_end_gcode": [
+        "; Filament-specific end gcode"
+    ],
     "filament_flow_ratio": [
         "1"
+    ],
+    "reduce_fan_stop_start_freq": "0",
+    "fan_cooling_layer_time": [
+        "100"
+    ],
+    "filament_cost": "27.82",
+    "filament_density": [
+        "1.24"
+    ],
+    "filament_deretraction_speed": [
+        "nil"
+    ],
+    "filament_diameter": [
+        "1.75"
     ],
     "filament_max_volumetric_speed": [
         "4"
     ],
-    "slow_down_layer_time": [
-        "7"
+    "filament_minimal_purge_on_wipe_tower": "35",
+    "filament_retraction_minimum_travel": [
+        "nil"
+    ],
+    "filament_retract_before_wipe": "20%",
+    "filament_retract_when_changing_layer": [
+        "nil"
+    ],
+    "filament_retraction_length": [
+        "0.4"
+    ],
+    "filament_z_hop": "0.15",
+    "filament_retract_restart_extra": [
+        "nil"
+    ],
+    "filament_retraction_speed": [
+        "nil"
+    ],
+    "filament_settings_id": [
+        ""
+    ],
+    "filament_soluble": [
+        "1"
+    ],
+    "filament_type": [
+        "PVA"
+    ],
+    "filament_vendor": [
+        "Generic"
+    ],
+    "filament_wipe": "1",
+    "filament_wipe_distance": [
+        "nil"
+    ],
+    "bed_type": [
+        "Cool Plate"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "280"
+    ],
+    "full_fan_speed_layer": "5",
+    "fan_max_speed": "10",
+    "fan_min_speed": [
+        "30"
     ],
     "slow_down_min_speed": [
         "10"
+    ],
+    "slow_down_layer_time": [
+        "7"
+    ],
+    "filament_start_gcode": [
+        "M900 K{if nozzle_diameter[filament_extruder_id]==0.4}0.04{elsif nozzle_diameter[filament_extruder_id]==0.25}0.1{elsif nozzle_diameter[filament_extruder_id]==0.3}0.06{elsif nozzle_diameter[filament_extruder_id]==0.35}0.05{elsif nozzle_diameter[filament_extruder_id]==0.5}0.03{elsif nozzle_diameter[filament_extruder_id]==0.6}0.02{elsif nozzle_diameter[filament_extruder_id]==0.8}0.01{else}0{endif} ; Filament gcode\n\n{if printer_notes=~/.*(MK4IS|XLIS|MK4S|MK3.9S).*/}\nM572 S{if nozzle_diameter[filament_extruder_id]==0.4}0.02{elsif nozzle_diameter[filament_extruder_id]==0.5}0.018{elsif nozzle_diameter[filament_extruder_id]==0.6}0.012{elsif nozzle_diameter[filament_extruder_id]==0.8}0.01{elsif nozzle_diameter[filament_extruder_id]==0.25}0.09{elsif nozzle_diameter[filament_extruder_id]==0.3}0.065{else}0{endif} ; Filament gcode\n{endif}\n\nM142 S40 ; set heatbreak target temp"
+    ],
+    "nozzle_temperature": [
+        "280"
+    ],
+    "temperature_vitrification": [
+        "50"
+    ],
+    "filament_id": "Generic ABS @MK4S 0.6",
+    "idle_temperature": "0",
+    "nozzle_temperature_range_low": [
+        "190"
+    ],
+    "nozzle_temperature_range_high": [
+        "250"
+    ],
+    "setting_id": "GFSA04",
+    "compatible_printers": [
+        "Prusa MINIIS 0.4 nozzle"
+    ],
+    "filament_is_support": [
+        "1"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
+    "nozzle_temperature_intial_layer": "240",
+    "filament_loading_speed_start": "50",
+    "filament_loading_speed": "10",
+    "filament_unloading_speed_start": "100",
+    "filament_unloading_speed": "100",
+    "filament_load_time": "10.5",
+    "filament_unload_time": "8.5",
+    "filament_cooling_moves": "3",
+    "filament_cooling_initial_speed": "5",
+    "filament_cooling_final_speed": "2.5",
+    "filament_retract_lift_below": "1.5",
+    "default_filament_colour": "#FFF2EC",
+    "filament_notes": [
+        ""
+    ],
+    "filament_multitool_ramming": [
+        "1"
+    ],
+    "filament_multitool_ramming_volume": [
+        "10"
+    ],
+    "filament_multitool_ramming_flow": [
+        "40"
+    ],
+    "filament_stamping_distance": [
+        "45"
+    ],
+    "filament_stamping_loading_speed": [
+        "29"
     ],
     "enable_pressure_advance": [
         "1"
     ],
     "pressure_advance": [
         "0.19"
-    ],
-    "compatible_printers": [
-      "Prusa MINIIS 0.4 nozzle"
     ]
 }

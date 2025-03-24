@@ -1,31 +1,31 @@
 {
     "type": "filament",
-    "name": "fdm_filament_common",
+    "name": "Generic ABS @Anker",
     "from": "system",
-    "instantiation": "false",
+    "instantiation": "true",
     "cool_plate_temp": [
-        "60"
+        "95"
     ],
     "eng_plate_temp": [
-        "60"
+        "95"
     ],
     "hot_plate_temp": [
-        "60"
+        "95"
     ],
     "cool_plate_temp_initial_layer": [
-        "60"
+        "95"
     ],
     "eng_plate_temp_initial_layer": [
-        "60"
+        "95"
     ],
     "hot_plate_temp_initial_layer": [
-        "60"
+        "95"
     ],
     "overhang_fan_threshold": [
-        "95%"
+        "25%"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -37,19 +37,19 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "1"
+        "0.926"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "fan_cooling_layer_time": [
-        "60"
+        "30"
     ],
     "filament_cost": [
-        "0"
+        "20"
     ],
     "filament_density": [
-        "0"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -61,7 +61,7 @@
         "0"
     ],
     "filament_max_volumetric_speed": [
-        "0"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "nil"
+        "0.4"
     ],
     "filament_z_hop": [
         "nil"
@@ -94,7 +94,7 @@
         "0"
     ],
     "filament_type": [
-        "PLA"
+        "ABS"
     ],
     "filament_vendor": [
         "Generic"
@@ -106,16 +106,16 @@
         "nil"
     ],
     "nozzle_temperature_initial_layer": [
-        "200"
+        "240"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "100"
+        "80"
     ],
     "fan_min_speed": [
-        "35"
+        "10"
     ],
     "required_nozzle_HRC": [
         "3"
@@ -124,15 +124,33 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "5"
+        "3"
     ],
     "filament_start_gcode": [
-        "; Filament gcode\n"
+        "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "200"
+        "240"
     ],
     "temperature_vitrification": [
-        "100"
+        "110"
+    ],
+    "nozzle_temperature_range_low": [
+        "240"
+    ],
+    "nozzle_temperature_range_high": [
+        "270"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
+    "enable_overhang_bridge_fan": [
+        "0"
+    ],
+    "filament_id": "GFB99",
+    "setting_id": "GFSB99_Anker_00",
+    "compatible_printers": [
+        "Anker M5 0.4 nozzle",
+        "Anker M5C 0.4 nozzle"
     ]
 }

@@ -1,31 +1,31 @@
 {
     "type": "filament",
-    "name": "fdm_filament_common",
+    "name": "Generic ASA @Anycubic",
     "from": "system",
-    "instantiation": "false",
-    "cool_plate_temp" : [
-        "60"
+    "instantiation": "true",
+    "cool_plate_temp": [
+        "105"
     ],
-    "eng_plate_temp" : [
-        "60"
+    "eng_plate_temp": [
+        "105"
     ],
-    "hot_plate_temp" : [
-        "60"
+    "hot_plate_temp": [
+        "105"
     ],
-    "cool_plate_temp_initial_layer" : [
-        "60"
+    "cool_plate_temp_initial_layer": [
+        "105"
     ],
-    "eng_plate_temp_initial_layer" : [
-        "60"
+    "eng_plate_temp_initial_layer": [
+        "105"
     ],
-    "hot_plate_temp_initial_layer" : [
-        "60"
+    "hot_plate_temp_initial_layer": [
+        "105"
     ],
     "overhang_fan_threshold": [
-        "95%"
+        "25%"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -37,19 +37,19 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "1"
+        "0.93"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "fan_cooling_layer_time": [
-        "60"
+        "35"
     ],
     "filament_cost": [
-        "0"
+        "20"
     ],
     "filament_density": [
-        "0"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -61,7 +61,7 @@
         "0"
     ],
     "filament_max_volumetric_speed": [
-        "0"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -97,7 +97,7 @@
         "0"
     ],
     "filament_type": [
-        "PLA"
+        "ASA"
     ],
     "filament_vendor": [
         "Generic"
@@ -109,16 +109,16 @@
         "nil"
     ],
     "nozzle_temperature_initial_layer": [
-        "200"
+        "260"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "100"
+        "80"
     ],
     "fan_min_speed": [
-        "35"
+        "10"
     ],
     "required_nozzle_HRC": [
         "3"
@@ -127,15 +127,33 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "8"
+        "3"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
     ],
     "nozzle_temperature": [
-        "200"
+        "260"
     ],
     "temperature_vitrification": [
-        "100"
+        "110"
+    ],
+    "nozzle_temperature_range_low": [
+        "240"
+    ],
+    "nozzle_temperature_range_high": [
+        "270"
+    ],
+    "filament_id": "GFB98",
+    "setting_id": "GFSB98_ANYCUBIC_00",
+    "compatible_printers": [
+        "Anycubic i3 Mega S 0.4 nozzle",
+        "Anycubic Chiron 0.4 nozzle",
+        "Anycubic Vyper 0.4 nozzle",
+        "Anycubic Kobra Max 0.4 nozzle",
+        "Anycubic Kobra Plus 0.4 nozzle",
+        "Anycubic 4Max Pro 0.4 nozzle",
+        "Anycubic 4Max Pro 2 0.4 nozzle",
+        "Anycubic Kobra 2 0.4 nozzle"
     ]
 }

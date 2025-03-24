@@ -1,37 +1,37 @@
 {
     "type": "filament",
-    "name": "fdm_filament_common_S1",
+    "name": "Other PC @S1",
     "from": "system",
-    "instantiation": "false",
-    "cool_plate_temp" : [
-        "60"
+    "instantiation": "true",
+    "cool_plate_temp": [
+        "0"
     ],
-    "eng_plate_temp" : [
-        "60"
+    "eng_plate_temp": [
+        "110"
     ],
-    "hot_plate_temp" : [
-        "60"
+    "hot_plate_temp": [
+        "110"
     ],
-    "textured_plate_temp" : [
-        "60"
+    "textured_plate_temp": [
+        "110"
     ],
-    "cool_plate_temp_initial_layer" : [
-        "60"
+    "cool_plate_temp_initial_layer": [
+        "0"
     ],
-    "eng_plate_temp_initial_layer" : [
-        "60"
+    "eng_plate_temp_initial_layer": [
+        "110"
     ],
-    "hot_plate_temp_initial_layer" : [
-        "60"
+    "hot_plate_temp_initial_layer": [
+        "110"
     ],
-    "textured_plate_temp_initial_layer" : [
-        "60"
+    "textured_plate_temp_initial_layer": [
+        "110"
     ],
     "overhang_fan_threshold": [
-        "0%"
+        "25%"
     ],
     "overhang_fan_speed": [
-        "100"
+        "60"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -43,19 +43,19 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "1"
+        "0.94"
     ],
     "reduce_fan_stop_start_freq": [
         "0"
     ],
     "fan_cooling_layer_time": [
-        "60"
+        "30"
     ],
     "filament_cost": [
-        "0"
+        "20"
     ],
     "filament_density": [
-        "0"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -64,7 +64,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "0"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -100,10 +100,10 @@
         "0"
     ],
     "filament_type": [
-        "PLA"
+        "PC"
     ],
     "filament_vendor": [
-        "Generic"
+        "Other"
     ],
     "filament_wipe": [
         "nil"
@@ -115,30 +115,56 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "200"
+        "270"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "100"
+        "20"
     ],
     "fan_min_speed": [
-        "35"
-    ],
-    "slow_down_min_speed": [
         "10"
     ],
+    "slow_down_min_speed": [
+        "20"
+    ],
     "slow_down_layer_time": [
-        "8"
+        "2"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
     ],
     "nozzle_temperature": [
-        "200"
+        "270"
     ],
     "temperature_vitrification": [
+        "140"
+    ],
+    "nozzle_temperature_range_low": [
+        "240"
+    ],
+    "nozzle_temperature_range_high": [
+        "280"
+    ],
+    "activate_air_filtration": [
+        "1"
+    ],
+    "complete_print_exhaust_fan_speed": [
+        "80"
+    ],
+    "during_print_exhaust_fan_speed": [
         "100"
+    ],
+    "filament_id": "GFC99",
+    "setting_id": "GFSA04",
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.058"
+    ],
+    "compatible_printers": [
+        "FlyingBear S1 0.4 nozzle"
     ]
 }

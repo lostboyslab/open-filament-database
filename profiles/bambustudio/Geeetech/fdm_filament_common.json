@@ -1,37 +1,37 @@
 {
     "type": "filament",
-    "name": "fdm_filament_common",
+    "name": "Generic ABS @Geeetech",
     "from": "system",
-    "instantiation": "false",
-    "cool_plate_temp" : [
-        "60"
+    "instantiation": "true",
+    "cool_plate_temp": [
+        "0"
     ],
-    "eng_plate_temp" : [
-        "60"
+    "eng_plate_temp": [
+        "105"
     ],
-    "hot_plate_temp" : [
-        "60"
+    "hot_plate_temp": [
+        "105"
     ],
-    "textured_plate_temp" : [
-        "60"
+    "textured_plate_temp": [
+        "105"
     ],
-    "cool_plate_temp_initial_layer" : [
-        "60"
+    "cool_plate_temp_initial_layer": [
+        "0"
     ],
-    "eng_plate_temp_initial_layer" : [
-        "60"
+    "eng_plate_temp_initial_layer": [
+        "105"
     ],
-    "hot_plate_temp_initial_layer" : [
-        "60"
+    "hot_plate_temp_initial_layer": [
+        "105"
     ],
-    "textured_plate_temp_initial_layer" : [
-        "60"
+    "textured_plate_temp_initial_layer": [
+        "105"
     ],
     "overhang_fan_threshold": [
-        "95%"
+        "25%"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -43,19 +43,19 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "1"
+        "0.926"
     ],
     "reduce_fan_stop_start_freq": [
         "0"
     ],
     "fan_cooling_layer_time": [
-        "60"
+        "30"
     ],
     "filament_cost": [
-        "0"
+        "20"
     ],
     "filament_density": [
-        "0"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -64,7 +64,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "0"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "90"
@@ -100,7 +100,7 @@
         "0"
     ],
     "filament_type": [
-        "PLA"
+        "ABS"
     ],
     "filament_vendor": [
         "Generic"
@@ -112,13 +112,13 @@
         "nil"
     ],
     "nozzle_temperature_initial_layer": [
-        "200"
+        "260"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "100"
+        "35"
     ],
     "fan_min_speed": [
         "35"
@@ -127,15 +127,67 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "8"
+        "3"
     ],
     "filament_start_gcode": [
-        "; Filament gcode\n"
+        "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "200"
+        "260"
     ],
     "temperature_vitrification": [
-        "100"
+        "110"
+    ],
+    "nozzle_temperature_range_low": [
+        "240"
+    ],
+    "nozzle_temperature_range_high": [
+        "270"
+    ],
+    "filament_id": "GFB00",
+    "setting_id": "GFSB00_Geeetech_00",
+    "compatible_printers": [
+        "Geeetech A10 Pro 0.2 nozzle",
+        "Geeetech A10 Pro 0.4 nozzle",
+        "Geeetech A10 Pro 0.6 nozzle",
+        "Geeetech A10 Pro 0.8 nozzle",
+        "Geeetech A20 0.2 nozzle",
+        "Geeetech A20 0.4 nozzle",
+        "Geeetech A20 0.6 nozzle",
+        "Geeetech A20 0.8 nozzle",
+        "Geeetech A30 Pro 0.2 nozzle",
+        "Geeetech A30 Pro 0.4 nozzle",
+        "Geeetech A30 Pro 0.6 nozzle",
+        "Geeetech A30 Pro 0.8 nozzle",
+        "Geeetech A10 M 0.4 nozzle",
+        "Geeetech A20 M 0.4 nozzle",
+        "Geeetech A30 M 0.4 nozzle",
+        "Geeetech A10 T 0.4 nozzle",
+        "Geeetech A20 T 0.4 nozzle",
+        "Geeetech A30 T 0.4 nozzle",
+        "Geeetech Mizar 0.2 nozzle",
+        "Geeetech Mizar 0.4 nozzle",
+        "Geeetech Mizar 0.6 nozzle",
+        "Geeetech Mizar 0.8 nozzle",
+        "Geeetech Mizar S 0.2 nozzle",
+        "Geeetech Mizar S 0.4 nozzle",
+        "Geeetech Mizar S 0.6 nozzle",
+        "Geeetech Mizar S 0.8 nozzle",
+        "Geeetech Mizar Pro 0.2 nozzle",
+        "Geeetech Mizar Pro 0.4 nozzle",
+        "Geeetech Mizar Pro 0.6 nozzle",
+        "Geeetech Mizar Pro 0.8 nozzle",
+        "Geeetech Mizar Max 0.2 nozzle",
+        "Geeetech Mizar Max 0.4 nozzle",
+        "Geeetech Mizar Max 0.6 nozzle",
+        "Geeetech Mizar Max 0.8 nozzle",
+        "Geeetech Mizar M 0.4 nozzle",
+        "Geeetech Thunder 0.2 nozzle",
+        "Geeetech Thunder 0.4 nozzle",
+        "Geeetech Thunder 0.6 nozzle",
+        "Geeetech Thunder 0.8 nozzle"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ]
 }
