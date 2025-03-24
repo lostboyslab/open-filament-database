@@ -4,7 +4,7 @@ import os
 import re
 import shutil
 from pathlib import Path
-from typing import Union
+from typing import Union, Optional
 from urllib.request import urlretrieve
 from zipfile import ZipFile
 
@@ -23,7 +23,6 @@ PRUSASLICER_URL_NON_PRUSA_FFF = "https://github.com/prusa3d/PrusaSlicer-settings
 BAMBUSTUDIO_URL = "https://github.com/bambulab/BambuStudio/archive/refs/heads/master.zip"
 ORCASLICER_URL = "https://github.com/SoftFever/OrcaSlicer/archive/refs/heads/main.zip"
 CURA_URL = "https://github.com/Ultimaker/fdm_materials/archive/refs/heads/master.zip"
-
 
 
 def download_and_extract(slicer_name: str, url: str, member: str, pattern: str, ignore_existing=False):
@@ -168,6 +167,92 @@ def unpack_prusaslicer_bundles():
         latest_file.unlink()
 
 
+def squash_slic3r_profiles(slicer_name: str, filament_library_name: Optional[str] = None):
+    """
+    Recursively "squash" all profiles for the specified slic3r based slicer
+
+    Note: This function should not be run on PrusaSlicer profiles. Squashing is already handled while unpacking the bundles.
+    """
+    if slicer_name.lower() == "prusaslicer":
+        raise Exception("PrusaSlicer profile squashing is incompatible with this function")
+
+    print(f"Squashing {slicer_name} profiles...")
+    slicer_path = profile_output_path.joinpath(slicer_name.lower())
+
+    def load_json_from_folder(folder: Path):
+        """Recursively get all the JSON files from a specified folder"""
+        profiles: dict[str, tuple[Path, dict]] = {}
+        for _item in folder.iterdir():
+            if _item.is_dir():
+                profiles.update(load_json_from_folder(_item))
+                continue
+            if _item.suffix != ".json":
+                continue
+            with _item.open() as f:
+                file_data = json.load(f)
+
+            name: str
+            if "name" in file_data:
+                name = file_data["name"]
+            elif "filament_settings_id" in file_data:
+                name = file_data["filament_settings_id"]
+            else:
+                continue
+
+            profiles[name] = (_item, file_data)
+        return profiles
+
+    # Load filament library
+    filament_library_profiles = {}
+    if filament_library_name is not None:
+        filament_library_profiles = load_json_from_folder(slicer_path.joinpath(filament_library_name))
+
+    for _vendor_folder in slicer_path.iterdir():
+        if not _vendor_folder.is_dir():
+            continue
+
+        # Load profiles from the filament library so they can be used as base profiles
+        if _vendor_folder.name == filament_library_name:
+            profiles = {}
+        else:
+            profiles = filament_library_profiles.copy()
+
+        # Add profiles from the vendor folder
+        # Any profiles with the same name as one from the filament library will override the filament library profile
+        profiles.update(load_json_from_folder(_vendor_folder))
+
+        # Cached "squashed" profiles
+        squashed_profiles: dict[str, dict] = {}
+
+        def squash_inherits(profile_name: str):
+            """Recursively "squash" the profiles from inherits so that all settings are contained in a single file"""
+            if profile_name in squashed_profiles:
+                return squashed_profiles[profile_name]
+
+            profile = profiles[profile_name][1]
+            if "inherits" not in profile:
+                return profile
+
+            profile_out = squash_inherits(profile["inherits"])
+            profile_out.update(profile)
+            del profile_out["inherits"]
+            squashed_profiles[profile_name] = profile_out
+            return squashed_profiles[profile_name]
+
+        # Remove all existing profiles
+        shutil.rmtree(_vendor_folder)
+
+        # Write out the squashed profiles
+        for name, (path, data) in profiles.items():
+            # Profiles with instantiation == false are only used as base profiles and don't need to be exported
+            # Ensure the folder name is in the path so profiles from the filament library aren't exported into vendor folders
+            if data.get("instantiation") != "true" or _vendor_folder.name not in path.parts:
+                continue
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with path.open("w") as f:
+                json.dump(squash_inherits(name), f, indent=4)
+
+
 def run():
     """
     Run the download and extract routine
@@ -184,14 +269,17 @@ def run():
 
     # Download and unzip BambuStudio profiles
     download_and_extract("BambuStudio", BAMBUSTUDIO_URL, "BambuStudio-master/resources/profiles", ".*/filament/.*")
+    squash_slic3r_profiles("BambuStudio")
 
     # Download and unzip OrcaSlicer profiles
     download_and_extract("OrcaSlicer", ORCASLICER_URL, "OrcaSlicer-main/resources/profiles/", ".*/filament/.*")
+    squash_slic3r_profiles("OrcaSlicer", "OrcaFilamentLibrary")
 
     # Download and unzip Cura profiles
     download_and_extract("Cura", CURA_URL, "fdm_materials-master", ".*.fdm_material$")
 
     # TODO: Convert cura XML files to custom json
+
 
 # If running from the command line, provide argument parsing
 if __name__ == "__main__":
