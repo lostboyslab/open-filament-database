@@ -7,7 +7,7 @@
         "1"
     ],
     "additional_cooling_fan_speed": [
-        "0"
+        "100"
     ],
     "chamber_temperatures": [
         "60"
