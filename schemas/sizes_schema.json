@@ -98,6 +98,7 @@
                         }
                     },
                     "required": [
+                        "store_id",
                         "affiliate",
                         "url"
                     ]
