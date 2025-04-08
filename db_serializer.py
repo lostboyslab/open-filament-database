@@ -390,7 +390,7 @@ class FilamentSize(IToFromJSONData):
     @staticmethod
     def from_json_data(json_data: dict[str, Any], parent: None = None) -> 'FilamentSize':
         purchase_links = []
-        for data in json_data.get("purchase_links"):
+        for data in json_data.get("purchase_links", []):
             purchase_links.append(SizePurchaseLink.from_json_data(data))
 
         return FilamentSize(
