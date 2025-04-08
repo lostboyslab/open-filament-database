@@ -79,12 +79,13 @@ def validate_json(json_data, schema) -> bool:
         return False
 
 
-STORE_SCHEMA = get_json_from_file("schemas/store_schema.json")
-BRAND_SCHEMA = get_json_from_file("schemas/brand_schema.json")
-MATERIAL_SCHEMA = get_json_from_file("schemas/material_schema.json")
-FILAMENT_SCHEMA = get_json_from_file("schemas/filament_schema.json")
-VARIANT_SCHEMA = get_json_from_file("schemas/variant_schema.json")
-SIZE_SCHEMA = get_json_from_file("schemas/sizes_schema.json")
+# These will be inited at the end of the file
+STORE_SCHEMA: dict
+BRAND_SCHEMA: dict
+MATERIAL_SCHEMA: dict
+FILAMENT_SCHEMA: dict
+VARIANT_SCHEMA: dict
+SIZE_SCHEMA: dict
 
 
 # ---------------------------------
@@ -256,10 +257,6 @@ def save_stores(parent_folder: PathLike):
         store_path.mkdir(exist_ok=True)
         with store_path.joinpath("store.json").open("w") as f:
             json.dump(store_data.to_dict(), f, indent=4)
-
-
-# Automatically load the stores on import/run
-load_stores()
 
 
 # ---------------------------------
@@ -1121,3 +1118,25 @@ class Brand(IToFromFS):
                 continue
             brand.materials.append(material)
         return brand
+
+
+# ---------------------------------
+# Init
+# ---------------------------------
+
+# Change the CWD to the parent directory of this script
+cwd = os.getcwd()
+os.chdir(Path(__file__).parent)
+
+STORE_SCHEMA = get_json_from_file("schemas/store_schema.json")
+BRAND_SCHEMA = get_json_from_file("schemas/brand_schema.json")
+MATERIAL_SCHEMA = get_json_from_file("schemas/material_schema.json")
+FILAMENT_SCHEMA = get_json_from_file("schemas/filament_schema.json")
+VARIANT_SCHEMA = get_json_from_file("schemas/variant_schema.json")
+SIZE_SCHEMA = get_json_from_file("schemas/sizes_schema.json")
+
+# Automatically load the stores on import/run
+load_stores()
+
+# Revert to previous CWD
+os.chdir(cwd)
