@@ -731,6 +731,18 @@ class SlicerSettings(IToFromJSONData):
         self.cura = cura
         self.generic = generic
 
+    def __contains__(self, item: str):
+        attrib = self.__getattribute__(item)
+        if isinstance(attrib, (SpecificSlicerSettings, GenericSlicerSettings)):
+            return True
+        return False
+
+    def __getitem__(self, item: str) -> Optional[SpecificSlicerSettings | GenericSlicerSettings]:
+        attrib = self.__getattribute__(item)
+        if isinstance(attrib, (SpecificSlicerSettings, GenericSlicerSettings)):
+            return attrib
+        return None
+
     def get_prusaslicer_data(self):
         if self.prusaslicer is None:
             return None
@@ -758,6 +770,14 @@ class SlicerSettings(IToFromJSONData):
         cura = deepcopy(self.cura)
         self.__map_generic_to_overrides(cura, self.CURA_MAP)
         return cura
+
+    def get_slicer_data(self, slicer_name: str):
+        attrib = self.__getattribute__(f"get_{slicer_name}_data")
+        if callable(attrib):
+            ret = attrib()
+            if isinstance(ret, Optional[SpecificSlicerSettings]):
+                return ret
+        raise Exception(f"There is not a function named 'get_{slicer_name}_data' in SlicerSettings")
 
     def __map_generic_to_overrides(self, specific_settings: SpecificSlicerSettings, override_map: dict[str, str]):
         generic = self.generic
