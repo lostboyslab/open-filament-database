@@ -1,0 +1,45 @@
+name: Validate data
+on:
+    pull_request:
+        branches:
+            - main
+        paths:
+            - 'data/**'
+    push:
+        branches:
+            - main
+        paths:
+            - 'data/**'
+    workflow_dispatch:
+
+
+jobs:
+    validate_json_files:
+        name: Validate JSON files
+        runs-on: ubuntu-24.04
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+
+            -   name: Validate JSON files
+                run: python data_validator.py --json-files
+
+    validate_folder_structure:
+        name: Validate folder structure
+        runs-on: ubuntu-24.04
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+
+            -   name: Validate folder structure
+                run: python data_validator.py --folder-structure
+
+    validate_store_ids:
+        name: Validate store IDs
+        runs-on: ubuntu-24.04
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+
+            -   name: Validate store IDs
+                run: python data_validator.py --store-ids
