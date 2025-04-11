@@ -7,7 +7,7 @@
     "ean": "191314037674",
     "purchase_links": [
       {
-        "id": "amazon",
+        "store_id": "amazon",
         "url": "https://www.amazon.com/HATCHBOX-Filament-Dimensional-Accuracy-Printing/dp/B09WWW4GZH?th=1",
         "affiliate": false
       }
