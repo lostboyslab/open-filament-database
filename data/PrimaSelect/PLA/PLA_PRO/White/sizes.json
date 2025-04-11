@@ -5,7 +5,7 @@
     "ean": "7340002102610",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/392-pla-filament/5060-primaselect-pla-pro-filament-750-g-hvid/",
         "affiliate": false
       }

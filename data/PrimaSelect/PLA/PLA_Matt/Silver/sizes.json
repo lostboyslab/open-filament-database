@@ -5,7 +5,7 @@
     "ean": "7340002115191",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/392-pla-filament/5540-primaselect-pla-mat-filament-750-g-soelvfarvet/",
         "affiliate": false
       }

@@ -5,7 +5,7 @@
     "ean": "5060848213340",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/392-pla-filament/6530-copymaster-pla-filament-1-kg-lysegraa/",
         "affiliate": false
       }

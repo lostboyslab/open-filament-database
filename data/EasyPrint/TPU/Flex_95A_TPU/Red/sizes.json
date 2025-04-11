@@ -5,7 +5,7 @@
     "ean": "7340002114668",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/394-flex-filament/5480-easyprint-flex-95a-tpu-filament-500-g-roed/",
         "affiliate": false
       }

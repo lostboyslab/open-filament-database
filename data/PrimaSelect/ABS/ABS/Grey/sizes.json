@@ -5,7 +5,7 @@
     "ean": "7340002101729",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/393-abs-filament/5224-primaselect-abs-filament-750-g-graa/",
         "affiliate": false
       }

@@ -5,7 +5,7 @@
     "ean": "7340002101071",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/397-petg-filament/5491-primaselect-petg-filament-750-g-sort/",
         "affiliate": false
       }

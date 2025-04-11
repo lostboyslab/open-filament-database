@@ -5,7 +5,7 @@
     "ean": "7340002101088",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/397-petg-filament/6247-primaselect-petg-filament-750-g-hvid/",
         "affiliate": false
       }

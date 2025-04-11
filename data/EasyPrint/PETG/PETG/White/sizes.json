@@ -5,7 +5,7 @@
     "ean": "7340002113500",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/397-petg-filament/6161-easyprint-petg-filament-3-kg-hvid/",
         "affiliate": false
       }

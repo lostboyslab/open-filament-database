@@ -5,7 +5,7 @@
     "ean": "7340002113388",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/397-petg-filament/5195-easyprint-petg-filament-1-kg-klar/",
         "affiliate": false
       }

@@ -4,7 +4,7 @@
     "diameter": 1.75,
     "purchase_links": [
       {
-        "id": "lostboyslab",
+        "store_id": "lostboyslab",
         "url": "https://www.lostboyslab.shop/products/3d-filament-matte-rpla-1-75-mm-almost-black-ncs-s-8000-n?variant=40405268332724",
         "affiliate": false
       }
@@ -15,7 +15,7 @@
     "diameter": 1.75,
     "purchase_links": [
       {
-        "id": "lostboyslab",
+        "store_id": "lostboyslab",
         "url": "https://www.lostboyslab.shop/products/3d-filament-matte-rpla-1-75-mm-almost-black-ncs-s-8000-n?variant=40405268299956",
         "affiliate": false
       }

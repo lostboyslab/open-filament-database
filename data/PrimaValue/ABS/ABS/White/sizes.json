@@ -5,7 +5,7 @@
     "ean": "0634654249142",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/393-abs-filament/6043-primavalue-abs-filament-1-kg-hvid/",
         "affiliate": false
       }

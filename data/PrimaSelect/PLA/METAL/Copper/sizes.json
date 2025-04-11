@@ -5,7 +5,7 @@
     "ean": "7340002102375",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/396-metal-filament/5051-primaselect-metal-filament-750-g-kobber/",
         "affiliate": false
       }

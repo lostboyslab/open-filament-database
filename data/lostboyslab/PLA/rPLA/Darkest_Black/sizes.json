@@ -4,7 +4,7 @@
     "diameter": 1.75,
     "purchase_links": [
       {
-        "id": "lostboyslab",
+        "store_id": "lostboyslab",
         "url": "https://www.lostboyslab.shop/products/3d-filament-matt-rpla-1-75-mm-darkest-black-ncs-s-9000-n-on-1-kg-spool?variant=40353833517236",
         "affiliate": false
       }
@@ -15,7 +15,7 @@
     "diameter": 1.75,
     "purchase_links": [
       {
-        "id": "lostboyslab",
+        "store_id": "lostboyslab",
         "url": "https://www.lostboyslab.shop/products/3d-filament-matt-rpla-1-75-mm-darkest-black-ncs-s-9000-n-on-1-kg-spool?variant=40032965623988",
         "affiliate": false
       }

@@ -5,7 +5,7 @@
     "ean": "7340002102528",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/414-asa-filament/5560-primaselect-asa-filament-750-g-sort/",
         "affiliate": false
       }

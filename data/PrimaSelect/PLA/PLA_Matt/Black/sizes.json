@@ -5,7 +5,7 @@
     "ean": "7340002115139",
     "purchase_links": [
       {
-        "id": "gadgethuset",
+        "store_id": "gadgethuset",
         "url": "https://www.gadgethuset.dk/shop/392-pla-filament/5512-primaselect-pla-mat-filament-750-g-sort/",
         "affiliate": false
       }

@@ -19,7 +19,7 @@
     "diameter": 1.75,
     "purchase_links": [
       {
-        "id": "lostboyslab",
+        "store_id": "lostboyslab",
         "url": "https://www.lostboyslab.shop/products/3d-filament-matte-rpla-1-75-mm-beige-ncs-s-2005-y50r?variant=40407308927156",
         "affiliate": false
       }
@@ -30,7 +30,7 @@
     "diameter": 1.75,
     "purchase_links": [
       {
-        "id": "lostboyslab",
+        "store_id": "lostboyslab",
         "url": "https://www.lostboyslab.shop/products/3d-filament-matte-rpla-1-75-mm-beige-ncs-s-2005-y50r?variant=40407308894388",
         "affiliate": false
       }
