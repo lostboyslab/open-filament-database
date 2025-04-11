@@ -50,6 +50,10 @@ def validate_json_file(json_path: PathLike, schema: dict):
     return validate_json(get_json_from_file(json_path), schema)
 
 
+def cleanse_folder_name(name: str) -> str:
+    return name.replace("/", " ").strip()
+
+
 STORE_SCHEMA = get_json_from_file("schemas/store_schema.json")
 BRAND_SCHEMA = get_json_from_file("schemas/brand_schema.json")
 MATERIAL_SCHEMA = get_json_from_file("schemas/material_schema.json")
@@ -149,7 +153,7 @@ def validate_folder_names():
         brand_file = _brand_dir.joinpath("brand.json")
         if brand_file.exists():
             brand_data = get_json_from_file(brand_file)
-            brand_name = brand_data.get("brand", "")
+            brand_name = cleanse_folder_name(brand_data.get("brand", ""))
             if _brand_dir.name != brand_name:
                 print("The name of the folder", _brand_dir,
                       f"does not match the value of 'brand' ({brand_name}) of", brand_file.name)
@@ -163,7 +167,7 @@ def validate_folder_names():
             material_file = _material_dir.joinpath("material.json")
             if material_file.exists():
                 material_data = get_json_from_file(material_file)
-                material_name = material_data.get("material", "")
+                material_name = cleanse_folder_name(material_data.get("material", ""))
                 if _material_dir.name != material_name:
                     print("The name of the folder", _material_dir,
                           f"does not match the value of 'material' ({material_name}) of", material_file.name)
@@ -177,7 +181,7 @@ def validate_folder_names():
                 filament_file = _filament_dir.joinpath("filament.json")
                 if filament_file.exists():
                     filament_data = get_json_from_file(filament_file)
-                    filament_name = filament_data.get("name", "")
+                    filament_name = cleanse_folder_name(filament_data.get("name", ""))
                     if _filament_dir.name != filament_name:
                         print("The name of the folder", _filament_dir,
                               f"does not match the value of 'name' ({filament_name}) of", filament_file.name)
@@ -191,7 +195,7 @@ def validate_folder_names():
                     variant_file = _variant_dir.joinpath("variant.json")
                     if variant_file.exists():
                         variant_data = get_json_from_file(variant_file)
-                        variant_name = variant_data.get("color_name", "")
+                        variant_name = cleanse_folder_name(variant_data.get("color_name", ""))
                         if _variant_dir.name != variant_name:
                             print("The name of the folder", _variant_dir,
                                   f"does not match the value of 'color_name' ({variant_name}) of", variant_file.name)
