@@ -139,7 +139,7 @@ def validate_json_files():
 # Validate folder names
 # -------------------------
 
-def validate_folder_structure():
+def validate_folder_names():
     global failed_validation
     for _brand_dir in Path("./data").iterdir():
         if not _brand_dir.is_dir():
@@ -227,15 +227,15 @@ if __name__ == '__main__':
 
     parser = ArgumentParser()
     parser.add_argument("--json-files", action="store_true")
-    parser.add_argument("--folder-structure", action="store_true")
+    parser.add_argument("--folder-names", action="store_true")
     parser.add_argument("--store-ids", action="store_true")
 
     args = parser.parse_args()
     if args.json_files:
         validate_json_files()
 
-    if args.folder_structure:
-        validate_folder_structure()
+    if args.folder_names:
+        validate_folder_names()
 
     if args.store_ids:
         validate_store_ids()

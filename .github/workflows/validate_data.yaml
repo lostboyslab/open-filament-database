@@ -24,15 +24,15 @@ jobs:
             -   name: Validate JSON files
                 run: python data_validator.py --json-files
 
-    validate_folder_structure:
-        name: Validate folder structure
+    validate_folder_names:
+        name: Validate folder names
         runs-on: ubuntu-24.04
         steps:
             -   name: Checkout
                 uses: actions/checkout@v4
 
             -   name: Validate folder structure
-                run: python data_validator.py --folder-structure
+                run: python data_validator.py --folder-names
 
     validate_store_ids:
         name: Validate store IDs
