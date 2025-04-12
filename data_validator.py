@@ -77,7 +77,7 @@ def validate_json_files():
         # Validate brand.json
         brand_file = _brand_dir.joinpath("brand.json")
         if brand_file.exists():
-            failed_validation |= validate_json_file(brand_file, BRAND_SCHEMA)
+            failed_validation |= not validate_json_file(brand_file, BRAND_SCHEMA)
         else:
             print("Missing", brand_file)
             failed_validation = True
@@ -89,7 +89,7 @@ def validate_json_files():
             # Validate material.json
             material_file = _material_dir.joinpath("material.json")
             if material_file.exists():
-                failed_validation |= validate_json_file(material_file, MATERIAL_SCHEMA)
+                failed_validation |= not validate_json_file(material_file, MATERIAL_SCHEMA)
             else:
                 print("Missing", material_file)
                 failed_validation = True
@@ -101,7 +101,7 @@ def validate_json_files():
                 # Validate filament.json
                 filament_file = _filament_dir.joinpath("filament.json")
                 if filament_file.exists():
-                    failed_validation |= validate_json_file(filament_file, FILAMENT_SCHEMA)
+                    failed_validation |= not validate_json_file(filament_file, FILAMENT_SCHEMA)
                 else:
                     print("Missing", filament_file)
                     failed_validation = True
@@ -113,7 +113,7 @@ def validate_json_files():
                     # Validate variant.json
                     variant_file = _variant_dir.joinpath("variant.json")
                     if variant_file.exists():
-                        failed_validation |= validate_json_file(variant_file, VARIANT_SCHEMA)
+                        failed_validation |= not validate_json_file(variant_file, VARIANT_SCHEMA)
                     else:
                         print("Missing", variant_file)
                         failed_validation = True
@@ -121,7 +121,7 @@ def validate_json_files():
                     # Validate sizes.json
                     sizes_file = _variant_dir.joinpath("sizes.json")
                     if sizes_file.exists():
-                        failed_validation |= validate_json_file(sizes_file, SIZE_SCHEMA)
+                        failed_validation |= not validate_json_file(sizes_file, SIZE_SCHEMA)
                     else:
                         print("Missing", sizes_file)
                         failed_validation = True
@@ -133,7 +133,7 @@ def validate_json_files():
         # Validate sizes.json
         store_file = _store_dir.joinpath("store.json")
         if store_file.exists():
-            failed_validation |= validate_json_file(store_file, STORE_SCHEMA)
+            failed_validation |= not validate_json_file(store_file, STORE_SCHEMA)
         else:
             print("Missing", store_file)
             failed_validation = True
