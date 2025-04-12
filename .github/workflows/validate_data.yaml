@@ -5,11 +5,15 @@ on:
             - main
         paths:
             - 'data/**'
+            - 'data_validator.py'
+            - '.github/workflows/validate_data.yaml'
     push:
         branches:
             - main
         paths:
             - 'data/**'
+            - 'data_validator.py'
+            - '.github/workflows/validate_data.yaml'
     workflow_dispatch:
 
 
