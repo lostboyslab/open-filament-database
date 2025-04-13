@@ -233,7 +233,7 @@ def squash_slic3r_profiles(slicer_name: str, filament_library_name: Optional[str
             if "inherits" not in profile:
                 return profile
 
-            profile_out = squash_inherits(profile["inherits"])
+            profile_out = squash_inherits(profile["inherits"]).copy()
             profile_out.update(profile)
             del profile_out["inherits"]
             squashed_profiles[profile_name] = profile_out
