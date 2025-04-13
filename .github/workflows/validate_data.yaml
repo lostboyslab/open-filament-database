@@ -5,6 +5,7 @@ on:
             - main
         paths:
             - 'data/**'
+            - 'schemas/**'
             - 'data_validator.py'
             - '.github/workflows/validate_data.yaml'
     push:
@@ -12,6 +13,7 @@ on:
             - main
         paths:
             - 'data/**'
+            - 'schemas/**'
             - 'data_validator.py'
             - '.github/workflows/validate_data.yaml'
     workflow_dispatch:
