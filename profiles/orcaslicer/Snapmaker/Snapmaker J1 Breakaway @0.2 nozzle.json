@@ -4,7 +4,7 @@
     "instantiation": "true",
     "name": "Snapmaker J1 Breakaway @0.2 nozzle",
     "filament_vendor": [
-        "Polymaker"
+        "Snapmaker"
     ],
     "filament_start_gcode": [
         ""
@@ -22,7 +22,7 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
@@ -34,25 +34,25 @@
         "70"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "55"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
-        "0"
+        "1"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "2"
     ],
     "filament_flow_ratio": [
         "0.98"
     ],
     "reduce_fan_stop_start_freq": [
-        "1"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "10"
+        "60"
     ],
     "filament_cost": [
         "100"
@@ -79,16 +79,16 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
         "1.8"
     ],
     "filament_z_hop": [
-        "0.7"
+        "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "filament_retract_restart_extra": [
         "nil"
@@ -103,34 +103,34 @@
         "nil"
     ],
     "filament_loading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_loading_speed": [
-        "35"
+        "25"
     ],
     "filament_unloading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_unloading_speed": [
-        "35"
+        "25"
     ],
     "filament_load_time": [
-        "2"
+        "0"
     ],
     "filament_unload_time": [
-        "2"
+        "0"
     ],
     "filament_toolchange_delay": [
         "0"
     ],
     "filament_cooling_moves": [
-        "2"
+        "0"
     ],
     "filament_cooling_initial_speed": [
-        "35"
+        "2.2"
     ],
     "filament_cooling_final_speed": [
-        "60"
+        "3.4"
     ],
     "filament_multitool_ramming": [
         "0"
@@ -148,19 +148,19 @@
         "154"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "30"
+        "100"
     ],
     "fan_min_speed": [
-        "0"
+        "35"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "6"
+        "8"
     ],
     "enable_pressure_advance": [
         "0"
@@ -186,27 +186,21 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#ffffff"
+    ],
     "filament_type": [
         "Breakaway Support"
-    ],
-    "nozzle_temperature_range_low": [
-        "200"
     ],
     "nozzle_temperature_range_high": [
         "240"
     ],
-    "default_filament_colour": [
-        "#ffffff"
-    ],
-    "filament_notes": [
-        "!! It needs to be dried before use.\nSnapmaker TPU 95A High-Flow\n"
+    "nozzle_temperature_range_low": [
+        "200"
     ],
     "filament_id": "3492897526",
     "setting_id": "2613265860",
     "compatible_printers": [
         "Snapmaker J1 (0.2 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

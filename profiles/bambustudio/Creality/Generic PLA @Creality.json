@@ -7,22 +7,22 @@
         "1"
     ],
     "cool_plate_temp": [
-        "105"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "105"
+        "60"
     ],
     "eng_plate_temp": [
-        "105"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "105"
+        "60"
     ],
     "fan_cooling_layer_time": [
         "100"
     ],
     "fan_max_speed": [
-        "80"
+        "100"
     ],
     "fan_min_speed": [
         "100"
@@ -76,7 +76,7 @@
         "0"
     ],
     "filament_type": [
-        "ASA"
+        "PLA"
     ],
     "filament_vendor": [
         "Generic"
@@ -97,10 +97,10 @@
         "0"
     ],
     "hot_plate_temp": [
-        "105"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
-        "105"
+        "60"
     ],
     "nozzle_temperature": [
         "220"
@@ -109,7 +109,7 @@
         "220"
     ],
     "overhang_fan_speed": [
-        "80"
+        "100"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -150,6 +150,9 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFL99",
     "setting_id": "GFSL99_CREALITY_00",
     "compatible_printers": [
@@ -177,8 +180,5 @@
         "Creality K1C 0.4 nozzle",
         "Creality K1C 0.6 nozzle",
         "Creality K1C 0.8 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

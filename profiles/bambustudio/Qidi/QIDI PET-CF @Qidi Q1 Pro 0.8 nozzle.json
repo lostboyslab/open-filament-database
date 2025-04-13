@@ -4,28 +4,28 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "90"
+        "80"
     ],
     "eng_plate_temp": [
-        "90"
+        "80"
     ],
     "hot_plate_temp": [
         "80"
     ],
     "textured_plate_temp": [
-        "90"
+        "80"
     ],
     "cool_plate_temp_initial_layer": [
-        "90"
+        "80"
     ],
     "eng_plate_temp_initial_layer": [
-        "90"
+        "80"
     ],
     "hot_plate_temp_initial_layer": [
         "80"
     ],
     "textured_plate_temp_initial_layer": [
-        "90"
+        "80"
     ],
     "overhang_fan_threshold": [
         "0%"
@@ -49,7 +49,7 @@
         "10"
     ],
     "filament_cost": [
-        "20"
+        "30"
     ],
     "filament_density": [
         "1.30"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -97,10 +97,10 @@
         "0"
     ],
     "filament_type": [
-        "PA-CF"
+        "PETG"
     ],
     "filament_vendor": [
-        "Generic"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -133,7 +133,7 @@
         "280"
     ],
     "temperature_vitrification": [
-        "108"
+        "80"
     ],
     "during_print_exhaust_fan_speed": [
         "100"
@@ -150,39 +150,15 @@
     "compatible_printers": [
         "Qidi Q1 Pro 0.8 nozzle"
     ],
-    "chamber_temperatures": [
-        "60"
-    ],
     "nozzle_temperature_range_low": [
-        "260"
+        "220"
     ],
     "nozzle_temperature_range_high": [
-        "350"
+        "260"
     ],
     "filament_id": "GFT01",
     "setting_id": "GFST01_Qidi_03",
     "pressure_advance": [
         "0.025"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
-    ],
-    "required_nozzle_HRC": [
-        "40"
-    ],
-    "chamber_temperature": [
-        "55"
     ]
 }

@@ -144,6 +144,9 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFL99",
     "setting_id": "GFSL99_ANYCUBIC_00",
     "compatible_printers": [
@@ -155,8 +158,5 @@
         "Anycubic 4Max Pro 0.4 nozzle",
         "Anycubic 4Max Pro 2 0.4 nozzle",
         "Anycubic Kobra 2 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

@@ -4,34 +4,34 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "60"
+        "85"
     ],
     "eng_plate_temp": [
-        "60"
+        "85"
     ],
     "hot_plate_temp": [
         "70"
     ],
     "textured_plate_temp": [
-        "60"
+        "85"
     ],
     "cool_plate_temp_initial_layer": [
-        "60"
+        "85"
     ],
     "eng_plate_temp_initial_layer": [
-        "60"
+        "85"
     ],
     "hot_plate_temp_initial_layer": [
         "70"
     ],
     "textured_plate_temp_initial_layer": [
-        "60"
+        "85"
     ],
     "overhang_fan_threshold": [
         "25%"
     ],
     "overhang_fan_speed": [
-        "90"
+        "80"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -40,7 +40,7 @@
         "1"
     ],
     "filament_end_gcode": [
-        "; filament end gcode \n"
+        "; filament end gcode\n"
     ],
     "filament_flow_ratio": [
         "1"
@@ -100,7 +100,7 @@
         "0"
     ],
     "filament_type": [
-        "PETG-CF"
+        "PETG"
     ],
     "filament_vendor": [
         "Generic"
@@ -115,7 +115,7 @@
         "Textured PEI Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "245"
+        "255"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -133,10 +133,10 @@
         "8"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n;right_extruder_material:PETG-CF10\n"
+        "; filament start gcode \n;right_extruder_material:PETG"
     ],
     "nozzle_temperature": [
-        "245"
+        "255"
     ],
     "temperature_vitrification": [
         "70"
@@ -150,10 +150,10 @@
     "filament_id": "GFG99",
     "setting_id": "GFSA04_12",
     "support_material_interface_fan_speed": [
-        "100"
+        "90"
     ],
     "additional_cooling_fan_speed": [
-        "100"
+        "50"
     ],
     "enable_pressure_advance": [
         "1"
@@ -166,95 +166,6 @@
         "Flashforge Adventurer 5M Pro 0.25 Nozzle",
         "Flashforge AD5X 0.25 nozzle"
     ],
-    "bed_temperature_difference": [
-        "10"
-    ],
-    "chamber_temperature": "0",
-    "compatible_printers_condition": "",
-    "compatible_prints": [],
-    "compatible_prints_condition": "",
-    "default_filament_colour": [
-        ""
-    ],
-    "enable_overhang_bridge_fan": [
-        "1"
-    ],
-    "filament_is_support": [
-        "0"
-    ],
-    "filament_shrink": [
-        "100%"
-    ],
-    "required_nozzle_HRC": [
-        "0"
-    ],
-    "filament_unloading_speed": [
-        "35"
-    ],
-    "filament_unloading_speed_start": [
-        "40"
-    ],
-    "is_custom_defined": "0",
-    "version": "1.8.0.0",
-    "filament_cooling_final_speed": [
-        "3.4"
-    ],
-    "filament_cooling_initial_speed": [
-        "2.2"
-    ],
-    "filament_cooling_moves": [
-        "4"
-    ],
-    "filament_load_time": [
-        "0"
-    ],
-    "filament_loading_speed": [
-        "28"
-    ],
-    "filament_loading_speed_start": [
-        "3"
-    ],
-    "filament_multitool_ramming": [
-        "0"
-    ],
-    "filament_multitool_ramming_flow": [
-        "10"
-    ],
-    "filament_multitool_ramming_volume": [
-        "10"
-    ],
-    "filament_notes": [
-        ""
-    ],
-    "filament_ramming_parameters": [
-        "120 100 6.6 6.8 7.2 7.6 7.9 8.2 8.7 9.4 9.9 10.0| 0.05 6.6 0.45 6.8 0.95 7.8 1.45 8.3 1.95 9.7 2.45 10 2.95 7.6 3.45 7.6 3.95 7.6 4.45 7.6 4.95 7.6"
-    ],
-    "filament_retract_lift_above": [
-        "nil"
-    ],
-    "filament_retract_lift_below": [
-        "nil"
-    ],
-    "filament_retract_lift_enforce": [
-        "nil"
-    ],
-    "filament_toolchange_delay": [
-        "0"
-    ],
-    "filament_unload_time": [
-        "0"
-    ],
-    "activate_air_filtration": [
-        "0"
-    ],
-    "activate_chamber_temp_control": [
-        "0"
-    ],
-    "complete_print_exhaust_fan_speed": [
-        "80"
-    ],
-    "during_print_exhaust_fan_speed": [
-        "60"
-    ],
-    "renamed_from": "Flashforge PETG @FF AD5M 0.25 Nozzle"
+    "renamed_from": "Flashforge PETG @FF AD5M 0.25 Nozzle",
+    "version": "1.8.0.0"
 }

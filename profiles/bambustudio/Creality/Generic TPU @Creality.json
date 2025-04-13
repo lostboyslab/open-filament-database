@@ -40,7 +40,7 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.926"
+        "1"
     ],
     "filament_is_support": [
         "0"
@@ -112,7 +112,7 @@
         "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -124,7 +124,7 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "3"
+        "8"
     ],
     "slow_down_min_speed": [
         "10"
@@ -133,16 +133,19 @@
         "60"
     ],
     "textured_plate_temp": [
-        "105"
+        "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "105"
+        "60"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "nozzle_temperature_range_low": [
         "200"
@@ -177,8 +180,5 @@
         "Creality K1C 0.4 nozzle",
         "Creality K1C 0.6 nozzle",
         "Creality K1C 0.8 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

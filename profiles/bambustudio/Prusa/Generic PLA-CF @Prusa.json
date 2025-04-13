@@ -141,13 +141,13 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFL98",
     "setting_id": "GFSL98_PRUSA_00",
     "compatible_printers": [
         "Prusa MK3S 0.4 nozzle",
         "Prusa MINI 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

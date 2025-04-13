@@ -127,7 +127,7 @@
         "3"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "260"
@@ -146,8 +146,5 @@
     "compatible_printers": [
         "Prusa MK3S 0.4 nozzle",
         "Prusa MINI 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

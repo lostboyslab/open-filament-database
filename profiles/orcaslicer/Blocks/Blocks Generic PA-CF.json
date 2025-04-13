@@ -28,7 +28,7 @@
         "100"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "60"
@@ -133,7 +133,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "270"
@@ -146,9 +146,6 @@
     ],
     "nozzle_temperature_range_high": [
         "300"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ],
     "filament_id": "BSFI007",
     "setting_id": "BSSI007",

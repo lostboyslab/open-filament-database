@@ -7,13 +7,13 @@
         "1"
     ],
     "additional_cooling_fan_speed": [
-        "100"
+        "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
         "70"
@@ -49,7 +49,6 @@
         "1.04"
     ],
     "filament_deretraction_speed": [
-        "nil",
         "nil"
     ],
     "filament_diameter": [
@@ -59,7 +58,7 @@
         "0.95"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "1"
@@ -68,44 +67,37 @@
         "2"
     ],
     "filament_ramming_volumetric_speed": [
-        "2.625",
-        "2.625"
+        "-1"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
     ],
     "filament_retract_before_wipe": [
-        "nil",
         "nil"
     ],
     "filament_retract_restart_extra": [
-        "nil",
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "nil",
         "nil"
     ],
     "filament_retraction_distances_when_cut": [
         "18"
     ],
     "filament_retraction_length": [
-        "nil",
         "nil"
     ],
     "filament_retraction_minimum_travel": [
-        "nil",
         "nil"
     ],
     "filament_retraction_speed": [
-        "nil",
         "nil"
     ],
     "filament_settings_id": [
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "ABS"
@@ -114,39 +106,34 @@
         "Bambu Lab"
     ],
     "filament_wipe": [
-        "nil",
         "nil"
     ],
     "filament_wipe_distance": [
-        "nil",
         "nil"
     ],
     "filament_prime_volume": [
         "45"
     ],
     "filament_z_hop": [
-        "nil",
         "nil"
     ],
     "filament_z_hop_types": [
-        "nil",
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
     ],
     "filament_extruder_variant": [
-        "Direct Drive Standard",
-        "Direct Drive High Flow"
+        "Direct Drive Standard"
     ],
     "filament_scarf_seam_type": [
-        "all"
+        "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
         "0%"
@@ -185,7 +172,7 @@
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
         "0"
@@ -203,7 +190,7 @@
         "20"
     ],
     "temperature_vitrification": [
-        "30"
+        "100"
     ],
     "textured_plate_temp": [
         "90"
@@ -215,25 +202,25 @@
         "0"
     ],
     "counter_coef_2": [
-        "0.06"
+        "0.008"
     ],
     "counter_coef_3": [
-        "-0.32"
+        "-0.041"
     ],
     "hole_coef_1": [
         "0"
     ],
     "hole_coef_2": [
-        "-0.0081"
+        "-0.008"
     ],
     "hole_coef_3": [
         "0.23415"
     ],
     "counter_limit_min": [
-        "-0.4"
+        "-0.035"
     ],
     "counter_limit_max": [
-        "0.05"
+        "0.033"
     ],
     "hole_limit_min": [
         "0.088"
@@ -254,18 +241,16 @@
         "7.4"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
+        "; Filament gcode\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n\n"
     ],
     "filament_pre_cooling_temperature": [
-        "200",
-        "200"
+        "0"
     ],
     "filament_ramming_travel_time": [
-        "20",
-        "20"
+        "0"
     ],
     "filament_adhesiveness_category": [
         "200"

@@ -34,7 +34,7 @@
         "100"
     ],
     "fan_max_speed": [
-        "40"
+        "100"
     ],
     "fan_min_speed": [
         "100"
@@ -52,10 +52,10 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.94"
+        "1"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -91,13 +91,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PP-GF"
     ],
     "filament_vendor": [
-        "Bambu Lab"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -142,7 +142,7 @@
         "235"
     ],
     "overhang_fan_speed": [
-        "60"
+        "100"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -210,6 +210,6 @@
         "220"
     ],
     "filament_id": "GFP95",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances.",
-    "setting_id": "GFSP97_03"
+    "setting_id": "GFSP97_03",
+    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances."
 }

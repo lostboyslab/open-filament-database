@@ -28,7 +28,7 @@
         "60"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "100"
@@ -52,7 +52,7 @@
         "20"
     ],
     "filament_density": [
-        "1.25"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -97,7 +97,7 @@
         "0"
     ],
     "filament_type": [
-        "PLA-CF"
+        "PLA"
     ],
     "filament_vendor": [
         "QIDI"
@@ -112,7 +112,7 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "220"
+        "210"
     ],
     "full_fan_speed_layer": [
         "3"
@@ -156,25 +156,22 @@
     "compatible_printers": [
         "Qidi X-Plus 4 0.8 nozzle"
     ],
-    "required_nozzle_HRC": [
-        "40"
-    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
     "nozzle_temperature_range_high": [
         "240"
     ],
+    "additional_cooling_fan_speed": [
+        "100"
+    ],
+    "enable_overhang_bridge_fan": [
+        "0"
+    ],
     "filament_id": "GFB99",
     "setting_id": "GFSA04",
     "pressure_advance": [
         "0.008"
     ],
-    "is_custom_defined": "0",
-    "additional_cooling_fan_speed": [
-        "100"
-    ],
-    "enable_overhang_bridge_fan": [
-        "1"
-    ]
+    "is_custom_defined": "0"
 }

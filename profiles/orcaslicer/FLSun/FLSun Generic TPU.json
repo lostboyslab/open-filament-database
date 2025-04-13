@@ -1,31 +1,31 @@
 {
     "type": "filament",
-    "name": "FLSun T1 ASA",
+    "name": "FLSun Generic TPU",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "35"
+        "30"
     ],
     "eng_plate_temp": [
-        "0"
+        "30"
     ],
     "hot_plate_temp": [
-        "90"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "35"
+        "30"
     ],
     "eng_plate_temp_initial_layer": [
-        "0"
+        "30"
     ],
     "hot_plate_temp_initial_layer": [
-        "90"
+        "35"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "35"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -36,17 +36,21 @@
     "filament_end_gcode": [
         "; filament end gcode \n"
     ],
-    "filament_flow_ratio": "0.95",
+    "filament_flow_ratio": [
+        "1"
+    ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "35"
+        "100"
     ],
     "filament_cost": [
-        "0"
+        "20"
     ],
-    "filament_density": "1.05",
+    "filament_density": [
+        "1.24"
+    ],
     "filament_deretraction_speed": [
         "nil"
     ],
@@ -54,7 +58,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "25"
+        "3.2"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -87,10 +91,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PA-CF"
+        "TPU"
     ],
     "filament_vendor": [
         "Generic"
@@ -105,59 +109,47 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "280"
+        "240"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "50"
+        "100"
     ],
     "fan_min_speed": [
-        "35"
+        "100"
     ],
     "slow_down_min_speed": [
-        "80"
+        "10"
     ],
     "slow_down_layer_time": [
-        "2"
+        "8"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "280"
-    ],
-    "temperature_vitrification": [
-        "100"
-    ],
-    "nozzle_temperature_range_low": [
         "240"
     ],
-    "nozzle_temperature_range_high": [
-        "300"
+    "temperature_vitrification": [
+        "60"
     ],
     "additional_cooling_fan_speed": [
         "70"
     ],
-    "filament_id": "GFB98",
+    "nozzle_temperature_range_low": [
+        "200"
+    ],
+    "nozzle_temperature_range_high": [
+        "250"
+    ],
+    "filament_id": "GFU99",
     "setting_id": "GFSA04",
     "compatible_printers": [
-        "FLSun T1 0.4 nozzle"
-    ],
-    "activate_air_filtration": [
-        "1"
-    ],
-    "complete_print_exhaust_fan_speed": [
-        "0"
-    ],
-    "during_print_exhaust_fan_speed": [
-        "0"
-    ],
-    "dont_slow_down_outer_wall": [
-        "1"
-    ],
-    "filament_is_support": [
-        "1"
+        "FLSun Q5 0.4 nozzle",
+        "FLSun QQ-S Pro 0.4 nozzle",
+        "FLSun Super Racer 0.4 nozzle",
+        "FLSun V400 0.4 nozzle"
     ]
 }

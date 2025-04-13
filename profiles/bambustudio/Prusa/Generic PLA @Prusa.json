@@ -58,7 +58,7 @@
         "1.75"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_max_volumetric_speed": [
         "12"
@@ -91,10 +91,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PVA"
+        "PLA"
     ],
     "filament_vendor": [
         "Generic"
@@ -133,21 +133,21 @@
         "220"
     ],
     "temperature_vitrification": [
-        "50"
+        "60"
     ],
     "nozzle_temperature_range_low": [
         "190"
     ],
     "nozzle_temperature_range_high": [
-        "250"
+        "230"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "filament_id": "GFL99",
     "setting_id": "GFSL99_PRUSA_00",
     "compatible_printers": [
         "Prusa MK3S 0.4 nozzle",
         "Prusa MINI 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

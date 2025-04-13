@@ -28,7 +28,7 @@
         "50"
     ],
     "overhang_fan_threshold": [
-        "0%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "100"
@@ -40,7 +40,7 @@
         "1"
     ],
     "filament_flow_ratio": [
-        "0.95"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -115,7 +115,7 @@
         "230"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "100"
@@ -150,8 +150,8 @@
     "compatible_printers": [
         "Qidi Q1 Pro 0.4 nozzle"
     ],
-    "chamber_temperatures": [
-        "60"
+    "additional_cooling_fan_speed": [
+        "0"
     ],
     "nozzle_temperature_range_low": [
         "200"
@@ -159,30 +159,12 @@
     "nozzle_temperature_range_high": [
         "250"
     ],
+    "enable_overhang_bridge_fan": [
+        "0"
+    ],
     "filament_id": "GFU99",
     "setting_id": "GFSU99_Qidi_01",
     "pressure_advance": [
         "0.1"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
-    ],
-    "required_nozzle_HRC": [
-        "40"
-    ],
-    "chamber_temperature": [
-        "55"
     ]
 }

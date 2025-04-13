@@ -28,10 +28,10 @@
         "90"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "25%"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -97,10 +97,10 @@
         "0"
     ],
     "filament_type": [
-        "PA-CF"
+        "ASA"
     ],
     "filament_vendor": [
-        "Generic"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -118,10 +118,10 @@
         "0"
     ],
     "fan_max_speed": [
-        "80"
+        "50"
     ],
     "fan_min_speed": [
-        "20"
+        "10"
     ],
     "slow_down_min_speed": [
         "20"
@@ -133,7 +133,7 @@
         "260"
     ],
     "temperature_vitrification": [
-        "108"
+        "100"
     ],
     "during_print_exhaust_fan_speed": [
         "100"
@@ -154,35 +154,14 @@
         "60"
     ],
     "nozzle_temperature_range_low": [
-        "260"
+        "240"
     ],
     "nozzle_temperature_range_high": [
-        "350"
+        "280"
     ],
     "filament_id": "GFB01",
     "setting_id": "GFSB01_Qidi_14",
     "pressure_advance": [
         "0.021"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
-    ],
-    "required_nozzle_HRC": [
-        "40"
-    ],
-    "chamber_temperature": [
-        "55"
     ]
 }

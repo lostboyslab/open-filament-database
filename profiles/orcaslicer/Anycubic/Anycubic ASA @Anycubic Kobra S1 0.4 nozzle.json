@@ -94,10 +94,10 @@
         "0"
     ],
     "filament_type": [
-        "PLA"
+        "ASA"
     ],
     "filament_vendor": [
-        "Anycubic"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -256,6 +256,5 @@
     ],
     "textured_plate_temp_initial_layer": [
         "100"
-    ],
-    "is_custom_defined": "0"
+    ]
 }

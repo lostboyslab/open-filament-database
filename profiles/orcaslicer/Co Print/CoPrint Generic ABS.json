@@ -55,7 +55,7 @@
         "1.04"
     ],
     "filament_deretraction_speed": [
-        "50"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -73,10 +73,10 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
-        "1.2"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -85,7 +85,7 @@
         "nil"
     ],
     "filament_retraction_speed": [
-        "50"
+        "nil"
     ],
     "filament_settings_id": [
         ""

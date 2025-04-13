@@ -28,7 +28,7 @@
         "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "50"
@@ -43,7 +43,7 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.94"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "0"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "0"
@@ -100,7 +100,7 @@
         "PA"
     ],
     "filament_vendor": [
-        "RatRig"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -130,7 +130,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "270"
@@ -178,8 +178,5 @@
         "RatRig V-Core 4 HYBRID 500 0.4 nozzle",
         "RatRig V-Core 4 HYBRID 500 0.5 nozzle",
         "RatRig V-Core 4 HYBRID 500 0.6 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

@@ -103,7 +103,7 @@
         "ABS"
     ],
     "filament_vendor": [
-        "Elegoo"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -133,7 +133,7 @@
         "3"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "245"
@@ -141,11 +141,11 @@
     "temperature_vitrification": [
         "110"
     ],
-    "nozzle_temperature_range_high": [
-        "245"
-    ],
     "nozzle_temperature_range_low": [
         "240"
+    ],
+    "nozzle_temperature_range_high": [
+        "245"
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSA04",
@@ -175,8 +175,5 @@
         "Elegoo Neptune 4 Pro (0.4 nozzle)",
         "Elegoo Neptune 4 Pro (0.6 nozzle)",
         "Elegoo Neptune 4 Pro (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

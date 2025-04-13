@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -144,6 +144,9 @@
     "nozzle_temperature_range_high": [
         "250"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFS99",
     "setting_id": "GFSS99_ANYCUBIC_00",
     "compatible_printers": [
@@ -155,8 +158,5 @@
         "Anycubic 4Max Pro 0.4 nozzle",
         "Anycubic 4Max Pro 2 0.4 nozzle",
         "Anycubic Kobra 2 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

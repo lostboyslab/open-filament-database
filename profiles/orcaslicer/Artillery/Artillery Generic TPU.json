@@ -37,7 +37,7 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.93"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -76,16 +76,16 @@
         "0.4"
     ],
     "filament_z_hop": [
-        "0.4"
+        "nil"
     ],
     "filament_retract_restart_extra": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "40"
+        "nil"
     ],
     "filament_settings_id": [
-        "Artillery TPU"
+        ""
     ],
     "filament_soluble": [
         "0"
@@ -94,7 +94,7 @@
         "TPU"
     ],
     "filament_vendor": [
-        "Artillery"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -132,14 +132,14 @@
     "temperature_vitrification": [
         "60"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "nozzle_temperature_range_low": [
         "200"
     ],
     "nozzle_temperature_range_high": [
         "250"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "filament_id": "GFU99",
     "setting_id": "GFSA04",
@@ -149,12 +149,5 @@
         "Artillery Sidewinder X2 0.4 nozzle",
         "Artillery Genius Pro 0.4 nozzle",
         "Artillery Hornet 0.4 nozzle"
-    ],
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.06"
-    ],
-    "version": "2.0.2.0"
+    ]
 }

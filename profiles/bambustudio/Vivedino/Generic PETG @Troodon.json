@@ -64,7 +64,7 @@
         "1.75"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_max_volumetric_speed": [
         "10"
@@ -100,7 +100,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PETG"
@@ -136,7 +136,7 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "2"
+        "8"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n"
@@ -152,9 +152,6 @@
     ],
     "nozzle_temperature_range_high": [
         "260"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "filament_id": "GFG99",
     "setting_id": "GFSG99_Troodon_00",

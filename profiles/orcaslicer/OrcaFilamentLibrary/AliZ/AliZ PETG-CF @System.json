@@ -16,10 +16,10 @@
         "70"
     ],
     "cool_plate_temp": [
-        "35"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "35"
+        "60"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
@@ -55,7 +55,7 @@
         "1"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,7 +91,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PETG-CF"
@@ -103,7 +103,7 @@
         "nil"
     ],
     "filament_wipe_distance": [
-        "0"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -151,25 +151,25 @@
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "70"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "4"
+        "8"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "temperature_vitrification": [
-        "45"
+        "70"
     ],
     "textured_plate_temp": [
         "70"
@@ -185,22 +185,17 @@
     ],
     "compatible_printers": [],
     "filament_id": "AliZ001-1",
-    "additional_cooling_fan_speed": [
-        "70"
+    "nozzle_temperature_range_high": [
+        "290"
     ],
     "nozzle_temperature_range_low": [
         "260"
     ],
-    "nozzle_temperature_range_high": [
-        "290"
-    ],
-    "setting_id": "AliZGFSG50",
-    "renamed_from": "My Generic PETG",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances.",
     "enable_pressure_advance": [
         "0"
     ],
     "pressure_advance": [
         "0.033"
-    ]
+    ],
+    "setting_id": "AliZGFSG50"
 }

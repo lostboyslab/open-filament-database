@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -94,7 +94,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PC"
@@ -115,7 +115,7 @@
         "250"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "60"
@@ -167,9 +167,6 @@
         "Qidi X-Plus 4 0.6 nozzle",
         "Qidi X-Plus 4 0.8 nozzle"
     ],
-    "chamber_temperatures": [
-        "0"
-    ],
     "nozzle_temperature_range_low": [
         "260"
     ],
@@ -180,29 +177,5 @@
     "setting_id": "GFSC99_Qidi_00",
     "pressure_advance": [
         "0.04"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
-    ],
-    "required_nozzle_HRC": [
-        "3"
-    ],
-    "chamber_temperature": [
-        "55"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

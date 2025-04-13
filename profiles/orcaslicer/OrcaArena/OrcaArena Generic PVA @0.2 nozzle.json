@@ -7,7 +7,7 @@
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "cool_plate_temp": [
         "45"
@@ -109,7 +109,7 @@
         "PVA"
     ],
     "filament_vendor": [
-        "Polymaker"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"

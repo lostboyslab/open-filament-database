@@ -7,13 +7,13 @@
         "Generic"
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "0"
     ],
     "filament_diameter": [
         "1.75"
@@ -112,6 +112,11 @@
         "-1"
     ],
     "filament_id": "GFU99",
+    "filament_retraction_speed": "90",
+    "filament_deretraction_speed": "50",
+    "filament_retract_when_changing_layer": "1",
+    "filament_wipe": "1",
+    "filament_retract_before_wipe": "70",
     "setting_id": "GFSR99",
     "compatible_printers": [
         "Anker M5 0.4 nozzle",
@@ -120,10 +125,5 @@
         "Anker M5 All-Metal 0.6 nozzle",
         "Anker M5C 0.4 nozzle",
         "Anker M5C 0.6 nozzle"
-    ],
-    "filament_retraction_speed": "90",
-    "filament_deretraction_speed": "50",
-    "filament_retract_when_changing_layer": "1",
-    "filament_wipe": "1",
-    "filament_retract_before_wipe": "70"
+    ]
 }

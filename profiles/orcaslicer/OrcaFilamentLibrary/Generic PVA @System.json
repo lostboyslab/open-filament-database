@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -97,7 +97,7 @@
         "PVA"
     ],
     "filament_vendor": [
-        "Overture"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -184,16 +184,16 @@
         "; filament end gcode\n"
     ],
     "compatible_printers": [],
-    "filament_id": "OGFS99",
     "additional_cooling_fan_speed": [
         "70"
-    ],
-    "nozzle_temperature_range_low": [
-        "190"
     ],
     "nozzle_temperature_range_high": [
         "240"
     ],
+    "nozzle_temperature_range_low": [
+        "190"
+    ],
+    "filament_id": "OGFS99",
     "setting_id": "OGFSA04",
     "renamed_from": "My Generic PVA"
 }

@@ -7,52 +7,52 @@
         "0"
     ],
     "eng_plate_temp": [
-        "70"
+        "100"
     ],
     "hot_plate_temp": [
-        "70"
+        "80"
     ],
     "textured_plate_temp": [
-        "70"
+        "100"
     ],
     "cool_plate_temp_initial_layer": [
         "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "70"
+        "100"
     ],
     "hot_plate_temp_initial_layer": [
-        "70"
+        "80"
     ],
     "textured_plate_temp_initial_layer": [
-        "70"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "0%"
     ],
     "overhang_fan_speed": [
-        "90"
+        "40"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "filament_flow_ratio": [
-        "0.95"
+        "0.97"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "10"
     ],
     "filament_cost": [
-        "34.99"
+        "20"
     ],
     "filament_density": [
-        "1.25"
+        "1.38"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -61,7 +61,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "8"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -97,10 +97,10 @@
         "0"
     ],
     "filament_type": [
-        "PETG-CF"
+        "PA"
     ],
     "filament_vendor": [
-        "Generic"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -112,31 +112,31 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "280"
+        "310"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "30"
+        "20"
     ],
     "fan_min_speed": [
-        "10"
+        "20"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "slow_down_layer_time": [
-        "6"
+        "8"
     ],
     "nozzle_temperature": [
-        "280"
+        "310"
     ],
     "temperature_vitrification": [
-        "75"
+        "108"
     ],
     "during_print_exhaust_fan_speed": [
-        "0"
+        "100"
     ],
     "activate_air_filtration": [
         "1"
@@ -164,27 +164,15 @@
         "40"
     ],
     "nozzle_temperature_range_low": [
-        "240"
+        "260"
     ],
     "nozzle_temperature_range_high": [
-        "290"
+        "350"
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSA04",
     "pressure_advance": [
         "0.01"
     ],
-    "is_custom_defined": "0",
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "chamber_temperature": [
-        "60"
-    ],
-    "enable_volume_fan": [
-        "40"
-    ]
+    "is_custom_defined": "0"
 }

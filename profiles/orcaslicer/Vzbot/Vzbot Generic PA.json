@@ -4,58 +4,58 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "30"
+        "0"
     ],
     "eng_plate_temp": [
-        "30"
+        "100"
     ],
     "hot_plate_temp": [
-        "35"
+        "100"
     ],
     "textured_plate_temp": [
-        "35"
+        "100"
     ],
     "cool_plate_temp_initial_layer": [
-        "30"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "30"
+        "100"
     ],
     "hot_plate_temp_initial_layer": [
-        "35"
+        "100"
     ],
     "textured_plate_temp_initial_layer": [
-        "35"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "100"
+        "30"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.95"
-    ],
-    "reduce_fan_stop_start_freq": [
         "1"
     ],
+    "reduce_fan_stop_start_freq": [
+        "0"
+    ],
     "fan_cooling_layer_time": [
-        "100"
+        "4"
     ],
     "filament_cost": [
         "20"
     ],
     "filament_density": [
-        "1.24"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -97,10 +97,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PLA-CF"
+        "PA"
     ],
     "filament_vendor": [
         "Generic"
@@ -121,34 +121,31 @@
         "0"
     ],
     "fan_max_speed": [
-        "100"
+        "60"
     ],
     "fan_min_speed": [
-        "100"
+        "0"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "7"
+        "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
     ],
     "temperature_vitrification": [
-        "60"
+        "108"
     ],
     "nozzle_temperature_range_low": [
-        "200"
+        "270"
     ],
     "nozzle_temperature_range_high": [
-        "250"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
+        "300"
     ],
     "filament_id": "GFN99",
     "setting_id": "GFSA04",
@@ -159,8 +156,5 @@
         "Vzbot 235 AWD 0.6 nozzle",
         "Vzbot 330 AWD 0.5 nozzle",
         "Vzbot 330 AWD 0.6 nozzle"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

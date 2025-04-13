@@ -4,28 +4,28 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "0"
+        "60"
     ],
     "eng_plate_temp": [
-        "110"
+        "0"
     ],
     "hot_plate_temp": [
         "80"
     ],
     "textured_plate_temp": [
-        "110"
+        "80"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "110"
+        "0"
     ],
     "hot_plate_temp_initial_layer": [
         "80"
     ],
     "textured_plate_temp_initial_layer": [
-        "110"
+        "80"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -55,7 +55,7 @@
         "48"
     ],
     "filament_density": [
-        "1.04"
+        "1.27"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -136,13 +136,13 @@
         "230"
     ],
     "temperature_vitrification": [
-        "140"
+        "80"
     ],
     "nozzle_temperature_range_low": [
-        "260"
+        "220"
     ],
     "nozzle_temperature_range_high": [
-        "290"
+        "260"
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSA04",

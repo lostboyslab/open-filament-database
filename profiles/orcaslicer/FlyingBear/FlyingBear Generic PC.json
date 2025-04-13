@@ -73,16 +73,16 @@
         "nil"
     ],
     "filament_retract_before_wipe": [
-        "0%"
+        "nil"
     ],
     "filament_retract_when_changing_layer": [
         "nil"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_z_hop": [
-        "0"
+        "nil"
     ],
     "filament_z_hop_types": [
         "nil"
@@ -106,10 +106,10 @@
         "FlyingBear"
     ],
     "filament_wipe": [
-        "1"
+        "nil"
     ],
     "filament_wipe_distance": [
-        "4"
+        "nil"
     ],
     "bed_type": [
         "Cool Plate"
@@ -133,7 +133,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "260"
@@ -147,8 +147,11 @@
     "nozzle_temperature_range_high": [
         "280"
     ],
-    "additional_cooling_fan_speed": [
-        "0"
+    "activate_air_filtration": [
+        "1"
+    ],
+    "complete_print_exhaust_fan_speed": [
+        "60"
     ],
     "filament_id": "GFC99",
     "setting_id": "GFSA04",
@@ -161,11 +164,5 @@
     "compatible_printers": [
         "FlyingBear Reborn3 0.4 nozzle",
         "FlyingBear Ghost 6 0.4 nozzle"
-    ],
-    "activate_air_filtration": [
-        "1"
-    ],
-    "complete_print_exhaust_fan_speed": [
-        "60"
     ]
 }

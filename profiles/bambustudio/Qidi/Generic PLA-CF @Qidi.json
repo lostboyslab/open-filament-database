@@ -4,40 +4,40 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "0"
+        "60"
     ],
     "eng_plate_temp": [
-        "100"
+        "60"
     ],
     "hot_plate_temp": [
         "60"
     ],
     "textured_plate_temp": [
-        "100"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
         "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "100"
+        "60"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "filament_flow_ratio": [
         "0.96"
@@ -52,7 +52,7 @@
         "20"
     ],
     "filament_density": [
-        "1.04"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -94,7 +94,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PLA-CF"
@@ -112,16 +112,16 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "250"
+        "210"
     ],
     "full_fan_speed_layer": [
         "3"
     ],
     "fan_max_speed": [
-        "60"
+        "100"
     ],
     "fan_min_speed": [
-        "10"
+        "100"
     ],
     "slow_down_min_speed": [
         "20"
@@ -130,7 +130,7 @@
         "8"
     ],
     "nozzle_temperature": [
-        "210"
+        "220"
     ],
     "temperature_vitrification": [
         "55"
@@ -172,19 +172,11 @@
         "Qidi X-Plus 4 0.6 nozzle",
         "Qidi X-Plus 4 0.8 nozzle"
     ],
-    "chamber_temperatures": [
-        "0"
-    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
     "nozzle_temperature_range_high": [
         "240"
-    ],
-    "filament_id": "GFL98",
-    "setting_id": "GFSL98_Qidi_00",
-    "pressure_advance": [
-        "0.008"
     ],
     "additional_cooling_fan_speed": [
         "0"
@@ -192,22 +184,9 @@
     "enable_overhang_bridge_fan": [
         "0"
     ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
-    ],
+    "filament_id": "GFL98",
+    "setting_id": "GFSL98_Qidi_00",
     "required_nozzle_HRC": [
         "40"
-    ],
-    "chamber_temperature": [
-        "55"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

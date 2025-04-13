@@ -64,7 +64,7 @@
         "1.75"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_max_volumetric_speed": [
         "12"
@@ -82,7 +82,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -100,7 +100,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PC"
@@ -139,7 +139,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
@@ -152,9 +152,6 @@
     ],
     "nozzle_temperature_range_high": [
         "280"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "filament_id": "GFC99",
     "setting_id": "GFSC99_Troodon_00",

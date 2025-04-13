@@ -28,7 +28,7 @@
         "35"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "100"
@@ -43,7 +43,7 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.926"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -97,7 +97,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "TPU"
@@ -130,7 +130,7 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "2"
+        "8"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n"
@@ -141,14 +141,14 @@
     "temperature_vitrification": [
         "60"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "nozzle_temperature_range_low": [
         "200"
     ],
     "nozzle_temperature_range_high": [
         "250"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "filament_id": "GFU99",
     "setting_id": "GFSA04",
@@ -159,8 +159,5 @@
         "Vzbot 235 AWD 0.6 nozzle",
         "Vzbot 330 AWD 0.5 nozzle",
         "Vzbot 330 AWD 0.6 nozzle"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

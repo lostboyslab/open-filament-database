@@ -4,7 +4,7 @@
     "instantiation": "true",
     "name": "Snapmaker Dual TPU High-Flow",
     "filament_vendor": [
-        "Polymaker"
+        "Snapmaker"
     ],
     "filament_start_gcode": [
         ""
@@ -13,7 +13,7 @@
         ""
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_soluble": [
         "0"
@@ -22,28 +22,28 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
     ],
     "hot_plate_temp": [
-        "90"
+        "40"
     ],
     "hot_plate_temp_initial_layer": [
-        "90"
+        "45"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "40"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "0"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "1"
     ],
     "filament_flow_ratio": [
         "0.983"
@@ -55,10 +55,10 @@
         "100"
     ],
     "filament_cost": [
-        "90"
+        "80"
     ],
     "filament_density": [
-        "1.22"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -85,7 +85,7 @@
         "0.8"
     ],
     "filament_z_hop": [
-        "0.7"
+        "0"
     ],
     "filament_z_hop_types": [
         "Normal Lift"
@@ -139,34 +139,34 @@
         "0"
     ],
     "nozzle_temperature_initial_layer": [
-        "230"
+        "240"
     ],
     "nozzle_temperature": [
-        "230"
+        "240"
     ],
     "temperature_vitrification": [
-        "150"
+        "138"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "50"
+        "70"
     ],
     "fan_min_speed": [
-        "26"
+        "70"
     ],
     "slow_down_min_speed": [
-        "35"
+        "10"
     ],
     "slow_down_layer_time": [
-        "7"
+        "8"
     ],
     "enable_pressure_advance": [
-        "1"
+        "0"
     ],
     "pressure_advance": [
-        "0.015"
+        "0.01"
     ],
     "cool_plate_temp": [
         "0"
@@ -186,22 +186,25 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#302730"
+    ],
     "filament_type": [
-        "PLA-CF"
+        "TPU"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "nozzle_temperature_range_low": [
-        "210"
+        "220"
     ],
     "nozzle_temperature_range_high": [
         "250"
     ],
-    "default_filament_colour": [
-        "#8269AC"
-    ],
     "filament_notes": [
         "!! It needs to be dried before use.\nSnapmaker TPU 95A High-Flow\n"
     ],
-    "filament_id": "1009481135",
+    "filament_id": "2971656290",
     "setting_id": "1072918854",
     "compatible_printers": [
         "Snapmaker A250 Dual (0.4 nozzle)",
@@ -231,8 +234,5 @@
         "Snapmaker Artisan (0.4 nozzle)",
         "Snapmaker Artisan (0.6 nozzle)",
         "Snapmaker Artisan (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

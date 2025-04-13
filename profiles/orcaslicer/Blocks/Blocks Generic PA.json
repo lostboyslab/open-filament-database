@@ -4,40 +4,40 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "70"
+        "0"
     ],
     "eng_plate_temp": [
-        "70"
+        "100"
     ],
     "hot_plate_temp": [
-        "70"
+        "100"
     ],
     "textured_plate_temp": [
-        "70"
+        "100"
     ],
     "cool_plate_temp_initial_layer": [
-        "70"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "70"
+        "100"
     ],
     "hot_plate_temp_initial_layer": [
-        "70"
+        "100"
     ],
     "textured_plate_temp_initial_layer": [
-        "70"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "70"
+        "60"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
@@ -46,16 +46,16 @@
         "0.98"
     ],
     "reduce_fan_stop_start_freq": [
-        "1"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "10"
     ],
     "filament_cost": [
-        "30"
+        "20"
     ],
     "filament_density": [
-        "1.24"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -97,10 +97,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PETG"
+        "PA"
     ],
     "filament_vendor": [
         "Generic"
@@ -115,40 +115,37 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "245"
+        "270"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "80"
+        "60"
     ],
     "fan_min_speed": [
-        "20"
+        "0"
     ],
     "slow_down_min_speed": [
-        "30"
+        "10"
     ],
     "slow_down_layer_time": [
-        "5"
+        "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
-        "240"
+        "270"
     ],
     "temperature_vitrification": [
-        "70"
+        "108"
     ],
     "nozzle_temperature_range_low": [
-        "210"
+        "260"
     ],
     "nozzle_temperature_range_high": [
-        "255"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
+        "300"
     ],
     "filament_id": "BSFI006",
     "setting_id": "BSSI006",
@@ -161,8 +158,5 @@
         "BLOCKS RF50 0.6 nozzle",
         "BLOCKS RF50 0.8 nozzle",
         "BLOCKS RF50"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

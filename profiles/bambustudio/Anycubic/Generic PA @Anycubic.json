@@ -22,7 +22,7 @@
         "100"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "30"
@@ -37,7 +37,7 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "0"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -130,7 +130,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
@@ -155,8 +155,5 @@
         "Anycubic 4Max Pro 0.4 nozzle",
         "Anycubic 4Max Pro 2 0.4 nozzle",
         "Anycubic Kobra 2 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

@@ -10,7 +10,7 @@
         "100"
     ],
     "hot_plate_temp": [
-        "80"
+        "110"
     ],
     "textured_plate_temp": [
         "100"
@@ -22,16 +22,16 @@
         "100"
     ],
     "hot_plate_temp_initial_layer": [
-        "90"
+        "110"
     ],
     "textured_plate_temp_initial_layer": [
         "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "0%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "40"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -40,19 +40,19 @@
         "3"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "0.97"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "5"
     ],
     "filament_cost": [
         "20"
     ],
     "filament_density": [
-        "1.42"
+        "1.20"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -61,7 +61,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "1"
+        "6"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.5"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -100,7 +100,7 @@
         "PA-CF"
     ],
     "filament_vendor": [
-        "Generic"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -118,16 +118,16 @@
         "0"
     ],
     "fan_max_speed": [
-        "80"
+        "30"
     ],
     "fan_min_speed": [
-        "20"
+        "0"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "slow_down_layer_time": [
-        "8"
+        "2"
     ],
     "nozzle_temperature": [
         "320"
@@ -150,8 +150,8 @@
     "compatible_printers": [
         "Qidi Q1 Pro 0.6 nozzle"
     ],
-    "chamber_temperatures": [
-        "60"
+    "required_nozzle_HRC": [
+        "40"
     ],
     "nozzle_temperature_range_low": [
         "260"
@@ -164,22 +164,7 @@
     "pressure_advance": [
         "0.019"
     ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
-    ],
-    "required_nozzle_HRC": [
-        "40"
+    "chamber_temperatures": [
+        "60"
     ]
 }

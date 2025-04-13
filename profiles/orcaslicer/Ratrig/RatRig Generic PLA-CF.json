@@ -100,7 +100,7 @@
         "PLA-CF"
     ],
     "filament_vendor": [
-        "RatRig"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -144,6 +144,9 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFL98",
     "setting_id": "GFSA04",
     "enable_pressure_advance": [
@@ -178,8 +181,5 @@
         "RatRig V-Core 4 HYBRID 500 0.4 nozzle",
         "RatRig V-Core 4 HYBRID 500 0.5 nozzle",
         "RatRig V-Core 4 HYBRID 500 0.6 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

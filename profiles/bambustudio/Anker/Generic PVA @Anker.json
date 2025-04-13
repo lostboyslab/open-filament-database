@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -143,9 +143,6 @@
     ],
     "additional_cooling_fan_speed": [
         "70"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
     ],
     "filament_id": "GFS99",
     "setting_id": "GFSS99_Anker_00",

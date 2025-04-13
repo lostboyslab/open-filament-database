@@ -18,7 +18,7 @@
     ],
     "hot_plate_temp_initial_layer": "85",
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": "45",
     "slow_down_for_layer_cooling": [
@@ -68,7 +68,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PETG"
@@ -106,29 +106,12 @@
     "nozzle_temperature_range_high": [
         "260"
     ],
-    "setting_id": "GFSA04",
     "compatible_printers": [
         "Prusa MK4S HF0.8 nozzle"
     ],
-    "filament_is_support": [
-        "1"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "nozzle_temperature_intial_layer": "215",
-    "filament_loading_speed_start": "50",
-    "filament_loading_speed": "10",
-    "filament_unloading_speed_start": "100",
-    "filament_unloading_speed": "100",
-    "filament_load_time": "10.5",
-    "filament_unload_time": "8.5",
-    "filament_cooling_moves": "2",
-    "filament_cooling_initial_speed": "10",
-    "filament_cooling_final_speed": "3.5",
-    "filament_retract_lift_below": "0.6",
     "default_filament_colour": "#FF8000",
     "filament_notes": [
         ""
-    ]
+    ],
+    "setting_id": "GFSA04"
 }

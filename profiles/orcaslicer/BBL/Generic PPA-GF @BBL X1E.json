@@ -16,10 +16,10 @@
         "70"
     ],
     "cool_plate_temp": [
-        "70"
+        "0"
     ],
     "cool_plate_temp_initial_layer": [
-        "70"
+        "0"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
@@ -31,19 +31,19 @@
         "100"
     ],
     "fan_cooling_layer_time": [
-        "80"
+        "5"
     ],
     "fan_max_speed": [
-        "20"
+        "30"
     ],
     "fan_min_speed": [
-        "60"
+        "10"
     ],
     "filament_cost": [
-        "94.99"
+        "20"
     ],
     "filament_density": [
-        "1.06"
+        "1.17"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -55,13 +55,13 @@
         "0.96"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
-        "1"
+        "nil"
     ],
     "filament_max_volumetric_speed": [
-        "1"
+        "6"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -76,10 +76,10 @@
         "nil"
     ],
     "filament_retraction_distances_when_cut": [
-        "18"
+        "nil"
     ],
     "filament_retraction_length": [
-        "0.5"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,34 +91,34 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PA-CF"
+        "PPA-GF"
     ],
     "filament_vendor": [
-        "Polymaker"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
     ],
     "filament_wipe_distance": [
-        "5"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
         "0%"
@@ -136,10 +136,10 @@
         "100"
     ],
     "nozzle_temperature": [
-        "260"
+        "290"
     ],
     "nozzle_temperature_initial_layer": [
-        "230"
+        "290"
     ],
     "overhang_fan_speed": [
         "40"
@@ -151,25 +151,25 @@
         "0"
     ],
     "required_nozzle_HRC": [
-        "3"
+        "40"
     ],
     "supertack_plate_temp": [
-        "35"
+        "0"
     ],
     "supertack_plate_temp_initial_layer": [
-        "35"
+        "0"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "12"
+        "2"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "temperature_vitrification": [
-        "180"
+        "210"
     ],
     "textured_plate_temp": [
         "100"
@@ -183,21 +183,17 @@
         "Bambu Lab X1E 0.4 nozzle"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n{if  (bed_temperature[current_extruder] >55)||(bed_temperature_initial_layer[current_extruder] >55)}M106 P3 S200\n{elsif(bed_temperature[current_extruder] >50)||(bed_temperature_initial_layer[current_extruder] >50)}M106 P3 S150\n{elsif(bed_temperature[current_extruder] >45)||(bed_temperature_initial_layer[current_extruder] >45)}M106 P3 S50\n{endif}\n\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
+        "; Filament gcode\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
     ],
     "filament_end_gcode": [
         "; filament end gcode \nM106 P3 S0\n"
     ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
     "nozzle_temperature_range_high": [
-        "270"
+        "320"
     ],
     "nozzle_temperature_range_low": [
-        "240"
+        "280"
     ],
-    "filament_id": "GFN06",
-    "description": "When printing this filament, there's a risk of nozzle clogging, oozing, warping and low layer adhesion strength. To get better results, please refer to this wiki: Printing Tips for High Temp / Engineering materials.",
+    "filament_id": "GFN96",
     "setting_id": "GFSN96_01"
 }

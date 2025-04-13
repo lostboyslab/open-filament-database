@@ -13,7 +13,7 @@
         "3"
     ],
     "complete_print_exhaust_fan_speed": [
-        "80"
+        "70"
     ],
     "cool_plate_temp": [
         "70"
@@ -22,7 +22,7 @@
         "70"
     ],
     "during_print_exhaust_fan_speed": [
-        "60"
+        "70"
     ],
     "eng_plate_temp": [
         "70"
@@ -34,7 +34,7 @@
         "100"
     ],
     "fan_max_speed": [
-        "60"
+        "100"
     ],
     "fan_min_speed": [
         "0"
@@ -52,10 +52,10 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "1"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,19 +91,19 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "SBS"
     ],
     "filament_vendor": [
-        "Aliz"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
     ],
     "filament_wipe_distance": [
-        "0"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -142,7 +142,7 @@
         "235"
     ],
     "overhang_fan_speed": [
-        "60"
+        "100"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -151,13 +151,13 @@
         "0"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "45"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -185,22 +185,14 @@
     ],
     "compatible_printers": [],
     "filament_id": "OGFLSBS99",
-    "additional_cooling_fan_speed": [
-        "40"
-    ],
     "nozzle_temperature_range_low": [
         "215"
     ],
     "nozzle_temperature_range_high": [
         "250"
     ],
-    "setting_id": "OGFSL99",
-    "renamed_from": "My Generic ASA",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances.",
-    "enable_pressure_advance": [
-        "0"
+    "additional_cooling_fan_speed": [
+        "40"
     ],
-    "pressure_advance": [
-        "0.026"
-    ]
+    "setting_id": "OGFSL99"
 }

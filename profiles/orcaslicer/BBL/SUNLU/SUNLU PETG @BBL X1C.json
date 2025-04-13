@@ -1,19 +1,19 @@
 {
     "type": "filament",
-    "name": "SUNLU PLA Marble @BBL A1",
+    "name": "SUNLU PETG @BBL X1C",
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "2"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
-        "80"
+        "70"
     ],
     "cool_plate_temp": [
         "0"
@@ -22,7 +22,7 @@
         "0"
     ],
     "during_print_exhaust_fan_speed": [
-        "60"
+        "70"
     ],
     "eng_plate_temp": [
         "60"
@@ -31,37 +31,37 @@
         "60"
     ],
     "fan_cooling_layer_time": [
-        "80"
+        "30"
     ],
     "fan_max_speed": [
-        "80"
+        "30"
     ],
     "fan_min_speed": [
-        "60"
+        "10"
     ],
     "filament_cost": [
-        "18.99"
+        "22.99"
     ],
     "filament_density": [
-        "1.23"
+        "1.27"
     ],
     "filament_deretraction_speed": [
-        "0"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.94"
+        "0.95"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "1"
     ],
     "filament_max_volumetric_speed": [
-        "2"
+        "14"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -79,22 +79,22 @@
         "18"
     ],
     "filament_retraction_length": [
-        "4"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "50"
+        "nil"
     ],
     "filament_settings_id": [
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PPS-CF"
+        "PETG"
     ],
     "filament_vendor": [
         "SUNLU"
@@ -103,22 +103,22 @@
         "nil"
     ],
     "filament_wipe_distance": [
-        "0"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
         "0%"
@@ -130,10 +130,10 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "65"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
-        "65"
+        "60"
     ],
     "nozzle_temperature": [
         "245"
@@ -148,62 +148,55 @@
         "10%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "70"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "6"
+        "12"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "temperature_vitrification": [
-        "54"
+        "68"
     ],
     "textured_plate_temp": [
-        "65"
+        "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "60"
     ],
     "compatible_printers": [
-        "Bambu Lab A1 0.4 nozzle",
-        "Bambu Lab A1 0.6 nozzle",
-        "Bambu Lab A1 0.8 nozzle"
+        "Bambu Lab X1 Carbon 0.4 nozzle",
+        "Bambu Lab X1 0.4 nozzle",
+        "Bambu Lab P1P 0.4 nozzle",
+        "Bambu Lab P1S 0.4 nozzle",
+        "Bambu Lab X1E 0.4 nozzle"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n{if  (bed_temperature[current_extruder] >55)||(bed_temperature_initial_layer[current_extruder] >55)}M106 P3 S200\n{elsif(bed_temperature[current_extruder] >50)||(bed_temperature_initial_layer[current_extruder] >50)}M106 P3 S150\n{elsif(bed_temperature[current_extruder] >45)||(bed_temperature_initial_layer[current_extruder] >45)}M106 P3 S50\n{endif}\nM142 P1 R35 S40\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
+        "; filament start gcode\n{if (bed_temperature[current_extruder] >80)||(bed_temperature_initial_layer[current_extruder] >80)}M106 P3 S255\n{elsif (bed_temperature[current_extruder] >60)||(bed_temperature_initial_layer[current_extruder] >60)}M106 P3 S180\n{endif}\n\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
     ],
     "filament_end_gcode": [
         "; filament end gcode \nM106 P3 S0\n"
     ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
     "nozzle_temperature_range_high": [
-        "260"
+        "280"
     ],
     "nozzle_temperature_range_low": [
-        "190"
+        "230"
     ],
-    "filament_id": "GFSNL03",
+    "filament_id": "GFSNL08",
     "description": "To get better transparent or translucent results with the corresponding filament, please refer to this wiki: Printing tips for transparent PETG.",
-    "setting_id": "GFSNLS06_02",
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.026"
-    ]
+    "setting_id": "GFSNLS08"
 }

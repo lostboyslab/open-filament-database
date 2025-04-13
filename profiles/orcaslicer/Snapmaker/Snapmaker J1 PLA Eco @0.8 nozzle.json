@@ -4,7 +4,7 @@
     "instantiation": "true",
     "name": "Snapmaker J1 PLA Eco @0.8 nozzle",
     "filament_vendor": [
-        "Polymaker"
+        "Snapmaker"
     ],
     "filament_start_gcode": [
         ""
@@ -13,7 +13,7 @@
         ""
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_soluble": [
         "0"
@@ -22,43 +22,43 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
     ],
     "hot_plate_temp": [
-        "45"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
-        "70"
+        "60"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "0%"
     ],
     "overhang_fan_speed": [
-        "65"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
-        "0"
+        "1"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "1"
     ],
     "filament_flow_ratio": [
-        "1.1"
+        "0.98"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "10"
-    ],
-    "filament_cost": [
         "100"
     ],
+    "filament_cost": [
+        "60"
+    ],
     "filament_density": [
-        "1.22"
+        "1.26"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -67,7 +67,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "7.2"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "0"
@@ -79,22 +79,22 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
-    ],
-    "filament_retraction_length": [
         "nil"
     ],
+    "filament_retraction_length": [
+        "1.2"
+    ],
     "filament_z_hop": [
-        "0.7"
+        "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "filament_retract_restart_extra": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "nil"
+        "60"
     ],
     "filament_wipe": [
         "nil"
@@ -103,34 +103,34 @@
         "nil"
     ],
     "filament_loading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_loading_speed": [
-        "35"
+        "25"
     ],
     "filament_unloading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_unloading_speed": [
-        "35"
+        "25"
     ],
     "filament_load_time": [
-        "2"
+        "0"
     ],
     "filament_unload_time": [
-        "2"
+        "0"
     ],
     "filament_toolchange_delay": [
         "0"
     ],
     "filament_cooling_moves": [
-        "2"
+        "0"
     ],
     "filament_cooling_initial_speed": [
-        "35"
+        "2.2"
     ],
     "filament_cooling_final_speed": [
-        "60"
+        "3.4"
     ],
     "filament_multitool_ramming": [
         "0"
@@ -139,34 +139,34 @@
         "0"
     ],
     "nozzle_temperature_initial_layer": [
-        "230"
+        "205"
     ],
     "nozzle_temperature": [
-        "220"
+        "200"
     ],
     "temperature_vitrification": [
         "154"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "65"
+        "100"
     ],
     "fan_min_speed": [
-        "65"
+        "100"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "slow_down_layer_time": [
-        "6"
+        "8"
     ],
     "enable_pressure_advance": [
-        "0"
+        "1"
     ],
     "pressure_advance": [
-        "0.04"
+        "0.02"
     ],
     "cool_plate_temp": [
         "0"
@@ -186,27 +186,24 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#D5DDDC"
+    ],
     "filament_type": [
-        "Breakaway Support"
+        "PLA"
     ],
     "nozzle_temperature_range_low": [
-        "200"
+        "190"
     ],
     "nozzle_temperature_range_high": [
         "240"
     ],
-    "default_filament_colour": [
-        "#383737"
+    "additional_cooling_fan_speed": [
+        "70"
     ],
-    "filament_notes": [
-        "eSUN eLastic TPE-83A\n"
-    ],
-    "filament_id": "1207881278",
+    "filament_id": "3383257822",
     "setting_id": "36938567",
     "compatible_printers": [
         "Snapmaker J1 (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

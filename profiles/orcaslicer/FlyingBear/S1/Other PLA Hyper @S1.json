@@ -82,7 +82,7 @@
         "nil"
     ],
     "filament_z_hop": [
-        "0"
+        "nil"
     ],
     "filament_z_hop_types": [
         "nil"
@@ -147,13 +147,7 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
-    "activate_air_filtration": [
-        "1"
-    ],
-    "complete_print_exhaust_fan_speed": [
-        "80"
-    ],
-    "during_print_exhaust_fan_speed": [
+    "additional_cooling_fan_speed": [
         "100"
     ],
     "filament_id": "GFL99",
@@ -166,8 +160,5 @@
     ],
     "compatible_printers": [
         "FlyingBear S1 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "100"
     ]
 }

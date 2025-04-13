@@ -123,7 +123,7 @@
         "12"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
@@ -136,9 +136,6 @@
     ],
     "nozzle_temperature_range_high": [
         "300"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSA04",

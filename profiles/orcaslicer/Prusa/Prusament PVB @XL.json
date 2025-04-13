@@ -125,6 +125,9 @@
         "50"
     ],
     "filament_id": "GFS98",
+    "filament_is_support": [
+        "1"
+    ],
     "idle_temperature": "0",
     "nozzle_temperature_range_low": [
         "190"
@@ -132,21 +135,10 @@
     "nozzle_temperature_range_high": [
         "250"
     ],
-    "setting_id": "GFSA04",
-    "compatible_printers": [
-        "Prusa XL 0.25 nozzle",
-        "Prusa XL 0.3 nozzle",
-        "Prusa XL 0.4 nozzle",
-        "Prusa XL 0.5 nozzle",
-        "Prusa XL 0.6 nozzle",
-        "Prusa XL 0.8 nozzle"
-    ],
-    "filament_is_support": [
-        "1"
-    ],
     "additional_cooling_fan_speed": [
         "70"
     ],
+    "setting_id": "GFSA04",
     "nozzle_temperature_intial_layer": "215",
     "filament_loading_speed_start": "50",
     "filament_loading_speed": "10",
@@ -157,5 +149,13 @@
     "filament_cooling_moves": "2",
     "filament_cooling_initial_speed": "10",
     "filament_cooling_final_speed": "3.5",
-    "filament_retract_lift_below": "0.6"
+    "filament_retract_lift_below": "0.6",
+    "compatible_printers": [
+        "Prusa XL 0.25 nozzle",
+        "Prusa XL 0.3 nozzle",
+        "Prusa XL 0.4 nozzle",
+        "Prusa XL 0.5 nozzle",
+        "Prusa XL 0.6 nozzle",
+        "Prusa XL 0.8 nozzle"
+    ]
 }

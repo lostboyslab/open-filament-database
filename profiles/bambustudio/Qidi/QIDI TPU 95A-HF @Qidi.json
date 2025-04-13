@@ -1,58 +1,58 @@
 {
     "type": "filament",
-    "name": "QIDI ASA @Qidi Q1 Pro 0.8 nozzle",
+    "name": "QIDI TPU 95A-HF @Qidi",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "0"
+        "50"
     ],
     "eng_plate_temp": [
-        "100"
+        "50"
     ],
     "hot_plate_temp": [
         "60"
     ],
     "textured_plate_temp": [
-        "100"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "05"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "50"
     ],
     "hot_plate_temp_initial_layer": [
         "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "100"
+        "50"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "filament_flow_ratio": [
-        "0.96"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "40"
+        "60"
     ],
     "filament_cost": [
-        "20"
+        "40"
     ],
     "filament_density": [
-        "1.04"
+        "1.22"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -61,7 +61,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "13"
+        "4"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -94,13 +94,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PLA-CF"
+        "TPU"
     ],
     "filament_vendor": [
-        "Generic"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -112,28 +112,28 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "250"
+        "230"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "60"
+        "100"
     ],
     "fan_min_speed": [
-        "10"
+        "100"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "slow_down_layer_time": [
-        "4"
+        "8"
     ],
     "nozzle_temperature": [
-        "255"
+        "230"
     ],
     "temperature_vitrification": [
-        "55"
+        "30"
     ],
     "during_print_exhaust_fan_speed": [
         "100"
@@ -148,44 +148,38 @@
         "1"
     ],
     "compatible_printers": [
-        "Qidi Q1 Pro 0.8 nozzle"
-    ],
-    "chamber_temperatures": [
-        "0"
-    ],
-    "nozzle_temperature_range_low": [
-        "190"
-    ],
-    "nozzle_temperature_range_high": [
-        "240"
-    ],
-    "filament_id": "GFB01",
-    "setting_id": "GFSB01_Qidi_05",
-    "pressure_advance": [
-        "0.011"
+        "Qidi X-Plus 0.4 nozzle",
+        "Qidi X-Max 0.4 nozzle",
+        "Qidi X-CF Pro 0.4 nozzle",
+        "Qidi X-Smart 3 0.4 nozzle",
+        "Qidi X-Plus 3 0.4 nozzle",
+        "Qidi X-Max 3 0.4 nozzle",
+        "Qidi X-Smart 3 0.6 nozzle",
+        "Qidi X-Plus 3 0.6 nozzle",
+        "Qidi X-Max 3 0.6 nozzle",
+        "Qidi X-Smart 3 0.8 nozzle",
+        "Qidi X-Plus 3 0.8 nozzle",
+        "Qidi X-Max 3 0.8 nozzle",
+        "Qidi Q1 Pro 0.6 nozzle",
+        "Qidi X-Plus 4 0.4 nozzle",
+        "Qidi X-Plus 4 0.6 nozzle",
+        "Qidi X-Plus 4 0.8 nozzle"
     ],
     "additional_cooling_fan_speed": [
         "0"
     ],
+    "nozzle_temperature_range_low": [
+        "200"
+    ],
+    "nozzle_temperature_range_high": [
+        "250"
+    ],
     "enable_overhang_bridge_fan": [
         "0"
     ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
-    ],
-    "required_nozzle_HRC": [
-        "40"
-    ],
-    "chamber_temperature": [
-        "55"
-    ],
-    "filament_is_support": [
-        "1"
+    "filament_id": "GFU00",
+    "setting_id": "GFSU00_Qidi_00",
+    "pressure_advance": [
+        "0.1"
     ]
 }

@@ -4,17 +4,17 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "100"
+        "35"
     ],
     "eng_plate_temp": [
-        "100"
+        "0"
     ],
     "hot_plate_temp": "75",
     "cool_plate_temp_initial_layer": [
-        "0"
+        "35"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "0"
     ],
     "hot_plate_temp_initial_layer": "75",
     "overhang_fan_threshold": [
@@ -30,7 +30,7 @@
         "1"
     ],
     "filament_end_gcode": [
-        "; Filament-specific end gcode"
+        "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
         "1"
@@ -38,15 +38,17 @@
     "reduce_fan_stop_start_freq": [
         "1"
     ],
-    "fan_cooling_layer_time": "25",
+    "fan_cooling_layer_time": [
+        "100"
+    ],
     "filament_cost": [
         "20"
     ],
     "filament_density": [
-        "1.04"
+        "1.24"
     ],
     "filament_deretraction_speed": [
-        "20"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -54,23 +56,29 @@
     "filament_max_volumetric_speed": [
         "8"
     ],
-    "filament_minimal_purge_on_wipe_tower": "35",
-    "filament_retraction_minimum_travel": [
-        "6"
+    "filament_minimal_purge_on_wipe_tower": [
+        "15"
     ],
-    "filament_retract_before_wipe": "20%",
+    "filament_retraction_minimum_travel": [
+        "nil"
+    ],
+    "filament_retract_before_wipe": [
+        "nil"
+    ],
     "filament_retract_when_changing_layer": [
         "nil"
     ],
     "filament_retraction_length": [
-        "2"
+        "nil"
     ],
-    "filament_z_hop": "0",
+    "filament_z_hop": [
+        "nil"
+    ],
     "filament_retract_restart_extra": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "45"
+        "nil"
     ],
     "filament_settings_id": [
         ""
@@ -79,12 +87,14 @@
         "1"
     ],
     "filament_type": [
-        "PLA-CF"
+        "PVB"
     ],
     "filament_vendor": [
         "Generic"
     ],
-    "filament_wipe": "1",
+    "filament_wipe": [
+        "nil"
+    ],
     "filament_wipe_distance": [
         "nil"
     ],
@@ -92,7 +102,7 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "280"
+        "220"
     ],
     "full_fan_speed_layer": [
         "3"
@@ -112,31 +122,23 @@
     ],
     "nozzle_temperature": "215",
     "temperature_vitrification": [
-        "140"
+        "50"
     ],
-    "filament_id": "Generic PLA @MK4S 0.8",
-    "idle_temperature": "0",
-    "nozzle_temperature_range_low": [
-        "260"
-    ],
-    "nozzle_temperature_range_high": [
-        "280"
-    ],
-    "setting_id": "GFSA04",
-    "compatible_printers": [
-        "Prusa XL 5T 0.25 nozzle",
-        "Prusa XL 5T 0.3 nozzle",
-        "Prusa XL 5T 0.4 nozzle",
-        "Prusa XL 5T 0.5 nozzle",
-        "Prusa XL 5T 0.6 nozzle",
-        "Prusa XL 5T 0.8 nozzle"
-    ],
+    "filament_id": "GFS98",
     "filament_is_support": [
         "1"
+    ],
+    "idle_temperature": "0",
+    "nozzle_temperature_range_low": [
+        "190"
+    ],
+    "nozzle_temperature_range_high": [
+        "250"
     ],
     "additional_cooling_fan_speed": [
         "70"
     ],
+    "setting_id": "GFSA04",
     "nozzle_temperature_intial_layer": "215",
     "filament_loading_speed_start": "50",
     "filament_loading_speed": "10",
@@ -148,10 +150,6 @@
     "filament_cooling_initial_speed": "10",
     "filament_cooling_final_speed": "3.5",
     "filament_retract_lift_below": "0.6",
-    "default_filament_colour": "#008000",
-    "filament_notes": [
-        ""
-    ],
     "filament_multitool_ramming": [
         "1"
     ],
@@ -167,16 +165,12 @@
     "filament_stamping_loading_speed": [
         "29"
     ],
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.27"
-    ],
-    "enable_overhang_bridge_fan": [
-        "1"
-    ],
-    "support_material_interface_fan_speed": [
-        "-1"
+    "compatible_printers": [
+        "Prusa XL 5T 0.25 nozzle",
+        "Prusa XL 5T 0.3 nozzle",
+        "Prusa XL 5T 0.4 nozzle",
+        "Prusa XL 5T 0.5 nozzle",
+        "Prusa XL 5T 0.6 nozzle",
+        "Prusa XL 5T 0.8 nozzle"
     ]
 }

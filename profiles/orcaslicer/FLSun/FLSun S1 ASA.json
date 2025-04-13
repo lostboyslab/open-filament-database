@@ -4,25 +4,25 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "35"
+        "105"
     ],
     "eng_plate_temp": [
-        "0"
+        "105"
     ],
     "hot_plate_temp": [
         "90"
     ],
     "cool_plate_temp_initial_layer": [
-        "35"
+        "105"
     ],
     "eng_plate_temp_initial_layer": [
-        "0"
+        "105"
     ],
     "hot_plate_temp_initial_layer": [
         "90"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "25%"
     ],
     "overhang_fan_speed": [
         "35"
@@ -31,7 +31,7 @@
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
@@ -69,7 +69,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -87,10 +87,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PA-CF"
+        "ASA"
     ],
     "filament_vendor": [
         "Generic"
@@ -123,7 +123,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
@@ -136,9 +136,6 @@
     ],
     "nozzle_temperature_range_high": [
         "300"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "filament_id": "GFB98",
     "setting_id": "GFSA04",
@@ -155,9 +152,6 @@
         "0"
     ],
     "dont_slow_down_outer_wall": [
-        "1"
-    ],
-    "filament_is_support": [
         "1"
     ]
 }

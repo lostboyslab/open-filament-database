@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "0"
@@ -100,7 +100,7 @@
         "ABS"
     ],
     "filament_vendor": [
-        "RatRig"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -130,7 +130,7 @@
         "3"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "265"
@@ -178,8 +178,5 @@
         "RatRig V-Core 4 HYBRID 500 0.4 nozzle",
         "RatRig V-Core 4 HYBRID 500 0.5 nozzle",
         "RatRig V-Core 4 HYBRID 500 0.6 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

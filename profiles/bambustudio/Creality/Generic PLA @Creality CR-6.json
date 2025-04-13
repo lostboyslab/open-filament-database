@@ -7,25 +7,25 @@
         "1"
     ],
     "cool_plate_temp": [
-        "30"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "30"
+        "60"
     ],
     "eng_plate_temp": [
-        "30"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "30"
+        "60"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "100"
     ],
     "fan_max_speed": [
-        "90"
+        "100"
     ],
     "fan_min_speed": [
-        "40"
+        "100"
     ],
     "filament_cost": [
         "20"
@@ -61,7 +61,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -76,7 +76,7 @@
         "0"
     ],
     "filament_type": [
-        "TPU"
+        "PLA"
     ],
     "filament_vendor": [
         "Generic"
@@ -97,22 +97,22 @@
         "0"
     ],
     "hot_plate_temp": [
-        "35"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
-        "35"
+        "60"
     ],
     "nozzle_temperature": [
-        "240"
+        "220"
     ],
     "nozzle_temperature_initial_layer": [
-        "240"
+        "220"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -133,10 +133,10 @@
         "60"
     ],
     "textured_plate_temp": [
-        "105"
+        "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "105"
+        "60"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n"
@@ -145,10 +145,13 @@
         "; filament end gcode \n"
     ],
     "nozzle_temperature_range_low": [
-        "200"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "250"
+        "230"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "filament_id": "CRL99",
     "setting_id": "CRSL99_CREALITY_00",
@@ -161,8 +164,5 @@
         "Creality CR-6 Max 0.4 nozzle",
         "Creality CR-6 Max 0.6 nozzle",
         "Creality CR-6 Max 0.8 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

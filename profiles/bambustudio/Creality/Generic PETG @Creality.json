@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "cool_plate_temp": [
-        "105"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "105"
+        "60"
     ],
     "eng_plate_temp": [
         "0"
@@ -177,8 +177,5 @@
         "Creality K1C 0.4 nozzle",
         "Creality K1C 0.6 nozzle",
         "Creality K1C 0.8 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

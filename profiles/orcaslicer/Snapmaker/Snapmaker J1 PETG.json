@@ -22,43 +22,43 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
     ],
     "hot_plate_temp": [
-        "65"
+        "70"
     ],
     "hot_plate_temp_initial_layer": [
-        "65"
+        "70"
     ],
     "overhang_fan_threshold": [
         "25%"
     ],
     "overhang_fan_speed": [
-        "40"
+        "35"
     ],
     "slow_down_for_layer_cooling": [
-        "0"
+        "1"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "2"
     ],
     "filament_flow_ratio": [
-        "0.983"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "7"
+        "30"
     ],
     "filament_cost": [
-        "70"
+        "30"
     ],
     "filament_density": [
-        "1.32"
+        "1.25"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -67,34 +67,34 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "2"
+        "10"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "0"
     ],
     "filament_retraction_minimum_travel": [
-        "nil"
+        "0"
     ],
     "filament_retract_before_wipe": [
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
-        "0.5"
+        "1.8"
     ],
     "filament_z_hop": [
-        "0.7"
+        "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "Spiral Lift"
     ],
     "filament_retract_restart_extra": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "nil"
+        "35"
     ],
     "filament_wipe": [
         "nil"
@@ -103,34 +103,34 @@
         "nil"
     ],
     "filament_loading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_loading_speed": [
-        "35"
+        "25"
     ],
     "filament_unloading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_unloading_speed": [
-        "35"
+        "25"
     ],
     "filament_load_time": [
-        "2"
+        "0"
     ],
     "filament_unload_time": [
-        "2"
+        "0"
     ],
     "filament_toolchange_delay": [
         "0"
     ],
     "filament_cooling_moves": [
-        "2"
+        "0"
     ],
     "filament_cooling_initial_speed": [
-        "35"
+        "2.2"
     ],
     "filament_cooling_final_speed": [
-        "60"
+        "3.4"
     ],
     "filament_multitool_ramming": [
         "0"
@@ -139,34 +139,34 @@
         "0"
     ],
     "nozzle_temperature_initial_layer": [
-        "230"
+        "255"
     ],
     "nozzle_temperature": [
-        "230"
+        "255"
     ],
     "temperature_vitrification": [
-        "230"
+        "178"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "50"
+        "30"
     ],
     "fan_min_speed": [
-        "26"
+        "10"
     ],
     "slow_down_min_speed": [
-        "35"
+        "20"
     ],
     "slow_down_layer_time": [
-        "2"
+        "8"
     ],
     "enable_pressure_advance": [
         "1"
     ],
     "pressure_advance": [
-        "0.022"
+        "0.03"
     ],
     "cool_plate_temp": [
         "0"
@@ -186,28 +186,22 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#DF6734"
+    ],
     "filament_type": [
-        "PET"
+        "PETG"
     ],
     "nozzle_temperature_range_low": [
-        "250"
+        "240"
     ],
     "nozzle_temperature_range_high": [
-        "280"
+        "270"
     ],
-    "default_filament_colour": [
-        "#CF942B"
-    ],
-    "filament_notes": [
-        "JiaNong PET 1.63x1.75mm"
-    ],
-    "filament_id": "1528786603",
+    "filament_id": "1172603684",
     "setting_id": "613683209",
     "compatible_printers": [
         "Snapmaker J1 (0.4 nozzle)",
         "Snapmaker J1 (0.6 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

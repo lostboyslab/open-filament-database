@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "additional_cooling_fan_speed": [
         "75"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -19,34 +19,34 @@
         "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "100"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "80"
+        "100"
     ],
     "fan_max_speed": [
-        "40"
+        "100"
     ],
     "fan_min_speed": [
-        "60"
+        "100"
     ],
     "filament_cost": [
         "29.99"
     ],
     "filament_density": [
-        "1.22"
+        "1.32"
     ],
     "filament_deretraction_speed": [
         "nil",
@@ -60,7 +60,7 @@
         "0.98"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil",
@@ -109,10 +109,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PPA-GF"
+        "PLA"
     ],
     "filament_vendor": [
         "Bambu Lab"
@@ -126,7 +126,7 @@
         "nil"
     ],
     "filament_prime_volume": [
-        "30"
+        "45"
     ],
     "filament_z_hop": [
         "nil",
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -162,16 +162,16 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "100"
+        "55"
     ],
     "hot_plate_temp_initial_layer": [
-        "100"
+        "55"
     ],
     "nozzle_temperature_range_low": [
-        "240"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "280"
+        "240"
     ],
     "nozzle_temperature": [
         "230",
@@ -182,22 +182,22 @@
         "230"
     ],
     "overhang_fan_speed": [
-        "50"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
         "3"
     ],
     "supertack_plate_temp": [
-        "35"
+        "0"
     ],
     "supertack_plate_temp_initial_layer": [
-        "35"
+        "0"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -206,16 +206,16 @@
         "6"
     ],
     "slow_down_min_speed": [
-        "10"
+        "20"
     ],
     "temperature_vitrification": [
-        "90"
+        "45"
     ],
     "textured_plate_temp": [
-        "100"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "100"
+        "55"
     ],
     "counter_coef_1": [
         "0"
@@ -242,10 +242,10 @@
         "0.05"
     ],
     "hole_limit_min": [
-        "-0.088"
+        "0.088"
     ],
     "hole_limit_max": [
-        "0.14"
+        "0.22"
     ],
     "circle_compensation_speed": [
         "200"
@@ -259,7 +259,7 @@
         "Bambu Lab H2D 0.8 nozzle"
     ],
     "impact_strength_z": [
-        "6.5"
+        "4.6"
     ],
     "filament_start_gcode": [
         "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
@@ -276,12 +276,9 @@
         "0"
     ],
     "filament_adhesiveness_category": [
-        "706"
+        "100"
     ],
-    "filament_id": "GFN07",
+    "filament_id": "GFA05",
     "description": "To make the prints get higher gloss, please dry the filament before use, and set the outer wall speed to be 40 to 60 mm/s when slicing.",
-    "setting_id": "GFSA05_16",
-    "filament_change_length": [
-        "5"
-    ]
+    "setting_id": "GFSA05_16"
 }

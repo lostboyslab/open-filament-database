@@ -31,7 +31,7 @@
         "42"
     ],
     "overhang_fan_speed": [
-        "80"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -40,13 +40,13 @@
         "1"
     ],
     "fan_cooling_layer_time": [
-        "100"
+        "20"
     ],
     "filament_cost": [
         "37.50"
     ],
     "filament_density": [
-        "1.24"
+        "1.27"
     ],
     "filament_diameter": [
         "1.75"
@@ -55,7 +55,7 @@
         "15"
     ],
     "filament_type": [
-        "PVA"
+        "PETG"
     ],
     "filament_vendor": [
         "Volumic"
@@ -64,7 +64,7 @@
         "Hot Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "220"
+        "235"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -79,7 +79,7 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "4"
+        "8"
     ],
     "nozzle_temperature": [
         "230"
@@ -105,11 +105,5 @@
         "VS30ULTRA (0.4 nozzle)",
         "VS30MK2 (0.4 nozzle)",
         "VS20MK2 (0.4 nozzle)"
-    ],
-    "filament_soluble": [
-        "1"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

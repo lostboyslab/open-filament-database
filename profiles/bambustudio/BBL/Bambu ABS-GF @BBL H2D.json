@@ -13,7 +13,7 @@
         "60"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
         "70"
@@ -28,10 +28,10 @@
         "70"
     ],
     "eng_plate_temp": [
-        "70"
+        "90"
     ],
     "eng_plate_temp_initial_layer": [
-        "70"
+        "90"
     ],
     "fan_cooling_layer_time": [
         "12"
@@ -40,7 +40,7 @@
         "30"
     ],
     "fan_min_speed": [
-        "60"
+        "10"
     ],
     "filament_cost": [
         "29.99"
@@ -60,7 +60,7 @@
         "0.95"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil",
@@ -109,7 +109,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "ABS-GF"
@@ -126,7 +126,7 @@
         "nil"
     ],
     "filament_prime_volume": [
-        "30"
+        "45"
     ],
     "filament_z_hop": [
         "nil",
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -162,16 +162,16 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "60"
+        "90"
     ],
     "hot_plate_temp_initial_layer": [
-        "60"
+        "90"
     ],
     "nozzle_temperature_range_low": [
-        "230"
+        "240"
     ],
     "nozzle_temperature_range_high": [
-        "270"
+        "280"
     ],
     "nozzle_temperature": [
         "270",
@@ -191,13 +191,13 @@
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "50"
+        "0"
     ],
     "supertack_plate_temp_initial_layer": [
-        "50"
+        "0"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -206,46 +206,46 @@
         "4"
     ],
     "slow_down_min_speed": [
-        "10"
+        "20"
     ],
     "temperature_vitrification": [
-        "170"
+        "100"
     ],
     "textured_plate_temp": [
-        "65"
+        "90"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "90"
     ],
     "counter_coef_1": [
         "0"
     ],
     "counter_coef_2": [
-        "0.007"
+        "0.008"
     ],
     "counter_coef_3": [
-        "0.003"
+        "-0.041"
     ],
     "hole_coef_1": [
         "0"
     ],
     "hole_coef_2": [
-        "-0.006"
+        "-0.008"
     ],
     "hole_coef_3": [
-        "0.25"
+        "0.23415"
     ],
     "counter_limit_min": [
-        "-0.4"
+        "-0.035"
     ],
     "counter_limit_max": [
-        "0.1"
+        "0.033"
     ],
     "hole_limit_min": [
-        "-0.088"
+        "0.088"
     ],
     "hole_limit_max": [
-        "0.14"
+        "0.22"
     ],
     "circle_compensation_speed": [
         "200"
@@ -276,12 +276,9 @@
         "0"
     ],
     "filament_adhesiveness_category": [
-        "705"
+        "200"
     ],
     "filament_id": "GFB50",
     "description": "When printing this filament, there's a risk of nozzle clogging, oozing, warping and low layer adhesion strength. To get better results, please refer to this wiki: Printing Tips for High Temp / Engineering materials.",
-    "setting_id": "GFSB50_03",
-    "filament_change_length": [
-        "5"
-    ]
+    "setting_id": "GFSB50_03"
 }

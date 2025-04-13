@@ -4,7 +4,7 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "chamber_temperatures": [
         "0"
@@ -13,22 +13,22 @@
         "3"
     ],
     "complete_print_exhaust_fan_speed": [
-        "60"
+        "70"
     ],
     "cool_plate_temp": [
-        "30"
+        "0"
     ],
     "cool_plate_temp_initial_layer": [
-        "30"
+        "0"
     ],
     "during_print_exhaust_fan_speed": [
-        "100"
+        "70"
     ],
     "eng_plate_temp": [
-        "30"
+        "100"
     ],
     "eng_plate_temp_initial_layer": [
-        "30"
+        "105"
     ],
     "fan_cooling_layer_time": [
         "80"
@@ -43,13 +43,13 @@
         "20"
     ],
     "filament_density": [
-        "1.24"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
     ],
     "filament_diameter": [
-        "2.85"
+        "1.75"
     ],
     "filament_flow_ratio": [
         "0.98"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.5"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -94,7 +94,7 @@
         "0"
     ],
     "filament_type": [
-        "TPU"
+        "ABS"
     ],
     "filament_vendor": [
         "Generic"
@@ -106,7 +106,7 @@
         "nil"
     ],
     "filament_z_hop": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop_types": [
         "nil"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -142,10 +142,10 @@
         "280"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "25%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -169,13 +169,13 @@
         "10"
     ],
     "temperature_vitrification": [
-        "60"
+        "110"
     ],
     "textured_plate_temp": [
-        "35"
+        "100"
     ],
     "textured_plate_temp_initial_layer": [
-        "35"
+        "105"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -186,17 +186,13 @@
     "compatible_printers": [
         "Sovol SV06 Plus ACE 0.4 nozzle"
     ],
-    "filament_id": "GFL99",
-    "additional_cooling_fan_speed": [
-        "70"
+    "nozzle_temperature_range_high": [
+        "300"
     ],
     "nozzle_temperature_range_low": [
         "190"
     ],
-    "nozzle_temperature_range_high": [
-        "300"
-    ],
+    "filament_id": "GFL99",
     "setting_id": "GFSA04",
-    "renamed_from": "My Generic TPU",
-    "is_custom_defined": "0"
+    "renamed_from": "My Generic ABS"
 }

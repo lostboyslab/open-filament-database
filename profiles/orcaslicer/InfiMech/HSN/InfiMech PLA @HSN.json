@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -147,27 +147,18 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
-    "activate_air_filtration": [
-        "1"
-    ],
-    "complete_print_exhaust_fan_speed": [
-        "80"
-    ],
-    "during_print_exhaust_fan_speed": [
+    "additional_cooling_fan_speed": [
         "100"
     ],
-    "filament_id": "GFL99",
-    "setting_id": "GFSA04",
     "enable_pressure_advance": [
         "0"
     ],
     "pressure_advance": [
         "0.03"
     ],
+    "filament_id": "GFL99",
+    "setting_id": "GFSA04",
     "compatible_printers": [
         "InfiMech TX HSN 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "100"
     ]
 }

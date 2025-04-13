@@ -4,34 +4,34 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "60"
+        "35"
     ],
     "eng_plate_temp": [
         "0"
     ],
     "hot_plate_temp": [
-        "60"
+        "45"
     ],
     "cool_plate_temp_initial_layer": [
-        "60"
+        "35"
     ],
     "eng_plate_temp_initial_layer": [
         "0"
     ],
     "hot_plate_temp_initial_layer": [
-        "60"
+        "45"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "50%"
     ],
     "overhang_fan_speed": [
-        "35"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
@@ -46,9 +46,11 @@
         "100"
     ],
     "filament_cost": [
-        "0"
+        "20"
     ],
-    "filament_density": "1.32",
+    "filament_density": [
+        "1.24"
+    ],
     "filament_deretraction_speed": [
         "nil"
     ],
@@ -107,19 +109,19 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "230"
+        "220"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "60"
+        "100"
     ],
     "fan_min_speed": [
-        "50"
+        "100"
     ],
     "slow_down_min_speed": [
-        "80"
+        "10"
     ],
     "slow_down_layer_time": [
         "7"
@@ -128,16 +130,16 @@
         "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "230"
+        "220"
     ],
     "temperature_vitrification": [
-        "70"
+        "60"
     ],
     "nozzle_temperature_range_low": [
         "190"
     ],
     "nozzle_temperature_range_high": [
-        "240"
+        "230"
     ],
     "additional_cooling_fan_speed": [
         "70"
@@ -149,17 +151,5 @@
         "FLSun QQ-S Pro 0.4 nozzle",
         "FLSun Super Racer 0.4 nozzle",
         "FLSun V400 0.4 nozzle"
-    ],
-    "activate_air_filtration": [
-        "1"
-    ],
-    "complete_print_exhaust_fan_speed": [
-        "0"
-    ],
-    "during_print_exhaust_fan_speed": [
-        "100"
-    ],
-    "dont_slow_down_outer_wall": [
-        "1"
     ]
 }

@@ -1,6 +1,6 @@
 {
     "type": "filament",
-    "name": "CoPrint Generic TPU",
+    "name": "CoPrint Generic PLA",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
@@ -10,7 +10,7 @@
         "0"
     ],
     "hot_plate_temp": [
-        "50"
+        "60"
     ],
     "textured_plate_temp": [
         "55"
@@ -22,7 +22,7 @@
         "0"
     ],
     "hot_plate_temp_initial_layer": [
-        "50"
+        "60"
     ],
     "textured_plate_temp_initial_layer": [
         "55"
@@ -40,7 +40,7 @@
         "1"
     ],
     "filament_flow_ratio": [
-        "0.97"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -55,7 +55,7 @@
         "1.24"
     ],
     "filament_deretraction_speed": [
-        "20"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -73,10 +73,10 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
-        "1.8"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -85,7 +85,7 @@
         "nil"
     ],
     "filament_retraction_speed": [
-        "20"
+        "nil"
     ],
     "filament_settings_id": [
         ""
@@ -94,7 +94,7 @@
         "0"
     ],
     "filament_type": [
-        "TPU"
+        "PLA"
     ],
     "filament_vendor": [
         "Co Print"
@@ -109,16 +109,16 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "230"
+        "210"
     ],
     "full_fan_speed_layer": [
         "3"
     ],
     "fan_max_speed": [
-        "80"
+        "100"
     ],
     "fan_min_speed": [
-        "80"
+        "100"
     ],
     "slow_down_min_speed": [
         "10"
@@ -127,7 +127,7 @@
         "5"
     ],
     "nozzle_temperature": [
-        "230"
+        "210"
     ],
     "temperature_vitrification": [
         "45"

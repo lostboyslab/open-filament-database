@@ -16,28 +16,28 @@
         "70"
     ],
     "cool_plate_temp": [
-        "30"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "30"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "30"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "30"
+        "0"
     ],
     "fan_cooling_layer_time": [
         "80"
     ],
     "fan_max_speed": [
-        "80"
+        "100"
     ],
     "fan_min_speed": [
-        "60"
+        "50"
     ],
     "filament_cost": [
         "0"
@@ -52,7 +52,7 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.96"
+        "0.98"
     ],
     "filament_is_support": [
         "0"
@@ -73,7 +73,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -88,7 +88,7 @@
         "0"
     ],
     "filament_type": [
-        "TPU"
+        "PLA"
     ],
     "filament_vendor": [
         "Elegoo"
@@ -115,16 +115,16 @@
         "60"
     ],
     "nozzle_temperature": [
-        "210"
+        "220"
     ],
     "nozzle_temperature_initial_layer": [
-        "210"
+        "220"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -136,19 +136,19 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "6"
+        "8"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "temperature_vitrification": [
-        "30"
+        "45"
     ],
     "textured_plate_temp": [
-        "65"
+        "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "60"
     ],
     "compatible_printers": [
         "Elegoo Centauri 0.2 nozzle",
@@ -162,23 +162,20 @@
         "Elegoo Neptune 3 Max 0.2 nozzle"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n{if  (bed_temperature[current_extruder] >55)||(bed_temperature_initial_layer[current_extruder] >55)}M106 P3 S200\n{elsif(bed_temperature[current_extruder] >50)||(bed_temperature_initial_layer[current_extruder] >50)}M106 P3 S150\n{elsif(bed_temperature[current_extruder] >45)||(bed_temperature_initial_layer[current_extruder] >45)}M106 P3 S50\n{endif}\n\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
+        "; filament start gcode\n"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
     ],
-    "nozzle_temperature_range_high": [
-        "250"
-    ],
     "nozzle_temperature_range_low": [
-        "200"
+        "190"
     ],
-    "filament_id": "EPLAB00",
-    "setting_id": "EPLAPLUS00020",
-    "pressure_advance": [
-        "0.024"
+    "nozzle_temperature_range_high": [
+        "240"
     ],
     "additional_cooling_fan_speed": [
         "0"
-    ]
+    ],
+    "filament_id": "EPLAB00",
+    "setting_id": "EPLAPLUS00020"
 }

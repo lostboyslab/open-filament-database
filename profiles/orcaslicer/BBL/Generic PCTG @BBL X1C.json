@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
         "70"
@@ -55,10 +55,10 @@
         "0.95"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
-        "1"
+        "nil"
     ],
     "filament_max_volumetric_speed": [
         "6"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_distances_when_cut": [
-        "18"
+        "nil"
     ],
     "filament_retraction_length": [
         "nil"
@@ -91,13 +91,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PCTG"
     ],
     "filament_vendor": [
-        "Bambu Lab"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -151,7 +151,7 @@
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
         "0"
@@ -166,7 +166,7 @@
         "12"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "temperature_vitrification": [
         "90"
@@ -200,9 +200,6 @@
     "filament_end_gcode": [
         "; filament end gcode \nM106 P3 S0\n"
     ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
     "nozzle_temperature_range_high": [
         "270"
     ],
@@ -210,6 +207,5 @@
         "240"
     ],
     "filament_id": "GFG97",
-    "description": "This is a non-water-soluble support filament, and usually it is only for the support structure and not for the model body. To get better printing quality, please refer to this wiki: Printing Tips for Support Filament and Support Function.",
     "setting_id": "GFSG97_00"
 }

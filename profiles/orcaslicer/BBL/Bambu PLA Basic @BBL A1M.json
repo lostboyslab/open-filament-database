@@ -4,10 +4,10 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -16,19 +16,19 @@
         "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "70"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "70"
+        "0"
     ],
     "fan_cooling_layer_time": [
         "80"
@@ -55,7 +55,7 @@
         "0.98"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "1"
@@ -79,7 +79,7 @@
         "18"
     ],
     "filament_retraction_length": [
-        "0.3"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,10 +91,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PLA-CF"
+        "PLA"
     ],
     "filament_vendor": [
         "Bambu Lab"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -136,28 +136,28 @@
         "60"
     ],
     "nozzle_temperature": [
-        "245"
+        "220"
     ],
     "nozzle_temperature_initial_layer": [
-        "250"
+        "220"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "50"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
-        "50"
+        "45"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -169,7 +169,7 @@
         "20"
     ],
     "temperature_vitrification": [
-        "170"
+        "45"
     ],
     "textured_plate_temp": [
         "65"
@@ -189,15 +189,14 @@
         "; filament end gcode \nM106 P3 S0\n"
     ],
     "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "nozzle_temperature_range_high": [
-        "270"
+        "70"
     ],
     "nozzle_temperature_range_low": [
-        "230"
+        "190"
+    ],
+    "nozzle_temperature_range_high": [
+        "240"
     ],
     "filament_id": "GFA00",
-    "description": "To get better transparent or translucent results with the corresponding filament, please refer to this wiki: Printing tips for transparent PETG.",
     "setting_id": "GFSA00_02"
 }

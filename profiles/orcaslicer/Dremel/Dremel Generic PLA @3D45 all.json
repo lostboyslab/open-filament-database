@@ -38,7 +38,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "9"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -102,7 +102,7 @@
     ],
     "slow_down_min_speed": "10",
     "slow_down_layer_time": [
-        "10"
+        "8"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n"
@@ -126,12 +126,6 @@
     "setting_id": "GFSL99_00",
     "compatible_printers": [
         "Dremel 3D45 0.4 nozzle"
-    ],
-    "hot_plate_temp_initial_layer": [
-        "60"
-    ],
-    "hot_plate_temp": [
-        "60"
     ],
     "filament_loading_speed_start": "3",
     "filament_loading_speed": "28",

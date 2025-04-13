@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "additional_cooling_fan_speed": [
         "70"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -37,7 +37,7 @@
         "100"
     ],
     "fan_max_speed": [
-        "30"
+        "100"
     ],
     "fan_min_speed": [
         "100"
@@ -109,13 +109,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "BVOH"
     ],
     "filament_vendor": [
-        "Polymaker"
+        "Generic"
     ],
     "filament_wipe": [
         "nil",
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -153,7 +153,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -168,10 +168,10 @@
         "55"
     ],
     "nozzle_temperature_range_low": [
-        "260"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "300"
+        "240"
     ],
     "nozzle_temperature": [
         "220",
@@ -182,7 +182,7 @@
         "220"
     ],
     "overhang_fan_speed": [
-        "40"
+        "100"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -191,7 +191,7 @@
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
         "0"
@@ -203,7 +203,7 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "2"
+        "8"
     ],
     "slow_down_min_speed": [
         "20"
@@ -259,7 +259,7 @@
         "Bambu Lab H2D 0.8 nozzle"
     ],
     "impact_strength_z": [
-        "15.5"
+        "10"
     ],
     "filament_start_gcode": [
         "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
@@ -275,10 +275,9 @@
         "0",
         "0"
     ],
+    "filament_id": "GFS97",
     "filament_adhesiveness_category": [
         "797"
     ],
-    "filament_id": "GFS97",
-    "description": "When printing this filament, there's a risk of nozzle clogging, oozing, warping and low layer adhesion strength. To get better results, please refer to this wiki: Printing Tips for High Temp / Engineering materials.",
     "setting_id": "GFSS97_03"
 }

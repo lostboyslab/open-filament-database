@@ -141,6 +141,9 @@
     "temperature_vitrification": [
         "50"
     ],
+    "filament_is_support": [
+        "1"
+    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
@@ -159,8 +162,5 @@
         "Vzbot 235 AWD 0.6 nozzle",
         "Vzbot 330 AWD 0.5 nozzle",
         "Vzbot 330 AWD 0.6 nozzle"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

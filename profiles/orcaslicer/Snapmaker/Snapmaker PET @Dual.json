@@ -22,7 +22,7 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
@@ -31,7 +31,7 @@
         "65"
     ],
     "hot_plate_temp_initial_layer": [
-        "100"
+        "60"
     ],
     "overhang_fan_threshold": [
         "25%"
@@ -40,13 +40,13 @@
         "40"
     ],
     "slow_down_for_layer_cooling": [
-        "0"
+        "1"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "2"
     ],
     "filament_flow_ratio": [
-        "0.983"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -79,16 +79,16 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_z_hop": [
-        "0.7"
+        "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "filament_retract_restart_extra": [
         "nil"
@@ -148,7 +148,7 @@
         "230"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "50"
@@ -186,6 +186,9 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#FFFFFF"
+    ],
     "filament_type": [
         "PET"
     ],
@@ -195,9 +198,6 @@
     "nozzle_temperature_range_high": [
         "280"
     ],
-    "default_filament_colour": [
-        "#FFFFFF"
-    ],
     "filament_notes": [
         "JiaNong PET 1.63x1.75mm"
     ],
@@ -205,8 +205,5 @@
     "setting_id": "145337790",
     "compatible_printers": [
         "Snapmaker A250 Dual (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

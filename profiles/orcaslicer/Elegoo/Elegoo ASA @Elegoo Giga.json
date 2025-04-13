@@ -31,7 +31,7 @@
         "25%"
     ],
     "overhang_fan_speed": [
-        "90"
+        "80"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -43,13 +43,13 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.95"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "35"
     ],
     "filament_cost": [
         "0"
@@ -121,25 +121,28 @@
         "0"
     ],
     "fan_max_speed": [
-        "50"
+        "80"
     ],
     "fan_min_speed": [
-        "20"
-    ],
-    "slow_down_min_speed": [
         "10"
     ],
+    "slow_down_min_speed": [
+        "20"
+    ],
     "slow_down_layer_time": [
-        "8"
+        "3"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "270"
     ],
     "temperature_vitrification": [
-        "110"
+        "100"
+    ],
+    "activate_air_filtration": [
+        "1"
     ],
     "nozzle_temperature_range_high": [
         "280"
@@ -154,11 +157,5 @@
         "Elegoo OrangeStorm Giga 0.6 nozzle",
         "Elegoo OrangeStorm Giga 0.8 nozzle",
         "Elegoo OrangeStorm Giga 1.0 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "activate_air_filtration": [
-        "1"
     ]
 }

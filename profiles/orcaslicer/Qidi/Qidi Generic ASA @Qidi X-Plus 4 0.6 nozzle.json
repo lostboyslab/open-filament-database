@@ -115,7 +115,7 @@
         "250"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "50"
@@ -156,9 +156,6 @@
     "compatible_printers": [
         "Qidi X-Plus 4 0.6 nozzle"
     ],
-    "required_nozzle_HRC": [
-        "40"
-    ],
     "nozzle_temperature_range_low": [
         "240"
     ],
@@ -170,14 +167,8 @@
     "pressure_advance": [
         "0.014"
     ],
-    "is_custom_defined": "0",
-    "additional_cooling_fan_speed": [
-        "100"
-    ],
-    "enable_overhang_bridge_fan": [
-        "1"
-    ],
     "chamber_temperature": [
         "55"
-    ]
+    ],
+    "is_custom_defined": "0"
 }

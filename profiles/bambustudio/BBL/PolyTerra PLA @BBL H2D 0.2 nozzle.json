@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "additional_cooling_fan_speed": [
         "70"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -19,28 +19,28 @@
         "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "100"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "5"
+        "100"
     ],
     "fan_max_speed": [
-        "30"
+        "100"
     ],
     "fan_min_speed": [
-        "10"
+        "100"
     ],
     "filament_cost": [
         "25.4"
@@ -60,7 +60,7 @@
         "0.98"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil",
@@ -109,10 +109,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PA6-CF"
+        "PLA"
     ],
     "filament_vendor": [
         "Polymaker"
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -162,16 +162,16 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "100"
+        "55"
     ],
     "hot_plate_temp_initial_layer": [
-        "100"
+        "55"
     ],
     "nozzle_temperature_range_low": [
-        "260"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "300"
+        "240"
     ],
     "nozzle_temperature": [
         "220",
@@ -182,40 +182,40 @@
         "220"
     ],
     "overhang_fan_speed": [
-        "40"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "0%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "45"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "2"
+        "4"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "temperature_vitrification": [
-        "170"
+        "45"
     ],
     "textured_plate_temp": [
-        "100"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "100"
+        "55"
     ],
     "counter_coef_1": [
         "0"
@@ -257,7 +257,7 @@
         "Bambu Lab H2D 0.2 nozzle"
     ],
     "impact_strength_z": [
-        "15.5"
+        "10.0"
     ],
     "filament_start_gcode": [
         "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
@@ -274,9 +274,8 @@
         "0"
     ],
     "filament_adhesiveness_category": [
-        "400"
+        "100"
     ],
     "filament_id": "GFL01",
-    "description": "When printing this filament, there's a risk of nozzle clogging, oozing, warping and low layer adhesion strength. To get better results, please refer to this wiki: Printing Tips for High Temp / Engineering materials.",
     "setting_id": "GFSL01_05"
 }

@@ -49,7 +49,7 @@
         "20"
     ],
     "filament_density": [
-        "1.3"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "60"
@@ -127,13 +127,16 @@
         "6"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n{if (bed_temperature[current_extruder] >45)||(bed_temperature_initial_layer[current_extruder] >45)}M106 P3 S180\n{elsif (bed_temperature[current_extruder] >50)||(bed_temperature_initial_layer[current_extruder] >50)}M106 P3 S255\n{endif};Prevent PLA from jamming\n\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "270"
     ],
     "temperature_vitrification": [
-        "70"
+        "100"
+    ],
+    "activate_air_filtration": [
+        "1"
     ],
     "nozzle_temperature_range_high": [
         "280"
@@ -159,8 +162,5 @@
         "Peopoly Magneto X 0.4 nozzle",
         "Peopoly Magneto X 0.6 nozzle",
         "Peopoly Magneto X 0.8 nozzle"
-    ],
-    "activate_air_filtration": [
-        "1"
     ]
 }

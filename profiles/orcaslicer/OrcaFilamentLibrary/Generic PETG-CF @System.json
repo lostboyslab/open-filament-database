@@ -10,25 +10,25 @@
         "0"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
         "70"
     ],
     "cool_plate_temp": [
-        "30"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "30"
+        "60"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "30"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "30"
+        "0"
     ],
     "fan_cooling_layer_time": [
         "30"
@@ -40,10 +40,10 @@
         "5"
     ],
     "filament_cost": [
-        "22.99"
+        "30"
     ],
     "filament_density": [
-        "1.25"
+        "1.27"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -52,10 +52,10 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "1"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,13 +91,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PLA-AERO"
+        "PETG"
     ],
     "filament_vendor": [
-        "eSUN"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -130,52 +130,52 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "65"
+        "80"
     ],
     "hot_plate_temp_initial_layer": [
-        "65"
+        "80"
     ],
     "nozzle_temperature": [
-        "240"
+        "255"
     ],
     "nozzle_temperature_initial_layer": [
-        "240"
+        "255"
     ],
     "overhang_fan_speed": [
         "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "70"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "6"
+        "8"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "temperature_vitrification": [
-        "64"
+        "70"
     ],
     "textured_plate_temp": [
-        "65"
+        "80"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "80"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -184,17 +184,12 @@
         "; filament end gcode\n"
     ],
     "compatible_printers": [],
-    "filament_id": "OGFL03",
-    "additional_cooling_fan_speed": [
-        "70"
+    "filament_id": "OGFG99",
+    "nozzle_temperature_range_high": [
+        "260"
     ],
     "nozzle_temperature_range_low": [
-        "230"
+        "220"
     ],
-    "nozzle_temperature_range_high": [
-        "250"
-    ],
-    "setting_id": "OGFSG50",
-    "renamed_from": "My Generic TPU",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances."
+    "setting_id": "OGFSG50"
 }

@@ -46,7 +46,7 @@
         "0.98"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "fan_cooling_layer_time": [
         "100"
@@ -147,6 +147,9 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFL99",
     "setting_id": "GFSL95_00",
     "compatible_printers": [
@@ -159,8 +162,5 @@
         "Creality Ender-3 V3 0.6 nozzle",
         "Creality Ender-3 V3 Plus 0.4 nozzle",
         "Creality Ender-3 V3 Plus 0.6 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

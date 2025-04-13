@@ -48,7 +48,9 @@
     "filament_cost": [
         "0"
     ],
-    "filament_density": "1.32",
+    "filament_density": [
+        "1.27"
+    ],
     "filament_deretraction_speed": [
         "nil"
     ],
@@ -92,7 +94,7 @@
         "0"
     ],
     "filament_type": [
-        "PLA-CF"
+        "PETG"
     ],
     "filament_vendor": [
         "Generic"
@@ -138,9 +140,6 @@
     ],
     "nozzle_temperature_range_high": [
         "270"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "filament_id": "GFG99",
     "setting_id": "GFSA04",

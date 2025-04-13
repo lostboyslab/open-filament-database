@@ -121,7 +121,7 @@
         "220"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -161,18 +161,18 @@
     "filament_end_gcode": [
         "; filament end gcode \n"
     ],
+    "nozzle_temperature_range_low": [
+        "190"
+    ],
     "nozzle_temperature_range_high": [
         "240"
     ],
-    "nozzle_temperature_range_low": [
-        "190"
+    "additional_cooling_fan_speed": [
+        "0"
     ],
     "filament_id": "EPLAMB00",
     "setting_id": "EPLAMEC",
     "pressure_advance": [
         "0.024"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

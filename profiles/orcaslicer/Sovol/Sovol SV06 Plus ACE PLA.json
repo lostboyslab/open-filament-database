@@ -49,7 +49,7 @@
         "nil"
     ],
     "filament_diameter": [
-        "2.85"
+        "1.75"
     ],
     "filament_flow_ratio": [
         "0.98"
@@ -94,7 +94,7 @@
         "0"
     ],
     "filament_type": [
-        "PETG"
+        "PLA"
     ],
     "filament_vendor": [
         "Generic"
@@ -142,7 +142,7 @@
         "235"
     ],
     "overhang_fan_speed": [
-        "80"
+        "100"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -154,10 +154,10 @@
         "3"
     ],
     "supertack_plate_temp": [
-        "70"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
-        "70"
+        "45"
     ],
     "slow_down_for_layer_cooling": [
         "1"

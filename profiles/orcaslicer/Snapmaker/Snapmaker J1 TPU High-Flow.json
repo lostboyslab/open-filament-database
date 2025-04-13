@@ -22,28 +22,28 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
     ],
     "hot_plate_temp": [
-        "110"
+        "40"
     ],
     "hot_plate_temp_initial_layer": [
-        "105"
+        "45"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "22"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "0"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "1"
     ],
     "filament_flow_ratio": [
         "0.983"
@@ -52,13 +52,13 @@
         "1"
     ],
     "fan_cooling_layer_time": [
-        "20"
+        "100"
     ],
     "filament_cost": [
-        "70"
+        "80"
     ],
     "filament_density": [
-        "1.32"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -85,7 +85,7 @@
         "0.8"
     ],
     "filament_z_hop": [
-        "0.7"
+        "0"
     ],
     "filament_z_hop_types": [
         "Normal Lift"
@@ -103,34 +103,34 @@
         "nil"
     ],
     "filament_loading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_loading_speed": [
-        "35"
+        "25"
     ],
     "filament_unloading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_unloading_speed": [
-        "35"
+        "25"
     ],
     "filament_load_time": [
-        "2"
+        "0"
     ],
     "filament_unload_time": [
-        "2"
+        "0"
     ],
     "filament_toolchange_delay": [
         "0"
     ],
     "filament_cooling_moves": [
-        "2"
+        "0"
     ],
     "filament_cooling_initial_speed": [
-        "35"
+        "2.2"
     ],
     "filament_cooling_final_speed": [
-        "60"
+        "3.4"
     ],
     "filament_multitool_ramming": [
         "0"
@@ -145,28 +145,28 @@
         "240"
     ],
     "temperature_vitrification": [
-        "182"
+        "138"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "22"
+        "70"
     ],
     "fan_min_speed": [
-        "22"
+        "70"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "5"
+        "8"
     ],
     "enable_pressure_advance": [
-        "1"
+        "0"
     ],
     "pressure_advance": [
-        "0.02"
+        "0.01"
     ],
     "cool_plate_temp": [
         "0"
@@ -186,17 +186,20 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#302730"
+    ],
     "filament_type": [
-        "ASA"
+        "TPU"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "nozzle_temperature_range_low": [
-        "240"
+        "220"
     ],
     "nozzle_temperature_range_high": [
-        "280"
-    ],
-    "default_filament_colour": [
-        "#CF942B"
+        "250"
     ],
     "filament_notes": [
         "!! It needs to be dried before use.\nSnapmaker TPU 95A High-Flow\n"
@@ -207,8 +210,5 @@
         "Snapmaker J1 (0.4 nozzle)",
         "Snapmaker J1 (0.6 nozzle)",
         "Snapmaker J1 (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

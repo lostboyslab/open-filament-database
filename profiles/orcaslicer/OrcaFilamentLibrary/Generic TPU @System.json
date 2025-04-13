@@ -34,7 +34,7 @@
         "100"
     ],
     "fan_max_speed": [
-        "35"
+        "100"
     ],
     "fan_min_speed": [
         "100"
@@ -52,10 +52,10 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.96"
+        "1"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -91,13 +91,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "TPU"
     ],
     "filament_vendor": [
-        "Polymaker"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -142,16 +142,16 @@
         "240"
     ],
     "overhang_fan_speed": [
-        "40"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
         "0"
@@ -163,7 +163,7 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "2"
+        "8"
     ],
     "slow_down_min_speed": [
         "10"
@@ -184,17 +184,16 @@
         "; filament end gcode\n"
     ],
     "compatible_printers": [],
-    "filament_id": "OGFU99",
     "additional_cooling_fan_speed": [
         "70"
-    ],
-    "nozzle_temperature_range_low": [
-        "200"
     ],
     "nozzle_temperature_range_high": [
         "250"
     ],
+    "nozzle_temperature_range_low": [
+        "200"
+    ],
+    "filament_id": "OGFU99",
     "setting_id": "OGFSA04",
-    "renamed_from": "My Generic TPU",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances."
+    "renamed_from": "My Generic TPU"
 }

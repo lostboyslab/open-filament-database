@@ -52,7 +52,7 @@
         "1.24"
     ],
     "filament_deretraction_speed": [
-        "60"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -73,7 +73,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -85,7 +85,7 @@
         "nil"
     ],
     "filament_retraction_speed": [
-        "60"
+        "nil"
     ],
     "filament_settings_id": [
         ""
@@ -100,10 +100,10 @@
         "Peopoly"
     ],
     "filament_wipe": [
-        "1"
+        "nil"
     ],
     "filament_wipe_distance": [
-        "1"
+        "nil"
     ],
     "bed_type": [
         "Cool Plate"
@@ -135,17 +135,14 @@
     "temperature_vitrification": [
         "60"
     ],
-    "nozzle_temperature_range_high": [
-        "230"
-    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
-    "textured_plate_temp": [
-        "90"
+    "nozzle_temperature_range_high": [
+        "230"
     ],
-    "textured_plate_temp_initial_layer": [
-        "90"
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "filament_id": "GFL99",
     "setting_id": "GFSL99",
@@ -159,11 +156,5 @@
         "Peopoly Magneto X 0.4 nozzle",
         "Peopoly Magneto X 0.6 nozzle",
         "Peopoly Magneto X 0.8 nozzle"
-    ],
-    "activate_air_filtration": [
-        "1"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

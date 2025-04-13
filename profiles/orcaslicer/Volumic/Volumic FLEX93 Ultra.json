@@ -64,7 +64,7 @@
         "Hot Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "220"
+        "210"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -79,13 +79,16 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "4"
+        "8"
     ],
     "nozzle_temperature": [
         "235"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "filament_id": "GFU99",
     "setting_id": "GFSR99",
@@ -105,14 +108,5 @@
         "VS30ULTRA (0.4 nozzle)",
         "VS30MK2 (0.4 nozzle)",
         "VS20MK2 (0.4 nozzle)"
-    ],
-    "filament_soluble": [
-        "1"
-    ],
-    "filament_is_support": [
-        "1"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

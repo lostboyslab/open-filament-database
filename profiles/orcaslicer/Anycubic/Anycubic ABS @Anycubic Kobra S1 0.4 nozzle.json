@@ -94,10 +94,10 @@
         "0"
     ],
     "filament_type": [
-        "PLA-CF"
+        "ABS"
     ],
     "filament_vendor": [
-        "Anycubic"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -251,11 +251,7 @@
     "support_material_interface_fan_speed": [
         "-1"
     ],
-    "textured_plate_temp": [
-        "55"
-    ],
     "textured_plate_temp_initial_layer": [
         "90"
-    ],
-    "is_custom_defined": "0"
+    ]
 }

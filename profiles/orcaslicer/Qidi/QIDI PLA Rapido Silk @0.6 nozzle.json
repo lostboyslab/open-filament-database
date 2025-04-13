@@ -4,34 +4,34 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "35"
+        "60"
     ],
     "eng_plate_temp": [
-        "0"
+        "60"
     ],
     "hot_plate_temp": [
-        "100"
+        "60"
     ],
     "textured_plate_temp": [
-        "55"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "35"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "0"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
-        "80"
+        "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "55"
+        "60"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -91,16 +91,16 @@
         "nil"
     ],
     "filament_settings_id": [
-        "Bambu PETG @Qidi Q1 Pro 0.2 nozzle"
+        ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PVA"
+        "PLA"
     ],
     "filament_vendor": [
-        "Generic"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -112,16 +112,16 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "260"
+        "220"
     ],
     "full_fan_speed_layer": [
         "3"
     ],
     "fan_max_speed": [
-        "40"
+        "100"
     ],
     "fan_min_speed": [
-        "10"
+        "100"
     ],
     "slow_down_min_speed": [
         "20"
@@ -130,13 +130,13 @@
         "8"
     ],
     "nozzle_temperature": [
-        "260"
+        "220"
     ],
     "temperature_vitrification": [
-        "55"
+        "45"
     ],
     "during_print_exhaust_fan_speed": [
-        "0"
+        "100"
     ],
     "activate_air_filtration": [
         "1"
@@ -161,37 +161,21 @@
         "Qidi X-Plus 3 0.6 nozzle",
         "Qidi X-Max 3 0.6 nozzle"
     ],
-    "required_nozzle_HRC": [
-        "3"
-    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
     "nozzle_temperature_range_high": [
         "240"
     ],
-    "filament_id": "GFL99",
-    "setting_id": "GFSL99",
-    "pressure_advance": [
-        "0.016"
-    ],
-    "is_custom_defined": "0",
     "additional_cooling_fan_speed": [
-        "70"
+        "0"
     ],
     "enable_overhang_bridge_fan": [
         "0"
     ],
-    "chamber_temperature": [
-        "55"
-    ],
-    "enable_volume_fan": [
-        "40"
-    ],
-    "first_layer_temperature": [
-        "220"
-    ],
-    "filament_is_support": [
-        "1"
+    "filament_id": "GFL99",
+    "setting_id": "GFSL99",
+    "pressure_advance": [
+        "0.016"
     ]
 }

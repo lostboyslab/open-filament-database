@@ -4,21 +4,21 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "100"
+        "60"
     ],
     "eng_plate_temp": [
-        "100"
+        "0"
     ],
     "hot_plate_temp": "80",
     "cool_plate_temp_initial_layer": [
-        "100"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "0"
     ],
     "hot_plate_temp_initial_layer": "80",
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "50"
@@ -30,7 +30,7 @@
         "3"
     ],
     "filament_end_gcode": [
-        "; Filament-specific end gcode"
+        "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
         "1"
@@ -38,40 +38,54 @@
     "reduce_fan_stop_start_freq": [
         "1"
     ],
-    "fan_cooling_layer_time": "25",
-    "filament_cost": [
+    "fan_cooling_layer_time": [
         "20"
     ],
-    "filament_density": [
-        "1.04"
+    "filament_cost": [
+        "30"
     ],
-    "filament_deretraction_speed": "20",
+    "filament_density": [
+        "1.27"
+    ],
+    "filament_deretraction_speed": [
+        "nil"
+    ],
     "filament_diameter": [
         "1.75"
     ],
     "filament_max_volumetric_speed": [
         "9.5"
     ],
-    "filament_minimal_purge_on_wipe_tower": "35",
-    "filament_retraction_minimum_travel": "2",
+    "filament_minimal_purge_on_wipe_tower": [
+        "15"
+    ],
+    "filament_retraction_minimum_travel": [
+        "nil"
+    ],
     "filament_retract_before_wipe": "20%",
     "filament_retract_when_changing_layer": [
         "nil"
     ],
-    "filament_retraction_length": "2.5",
-    "filament_z_hop": "0",
+    "filament_retraction_length": [
+        "nil"
+    ],
+    "filament_z_hop": [
+        "nil"
+    ],
     "filament_retract_restart_extra": [
         "nil"
     ],
-    "filament_retraction_speed": "60",
+    "filament_retraction_speed": [
+        "nil"
+    ],
     "filament_settings_id": [
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PA-CF"
+        "PETG"
     ],
     "filament_vendor": [
         "Generic"
@@ -84,7 +98,7 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "280"
+        "255"
     ],
     "full_fan_speed_layer": "5",
     "fan_max_speed": [
@@ -102,31 +116,17 @@
     ],
     "nozzle_temperature": "250",
     "temperature_vitrification": [
-        "140"
+        "80"
     ],
-    "filament_id": "Generic PETG @MK4S HF0.5",
+    "filament_id": "GFT02",
     "idle_temperature": "0",
     "nozzle_temperature_range_low": [
-        "260"
+        "220"
     ],
     "nozzle_temperature_range_high": [
-        "280"
+        "260"
     ],
     "setting_id": "GFSA04",
-    "compatible_printers": [
-        "Prusa XL 0.25 nozzle",
-        "Prusa XL 0.3 nozzle",
-        "Prusa XL 0.4 nozzle",
-        "Prusa XL 0.5 nozzle",
-        "Prusa XL 0.6 nozzle",
-        "Prusa XL 0.8 nozzle"
-    ],
-    "filament_is_support": [
-        "1"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
     "nozzle_temperature_intial_layer": "240",
     "filament_loading_speed_start": "50",
     "filament_loading_speed": "10",
@@ -138,29 +138,12 @@
     "filament_cooling_initial_speed": "5",
     "filament_cooling_final_speed": "2.5",
     "filament_retract_lift_below": "1.5",
-    "default_filament_colour": "#008000",
-    "filament_notes": [
-        ""
-    ],
-    "filament_multitool_ramming": [
-        "1"
-    ],
-    "filament_multitool_ramming_volume": [
-        "5"
-    ],
-    "filament_multitool_ramming_flow": [
-        "40"
-    ],
-    "filament_stamping_distance": [
-        "45"
-    ],
-    "filament_stamping_loading_speed": [
-        "29"
-    ],
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.55"
+    "compatible_printers": [
+        "Prusa XL 0.25 nozzle",
+        "Prusa XL 0.3 nozzle",
+        "Prusa XL 0.4 nozzle",
+        "Prusa XL 0.5 nozzle",
+        "Prusa XL 0.6 nozzle",
+        "Prusa XL 0.8 nozzle"
     ]
 }

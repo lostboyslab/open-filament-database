@@ -79,10 +79,10 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "1.2"
+        "nil"
     ],
     "filament_z_hop": [
-        "0.0"
+        "nil"
     ],
     "filament_z_hop_types": [
         "nil"
@@ -148,7 +148,7 @@
         "230"
     ],
     "additional_cooling_fan_speed": [
-        "80"
+        "0"
     ],
     "filament_id": "BSFI010",
     "setting_id": "BSSI010",

@@ -10,7 +10,7 @@
         "90"
     ],
     "hot_plate_temp": [
-        "60"
+        "90"
     ],
     "textured_plate_temp": [
         "90"
@@ -22,7 +22,7 @@
         "90"
     ],
     "hot_plate_temp_initial_layer": [
-        "60"
+        "90"
     ],
     "textured_plate_temp_initial_layer": [
         "90"
@@ -40,7 +40,7 @@
         "3"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -52,7 +52,7 @@
         "20"
     ],
     "filament_density": [
-        "1.07"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -61,7 +61,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "2"
+        "17"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.5"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -97,7 +97,7 @@
         "0"
     ],
     "filament_type": [
-        "ASA"
+        "ABS"
     ],
     "filament_vendor": [
         "Generic"
@@ -112,13 +112,13 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "220"
+        "250"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "50"
+        "80"
     ],
     "fan_min_speed": [
         "10"
@@ -127,10 +127,10 @@
         "20"
     ],
     "slow_down_layer_time": [
-        "8"
+        "4"
     ],
     "nozzle_temperature": [
-        "210"
+        "250"
     ],
     "temperature_vitrification": [
         "100"
@@ -157,26 +157,11 @@
         "240"
     ],
     "nozzle_temperature_range_high": [
-        "280"
+        "270"
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSB99_Qidi_04",
     "pressure_advance": [
         "0.035"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
     ]
 }

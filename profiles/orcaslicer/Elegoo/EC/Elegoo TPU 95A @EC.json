@@ -34,7 +34,7 @@
         "100"
     ],
     "fan_max_speed": [
-        "40"
+        "100"
     ],
     "fan_min_speed": [
         "100"
@@ -121,10 +121,10 @@
         "225"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "95%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -136,10 +136,10 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "12"
+        "8"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "temperature_vitrification": [
         "30"
@@ -161,6 +161,9 @@
     "filament_end_gcode": [
         "; filament end gcode \n"
     ],
+    "additional_cooling_fan_speed": [
+        "0"
+    ],
     "nozzle_temperature_range_high": [
         "250"
     ],
@@ -171,8 +174,5 @@
     "setting_id": "ETPU95AEC",
     "pressure_advance": [
         "0.024"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

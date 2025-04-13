@@ -7,22 +7,22 @@
         "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "complete_print_exhaust_fan_speed": [
-        "80"
+        "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
-        "60"
+        "70"
     ],
     "eng_plate_temp": [
         "60"
@@ -46,7 +46,7 @@
         "1.19"
     ],
     "filament_deretraction_speed": [
-        "0"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -79,22 +79,22 @@
         "18"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "50"
+        "nil"
     ],
     "filament_settings_id": [
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PA-CF"
+        "PLA"
     ],
     "filament_vendor": [
         "Bambu Lab"
@@ -103,7 +103,7 @@
         "nil"
     ],
     "filament_wipe_distance": [
-        "0"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -112,16 +112,16 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
-        "0%"
+        "15%"
     ],
     "filament_scarf_length": [
         "10"
@@ -142,19 +142,19 @@
         "210"
     ],
     "overhang_fan_speed": [
-        "40"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "0%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
         "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
         "0"
@@ -166,10 +166,10 @@
         "8"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "temperature_vitrification": [
-        "170"
+        "45"
     ],
     "textured_plate_temp": [
         "60"
@@ -186,21 +186,14 @@
     "compatible_printers": [],
     "filament_id": "OGFS05",
     "additional_cooling_fan_speed": [
-        "0"
+        "70"
     ],
     "nozzle_temperature_range_low": [
-        "210"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "250"
+        "240"
     ],
-    "setting_id": "OGFSS05_00",
-    "renamed_from": "Generic Silk PLA @System",
     "description": "This is a non-water-soluble support filament, and usually it is only for the support structure and not for the model body. To get better printing quality, please refer to this wiki: Printing Tips for Support Filament and Support Function.",
-    "enable_pressure_advance": [
-        "0"
-    ],
-    "pressure_advance": [
-        "0.026"
-    ]
+    "setting_id": "OGFSS05_00"
 }

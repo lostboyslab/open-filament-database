@@ -4,7 +4,7 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "40"
+        "62"
     ],
     "eng_plate_temp": [
         "75"
@@ -16,7 +16,7 @@
         "62"
     ],
     "cool_plate_temp_initial_layer": [
-        "40"
+        "66"
     ],
     "eng_plate_temp_initial_layer": [
         "80"
@@ -28,7 +28,7 @@
         "66"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "80"
@@ -115,7 +115,7 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "270"
+        "255"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -136,7 +136,7 @@
         "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "270"
+        "255"
     ],
     "temperature_vitrification": [
         "75"
@@ -145,7 +145,7 @@
         "230"
     ],
     "nozzle_temperature_range_high": [
-        "275"
+        "260"
     ],
     "filament_id": "GFG99",
     "setting_id": "GFSG99",

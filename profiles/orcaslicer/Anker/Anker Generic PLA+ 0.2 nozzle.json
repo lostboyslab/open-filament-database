@@ -7,19 +7,19 @@
         "Generic"
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_is_support": [
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "0"
     ],
     "filament_diameter": [
         "1.75"
     ],
     "filament_flow_ratio": [
-        "1.03"
+        "0.98"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -40,52 +40,52 @@
         "0"
     ],
     "filament_type": [
-        "TPU"
+        "PLA"
     ],
     "filament_density": [
-        "1.21"
+        "1.24"
     ],
     "filament_cost": [
         "25"
     ],
     "temperature_vitrification": [
-        "30"
+        "70"
     ],
     "nozzle_temperature_range_low": [
-        "200"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "250"
+        "230"
     ],
     "nozzle_temperature_initial_layer": [
-        "240"
+        "220"
     ],
     "nozzle_temperature": [
-        "240"
+        "220"
     ],
     "hot_plate_temp_initial_layer": [
-        "25"
+        "60"
     ],
     "hot_plate_temp": [
-        "25"
+        "60"
     ],
     "filament_max_volumetric_speed": [
         "2"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_min_speed": [
-        "30"
+        "100"
     ],
     "fan_cooling_layer_time": [
         "100"
     ],
     "fan_max_speed": [
-        "80"
+        "100"
     ],
     "slow_down_layer_time": [
         "4"
@@ -106,21 +106,16 @@
         "50%"
     ],
     "overhang_fan_speed": [
-        "50"
+        "100"
     ],
     "support_material_interface_fan_speed": [
         "-1"
     ],
-    "filament_id": "GFU99",
+    "filament_id": "GFL95",
     "setting_id": "GFSL95_20",
     "compatible_printers": [
         "Anker M5 0.2 nozzle",
         "Anker M5 All-Metal 0.2 nozzle",
         "Anker M5C 0.2 nozzle"
-    ],
-    "filament_retraction_speed": "90",
-    "filament_deretraction_speed": "50",
-    "filament_retract_when_changing_layer": "1",
-    "filament_wipe": "1",
-    "filament_retract_before_wipe": "70"
+    ]
 }

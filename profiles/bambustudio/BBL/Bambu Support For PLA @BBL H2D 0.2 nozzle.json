@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
-    ],
-    "additional_cooling_fan_speed": [
         "0"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -19,34 +19,34 @@
         "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "40"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "40"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "40"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "40"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "80"
+        "100"
     ],
     "fan_max_speed": [
-        "80"
+        "100"
     ],
     "fan_min_speed": [
-        "60"
+        "100"
     ],
     "filament_cost": [
-        "63.99"
+        "69.98"
     ],
     "filament_density": [
-        "1.2"
+        "1.30"
     ],
     "filament_deretraction_speed": [
         "nil",
@@ -109,13 +109,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PA-GF"
+        "PLA"
     ],
     "filament_vendor": [
-        "Polymaker"
+        "Bambu Lab"
     ],
     "filament_wipe": [
         "nil",
@@ -126,7 +126,7 @@
         "nil"
     ],
     "filament_prime_volume": [
-        "30"
+        "45"
     ],
     "filament_z_hop": [
         "nil",
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -150,10 +150,10 @@
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
-        "0%"
+        "15%"
     ],
     "filament_scarf_length": [
         "10"
@@ -162,16 +162,16 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "60"
+        "55"
     ],
     "hot_plate_temp_initial_layer": [
-        "60"
+        "55"
     ],
     "nozzle_temperature_range_low": [
-        "280"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "260"
+        "240"
     ],
     "nozzle_temperature": [
         "240",
@@ -185,7 +185,7 @@
         "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -194,10 +194,10 @@
         "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "45"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -209,43 +209,43 @@
         "20"
     ],
     "temperature_vitrification": [
-        "191"
+        "45"
     ],
     "textured_plate_temp": [
-        "65"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "55"
     ],
     "counter_coef_1": [
         "0"
     ],
     "counter_coef_2": [
-        "0.0075"
+        "0.008"
     ],
     "counter_coef_3": [
-        "-0.052"
+        "-0.041"
     ],
     "hole_coef_1": [
         "0"
     ],
     "hole_coef_2": [
-        "-0.012"
+        "-0.008"
     ],
     "hole_coef_3": [
-        "0.35043"
+        "0.23415"
     ],
     "counter_limit_min": [
-        "-0.4"
+        "-0.035"
     ],
     "counter_limit_max": [
-        "0.03"
+        "0.033"
     ],
     "hole_limit_min": [
-        "0.07"
+        "0.088"
     ],
     "hole_limit_max": [
-        "0.14"
+        "0.22"
     ],
     "circle_compensation_speed": [
         "200"
@@ -257,7 +257,7 @@
         "Bambu Lab H2D 0.2 nozzle"
     ],
     "impact_strength_z": [
-        "88.7"
+        "10.0"
     ],
     "filament_start_gcode": [
         "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
@@ -274,12 +274,9 @@
         "0"
     ],
     "filament_adhesiveness_category": [
-        "800"
+        "702"
     ],
-    "filament_id": "GFL51",
+    "filament_id": "GFS02",
     "description": "This is a non-water-soluble support filament, and usually it is only for the support structure and not for the model body. To get better printing quality, please refer to this wiki: Printing Tips for Support Filament and Support Function.",
-    "setting_id": "GFSS02_06",
-    "filament_change_length": [
-        "5"
-    ]
+    "setting_id": "GFSS02_06"
 }

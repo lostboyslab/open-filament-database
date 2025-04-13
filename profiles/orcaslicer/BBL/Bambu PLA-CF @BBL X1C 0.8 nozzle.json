@@ -4,10 +4,10 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -25,19 +25,19 @@
         "70"
     ],
     "eng_plate_temp": [
-        "65"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "65"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "100"
     ],
     "fan_max_speed": [
-        "40"
+        "100"
     ],
     "fan_min_speed": [
-        "5"
+        "100"
     ],
     "filament_cost": [
         "34.99"
@@ -55,7 +55,7 @@
         "0.98"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "1"
@@ -79,7 +79,7 @@
         "18"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,7 +91,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PLA-CF"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -130,10 +130,10 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "65"
+        "55"
     ],
     "hot_plate_temp_initial_layer": [
-        "65"
+        "55"
     ],
     "nozzle_temperature": [
         "230"
@@ -145,7 +145,7 @@
         "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -169,13 +169,13 @@
         "20"
     ],
     "temperature_vitrification": [
-        "170"
+        "45"
     ],
     "textured_plate_temp": [
-        "65"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "55"
     ],
     "compatible_printers": [
         "Bambu Lab X1 Carbon 0.6 nozzle",
@@ -196,13 +196,12 @@
     "additional_cooling_fan_speed": [
         "0"
     ],
-    "nozzle_temperature_range_high": [
-        "250"
-    ],
     "nozzle_temperature_range_low": [
         "210"
     ],
+    "nozzle_temperature_range_high": [
+        "250"
+    ],
     "filament_id": "GFA50",
-    "description": "The generic presets are conservatively tuned for compatibility with a wider range of filaments. For higher printing quality and speeds, please use Bambu filaments with Bambu presets.",
     "setting_id": "GFSA50_02"
 }

@@ -7,19 +7,19 @@
         "Generic"
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_is_support": [
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "0"
     ],
     "filament_diameter": [
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.95"
+        "0.98"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -40,10 +40,10 @@
         "0"
     ],
     "filament_type": [
-        "PVA"
+        "PLA"
     ],
     "filament_density": [
-        "1.25"
+        "1.24"
     ],
     "filament_cost": [
         "25"
@@ -55,7 +55,7 @@
         "190"
     ],
     "nozzle_temperature_range_high": [
-        "240"
+        "230"
     ],
     "nozzle_temperature_initial_layer": [
         "220"
@@ -64,10 +64,10 @@
         "220"
     ],
     "hot_plate_temp_initial_layer": [
-        "65"
+        "60"
     ],
     "hot_plate_temp": [
-        "65"
+        "60"
     ],
     "filament_max_volumetric_speed": [
         "16"
@@ -76,19 +76,19 @@
         "1"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_min_speed": [
-        "60"
+        "100"
     ],
     "fan_cooling_layer_time": [
         "100"
     ],
     "fan_max_speed": [
-        "80"
+        "100"
     ],
     "slow_down_layer_time": [
-        "7"
+        "4"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -97,7 +97,7 @@
         "1"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "enable_overhang_bridge_fan": [
         "1"

@@ -7,31 +7,31 @@
         "0"
     ],
     "eng_plate_temp": [
-        "110"
+        "100"
     ],
     "hot_plate_temp": [
-        "110"
+        "100"
     ],
     "textured_plate_temp": [
-        "110"
+        "100"
     ],
     "cool_plate_temp_initial_layer": [
         "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "110"
+        "100"
     ],
     "hot_plate_temp_initial_layer": [
-        "110"
+        "100"
     ],
     "textured_plate_temp_initial_layer": [
-        "110"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "60"
+        "30"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -43,13 +43,13 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.94"
-    ],
-    "reduce_fan_stop_start_freq": [
         "1"
     ],
+    "reduce_fan_stop_start_freq": [
+        "0"
+    ],
     "fan_cooling_layer_time": [
-        "30"
+        "4"
     ],
     "filament_cost": [
         "20"
@@ -64,10 +64,10 @@
         "1.75"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_max_volumetric_speed": [
-        "12"
+        "8"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -82,7 +82,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -100,7 +100,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PA-CF"
@@ -124,7 +124,7 @@
         "60"
     ],
     "fan_min_speed": [
-        "10"
+        "0"
     ],
     "required_nozzle_HRC": [
         "3"
@@ -136,22 +136,19 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
     ],
     "temperature_vitrification": [
-        "140"
+        "108"
     ],
     "nozzle_temperature_range_low": [
-        "260"
+        "270"
     ],
     "nozzle_temperature_range_high": [
-        "280"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
+        "300"
     ],
     "filament_id": "GFN98",
     "setting_id": "GFSN98_VORON_00",

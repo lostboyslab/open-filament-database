@@ -4,46 +4,46 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "complete_print_exhaust_fan_speed": [
         "70"
     ],
     "cool_plate_temp": [
-        "70"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "70"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "100"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "0"
     ],
     "fan_cooling_layer_time": [
         "80"
     ],
     "fan_max_speed": [
-        "40"
+        "100"
     ],
     "fan_min_speed": [
-        "5"
+        "30"
     ],
     "filament_cost": [
-        "29.99"
+        "44.99"
     ],
     "filament_density": [
-        "1.08"
+        "1.21"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -52,16 +52,16 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.94"
+        "0.6"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
-        "1"
+        "nil"
     ],
     "filament_max_volumetric_speed": [
-        "11.5"
+        "6"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -76,10 +76,10 @@
         "nil"
     ],
     "filament_retraction_distances_when_cut": [
-        "18"
+        "nil"
     ],
     "filament_retraction_length": [
-        "0.5"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,10 +91,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "ABS-GF"
+        "PLA-AERO"
     ],
     "filament_vendor": [
         "Bambu Lab"
@@ -103,25 +103,25 @@
         "nil"
     ],
     "filament_wipe_distance": [
-        "5"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
-        "0%"
+        "15%"
     ],
     "filament_scarf_length": [
         "10"
@@ -136,28 +136,28 @@
         "65"
     ],
     "nozzle_temperature": [
-        "265"
+        "220"
     ],
     "nozzle_temperature_initial_layer": [
-        "265"
+        "220"
     ],
     "overhang_fan_speed": [
         "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
         "3"
     ],
     "supertack_plate_temp": [
-        "35"
+        "0"
     ],
     "supertack_plate_temp_initial_layer": [
-        "35"
+        "0"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -169,7 +169,7 @@
         "20"
     ],
     "temperature_vitrification": [
-        "70"
+        "45"
     ],
     "textured_plate_temp": [
         "65"
@@ -183,7 +183,7 @@
         "Bambu Lab P1P 0.8 nozzle"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n{if  (bed_temperature[current_extruder] >35)||(bed_temperature_initial_layer[current_extruder] >35)}M106 P3 S255\n{elsif(bed_temperature[current_extruder] >30)||(bed_temperature_initial_layer[current_extruder] >30)}M106 P3 S180\n{endif}\n\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
+        "; filament start gcode\n{if  (bed_temperature[current_extruder] >55)||(bed_temperature_initial_layer[current_extruder] >55)}M106 P3 S200\n{elsif(bed_temperature[current_extruder] >50)||(bed_temperature_initial_layer[current_extruder] >50)}M106 P3 S150\n{elsif(bed_temperature[current_extruder] >45)||(bed_temperature_initial_layer[current_extruder] >45)}M106 P3 S50\n{endif}\n\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
     ],
     "filament_end_gcode": [
         "; filament end gcode \nM106 P3 S0\n"
@@ -191,13 +191,13 @@
     "additional_cooling_fan_speed": [
         "0"
     ],
-    "nozzle_temperature_range_high": [
-        "270"
-    ],
     "nozzle_temperature_range_low": [
-        "215"
+        "210"
     ],
-    "filament_id": "GFB50",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances.",
+    "nozzle_temperature_range_high": [
+        "260"
+    ],
+    "filament_id": "GFA11",
+    "description": "This filament is only used to print models with a low density usually, and some special parameters are required. To get better printing quality, please refer to this wiki: Instructions for printing RC model with foaming PLA (PLA Aero).",
     "setting_id": "GFSA11_02"
 }

@@ -4,28 +4,28 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "105"
+        "0"
     ],
     "eng_plate_temp": [
-        "105"
+        "100"
     ],
     "hot_plate_temp": [
-        "105"
+        "100"
     ],
     "cool_plate_temp_initial_layer": [
-        "105"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "105"
+        "100"
     ],
     "hot_plate_temp_initial_layer": [
-        "105"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "30"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -37,13 +37,13 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.95"
-    ],
-    "reduce_fan_stop_start_freq": [
         "1"
     ],
+    "reduce_fan_stop_start_freq": [
+        "0"
+    ],
     "fan_cooling_layer_time": [
-        "30"
+        "4"
     ],
     "filament_cost": [
         "20"
@@ -61,7 +61,7 @@
         "0"
     ],
     "filament_max_volumetric_speed": [
-        "12"
+        "8"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -115,10 +115,10 @@
         "0"
     ],
     "fan_max_speed": [
-        "80"
+        "60"
     ],
     "fan_min_speed": [
-        "10"
+        "0"
     ],
     "required_nozzle_HRC": [
         "3"
@@ -127,22 +127,22 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "7"
+        "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
     ],
     "temperature_vitrification": [
-        "110"
+        "108"
     ],
     "nozzle_temperature_range_low": [
-        "240"
+        "270"
     ],
     "nozzle_temperature_range_high": [
-        "270"
+        "300"
     ],
     "filament_id": "GFN98",
     "setting_id": "GFSN98_ANYCUBIC_00",
@@ -155,8 +155,5 @@
         "Anycubic 4Max Pro 0.4 nozzle",
         "Anycubic 4Max Pro 2 0.4 nozzle",
         "Anycubic Kobra 2 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

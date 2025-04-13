@@ -138,6 +138,9 @@
     "temperature_vitrification": [
         "50"
     ],
+    "filament_is_support": [
+        "1"
+    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
@@ -158,8 +161,5 @@
     "compatible_printers": [
         "SecKit SK-Tank 0.4 nozzle",
         "SecKit Go3 0.4 nozzle"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

@@ -4,40 +4,40 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "0"
+        "60"
     ],
     "eng_plate_temp": [
-        "90"
+        "60"
     ],
     "hot_plate_temp": [
         "60"
     ],
     "textured_plate_temp": [
-        "65"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "90"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
         "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "60"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "50%"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
@@ -49,13 +49,13 @@
         "1"
     ],
     "fan_cooling_layer_time": [
-        "80"
+        "100"
     ],
     "filament_cost": [
-        "0"
+        "20"
     ],
     "filament_density": [
-        "1.1"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -100,10 +100,10 @@
         "0"
     ],
     "filament_type": [
-        "ASA"
+        "PLA"
     ],
     "filament_vendor": [
-        "Elegoo"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -121,31 +121,34 @@
         "0"
     ],
     "fan_max_speed": [
-        "80"
+        "100"
     ],
     "fan_min_speed": [
-        "60"
+        "100"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "6"
+        "8"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "270"
+        "205"
     ],
     "temperature_vitrification": [
-        "110"
-    ],
-    "nozzle_temperature_range_high": [
-        "280"
+        "60"
     ],
     "nozzle_temperature_range_low": [
-        "240"
+        "205"
+    ],
+    "nozzle_temperature_range_high": [
+        "210"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "filament_id": "GFL99",
     "setting_id": "GFSL99",
@@ -154,11 +157,5 @@
         "Elegoo OrangeStorm Giga 0.6 nozzle",
         "Elegoo OrangeStorm Giga 0.8 nozzle",
         "Elegoo OrangeStorm Giga 1.0 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "activate_air_filtration": [
-        "1"
     ]
 }

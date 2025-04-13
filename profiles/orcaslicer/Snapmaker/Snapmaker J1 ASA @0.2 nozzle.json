@@ -4,7 +4,7 @@
     "instantiation": "true",
     "name": "Snapmaker J1 ASA @0.2 nozzle",
     "filament_vendor": [
-        "Polymaker"
+        "Snapmaker"
     ],
     "filament_start_gcode": [
         ""
@@ -13,7 +13,7 @@
         ""
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_soluble": [
         "0"
@@ -22,7 +22,7 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
@@ -34,34 +34,34 @@
         "90"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "25%"
     ],
     "overhang_fan_speed": [
         "80"
     ],
     "slow_down_for_layer_cooling": [
-        "0"
+        "1"
     ],
     "close_fan_the_first_x_layers": [
         "4"
     ],
     "filament_flow_ratio": [
-        "0.95"
+        "0.94"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "100"
+        "20"
     ],
     "filament_cost": [
-        "90"
+        "80"
     ],
     "filament_density": [
-        "1.22"
+        "1.04"
     ],
     "filament_deretraction_speed": [
-        "15"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -79,22 +79,22 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
-        "2"
+        "0.6"
     ],
     "filament_z_hop": [
         "0.7"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "filament_retract_restart_extra": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "28"
+        "nil"
     ],
     "filament_wipe": [
         "nil"
@@ -103,34 +103,34 @@
         "nil"
     ],
     "filament_loading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_loading_speed": [
-        "35"
+        "25"
     ],
     "filament_unloading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_unloading_speed": [
-        "35"
+        "25"
     ],
     "filament_load_time": [
-        "2"
+        "0"
     ],
     "filament_unload_time": [
-        "2"
+        "0"
     ],
     "filament_toolchange_delay": [
         "0"
     ],
     "filament_cooling_moves": [
-        "2"
+        "0"
     ],
     "filament_cooling_initial_speed": [
-        "35"
+        "2.2"
     ],
     "filament_cooling_final_speed": [
-        "60"
+        "3.4"
     ],
     "filament_multitool_ramming": [
         "0"
@@ -139,16 +139,16 @@
         "0"
     ],
     "nozzle_temperature_initial_layer": [
-        "230"
+        "255"
     ],
     "nozzle_temperature": [
-        "230"
+        "255"
     ],
     "temperature_vitrification": [
-        "150"
+        "182"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "35"
@@ -160,13 +160,13 @@
         "20"
     ],
     "slow_down_layer_time": [
-        "7"
+        "5"
     ],
     "enable_pressure_advance": [
         "1"
     ],
     "pressure_advance": [
-        "0.015"
+        "0.04"
     ],
     "cool_plate_temp": [
         "0"
@@ -187,26 +187,20 @@
         "0"
     ],
     "filament_type": [
-        "PLA-CF"
-    ],
-    "nozzle_temperature_range_low": [
-        "210"
-    ],
-    "nozzle_temperature_range_high": [
-        "250"
+        "ASA"
     ],
     "default_filament_colour": [
-        "#8269AC"
+        "#F35887"
     ],
-    "filament_notes": [
-        "JiaNong PET 1.63x1.75mm"
+    "nozzle_temperature_range_low": [
+        "240"
     ],
-    "filament_id": "1393866034",
+    "nozzle_temperature_range_high": [
+        "280"
+    ],
+    "filament_id": "144877656",
     "setting_id": "924839906",
     "compatible_printers": [
         "Snapmaker J1 (0.2 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

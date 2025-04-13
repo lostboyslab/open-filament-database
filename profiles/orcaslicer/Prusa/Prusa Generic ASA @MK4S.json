@@ -50,12 +50,18 @@
     "filament_retraction_minimum_travel": [
         "nil"
     ],
-    "filament_retract_before_wipe": "50",
+    "filament_retract_before_wipe": [
+        "nil"
+    ],
     "filament_retract_when_changing_layer": [
         "nil"
     ],
-    "filament_retraction_length": "0.8",
-    "filament_z_hop": "0.15",
+    "filament_retraction_length": [
+        "nil"
+    ],
+    "filament_z_hop": [
+        "nil"
+    ],
     "filament_retract_restart_extra": [
         "nil"
     ],
@@ -66,7 +72,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "ASA"
@@ -74,7 +80,9 @@
     "filament_vendor": [
         "Generic"
     ],
-    "filament_wipe": "1",
+    "filament_wipe": [
+        "nil"
+    ],
     "filament_wipe_distance": [
         "nil"
     ],
@@ -84,7 +92,9 @@
     "nozzle_temperature_initial_layer": [
         "260"
     ],
-    "full_fan_speed_layer": "3",
+    "full_fan_speed_layer": [
+        "0"
+    ],
     "fan_max_speed": "12",
     "fan_min_speed": "12",
     "slow_down_min_speed": "15",
@@ -106,53 +116,15 @@
     "nozzle_temperature_range_high": [
         "270"
     ],
-    "setting_id": "GFSA04",
     "compatible_printers": [
         "Prusa MK4S 0.25 nozzle",
         "Prusa MK4S 0.3 nozzle",
         "Prusa MK4S 0.4 nozzle",
         "Prusa MK4S 0.5 nozzle"
     ],
-    "filament_is_support": [
-        "1"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "nozzle_temperature_intial_layer": "275",
-    "filament_loading_speed_start": "19",
-    "filament_loading_speed": "14",
-    "filament_unloading_speed_start": "100",
-    "filament_unloading_speed": "20",
-    "filament_load_time": "15",
-    "filament_unload_time": "12",
-    "filament_cooling_moves": "5",
-    "filament_cooling_initial_speed": "10",
-    "filament_cooling_final_speed": "50",
-    "filament_retract_lift_below": "1.5",
     "default_filament_colour": "#FFF2EC",
     "filament_notes": [
         ""
     ],
-    "filament_multitool_ramming": [
-        "1"
-    ],
-    "filament_multitool_ramming_volume": [
-        "5"
-    ],
-    "filament_multitool_ramming_flow": [
-        "40"
-    ],
-    "filament_stamping_distance": [
-        "45"
-    ],
-    "filament_stamping_loading_speed": [
-        "29"
-    ],
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.022"
-    ]
+    "setting_id": "GFSA04"
 }

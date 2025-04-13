@@ -28,7 +28,7 @@
         "110"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "0%"
     ],
     "overhang_fan_speed": [
         "40"
@@ -133,7 +133,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "270"
@@ -156,18 +156,15 @@
     "during_print_exhaust_fan_speed": [
         "100"
     ],
-    "filament_id": "GFN98",
-    "setting_id": "GFSA04",
     "enable_pressure_advance": [
         "1"
     ],
     "pressure_advance": [
         "0.02"
     ],
+    "filament_id": "GFN98",
+    "setting_id": "GFSA04",
     "compatible_printers": [
         "InfiMech TX HSN 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

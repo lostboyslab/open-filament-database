@@ -4,7 +4,7 @@
     "instantiation": "true",
     "name": "Snapmaker TPU",
     "filament_vendor": [
-        "Polymaker"
+        "Snapmaker"
     ],
     "filament_start_gcode": [
         ""
@@ -13,7 +13,7 @@
         ""
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_soluble": [
         "0"
@@ -22,52 +22,52 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
     ],
     "hot_plate_temp": [
-        "90"
+        "40"
     ],
     "hot_plate_temp_initial_layer": [
-        "90"
+        "45"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "0"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "1"
     ],
     "filament_flow_ratio": [
-        "0.93"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "10"
-    ],
-    "filament_cost": [
         "100"
     ],
+    "filament_cost": [
+        "80"
+    ],
     "filament_density": [
-        "1.22"
+        "1.24"
     ],
     "filament_deretraction_speed": [
-        "nil"
+        "25"
     ],
     "filament_diameter": [
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "2"
+        "2.8"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "0"
@@ -82,10 +82,10 @@
         "0"
     ],
     "filament_retraction_length": [
-        "nil"
+        "0.5"
     ],
     "filament_z_hop": [
-        "0.7"
+        "0"
     ],
     "filament_z_hop_types": [
         "Normal Lift"
@@ -94,7 +94,7 @@
         "nil"
     ],
     "filament_retraction_speed": [
-        "nil"
+        "25"
     ],
     "filament_wipe": [
         "nil"
@@ -142,31 +142,31 @@
         "230"
     ],
     "nozzle_temperature": [
-        "220"
+        "225"
     ],
     "temperature_vitrification": [
-        "154"
+        "138"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "80"
+        "70"
     ],
     "fan_min_speed": [
-        "65"
+        "70"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "6"
+        "8"
     ],
     "enable_pressure_advance": [
         "0"
     ],
     "pressure_advance": [
-        "0.015"
+        "0.01"
     ],
     "cool_plate_temp": [
         "0"
@@ -186,22 +186,25 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#302730"
+    ],
     "filament_type": [
-        "Breakaway Support"
+        "TPU"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "nozzle_temperature_range_low": [
-        "200"
+        "220"
     ],
     "nozzle_temperature_range_high": [
-        "240"
-    ],
-    "default_filament_colour": [
-        "#383737"
+        "250"
     ],
     "filament_notes": [
-        "eSUN eLastic TPE-83A\n"
+        "!! It needs to be dried before use.\nSunlu TPU 95A\n"
     ],
-    "filament_id": "1207881278",
+    "filament_id": "1480063856",
     "setting_id": "2492353721",
     "compatible_printers": [
         "Snapmaker A250 (0.4 nozzle)",
@@ -228,8 +231,5 @@
         "Snapmaker A350 QSKit (0.4 nozzle)",
         "Snapmaker A350 QSKit (0.6 nozzle)",
         "Snapmaker A350 QSKit (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

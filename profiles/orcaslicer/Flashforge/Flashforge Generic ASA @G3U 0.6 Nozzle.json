@@ -149,25 +149,16 @@
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSA04",
-    "support_material_interface_fan_speed": [
-        "40"
-    ],
     "additional_cooling_fan_speed": [
         "0"
-    ],
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.04"
-    ],
-    "compatible_printers": [
-        "Flashforge Guider 3 Ultra 0.6 Nozzle"
     ],
     "bed_temperature_difference": [
         "10"
     ],
     "chamber_temperature": "0",
+    "compatible_printers": [
+        "Flashforge Guider 3 Ultra 0.6 Nozzle"
+    ],
     "compatible_printers_condition": "",
     "compatible_prints": [],
     "compatible_prints_condition": "",
@@ -177,14 +168,23 @@
     "enable_overhang_bridge_fan": [
         "1"
     ],
+    "enable_pressure_advance": [
+        "1"
+    ],
     "filament_is_support": [
         "0"
     ],
     "filament_shrink": [
         "100%"
     ],
+    "pressure_advance": [
+        "0.04"
+    ],
     "required_nozzle_HRC": [
         "0"
+    ],
+    "support_material_interface_fan_speed": [
+        "40"
     ],
     "filament_unloading_speed": [
         "35"

@@ -7,13 +7,13 @@
         "1"
     ],
     "additional_cooling_fan_speed": [
-        "70"
+        "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
         "70"
@@ -49,7 +49,6 @@
         "1.17"
     ],
     "filament_deretraction_speed": [
-        "nil",
         "nil"
     ],
     "filament_diameter": [
@@ -59,53 +58,46 @@
         "0.96"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
-        "1"
+        "nil"
     ],
     "filament_max_volumetric_speed": [
         "6"
     ],
     "filament_ramming_volumetric_speed": [
-        "-1",
         "-1"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
     ],
     "filament_retract_before_wipe": [
-        "nil",
         "nil"
     ],
     "filament_retract_restart_extra": [
-        "nil",
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "nil",
         "nil"
     ],
     "filament_retraction_distances_when_cut": [
-        "18"
+        "nil"
     ],
     "filament_retraction_length": [
-        "nil",
         "nil"
     ],
     "filament_retraction_minimum_travel": [
-        "nil",
         "nil"
     ],
     "filament_retraction_speed": [
-        "nil",
         "nil"
     ],
     "filament_settings_id": [
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PPA-GF"
@@ -114,33 +106,28 @@
         "Generic"
     ],
     "filament_wipe": [
-        "nil",
         "nil"
     ],
     "filament_wipe_distance": [
-        "nil",
         "nil"
     ],
     "filament_prime_volume": [
-        "30"
+        "45"
     ],
     "filament_z_hop": [
-        "nil",
         "nil"
     ],
     "filament_z_hop_types": [
-        "nil",
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
     ],
     "filament_extruder_variant": [
-        "Direct Drive Standard",
-        "Direct Drive High Flow"
+        "Direct Drive Standard"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -182,7 +169,7 @@
         "0%"
     ],
     "reduce_fan_stop_start_freq": [
-        "1"
+        "0"
     ],
     "required_nozzle_HRC": [
         "40"
@@ -215,31 +202,31 @@
         "0"
     ],
     "counter_coef_2": [
-        "0.007"
+        "0.008"
     ],
     "counter_coef_3": [
-        "0.003"
+        "-0.041"
     ],
     "hole_coef_1": [
         "0"
     ],
     "hole_coef_2": [
-        "-0.006"
+        "-0.008"
     ],
     "hole_coef_3": [
-        "0.25"
+        "0.23415"
     ],
     "counter_limit_min": [
-        "-0.4"
+        "-0.035"
     ],
     "counter_limit_max": [
-        "0.1"
+        "0.033"
     ],
     "hole_limit_min": [
-        "-0.088"
+        "0.088"
     ],
     "hole_limit_max": [
-        "0.14"
+        "0.22"
     ],
     "circle_compensation_speed": [
         "200"
@@ -262,29 +249,20 @@
         "Bambu Lab P1S 0.8 nozzle"
     ],
     "impact_strength_z": [
-        "88.7"
+        "10"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
+        "; Filament gcode\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n\n"
     ],
     "filament_pre_cooling_temperature": [
-        "0",
         "0"
     ],
     "filament_ramming_travel_time": [
-        "0",
         "0"
     ],
-    "filament_adhesiveness_category": [
-        "901"
-    ],
     "filament_id": "GFN96",
-    "description": "This filament is too soft and not compatible with the AMS. Printing it is of many requirements, and to get better printing quality, please refer to this wiki: TPU printing guide.",
-    "setting_id": "GFSN96_00",
-    "filament_change_length": [
-        "5"
-    ]
+    "setting_id": "GFSN96_00"
 }

@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "additional_cooling_fan_speed": [
-        "75"
+        "70"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -19,34 +19,34 @@
         "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "65"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "65"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "20"
+        "100"
     ],
     "fan_max_speed": [
-        "60"
+        "100"
     ],
     "fan_min_speed": [
-        "20"
+        "100"
     ],
     "filament_cost": [
-        "24.99"
+        "29.99"
     ],
     "filament_density": [
-        "1.32"
+        "1.19"
     ],
     "filament_deretraction_speed": [
         "nil",
@@ -60,7 +60,7 @@
         "0.98"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil",
@@ -109,10 +109,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PP-CF"
+        "PLA"
     ],
     "filament_vendor": [
         "Bambu Lab"
@@ -126,7 +126,7 @@
         "nil"
     ],
     "filament_prime_volume": [
-        "30"
+        "45"
     ],
     "filament_z_hop": [
         "nil",
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -147,13 +147,13 @@
         "Direct Drive High Flow"
     ],
     "filament_scarf_seam_type": [
-        "all"
+        "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
-        "0%"
+        "15%"
     ],
     "filament_scarf_length": [
         "10"
@@ -162,16 +162,16 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "65"
+        "55"
     ],
     "hot_plate_temp_initial_layer": [
-        "65"
+        "55"
     ],
     "nozzle_temperature_range_low": [
-        "250"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "270"
+        "240"
     ],
     "nozzle_temperature": [
         "220",
@@ -185,67 +185,67 @@
         "100"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
         "3"
     ],
     "supertack_plate_temp": [
-        "35"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
-        "35"
+        "45"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "8"
+        "4"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "temperature_vitrification": [
-        "108"
+        "45"
     ],
     "textured_plate_temp": [
-        "65"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "55"
     ],
     "counter_coef_1": [
         "0"
     ],
     "counter_coef_2": [
-        "0.0075"
+        "0.008"
     ],
     "counter_coef_3": [
-        "-0.052"
+        "-0.041"
     ],
     "hole_coef_1": [
         "0"
     ],
     "hole_coef_2": [
-        "-0.012"
+        "-0.008"
     ],
     "hole_coef_3": [
-        "0.35043"
+        "0.23415"
     ],
     "counter_limit_min": [
-        "-0.4"
+        "-0.035"
     ],
     "counter_limit_max": [
-        "0.03"
+        "0.033"
     ],
     "hole_limit_min": [
-        "0.07"
+        "0.088"
     ],
     "hole_limit_max": [
-        "0.14"
+        "0.22"
     ],
     "circle_compensation_speed": [
         "200"
@@ -258,7 +258,7 @@
         "Bambu Lab H2D 0.6 nozzle"
     ],
     "impact_strength_z": [
-        "88.7"
+        "5.8"
     ],
     "filament_start_gcode": [
         "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
@@ -275,12 +275,8 @@
         "0"
     ],
     "filament_adhesiveness_category": [
-        "800"
+        "100"
     ],
-    "filament_id": "GFL06",
-    "description": "To get better transparent or translucent results with the corresponding filament, please refer to this wiki: Printing tips for transparent PETG.",
-    "setting_id": "GFSA15_09",
-    "filament_change_length": [
-        "5"
-    ]
+    "filament_id": "GFA15",
+    "setting_id": "GFSA15_09"
 }

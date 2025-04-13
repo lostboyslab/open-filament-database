@@ -135,6 +135,9 @@
     "temperature_vitrification": [
         "30"
     ],
+    "additional_cooling_fan_speed": [
+        "60"
+    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
@@ -151,9 +154,6 @@
     ],
     "activate_chamber_temp_control": [
         "0"
-    ],
-    "additional_cooling_fan_speed": [
-        "60"
     ],
     "chamber_temperature": [
         "0"

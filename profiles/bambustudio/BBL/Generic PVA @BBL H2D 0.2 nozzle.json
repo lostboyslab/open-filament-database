@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "additional_cooling_fan_speed": [
-        "75"
+        "70"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -19,34 +19,34 @@
         "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "45"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "45"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "65"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "65"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "100"
     ],
     "fan_max_speed": [
-        "90"
+        "100"
     ],
     "fan_min_speed": [
-        "40"
+        "100"
     ],
     "filament_cost": [
-        "28.99"
+        "20"
     ],
     "filament_density": [
-        "1.26"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil",
@@ -112,10 +112,10 @@
         "1"
     ],
     "filament_type": [
-        "PPA-GF"
+        "PVA"
     ],
     "filament_vendor": [
-        "Polymaker"
+        "Generic"
     ],
     "filament_wipe": [
         "nil",
@@ -126,7 +126,7 @@
         "nil"
     ],
     "filament_prime_volume": [
-        "30"
+        "45"
     ],
     "filament_z_hop": [
         "nil",
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -150,7 +150,7 @@
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
         "0%"
@@ -162,16 +162,16 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "65"
+        "55"
     ],
     "hot_plate_temp_initial_layer": [
-        "65"
+        "55"
     ],
     "nozzle_temperature_range_low": [
-        "280"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "270"
+        "240"
     ],
     "nozzle_temperature": [
         "220",
@@ -182,16 +182,16 @@
         "220"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
         "35"
@@ -203,49 +203,49 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "12"
+        "7"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "temperature_vitrification": [
-        "90"
+        "45"
     ],
     "textured_plate_temp": [
-        "65"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "55"
     ],
     "counter_coef_1": [
         "0"
     ],
     "counter_coef_2": [
-        "0.007"
+        "0.008"
     ],
     "counter_coef_3": [
-        "0.003"
+        "-0.041"
     ],
     "hole_coef_1": [
         "0"
     ],
     "hole_coef_2": [
-        "-0.006"
+        "-0.008"
     ],
     "hole_coef_3": [
-        "0.25"
+        "0.23415"
     ],
     "counter_limit_min": [
-        "-0.4"
+        "-0.035"
     ],
     "counter_limit_max": [
-        "0.1"
+        "0.033"
     ],
     "hole_limit_min": [
-        "-0.088"
+        "0.088"
     ],
     "hole_limit_max": [
-        "0.14"
+        "0.22"
     ],
     "circle_compensation_speed": [
         "200"
@@ -257,7 +257,7 @@
         "Bambu Lab H2D 0.2 nozzle"
     ],
     "impact_strength_z": [
-        "12.3"
+        "10"
     ],
     "filament_start_gcode": [
         "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
@@ -274,12 +274,9 @@
         "0"
     ],
     "filament_adhesiveness_category": [
-        "706"
+        "704"
     ],
-    "filament_id": "GFG60",
+    "filament_id": "GFS99",
     "description": "This is a water-soluble support filament, and usually it is only for the support structure and not for the model body. Printing this filament is of many requirements, and to get better printing quality, please refer to this wiki: PVA Printing Guide.",
-    "setting_id": "GFSS99_05",
-    "filament_change_length": [
-        "5"
-    ]
+    "setting_id": "GFSS99_05"
 }

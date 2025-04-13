@@ -4,7 +4,7 @@
     "instantiation": "true",
     "name": "Snapmaker PETG-CF",
     "filament_vendor": [
-        "Polymaker"
+        "Snapmaker"
     ],
     "filament_start_gcode": [
         ""
@@ -13,7 +13,7 @@
         ""
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_soluble": [
         "0"
@@ -28,10 +28,10 @@
         "Hot Plate"
     ],
     "hot_plate_temp": [
-        "90"
+        "70"
     ],
     "hot_plate_temp_initial_layer": [
-        "90"
+        "70"
     ],
     "overhang_fan_threshold": [
         "10%"
@@ -40,13 +40,13 @@
         "55"
     ],
     "slow_down_for_layer_cooling": [
-        "0"
+        "1"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "2"
     ],
     "filament_flow_ratio": [
-        "0.983"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -79,16 +79,16 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
         "nil"
     ],
     "filament_z_hop": [
-        "0.7"
+        "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "filament_retract_restart_extra": [
         "nil"
@@ -103,34 +103,34 @@
         "nil"
     ],
     "filament_loading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_loading_speed": [
-        "35"
+        "25"
     ],
     "filament_unloading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_unloading_speed": [
-        "35"
+        "25"
     ],
     "filament_load_time": [
-        "2"
+        "0"
     ],
     "filament_unload_time": [
-        "2"
+        "0"
     ],
     "filament_toolchange_delay": [
         "0"
     ],
     "filament_cooling_moves": [
-        "2"
+        "0"
     ],
     "filament_cooling_initial_speed": [
-        "35"
+        "2.2"
     ],
     "filament_cooling_final_speed": [
-        "60"
+        "3.4"
     ],
     "filament_multitool_ramming": [
         "0"
@@ -142,13 +142,13 @@
         "250"
     ],
     "nozzle_temperature": [
-        "230"
+        "245"
     ],
     "temperature_vitrification": [
         "178"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "30"
@@ -186,20 +186,17 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#3D3C39"
+    ],
     "filament_type": [
         "PETG-CF"
     ],
     "nozzle_temperature_range_low": [
-        "210"
+        "220"
     ],
     "nozzle_temperature_range_high": [
         "255"
-    ],
-    "default_filament_colour": [
-        "#3D3C39"
-    ],
-    "filament_notes": [
-        "!! It needs to be dried before use.\nSnapmaker TPU 95A High-Flow\n"
     ],
     "filament_id": "1355502217",
     "setting_id": "2186648559",
@@ -228,8 +225,5 @@
         "Snapmaker A350 QSKit (0.4 nozzle)",
         "Snapmaker A350 QSKit (0.6 nozzle)",
         "Snapmaker A350 QSKit (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

@@ -7,28 +7,28 @@
         "0"
     ],
     "eng_plate_temp": [
-        "70"
+        "100"
     ],
     "hot_plate_temp": [
         "80"
     ],
     "textured_plate_temp": [
-        "70"
+        "100"
     ],
     "cool_plate_temp_initial_layer": [
         "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "70"
+        "100"
     ],
     "hot_plate_temp_initial_layer": [
         "80"
     ],
     "textured_plate_temp_initial_layer": [
-        "70"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "100"
@@ -40,7 +40,7 @@
         "1"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "0.96"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -49,10 +49,10 @@
         "60"
     ],
     "filament_cost": [
-        "34.99"
+        "20"
     ],
     "filament_density": [
-        "1.27"
+        "1.21"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -97,10 +97,10 @@
         "0"
     ],
     "filament_type": [
-        "PETG-CF"
+        "PA"
     ],
     "filament_vendor": [
-        "Overture"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -112,10 +112,10 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "300"
+        "280"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "40"
@@ -127,13 +127,13 @@
         "20"
     ],
     "slow_down_layer_time": [
-        "8"
+        "15"
     ],
     "nozzle_temperature": [
-        "300"
+        "280"
     ],
     "temperature_vitrification": [
-        "75"
+        "108"
     ],
     "during_print_exhaust_fan_speed": [
         "100"
@@ -160,27 +160,18 @@
         "3"
     ],
     "nozzle_temperature_range_low": [
-        "300"
+        "260"
     ],
     "nozzle_temperature_range_high": [
-        "290"
+        "350"
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSA04",
     "pressure_advance": [
-        "0.026"
-    ],
-    "is_custom_defined": "0",
-    "additional_cooling_fan_speed": [
-        "0"
+        "0.03"
     ],
     "enable_overhang_bridge_fan": [
         "0"
     ],
-    "chamber_temperature": [
-        "55"
-    ],
-    "enable_volume_fan": [
-        "40"
-    ]
+    "is_custom_defined": "0"
 }

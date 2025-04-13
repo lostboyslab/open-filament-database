@@ -147,6 +147,9 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFL99",
     "setting_id": "GFSL99_00",
     "compatible_printers": [
@@ -154,8 +157,5 @@
         "Creality K1C 0.6 nozzle",
         "Creality K1C 0.8 nozzle",
         "Creality K1 SE 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

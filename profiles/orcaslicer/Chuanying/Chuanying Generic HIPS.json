@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -188,21 +188,28 @@
         "Chuanying X1 0.6 Nozzle",
         "Chuanying X1 0.8 Nozzle"
     ],
-    "filament_id": "GFB99",
-    "additional_cooling_fan_speed": [
-        "0"
+    "nozzle_temperature_range_high": [
+        "250"
     ],
     "nozzle_temperature_range_low": [
         "220"
     ],
-    "nozzle_temperature_range_high": [
-        "250"
-    ],
+    "filament_id": "GFB99",
     "setting_id": "GFSA04",
-    "renamed_from": "My Generic TPU",
-    "is_custom_defined": "0",
-    "bed_temperature_difference": [
-        "10"
+    "support_material_interface_fan_speed": [
+        "40"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.036"
+    ],
+    "activate_chamber_temp_control": [
+        "0"
+    ],
+    "additional_cooling_fan_speed": [
+        "0"
     ],
     "chamber_temperature": [
         "0"
@@ -215,19 +222,6 @@
     ],
     "enable_overhang_bridge_fan": [
         "1"
-    ],
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.036"
-    ],
-    "support_material_interface_fan_speed": [
-        "40"
-    ],
-    "version": "1.9.0.2",
-    "activate_chamber_temp_control": [
-        "0"
     ],
     "filament_cooling_final_speed": [
         "3.4"
@@ -282,5 +276,6 @@
     ],
     "filament_unloading_speed_start": [
         "40"
-    ]
+    ],
+    "version": "1.9.0.2"
 }

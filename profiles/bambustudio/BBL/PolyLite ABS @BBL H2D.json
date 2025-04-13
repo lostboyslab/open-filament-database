@@ -7,13 +7,13 @@
         "1"
     ],
     "additional_cooling_fan_speed": [
-        "100"
+        "0"
     ],
     "chamber_temperatures": [
         "60"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
         "70"
@@ -28,25 +28,25 @@
         "70"
     ],
     "eng_plate_temp": [
-        "100"
+        "90"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "90"
     ],
     "fan_cooling_layer_time": [
-        "80"
+        "30"
     ],
     "fan_max_speed": [
         "80"
     ],
     "fan_min_speed": [
-        "50"
+        "10"
     ],
     "filament_cost": [
-        "29.99"
+        "26.9"
     ],
     "filament_density": [
-        "1.24"
+        "1.03"
     ],
     "filament_deretraction_speed": [
         "nil",
@@ -60,7 +60,7 @@
         "0.95"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil",
@@ -109,13 +109,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PP-CF"
+        "ABS"
     ],
     "filament_vendor": [
-        "Bambu Lab"
+        "Polymaker"
     ],
     "filament_wipe": [
         "nil",
@@ -126,7 +126,7 @@
         "nil"
     ],
     "filament_prime_volume": [
-        "30"
+        "45"
     ],
     "filament_z_hop": [
         "nil",
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -150,7 +150,7 @@
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
         "0%"
@@ -162,16 +162,16 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "65"
+        "90"
     ],
     "hot_plate_temp_initial_layer": [
-        "65"
+        "90"
     ],
     "nozzle_temperature_range_low": [
-        "250"
+        "240"
     ],
     "nozzle_temperature_range_high": [
-        "250"
+        "280"
     ],
     "nozzle_temperature": [
         "270",
@@ -182,70 +182,70 @@
         "260"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "overhang_fan_threshold": [
         "25%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
         "3"
     ],
     "supertack_plate_temp": [
-        "35"
+        "0"
     ],
     "supertack_plate_temp_initial_layer": [
-        "35"
+        "0"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "8"
+        "3"
     ],
     "slow_down_min_speed": [
         "20"
     ],
     "temperature_vitrification": [
-        "108"
+        "100"
     ],
     "textured_plate_temp": [
-        "65"
+        "90"
     ],
     "textured_plate_temp_initial_layer": [
-        "65"
+        "90"
     ],
     "counter_coef_1": [
         "0"
     ],
     "counter_coef_2": [
-        "0.0075"
+        "0.008"
     ],
     "counter_coef_3": [
-        "-0.052"
+        "-0.041"
     ],
     "hole_coef_1": [
         "0"
     ],
     "hole_coef_2": [
-        "-0.012"
+        "-0.008"
     ],
     "hole_coef_3": [
-        "0.35043"
+        "0.23415"
     ],
     "counter_limit_min": [
-        "-0.4"
+        "-0.035"
     ],
     "counter_limit_max": [
-        "0.03"
+        "0.033"
     ],
     "hole_limit_min": [
-        "0.07"
+        "0.088"
     ],
     "hole_limit_max": [
-        "0.14"
+        "0.22"
     ],
     "circle_compensation_speed": [
         "200"
@@ -259,7 +259,7 @@
         "Bambu Lab H2D 0.8 nozzle"
     ],
     "impact_strength_z": [
-        "88.7"
+        "10"
     ],
     "filament_start_gcode": [
         "; filament start gcode\nM145 P1 ; set airduct mode to heating mode\n"
@@ -276,12 +276,8 @@
         "0"
     ],
     "filament_adhesiveness_category": [
-        "800"
+        "200"
     ],
-    "filament_id": "GFL06",
-    "description": "This filament is too soft and not compatible with the AMS. Printing it is of many requirements, and to get better printing quality, please refer to this wiki: TPU printing guide.",
-    "setting_id": "GFSB60_08",
-    "filament_change_length": [
-        "5"
-    ]
+    "filament_id": "GFB60",
+    "setting_id": "GFSB60_08"
 }

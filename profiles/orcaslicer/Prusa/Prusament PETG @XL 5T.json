@@ -4,21 +4,21 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "35"
+        "60"
     ],
     "eng_plate_temp": [
         "0"
     ],
     "hot_plate_temp": "80",
     "cool_plate_temp_initial_layer": [
-        "35"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
         "0"
     ],
     "hot_plate_temp_initial_layer": "80",
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "50"
@@ -30,7 +30,7 @@
         "3"
     ],
     "filament_end_gcode": [
-        "; Filament-specific end gcode"
+        "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
         "1"
@@ -39,13 +39,13 @@
         "1"
     ],
     "fan_cooling_layer_time": [
-        "100"
-    ],
-    "filament_cost": [
         "20"
     ],
+    "filament_cost": [
+        "30"
+    ],
     "filament_density": [
-        "1.24"
+        "1.27"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -56,7 +56,9 @@
     "filament_max_volumetric_speed": [
         "9.5"
     ],
-    "filament_minimal_purge_on_wipe_tower": "35",
+    "filament_minimal_purge_on_wipe_tower": [
+        "15"
+    ],
     "filament_retraction_minimum_travel": [
         "nil"
     ],
@@ -65,9 +67,11 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
-    "filament_z_hop": "0.15",
+    "filament_z_hop": [
+        "nil"
+    ],
     "filament_retract_restart_extra": [
         "nil"
     ],
@@ -78,10 +82,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PVA"
+        "PETG"
     ],
     "filament_vendor": [
         "Generic"
@@ -94,7 +98,7 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "220"
+        "255"
     ],
     "full_fan_speed_layer": "5",
     "fan_max_speed": [
@@ -112,31 +116,17 @@
     ],
     "nozzle_temperature": "250",
     "temperature_vitrification": [
-        "50"
+        "80"
     ],
-    "filament_id": "GFS99_4",
+    "filament_id": "GFT02",
     "idle_temperature": "0",
     "nozzle_temperature_range_low": [
-        "190"
+        "220"
     ],
     "nozzle_temperature_range_high": [
-        "250"
+        "260"
     ],
     "setting_id": "GFG99_PRUSA_1",
-    "compatible_printers": [
-        "Prusa XL 5T 0.25 nozzle",
-        "Prusa XL 5T 0.3 nozzle",
-        "Prusa XL 5T 0.4 nozzle",
-        "Prusa XL 5T 0.5 nozzle",
-        "Prusa XL 5T 0.6 nozzle",
-        "Prusa XL 5T 0.8 nozzle"
-    ],
-    "filament_is_support": [
-        "1"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
     "nozzle_temperature_intial_layer": "240",
     "filament_loading_speed_start": "50",
     "filament_loading_speed": "10",
@@ -148,10 +138,6 @@
     "filament_cooling_initial_speed": "5",
     "filament_cooling_final_speed": "2.5",
     "filament_retract_lift_below": "1.5",
-    "default_filament_colour": "#FFF2EC",
-    "filament_notes": [
-        ""
-    ],
     "filament_multitool_ramming": [
         "1"
     ],
@@ -167,10 +153,12 @@
     "filament_stamping_loading_speed": [
         "29"
     ],
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.09"
+    "compatible_printers": [
+        "Prusa XL 5T 0.25 nozzle",
+        "Prusa XL 5T 0.3 nozzle",
+        "Prusa XL 5T 0.4 nozzle",
+        "Prusa XL 5T 0.5 nozzle",
+        "Prusa XL 5T 0.6 nozzle",
+        "Prusa XL 5T 0.8 nozzle"
     ]
 }

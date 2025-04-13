@@ -28,7 +28,7 @@
         "50"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "100"
@@ -40,7 +40,7 @@
         "1"
     ],
     "filament_flow_ratio": [
-        "0.95"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -91,7 +91,7 @@
         "nil"
     ],
     "filament_settings_id": [
-        "Qidi Generic ASA @Qidi Q1 Pro 0.4 nozzle"
+        ""
     ],
     "filament_soluble": [
         "0"
@@ -115,7 +115,7 @@
         "230"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "100"
@@ -127,7 +127,7 @@
         "20"
     ],
     "slow_down_layer_time": [
-        "4"
+        "8"
     ],
     "nozzle_temperature": [
         "230"
@@ -136,7 +136,7 @@
         "30"
     ],
     "during_print_exhaust_fan_speed": [
-        "0"
+        "100"
     ],
     "activate_air_filtration": [
         "1"
@@ -176,8 +176,8 @@
         "Qidi X-Plus 4 0.6 nozzle",
         "Qidi X-Plus 4 0.8 nozzle"
     ],
-    "required_nozzle_HRC": [
-        "40"
+    "additional_cooling_fan_speed": [
+        "0"
     ],
     "nozzle_temperature_range_low": [
         "200"
@@ -185,19 +185,12 @@
     "nozzle_temperature_range_high": [
         "250"
     ],
+    "enable_overhang_bridge_fan": [
+        "0"
+    ],
     "filament_id": "GFU99",
     "setting_id": "GFSR99",
     "pressure_advance": [
         "0.1"
-    ],
-    "is_custom_defined": "0",
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "chamber_temperature": [
-        "0"
     ]
 }

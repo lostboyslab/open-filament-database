@@ -4,31 +4,31 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "30"
+        "60"
     ],
     "eng_plate_temp": [
-        "30"
+        "60"
     ],
     "hot_plate_temp": [
-        "45"
+        "60"
     ],
     "textured_plate_temp": [
-        "45"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "30"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "30"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
-        "45"
+        "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "45"
+        "60"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "50%"
     ],
     "overhang_fan_speed": [
         "100"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -97,7 +97,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PLA-CF"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "nozzle_temperature_initial_layer": [
-        "240"
+        "220"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -130,19 +130,22 @@
         "7"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n{if  (bed_temperature[current_extruder] >35)||(bed_temperature_initial_layer[current_extruder] >35)}M106 P3 S255\n{elsif(bed_temperature[current_extruder] >30)||(bed_temperature_initial_layer[current_extruder] >30)}M106 P3 S180\n{endif}"
+        "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "240"
+        "220"
     ],
     "temperature_vitrification": [
-        "35"
+        "60"
     ],
     "nozzle_temperature_range_low": [
-        "200"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "250"
+        "230"
+    ],
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "filament_id": "GFL98",
     "setting_id": "GFSL98_Geeetech_00",
@@ -190,11 +193,5 @@
         "Geeetech M1 0.4 nozzle",
         "Geeetech M1 0.6 nozzle",
         "Geeetech M1 0.8 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

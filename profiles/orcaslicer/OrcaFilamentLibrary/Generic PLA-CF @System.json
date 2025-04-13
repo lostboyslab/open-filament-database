@@ -16,34 +16,34 @@
         "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
         "70"
     ],
     "eng_plate_temp": [
-        "40"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "40"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "15"
+        "100"
     ],
     "fan_max_speed": [
         "100"
     ],
     "fan_min_speed": [
-        "10"
+        "100"
     ],
     "filament_cost": [
-        "99.99"
+        "20"
     ],
     "filament_density": [
-        "1.06"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -55,13 +55,13 @@
         "0.95"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
     ],
     "filament_max_volumetric_speed": [
-        "14"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,13 +91,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PLA-CF"
     ],
     "filament_vendor": [
-        "Polymaker"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -130,52 +130,52 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "40"
+        "55"
     ],
     "hot_plate_temp_initial_layer": [
-        "40"
+        "55"
     ],
     "nozzle_temperature": [
-        "300"
+        "220"
     ],
     "nozzle_temperature_initial_layer": [
-        "300"
+        "220"
     ],
     "overhang_fan_speed": [
         "100"
     ],
     "overhang_fan_threshold": [
-        "0%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "80"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
-        "80"
+        "45"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "5"
+        "4"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "temperature_vitrification": [
-        "131"
+        "45"
     ],
     "textured_plate_temp": [
-        "40"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "40"
+        "55"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -189,12 +189,11 @@
         "70"
     ],
     "nozzle_temperature_range_low": [
-        "260"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "300"
+        "240"
     ],
     "setting_id": "OGFSA04",
-    "renamed_from": "My Generic PLA-CF",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances."
+    "renamed_from": "My Generic PLA-CF"
 }

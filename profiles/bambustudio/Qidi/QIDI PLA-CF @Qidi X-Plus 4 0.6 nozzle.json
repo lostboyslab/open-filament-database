@@ -100,7 +100,7 @@
         "PLA-CF"
     ],
     "filament_vendor": [
-        "Generic"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -150,19 +150,11 @@
     "compatible_printers": [
         "Qidi X-Plus 4 0.6 nozzle"
     ],
-    "chamber_temperatures": [
-        "0"
-    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
     "nozzle_temperature_range_high": [
         "240"
-    ],
-    "filament_id": "GFA00",
-    "setting_id": "GFSA00_Qidi_31",
-    "pressure_advance": [
-        "0.012"
     ],
     "additional_cooling_fan_speed": [
         "0"
@@ -170,7 +162,12 @@
     "enable_overhang_bridge_fan": [
         "0"
     ],
+    "filament_id": "GFA00",
+    "setting_id": "GFSA00_Qidi_31",
     "advance_pressure": [
         "0.02"
+    ],
+    "pressure_advance": [
+        "0.012"
     ]
 }

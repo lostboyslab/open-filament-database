@@ -144,6 +144,9 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFL99",
     "setting_id": "GFSL99_Geeetech_01",
     "compatible_printers": [
@@ -155,8 +158,5 @@
         "Geeetech M1 0.4 nozzle",
         "Geeetech M1 0.6 nozzle",
         "Geeetech M1 0.8 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

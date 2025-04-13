@@ -37,7 +37,7 @@
         "100"
     ],
     "fan_max_speed": [
-        "40"
+        "100"
     ],
     "fan_min_speed": [
         "100"
@@ -55,10 +55,10 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.94"
+        "1"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -97,13 +97,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PP-GF"
     ],
     "filament_vendor": [
-        "Bambu Lab"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -163,7 +163,7 @@
         "235"
     ],
     "overhang_fan_speed": [
-        "60"
+        "100"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -252,7 +252,7 @@
         "Bambu Lab X1E 0.8 nozzle"
     ],
     "impact_strength_z": [
-        "9.0"
+        "10"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n{if  (bed_temperature[current_extruder] >45)||(bed_temperature_initial_layer[current_extruder] >45)}M106 P3 S255\n{elsif(bed_temperature[current_extruder] >35)||(bed_temperature_initial_layer[current_extruder] >35)}M106 P3 S180\n{endif}\n\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
@@ -270,6 +270,6 @@
         "902"
     ],
     "filament_id": "GFP95",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances.",
-    "setting_id": "GFSP97_03"
+    "setting_id": "GFSP97_03",
+    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances."
 }

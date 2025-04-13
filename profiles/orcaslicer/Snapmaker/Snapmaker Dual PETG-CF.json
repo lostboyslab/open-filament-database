@@ -4,7 +4,7 @@
     "instantiation": "true",
     "name": "Snapmaker Dual PETG-CF",
     "filament_vendor": [
-        "Polymaker"
+        "Snapmaker"
     ],
     "filament_start_gcode": [
         ""
@@ -13,7 +13,7 @@
         ""
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_soluble": [
         "0"
@@ -28,10 +28,10 @@
         "Hot Plate"
     ],
     "hot_plate_temp": [
-        "45"
+        "70"
     ],
     "hot_plate_temp_initial_layer": [
-        "95"
+        "70"
     ],
     "overhang_fan_threshold": [
         "10%"
@@ -40,13 +40,13 @@
         "55"
     ],
     "slow_down_for_layer_cooling": [
-        "0"
+        "1"
     ],
     "close_fan_the_first_x_layers": [
-        "4"
+        "2"
     ],
     "filament_flow_ratio": [
-        "1.1"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -61,7 +61,7 @@
         "1.25"
     ],
     "filament_deretraction_speed": [
-        "55"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -79,25 +79,25 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
         "nil"
     ],
     "filament_z_hop": [
-        "0"
+        "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "filament_retract_restart_extra": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "55"
+        "nil"
     ],
     "filament_wipe": [
-        "0"
+        "nil"
     ],
     "filament_wipe_distance": [
         "nil"
@@ -142,13 +142,13 @@
         "250"
     ],
     "nozzle_temperature": [
-        "250"
+        "245"
     ],
     "temperature_vitrification": [
         "178"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "20"
@@ -186,20 +186,17 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#3D3C39"
+    ],
     "filament_type": [
         "PETG-CF"
     ],
     "nozzle_temperature_range_low": [
-        "200"
+        "220"
     ],
     "nozzle_temperature_range_high": [
         "255"
-    ],
-    "default_filament_colour": [
-        "#3D3C39"
-    ],
-    "filament_notes": [
-        "eSUN eLastic TPE-83A\n"
     ],
     "filament_id": "1042511226",
     "setting_id": "950459082",
@@ -231,11 +228,5 @@
         "Snapmaker Artisan (0.4 nozzle)",
         "Snapmaker Artisan (0.6 nozzle)",
         "Snapmaker Artisan (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "compatible_prints": [
-        "0.25 Benchy @Snapmaker J1 (0.4 nozzle)"
     ]
 }

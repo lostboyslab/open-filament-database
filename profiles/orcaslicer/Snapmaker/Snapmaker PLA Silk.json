@@ -22,13 +22,13 @@
         ""
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "bed_type": [
         "Hot Plate"
     ],
     "hot_plate_temp": [
-        "95"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
         "65"
@@ -37,7 +37,7 @@
         "0%"
     ],
     "overhang_fan_speed": [
-        "55"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -85,10 +85,10 @@
         "0.5"
     ],
     "filament_z_hop": [
-        "0.7"
+        "nil"
     ],
     "filament_z_hop_types": [
-        "Spiral Lift"
+        "nil"
     ],
     "filament_retract_restart_extra": [
         "nil"
@@ -103,34 +103,34 @@
         "nil"
     ],
     "filament_loading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_loading_speed": [
-        "35"
+        "25"
     ],
     "filament_unloading_speed_start": [
-        "35"
+        "3"
     ],
     "filament_unloading_speed": [
-        "35"
+        "25"
     ],
     "filament_load_time": [
-        "2"
+        "0"
     ],
     "filament_unload_time": [
-        "2"
+        "0"
     ],
     "filament_toolchange_delay": [
         "0"
     ],
     "filament_cooling_moves": [
-        "2"
+        "0"
     ],
     "filament_cooling_initial_speed": [
-        "35"
+        "2.2"
     ],
     "filament_cooling_final_speed": [
-        "60"
+        "3.4"
     ],
     "filament_multitool_ramming": [
         "0"
@@ -148,10 +148,10 @@
         "154"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "30"
+        "100"
     ],
     "fan_min_speed": [
         "100"
@@ -160,7 +160,7 @@
         "15"
     ],
     "slow_down_layer_time": [
-        "6"
+        "8"
     ],
     "enable_pressure_advance": [
         "1"
@@ -186,6 +186,9 @@
     "textured_plate_temp_initial_layer": [
         "0"
     ],
+    "default_filament_colour": [
+        "#CF942B"
+    ],
     "filament_type": [
         "PLA"
     ],
@@ -195,11 +198,8 @@
     "nozzle_temperature_range_high": [
         "240"
     ],
-    "default_filament_colour": [
-        "#CF942B"
-    ],
-    "filament_notes": [
-        "!! It needs to be dried before use.\n"
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "filament_id": "1655727393",
     "setting_id": "76896312",
@@ -228,8 +228,5 @@
         "Snapmaker A350 QSKit (0.4 nozzle)",
         "Snapmaker A350 QSKit (0.6 nozzle)",
         "Snapmaker A350 QSKit (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

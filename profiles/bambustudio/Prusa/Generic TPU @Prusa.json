@@ -22,7 +22,7 @@
         "35"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "100"
@@ -37,7 +37,7 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -58,7 +58,7 @@
         "1.75"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_max_volumetric_speed": [
         "3.2"
@@ -91,7 +91,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "TPU"
@@ -135,6 +135,9 @@
     "temperature_vitrification": [
         "60"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "nozzle_temperature_range_low": [
         "200"
     ],
@@ -146,8 +149,5 @@
     "compatible_printers": [
         "Prusa MK3S 0.4 nozzle",
         "Prusa MINI 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

@@ -7,34 +7,34 @@
         "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "complete_print_exhaust_fan_speed": [
-        "80"
+        "70"
     ],
     "cool_plate_temp": [
-        "0"
+        "35"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "35"
     ],
     "during_print_exhaust_fan_speed": [
-        "60"
+        "70"
     ],
     "eng_plate_temp": [
-        "60"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "60"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "80"
+        "100"
     ],
     "fan_max_speed": [
-        "30"
+        "100"
     ],
     "fan_min_speed": [
         "30"
@@ -46,7 +46,7 @@
         "1.21"
     ],
     "filament_deretraction_speed": [
-        "0"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -55,10 +55,10 @@
         "0.6"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
-        "1"
+        "nil"
     ],
     "filament_max_volumetric_speed": [
         "6"
@@ -76,22 +76,22 @@
         "nil"
     ],
     "filament_retraction_distances_when_cut": [
-        "18"
+        "nil"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "50"
+        "nil"
     ],
     "filament_settings_id": [
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PLA-AERO"
@@ -103,7 +103,7 @@
         "nil"
     ],
     "filament_wipe_distance": [
-        "0"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -112,16 +112,16 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
-        "0%"
+        "15%"
     ],
     "filament_scarf_length": [
         "10"
@@ -130,25 +130,25 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "60"
+        "55"
     ],
     "hot_plate_temp_initial_layer": [
-        "60"
+        "55"
     ],
     "nozzle_temperature": [
-        "210"
+        "220"
     ],
     "nozzle_temperature_initial_layer": [
-        "210"
+        "220"
     ],
     "overhang_fan_speed": [
-        "40"
+        "100"
     ],
     "overhang_fan_threshold": [
-        "0%"
+        "50%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
         "3"
@@ -166,16 +166,16 @@
         "8"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "temperature_vitrification": [
-        "170"
+        "45"
     ],
     "textured_plate_temp": [
-        "60"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "60"
+        "55"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -194,13 +194,6 @@
     "nozzle_temperature_range_high": [
         "260"
     ],
-    "setting_id": "OGFSA11_01",
-    "renamed_from": "Generic Silk PLA @System",
     "description": "This filament is only used to print models with a low density usually, and some special parameters are required. To get better printing quality, please refer to this wiki: Instructions for printing RC model with foaming PLA (PLA Aero).",
-    "enable_pressure_advance": [
-        "0"
-    ],
-    "pressure_advance": [
-        "0.026"
-    ]
+    "setting_id": "OGFSA11_01"
 }

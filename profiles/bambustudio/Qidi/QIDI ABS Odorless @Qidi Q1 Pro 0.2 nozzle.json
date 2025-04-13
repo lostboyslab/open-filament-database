@@ -4,28 +4,28 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "0"
+        "90"
     ],
     "eng_plate_temp": [
-        "100"
+        "90"
     ],
     "hot_plate_temp": [
-        "60"
+        "90"
     ],
     "textured_plate_temp": [
-        "100"
+        "90"
     ],
     "cool_plate_temp_initial_layer": [
-        "0"
+        "90"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "90"
     ],
     "hot_plate_temp_initial_layer": [
         "90"
     ],
     "textured_plate_temp_initial_layer": [
-        "100"
+        "90"
     ],
     "overhang_fan_threshold": [
         "25%"
@@ -40,19 +40,19 @@
         "3"
     ],
     "filament_flow_ratio": [
-        "0.96"
+        "0.92"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
     "fan_cooling_layer_time": [
-        "10"
+        "60"
     ],
     "filament_cost": [
         "20"
     ],
     "filament_density": [
-        "1.04"
+        "1.02"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.01"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -94,13 +94,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PLA-CF"
+        "ABS"
     ],
     "filament_vendor": [
-        "Generic"
+        "QIDI"
     ],
     "filament_wipe": [
         "nil"
@@ -112,13 +112,13 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "300"
+        "250"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
-        "60"
+        "80"
     ],
     "fan_min_speed": [
         "10"
@@ -133,7 +133,7 @@
         "260"
     ],
     "temperature_vitrification": [
-        "55"
+        "100"
     ],
     "during_print_exhaust_fan_speed": [
         "100"
@@ -151,41 +151,17 @@
         "Qidi Q1 Pro 0.2 nozzle"
     ],
     "chamber_temperatures": [
-        "0"
+        "55"
     ],
     "nozzle_temperature_range_low": [
-        "190"
+        "240"
     ],
     "nozzle_temperature_range_high": [
-        "240"
+        "270"
     ],
     "filament_id": "GFB00",
     "setting_id": "GFSB00_Qidi_10",
     "pressure_advance": [
-        "0.03"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
-    ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
-    ],
-    "required_nozzle_HRC": [
-        "40"
-    ],
-    "chamber_temperature": [
-        "55"
-    ],
-    "filament_is_support": [
-        "1"
+        "0.021"
     ]
 }

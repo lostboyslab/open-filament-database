@@ -22,7 +22,7 @@
         "95"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "95%"
     ],
     "overhang_fan_speed": [
         "30"
@@ -37,7 +37,7 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "1.00"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "0"
@@ -127,7 +127,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
@@ -140,12 +140,6 @@
     ],
     "nozzle_temperature_range_high": [
         "300"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
     ],
     "filament_id": "GFN98",
     "setting_id": "GFSN98_Anker_00",

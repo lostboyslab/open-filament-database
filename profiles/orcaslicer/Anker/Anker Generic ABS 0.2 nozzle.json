@@ -7,13 +7,13 @@
         "Generic"
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "0"
     ],
     "filament_diameter": [
         "1.75"
@@ -40,13 +40,13 @@
         "0"
     ],
     "filament_type": [
-        "PETG-CF"
+        "ABS"
     ],
     "filament_density": [
         "1.04"
     ],
     "filament_cost": [
-        "35"
+        "20"
     ],
     "temperature_vitrification": [
         "110"
@@ -111,16 +111,11 @@
     "support_material_interface_fan_speed": [
         "-1"
     ],
-    "filament_id": "GFG98",
+    "filament_id": "GFB99",
     "setting_id": "GFSB99_20",
     "compatible_printers": [
         "Anker M5 0.2 nozzle",
         "Anker M5 All-Metal 0.2 nozzle",
         "Anker M5C 0.2 nozzle"
-    ],
-    "filament_retraction_speed": "20",
-    "filament_deretraction_speed": "60",
-    "filament_retract_when_changing_layer": "1",
-    "filament_wipe": "1",
-    "filament_retract_before_wipe": "100"
+    ]
 }

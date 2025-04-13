@@ -4,28 +4,28 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "55"
+        "60"
     ],
     "eng_plate_temp": [
-        "55"
+        "60"
     ],
     "hot_plate_temp": [
-        "55"
+        "60"
     ],
     "textured_plate_temp": [
-        "55"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
-        "55"
+        "60"
     ],
     "eng_plate_temp_initial_layer": [
-        "55"
+        "60"
     ],
     "hot_plate_temp_initial_layer": [
-        "55"
+        "60"
     ],
     "textured_plate_temp_initial_layer": [
-        "55"
+        "60"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -46,7 +46,7 @@
         "0.95"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "fan_cooling_layer_time": [
         "100"
@@ -127,7 +127,7 @@
         "100"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "slow_down_layer_time": [
         "8"
@@ -147,15 +147,15 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "0"
+    ],
     "filament_id": "GFL98",
-    "setting_id": "GFSL96_00",
     "compatible_printers": [
         "Creality K2 Plus 0.2 nozzle",
         "Creality K2 Plus 0.4 nozzle",
         "Creality K2 Plus 0.6 nozzle",
         "Creality K2 Plus 0.8 nozzle"
     ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ]
+    "setting_id": "GFSL96_00"
 }

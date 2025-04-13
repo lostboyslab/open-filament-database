@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -127,7 +127,7 @@
         "10"
     ],
     "slow_down_layer_time": [
-        "7"
+        "8"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n"
@@ -155,8 +155,5 @@
         "Anycubic 4Max Pro 0.4 nozzle",
         "Anycubic 4Max Pro 2 0.4 nozzle",
         "Anycubic Kobra 2 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ]
 }

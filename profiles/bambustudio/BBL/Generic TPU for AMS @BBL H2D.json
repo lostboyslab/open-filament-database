@@ -4,13 +4,13 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "additional_cooling_fan_speed": [
         "100"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "1"
@@ -60,7 +60,7 @@
         "1"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil",
@@ -109,13 +109,13 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "TPU-AMS"
     ],
     "filament_vendor": [
-        "Bambu Lab"
+        "Generic"
     ],
     "filament_wipe": [
         "nil",
@@ -137,7 +137,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_extruder_id": [
         "1"
@@ -147,10 +147,10 @@
         "Direct Drive High Flow"
     ],
     "filament_scarf_seam_type": [
-        "all"
+        "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
         "0%"
@@ -182,7 +182,7 @@
         "230"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "overhang_fan_threshold": [
         "25%"
@@ -191,7 +191,7 @@
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
         "0"
@@ -206,7 +206,7 @@
         "10"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "temperature_vitrification": [
         "30"
@@ -221,25 +221,25 @@
         "0"
     ],
     "counter_coef_2": [
-        "0.06"
+        "0.008"
     ],
     "counter_coef_3": [
-        "-0.32"
+        "-0.041"
     ],
     "hole_coef_1": [
         "0"
     ],
     "hole_coef_2": [
-        "-0.0081"
+        "-0.008"
     ],
     "hole_coef_3": [
         "0.23415"
     ],
     "counter_limit_min": [
-        "-0.4"
+        "-0.035"
     ],
     "counter_limit_max": [
-        "0.05"
+        "0.033"
     ],
     "hole_limit_min": [
         "0.088"
@@ -259,7 +259,7 @@
         "Bambu Lab H2D 0.8 nozzle"
     ],
     "impact_strength_z": [
-        "6.6"
+        "10"
     ],
     "filament_start_gcode": [
         "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"

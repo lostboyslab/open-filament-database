@@ -4,34 +4,34 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "60"
+        "85"
     ],
     "eng_plate_temp": [
-        "60"
+        "85"
     ],
     "hot_plate_temp": [
-        "45"
+        "70"
     ],
     "textured_plate_temp": [
-        "60"
+        "85"
     ],
     "cool_plate_temp_initial_layer": [
-        "60"
+        "85"
     ],
     "eng_plate_temp_initial_layer": [
-        "60"
+        "85"
     ],
     "hot_plate_temp_initial_layer": [
         "75"
     ],
     "textured_plate_temp_initial_layer": [
-        "60"
+        "85"
     ],
     "overhang_fan_threshold": [
-        "50%"
+        "25%"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -40,7 +40,7 @@
         "1"
     ],
     "filament_end_gcode": [
-        "; filament end gcode \n"
+        "; filament end gcode\n"
     ],
     "filament_flow_ratio": [
         "0.95"
@@ -52,10 +52,10 @@
         "30"
     ],
     "filament_cost": [
-        "20"
+        "30"
     ],
     "filament_density": [
-        "1.24"
+        "1.27"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -64,7 +64,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "3.5"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "5"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "1.2"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -139,7 +139,7 @@
         "225"
     ],
     "temperature_vitrification": [
-        "60"
+        "70"
     ],
     "nozzle_temperature_range_low": [
         "210"
@@ -150,10 +150,10 @@
     "filament_id": "GFB99",
     "setting_id": "GFSA04",
     "support_material_interface_fan_speed": [
-        "100"
+        "90"
     ],
     "additional_cooling_fan_speed": [
-        "100"
+        "50"
     ],
     "enable_pressure_advance": [
         "1"
@@ -163,28 +163,6 @@
     ],
     "compatible_printers": [
         "Flashforge Guider 3 Ultra 0.6 Nozzle"
-    ],
-    "bed_temperature_difference": [
-        "10"
-    ],
-    "chamber_temperature": "0",
-    "compatible_printers_condition": "",
-    "compatible_prints": [],
-    "compatible_prints_condition": "",
-    "default_filament_colour": [
-        ""
-    ],
-    "enable_overhang_bridge_fan": [
-        "1"
-    ],
-    "filament_is_support": [
-        "0"
-    ],
-    "filament_shrink": [
-        "100%"
-    ],
-    "required_nozzle_HRC": [
-        "0"
     ],
     "filament_unloading_speed": [
         "35"

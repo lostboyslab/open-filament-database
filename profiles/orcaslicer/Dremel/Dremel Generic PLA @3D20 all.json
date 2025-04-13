@@ -130,11 +130,5 @@
     "setting_id": "GFSL99_00",
     "compatible_printers": [
         "Dremel 3D20 0.4 nozzle"
-    ],
-    "hot_plate_temp_initial_layer": [
-        "60"
-    ],
-    "hot_plate_temp": [
-        "60"
     ]
 }

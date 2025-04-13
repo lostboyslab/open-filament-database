@@ -10,7 +10,7 @@
         "0"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
         "70"
@@ -37,7 +37,7 @@
         "100"
     ],
     "fan_min_speed": [
-        "10"
+        "0"
     ],
     "filament_cost": [
         "99.99"
@@ -55,7 +55,7 @@
         "0.95"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.8"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,7 +91,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PA-CF"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -145,7 +145,7 @@
         "100"
     ],
     "overhang_fan_threshold": [
-        "0%"
+        "95%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -154,16 +154,16 @@
         "40"
     ],
     "supertack_plate_temp": [
-        "80"
+        "0"
     ],
     "supertack_plate_temp_initial_layer": [
-        "80"
+        "0"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "5"
+        "2"
     ],
     "slow_down_min_speed": [
         "10"
@@ -185,16 +185,11 @@
     ],
     "compatible_printers": [],
     "filament_id": "OGFL52",
-    "additional_cooling_fan_speed": [
-        "70"
+    "nozzle_temperature_range_high": [
+        "300"
     ],
     "nozzle_temperature_range_low": [
         "260"
     ],
-    "nozzle_temperature_range_high": [
-        "300"
-    ],
-    "setting_id": "OGFSL52_00",
-    "renamed_from": "PolyTerra Dual PLA",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances."
+    "setting_id": "OGFSL52_00"
 }

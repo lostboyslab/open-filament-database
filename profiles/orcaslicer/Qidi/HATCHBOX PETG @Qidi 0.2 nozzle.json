@@ -91,7 +91,7 @@
         "nil"
     ],
     "filament_settings_id": [
-        "QIDI ABS-GF25 @Qidi X-Plus 4 0.8 nozzle"
+        ""
     ],
     "filament_soluble": [
         "0"
@@ -115,7 +115,7 @@
         "240"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "0"
     ],
     "fan_max_speed": [
         "40"
@@ -136,7 +136,7 @@
         "80"
     ],
     "during_print_exhaust_fan_speed": [
-        "0"
+        "100"
     ],
     "activate_air_filtration": [
         "1"
@@ -162,9 +162,6 @@
         "Qidi X-Max 3 0.2 nozzle",
         "Qidi Q1 Pro 0.2 nozzle"
     ],
-    "required_nozzle_HRC": [
-        "40"
-    ],
     "nozzle_temperature_range_low": [
         "220"
     ],
@@ -175,15 +172,5 @@
     "setting_id": "GFSG99",
     "pressure_advance": [
         "0.04"
-    ],
-    "is_custom_defined": "0",
-    "additional_cooling_fan_speed": [
-        "100"
-    ],
-    "enable_overhang_bridge_fan": [
-        "1"
-    ],
-    "chamber_temperature": [
-        "55"
     ]
 }

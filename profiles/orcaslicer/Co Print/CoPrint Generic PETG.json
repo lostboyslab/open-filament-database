@@ -40,7 +40,7 @@
         "1"
     ],
     "filament_flow_ratio": [
-        "0.97"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -73,7 +73,7 @@
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "0"
+        "nil"
     ],
     "filament_retraction_length": [
         "1.2"

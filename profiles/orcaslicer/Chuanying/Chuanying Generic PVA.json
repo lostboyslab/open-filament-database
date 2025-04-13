@@ -154,10 +154,10 @@
         "0"
     ],
     "supertack_plate_temp": [
-        "0"
+        "45"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "45"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -199,10 +199,17 @@
         "230"
     ],
     "setting_id": "GFSA04",
-    "renamed_from": "My Generic TPU",
-    "is_custom_defined": "0",
-    "bed_temperature_difference": [
-        "10"
+    "support_material_interface_fan_speed": [
+        "80"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.025"
+    ],
+    "activate_chamber_temp_control": [
+        "0"
     ],
     "chamber_temperature": [
         "0"
@@ -215,19 +222,6 @@
     ],
     "enable_overhang_bridge_fan": [
         "1"
-    ],
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.025"
-    ],
-    "support_material_interface_fan_speed": [
-        "80"
-    ],
-    "version": "1.9.0.2",
-    "activate_chamber_temp_control": [
-        "0"
     ],
     "filament_cooling_final_speed": [
         "3.4"
@@ -282,5 +276,6 @@
     ],
     "filament_unloading_speed_start": [
         "40"
-    ]
+    ],
+    "version": "1.9.0.2"
 }

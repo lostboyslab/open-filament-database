@@ -141,19 +141,20 @@
     "nozzle_temperature_range_high": [
         "230"
     ],
+    "additional_cooling_fan_speed": [
+        "70"
+    ],
     "filament_id": "GFL99",
     "setting_id": "GFSA04",
     "compatible_printers": [
         "Anycubic Kobra 3 0.2 nozzle"
     ],
+    "is_custom_defined": "0",
     "activate_air_filtration": [
         "0"
     ],
     "activate_chamber_temp_control": [
         "0"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "chamber_temperature": [
         "0"
@@ -256,6 +257,5 @@
     ],
     "textured_plate_temp_initial_layer": [
         "45"
-    ],
-    "is_custom_defined": "0"
+    ]
 }

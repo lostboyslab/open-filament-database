@@ -73,7 +73,7 @@
         "nil"
     ],
     "filament_retract_before_wipe": [
-        "0%"
+        "nil"
     ],
     "filament_retract_when_changing_layer": [
         "nil"
@@ -82,7 +82,7 @@
         "0.8"
     ],
     "filament_z_hop": [
-        "0"
+        "nil"
     ],
     "filament_z_hop_types": [
         "nil"
@@ -106,10 +106,10 @@
         "FlyingBear"
     ],
     "filament_wipe": [
-        "1"
+        "nil"
     ],
     "filament_wipe_distance": [
-        "4"
+        "nil"
     ],
     "bed_type": [
         "Cool Plate"
@@ -133,7 +133,7 @@
         "5"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "250"
@@ -166,8 +166,5 @@
     ],
     "compatible_printers": [
         "FlyingBear S1 0.4 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "100"
     ]
 }

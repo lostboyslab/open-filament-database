@@ -94,7 +94,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PC"
@@ -130,7 +130,7 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "280"
@@ -144,9 +144,6 @@
     "nozzle_temperature_range_high": [
         "290"
     ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
     "filament_id": "GFC99",
     "setting_id": "GFSA04",
     "enable_pressure_advance": [
@@ -158,8 +155,5 @@
     "compatible_printers": [
         "SecKit SK-Tank 0.4 nozzle",
         "SecKit Go3 0.4 nozzle"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

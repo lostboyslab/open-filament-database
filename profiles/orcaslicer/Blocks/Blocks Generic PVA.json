@@ -79,10 +79,10 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "1.2"
+        "nil"
     ],
     "filament_z_hop": [
-        "0.0"
+        "nil"
     ],
     "filament_z_hop_types": [
         "nil"
@@ -141,6 +141,9 @@
     "temperature_vitrification": [
         "50"
     ],
+    "filament_is_support": [
+        "1"
+    ],
     "nozzle_temperature_range_low": [
         "190"
     ],
@@ -161,8 +164,5 @@
         "BLOCKS RF50 0.6 nozzle",
         "BLOCKS RF50 0.8 nozzle",
         "BLOCKS RF50"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

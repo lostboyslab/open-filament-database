@@ -82,7 +82,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -136,7 +136,7 @@
         "3"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "260"
@@ -149,9 +149,6 @@
     ],
     "nozzle_temperature_range_high": [
         "270"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSB99_Tronxy_00",

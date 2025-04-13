@@ -4,28 +4,28 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "35"
+        "105"
     ],
     "eng_plate_temp": [
-        "0"
+        "105"
     ],
     "hot_plate_temp": [
         "110"
     ],
     "textured_plate_temp": [
-        "45"
+        "105"
     ],
     "cool_plate_temp_initial_layer": [
-        "35"
+        "105"
     ],
     "eng_plate_temp_initial_layer": [
-        "0"
+        "105"
     ],
     "hot_plate_temp_initial_layer": [
         "110"
     ],
     "textured_plate_temp_initial_layer": [
-        "45"
+        "105"
     ],
     "overhang_fan_threshold": [
         "25%"
@@ -55,7 +55,7 @@
         "25.5"
     ],
     "filament_density": [
-        "1.29"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -94,10 +94,10 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PA-CF"
+        "ABS"
     ],
     "filament_vendor": [
         "RatRig"
@@ -130,19 +130,19 @@
         "2"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "260"
     ],
     "temperature_vitrification": [
-        "90"
+        "110"
     ],
     "nozzle_temperature_range_low": [
-        "230"
+        "240"
     ],
     "nozzle_temperature_range_high": [
-        "280"
+        "270"
     ],
     "filament_id": "GFB99",
     "setting_id": "GFSA04",
@@ -178,11 +178,5 @@
         "RatRig V-Core 4 HYBRID 300 0.6 nozzle",
         "RatRig V-Core 4 HYBRID 400 0.6 nozzle",
         "RatRig V-Core 4 HYBRID 500 0.6 nozzle"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "filament_is_support": [
-        "1"
     ]
 }

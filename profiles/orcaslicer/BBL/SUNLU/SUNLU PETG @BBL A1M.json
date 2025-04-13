@@ -4,16 +4,16 @@
     "from": "system",
     "instantiation": "true",
     "activate_air_filtration": [
-        "1"
+        "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "2"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
-        "80"
+        "70"
     ],
     "cool_plate_temp": [
         "0"
@@ -22,7 +22,7 @@
         "0"
     ],
     "during_print_exhaust_fan_speed": [
-        "60"
+        "70"
     ],
     "eng_plate_temp": [
         "60"
@@ -55,7 +55,7 @@
         "0.94"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -79,22 +79,22 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.2"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "0.4"
+        "nil"
     ],
     "filament_settings_id": [
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PPS-CF"
+        "PETG"
     ],
     "filament_vendor": [
         "SUNLU"
@@ -103,22 +103,22 @@
         "nil"
     ],
     "filament_wipe_distance": [
-        "0"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
         "0%"
@@ -148,16 +148,16 @@
         "10%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "70"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -166,7 +166,7 @@
         "12"
     ],
     "slow_down_min_speed": [
-        "20"
+        "10"
     ],
     "temperature_vitrification": [
         "68"
@@ -186,9 +186,6 @@
     "filament_end_gcode": [
         "; filament end gcode \nM106 P3 S0\n"
     ],
-    "additional_cooling_fan_speed": [
-        "0"
-    ],
     "nozzle_temperature_range_high": [
         "280"
     ],
@@ -197,11 +194,5 @@
     ],
     "filament_id": "GFSNL08",
     "description": "To get better transparent or translucent results with the corresponding filament, please refer to this wiki: Printing tips for transparent PETG.",
-    "setting_id": "GFSNLS08_05",
-    "enable_pressure_advance": [
-        "1"
-    ],
-    "pressure_advance": [
-        "0.026"
-    ]
+    "setting_id": "GFSNLS08_05"
 }

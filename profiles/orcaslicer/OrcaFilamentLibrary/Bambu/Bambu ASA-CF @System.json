@@ -7,13 +7,13 @@
         "0"
     ],
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
         "3"
     ],
     "complete_print_exhaust_fan_speed": [
-        "80"
+        "70"
     ],
     "cool_plate_temp": [
         "0"
@@ -22,7 +22,7 @@
         "0"
     ],
     "during_print_exhaust_fan_speed": [
-        "60"
+        "70"
     ],
     "eng_plate_temp": [
         "100"
@@ -31,13 +31,13 @@
         "100"
     ],
     "fan_cooling_layer_time": [
-        "20"
+        "35"
     ],
     "fan_max_speed": [
         "25"
     ],
     "fan_min_speed": [
-        "20"
+        "10"
     ],
     "filament_cost": [
         "36.99"
@@ -46,7 +46,7 @@
         "1.02"
     ],
     "filament_deretraction_speed": [
-        "0"
+        "nil"
     ],
     "filament_diameter": [
         "1.75"
@@ -55,10 +55,10 @@
         "0.9"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
-        "1"
+        "nil"
     ],
     "filament_max_volumetric_speed": [
         "12"
@@ -76,22 +76,22 @@
         "nil"
     ],
     "filament_retraction_distances_when_cut": [
-        "18"
+        "nil"
     ],
     "filament_retraction_length": [
-        "1.5"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
     ],
     "filament_retraction_speed": [
-        "50"
+        "nil"
     ],
     "filament_settings_id": [
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "ASA-CF"
@@ -103,22 +103,22 @@
         "nil"
     ],
     "filament_wipe_distance": [
-        "5"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
     ],
     "filament_z_hop_types": [
-        "Normal Lift"
+        "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
-        "all"
+        "none"
     ],
     "filament_scarf_height": [
-        "5%"
+        "10%"
     ],
     "filament_scarf_gap": [
         "0%"
@@ -142,16 +142,16 @@
         "275"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "overhang_fan_threshold": [
-        "10%"
+        "25%"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
         "0"
@@ -184,23 +184,12 @@
         "; filament end gcode\n"
     ],
     "compatible_printers": [],
-    "filament_id": "OGFB51",
-    "additional_cooling_fan_speed": [
-        "0"
+    "nozzle_temperature_range_high": [
+        "280"
     ],
     "nozzle_temperature_range_low": [
         "250"
     ],
-    "nozzle_temperature_range_high": [
-        "270"
-    ],
-    "setting_id": "OGFSB51_00",
-    "renamed_from": "Generic Silk PLA @System",
-    "description": "To make the prints get higher gloss, please dry the filament before use, and set the outer wall speed to be 40 to 60 mm/s when slicing.",
-    "enable_pressure_advance": [
-        "0"
-    ],
-    "pressure_advance": [
-        "0.026"
-    ]
+    "filament_id": "OGFB51",
+    "setting_id": "OGFSB51_00"
 }

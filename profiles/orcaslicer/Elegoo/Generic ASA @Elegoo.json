@@ -43,7 +43,7 @@
         "; filament end gcode \n"
     ],
     "filament_flow_ratio": [
-        "0.926"
+        "1"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -133,13 +133,16 @@
         "3"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "260"
     ],
     "temperature_vitrification": [
-        "110"
+        "100"
+    ],
+    "activate_air_filtration": [
+        "1"
     ],
     "nozzle_temperature_range_high": [
         "280"
@@ -175,11 +178,5 @@
         "Elegoo Neptune 4 Pro (0.4 nozzle)",
         "Elegoo Neptune 4 Pro (0.6 nozzle)",
         "Elegoo Neptune 4 Pro (0.8 nozzle)"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "activate_air_filtration": [
-        "1"
     ]
 }

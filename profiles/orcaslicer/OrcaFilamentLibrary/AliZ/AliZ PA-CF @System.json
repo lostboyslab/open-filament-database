@@ -10,16 +10,16 @@
         "0"
     ],
     "close_fan_the_first_x_layers": [
-        "2"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
         "80"
     ],
     "cool_plate_temp": [
-        "35"
+        "0"
     ],
     "cool_plate_temp_initial_layer": [
-        "35"
+        "0"
     ],
     "during_print_exhaust_fan_speed": [
         "60"
@@ -43,7 +43,7 @@
         "49.9"
     ],
     "filament_density": [
-        "1.27"
+        "1.04"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -55,7 +55,7 @@
         "1"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,7 +91,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "PA-CF"
@@ -103,7 +103,7 @@
         "nil"
     ],
     "filament_wipe_distance": [
-        "0"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -130,10 +130,10 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "79"
+        "100"
     ],
     "hot_plate_temp_initial_layer": [
-        "79"
+        "100"
     ],
     "nozzle_temperature": [
         "290"
@@ -148,7 +148,7 @@
         "0%"
     ],
     "reduce_fan_stop_start_freq": [
-        "1"
+        "0"
     ],
     "required_nozzle_HRC": [
         "40"
@@ -169,13 +169,13 @@
         "10"
     ],
     "temperature_vitrification": [
-        "45"
+        "108"
     ],
     "textured_plate_temp": [
-        "70"
+        "100"
     ],
     "textured_plate_temp_initial_layer": [
-        "70"
+        "100"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -185,22 +185,17 @@
     ],
     "compatible_printers": [],
     "filament_id": "AliZ003",
-    "additional_cooling_fan_speed": [
-        "70"
+    "nozzle_temperature_range_high": [
+        "300"
     ],
     "nozzle_temperature_range_low": [
         "260"
     ],
-    "nozzle_temperature_range_high": [
-        "300"
-    ],
-    "setting_id": "AliZGFSA04",
-    "renamed_from": "My Generic PETG",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances.",
     "enable_pressure_advance": [
         "0"
     ],
     "pressure_advance": [
         "0.026"
-    ]
+    ],
+    "setting_id": "AliZGFSA04"
 }

@@ -7,19 +7,19 @@
         "Generic"
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "0"
     ],
     "filament_diameter": [
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.926"
+        "0.97"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -40,55 +40,55 @@
         "0"
     ],
     "filament_type": [
-        "ABS"
+        "PA"
     ],
     "filament_density": [
-        "1.04"
+        "1.05"
     ],
     "filament_cost": [
-        "20"
+        "40"
     ],
     "temperature_vitrification": [
-        "110"
+        "108"
     ],
     "nozzle_temperature_range_low": [
-        "240"
+        "260"
     ],
     "nozzle_temperature_range_high": [
-        "280"
+        "300"
     ],
     "nozzle_temperature_initial_layer": [
-        "240"
+        "290"
     ],
     "nozzle_temperature": [
-        "240"
+        "290"
     ],
     "hot_plate_temp_initial_layer": [
-        "100"
+        "95"
     ],
     "hot_plate_temp": [
-        "100"
+        "95"
     ],
     "filament_max_volumetric_speed": [
         "3"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "4"
     ],
     "full_fan_speed_layer": [
-        "3"
+        "4"
     ],
     "fan_min_speed": [
-        "20"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "100"
+        "4"
     ],
     "fan_max_speed": [
-        "30"
+        "60"
     ],
     "slow_down_layer_time": [
-        "3"
+        "2"
     ],
     "reduce_fan_stop_start_freq": [
         "0"
@@ -106,20 +106,15 @@
         "25%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "30"
     ],
     "support_material_interface_fan_speed": [
         "-1"
     ],
-    "filament_id": "GFB99",
+    "filament_id": "GFN99",
     "setting_id": "GFSN99_25",
     "compatible_printers": [
         "Anker M5 All-Metal 0.25 nozzle",
         "Anker M5C 0.25 nozzle"
-    ],
-    "filament_retraction_speed": "90",
-    "filament_deretraction_speed": "50",
-    "filament_retract_when_changing_layer": "1",
-    "filament_wipe": "1",
-    "filament_retract_before_wipe": "70"
+    ]
 }

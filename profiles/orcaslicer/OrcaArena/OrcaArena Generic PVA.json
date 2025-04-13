@@ -13,55 +13,55 @@
         "45"
     ],
     "eng_plate_temp": [
-        "100"
+        "0"
     ],
     "hot_plate_temp": [
-        "100"
+        "55"
     ],
     "textured_plate_temp": [
-        "100"
+        "55"
     ],
     "cool_plate_temp_initial_layer": [
         "45"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "0"
     ],
     "hot_plate_temp_initial_layer": [
-        "100"
+        "55"
     ],
     "textured_plate_temp_initial_layer": [
-        "100"
+        "55"
     ],
     "overhang_fan_threshold": [
-        "0%"
+        "50%"
     ],
     "overhang_fan_speed": [
-        "40"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "filament_end_gcode": [
         "; filament end gcode \nM106 P3 S0\n"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "0.95"
     ],
     "reduce_fan_stop_start_freq": [
-        "0"
+        "1"
     ],
     "fan_cooling_layer_time": [
-        "5"
+        "100"
     ],
     "filament_cost": [
-        "29.99"
+        "20"
     ],
     "filament_density": [
-        "1.22"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -70,7 +70,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "12"
+        "16"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -106,10 +106,10 @@
         "1"
     ],
     "filament_type": [
-        "PA-CF"
+        "PVA"
     ],
     "filament_vendor": [
-        "Orca Arena"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
@@ -118,42 +118,42 @@
         "nil"
     ],
     "nozzle_temperature_initial_layer": [
-        "290"
+        "220"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "fan_max_speed": [
-        "30"
+        "100"
     ],
     "fan_min_speed": [
-        "10"
+        "100"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "8"
+        "7"
     ],
     "filament_start_gcode": [
         "; filament start gcode\n{if  (bed_temperature[current_extruder] >45)||(bed_temperature_initial_layer[current_extruder] >45)}M106 P3 S255\n{elsif(bed_temperature[current_extruder] >35)||(bed_temperature_initial_layer[current_extruder] >35)}M106 P3 S180\n{endif}"
     ],
     "nozzle_temperature": [
-        "290"
+        "220"
     ],
     "temperature_vitrification": [
-        "180"
+        "55"
     ],
     "nozzle_temperature_range_low": [
-        "210"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "250"
+        "240"
     ],
     "additional_cooling_fan_speed": [
-        "0"
+        "70"
     ],
-    "filament_id": "GFA07",
+    "filament_id": "GFS99",
     "setting_id": "GFSS99",
     "compatible_printers": [
         "Orca Arena X1 Carbon 0.4 nozzle",

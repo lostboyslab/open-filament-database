@@ -115,13 +115,13 @@
         "60"
     ],
     "nozzle_temperature": [
-        "230"
+        "220"
     ],
     "nozzle_temperature_initial_layer": [
-        "230"
+        "220"
     ],
     "overhang_fan_speed": [
-        "90"
+        "100"
     ],
     "overhang_fan_threshold": [
         "50%"
@@ -161,18 +161,18 @@
     "filament_end_gcode": [
         "; filament end gcode \n"
     ],
+    "nozzle_temperature_range_low": [
+        "190"
+    ],
     "nozzle_temperature_range_high": [
         "240"
     ],
-    "nozzle_temperature_range_low": [
-        "190"
+    "additional_cooling_fan_speed": [
+        "0"
     ],
     "filament_id": "ERPLAPLUSB00",
     "setting_id": "ERPLAPLUSEC",
     "pressure_advance": [
         "0.024"
-    ],
-    "additional_cooling_fan_speed": [
-        "0"
     ]
 }

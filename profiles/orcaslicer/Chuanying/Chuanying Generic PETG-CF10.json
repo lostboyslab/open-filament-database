@@ -13,7 +13,7 @@
         "1"
     ],
     "complete_print_exhaust_fan_speed": [
-        "100"
+        "70"
     ],
     "cool_plate_temp": [
         "60"
@@ -22,7 +22,7 @@
         "60"
     ],
     "during_print_exhaust_fan_speed": [
-        "100"
+        "70"
     ],
     "eng_plate_temp": [
         "60"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -154,10 +154,10 @@
         "0"
     ],
     "supertack_plate_temp": [
-        "0"
+        "70"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -189,18 +189,16 @@
         "Chuanying X1 0.8 Nozzle"
     ],
     "filament_id": "GFG99",
-    "additional_cooling_fan_speed": [
-        "100"
+    "nozzle_temperature_range_high": [
+        "260"
     ],
     "nozzle_temperature_range_low": [
         "220"
     ],
-    "nozzle_temperature_range_high": [
-        "260"
-    ],
     "setting_id": "GFSA04",
-    "renamed_from": "My Generic TPU",
-    "is_custom_defined": "0",
+    "additional_cooling_fan_speed": [
+        "100"
+    ],
     "bed_temperature_difference": [
         "10"
     ],
@@ -221,64 +219,6 @@
         "0.035"
     ],
     "support_material_interface_fan_speed": [
-        "100"
-    ],
-    "version": "1.8.0.0",
-    "activate_chamber_temp_control": [
-        "0"
-    ],
-    "filament_cooling_final_speed": [
-        "3.4"
-    ],
-    "filament_cooling_initial_speed": [
-        "2.2"
-    ],
-    "filament_cooling_moves": [
-        "4"
-    ],
-    "filament_load_time": [
-        "0"
-    ],
-    "filament_loading_speed": [
-        "28"
-    ],
-    "filament_loading_speed_start": [
-        "3"
-    ],
-    "filament_multitool_ramming": [
-        "0"
-    ],
-    "filament_multitool_ramming_flow": [
-        "10"
-    ],
-    "filament_multitool_ramming_volume": [
-        "10"
-    ],
-    "filament_notes": [
-        ""
-    ],
-    "filament_ramming_parameters": [
-        "120 100 6.6 6.8 7.2 7.6 7.9 8.2 8.7 9.4 9.9 10.0| 0.05 6.6 0.45 6.8 0.95 7.8 1.45 8.3 1.95 9.7 2.45 10 2.95 7.6 3.45 7.6 3.95 7.6 4.45 7.6 4.95 7.6"
-    ],
-    "filament_retract_lift_above": [
-        "nil"
-    ],
-    "filament_retract_lift_below": [
-        "nil"
-    ],
-    "filament_retract_lift_enforce": [
-        "nil"
-    ],
-    "filament_toolchange_delay": [
-        "0"
-    ],
-    "filament_unload_time": [
-        "0"
-    ],
-    "filament_unloading_speed": [
-        "90"
-    ],
-    "filament_unloading_speed_start": [
         "100"
     ]
 }

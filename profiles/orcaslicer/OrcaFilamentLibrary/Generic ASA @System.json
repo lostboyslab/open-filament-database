@@ -10,10 +10,10 @@
         "0"
     ],
     "close_fan_the_first_x_layers": [
-        "2"
+        "3"
     ],
     "complete_print_exhaust_fan_speed": [
-        "80"
+        "70"
     ],
     "cool_plate_temp": [
         "0"
@@ -22,19 +22,19 @@
         "0"
     ],
     "during_print_exhaust_fan_speed": [
-        "60"
+        "70"
     ],
     "eng_plate_temp": [
-        "110"
+        "100"
     ],
     "eng_plate_temp_initial_layer": [
-        "110"
+        "105"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "35"
     ],
     "fan_max_speed": [
-        "60"
+        "80"
     ],
     "fan_min_speed": [
         "10"
@@ -52,16 +52,16 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.98"
+        "0.926"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_long_retractions_when_cut": [
         "nil"
     ],
     "filament_max_volumetric_speed": [
-        "18"
+        "12"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -79,7 +79,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -91,19 +91,19 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
-        "PC"
+        "ASA"
     ],
     "filament_vendor": [
-        "Aliz"
+        "Generic"
     ],
     "filament_wipe": [
         "nil"
     ],
     "filament_wipe_distance": [
-        "0"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -112,7 +112,7 @@
         "nil"
     ],
     "full_fan_speed_layer": [
-        "2"
+        "0"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -121,7 +121,7 @@
         "10%"
     ],
     "filament_scarf_gap": [
-        "15%"
+        "0%"
     ],
     "filament_scarf_length": [
         "10"
@@ -130,19 +130,19 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "110"
+        "100"
     ],
     "hot_plate_temp_initial_layer": [
-        "110"
+        "105"
     ],
     "nozzle_temperature": [
-        "280"
+        "260"
     ],
     "nozzle_temperature_initial_layer": [
-        "270"
+        "260"
     ],
     "overhang_fan_speed": [
-        "60"
+        "80"
     ],
     "overhang_fan_threshold": [
         "25%"
@@ -151,7 +151,7 @@
         "1"
     ],
     "required_nozzle_HRC": [
-        "40"
+        "3"
     ],
     "supertack_plate_temp": [
         "0"
@@ -163,19 +163,19 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "4"
+        "3"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "temperature_vitrification": [
-        "120"
+        "110"
     ],
     "textured_plate_temp": [
-        "110"
+        "100"
     ],
     "textured_plate_temp_initial_layer": [
-        "110"
+        "105"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -184,23 +184,13 @@
         "; filament end gcode\n"
     ],
     "compatible_printers": [],
-    "filament_id": "OGFB98",
-    "additional_cooling_fan_speed": [
-        "70"
+    "nozzle_temperature_range_high": [
+        "280"
     ],
     "nozzle_temperature_range_low": [
-        "260"
+        "240"
     ],
-    "nozzle_temperature_range_high": [
-        "290"
-    ],
+    "filament_id": "OGFB98",
     "setting_id": "OGFSA04",
-    "renamed_from": "My Generic ASA",
-    "description": "This is neither a commonly used filament, nor one of Bambu filaments, and it varies a lot from brand to brand. So, it's highly recommended to ask its vendor for suitable profile before printing and adjust some parameters according to its performances.",
-    "enable_pressure_advance": [
-        "0"
-    ],
-    "pressure_advance": [
-        "0.026"
-    ]
+    "renamed_from": "My Generic ASA"
 }

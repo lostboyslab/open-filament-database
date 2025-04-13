@@ -4,40 +4,40 @@
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "90"
+        "60"
     ],
     "eng_plate_temp": [
-        "90"
+        "60"
     ],
     "hot_plate_temp": [
-        "60"
+        "55"
     ],
     "textured_plate_temp": [
-        "90"
-    ],
-    "cool_plate_temp_initial_layer": [
-        "90"
-    ],
-    "eng_plate_temp_initial_layer": [
-        "90"
-    ],
-    "hot_plate_temp_initial_layer": [
         "60"
     ],
+    "cool_plate_temp_initial_layer": [
+        "60"
+    ],
+    "eng_plate_temp_initial_layer": [
+        "60"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "55"
+    ],
     "textured_plate_temp_initial_layer": [
-        "90"
+        "60"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "filament_flow_ratio": [
         "0.98"
@@ -52,7 +52,7 @@
         "20"
     ],
     "filament_density": [
-        "1.07"
+        "1.24"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -61,7 +61,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "2"
+        "7.5"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -97,7 +97,7 @@
         "0"
     ],
     "filament_type": [
-        "ASA"
+        "PLA"
     ],
     "filament_vendor": [
         "Generic"
@@ -118,10 +118,10 @@
         "3"
     ],
     "fan_max_speed": [
-        "50"
+        "100"
     ],
     "fan_min_speed": [
-        "10"
+        "100"
     ],
     "slow_down_min_speed": [
         "20"
@@ -130,10 +130,10 @@
         "8"
     ],
     "nozzle_temperature": [
-        "210"
+        "220"
     ],
     "temperature_vitrification": [
-        "100"
+        "45"
     ],
     "during_print_exhaust_fan_speed": [
         "100"
@@ -150,19 +150,11 @@
     "compatible_printers": [
         "Qidi X-Plus 4 0.4 nozzle"
     ],
-    "chamber_temperatures": [
-        "0"
-    ],
     "nozzle_temperature_range_low": [
-        "240"
+        "190"
     ],
     "nozzle_temperature_range_high": [
-        "280"
-    ],
-    "filament_id": "GFL96",
-    "setting_id": "GFSL96_Qidi_11",
-    "pressure_advance": [
-        "0.016"
+        "240"
     ],
     "additional_cooling_fan_speed": [
         "0"
@@ -170,13 +162,9 @@
     "enable_overhang_bridge_fan": [
         "0"
     ],
-    "advance_pressure": [
-        "0.02"
-    ],
-    "max_fan_speed": [
-        "50"
-    ],
-    "min_fan_speed": [
-        "10"
+    "filament_id": "GFL96",
+    "setting_id": "GFSL96_Qidi_11",
+    "pressure_advance": [
+        "0.032"
     ]
 }

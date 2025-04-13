@@ -58,7 +58,7 @@
         "1.75"
     ],
     "filament_is_support": [
-        "1"
+        "0"
     ],
     "filament_max_volumetric_speed": [
         "12"
@@ -76,7 +76,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "0.4"
+        "nil"
     ],
     "filament_z_hop": [
         "nil"
@@ -91,7 +91,7 @@
         ""
     ],
     "filament_soluble": [
-        "1"
+        "0"
     ],
     "filament_type": [
         "ASA"
@@ -127,7 +127,7 @@
         "3"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n"
+        "; Filament gcode\n"
     ],
     "nozzle_temperature": [
         "240"
@@ -140,12 +140,6 @@
     ],
     "nozzle_temperature_range_high": [
         "270"
-    ],
-    "additional_cooling_fan_speed": [
-        "70"
-    ],
-    "enable_overhang_bridge_fan": [
-        "0"
     ],
     "filament_id": "GFB98",
     "setting_id": "GFSB98_Anker_00",
