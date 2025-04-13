@@ -118,6 +118,7 @@
     "additionalProperties": false,
     "required": [
         "name",
-        "density"
+        "density",
+        "diameter_tolerance"
     ]
 }
