@@ -262,7 +262,7 @@
         "12.3"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
+        "; filament start gcode\n"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
@@ -279,5 +279,8 @@
         "100"
     ],
     "filament_id": "GFA09",
-    "setting_id": "GFSA09_06"
+    "setting_id": "GFSA09_06",
+    "pre_start_fan_time": [
+        "2"
+    ]
 }

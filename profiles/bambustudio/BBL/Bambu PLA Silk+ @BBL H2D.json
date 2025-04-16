@@ -262,7 +262,7 @@
         "8.5"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\nM145 P0 ; set airduct mode to cooling mode\nM142 P1 R35 S40 U0.3 V0.5 ; set chamber autocooling"
+        "; filament start gcode\n"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
@@ -280,5 +280,8 @@
     ],
     "filament_id": "GFA06",
     "description": "To make the prints get higher gloss, please dry the filament before use, and set the outer wall speed to be 40 to 60 mm/s when slicing.",
-    "setting_id": "GFSA06_09"
+    "setting_id": "GFSA06_09",
+    "pre_start_fan_time": [
+        "2"
+    ]
 }

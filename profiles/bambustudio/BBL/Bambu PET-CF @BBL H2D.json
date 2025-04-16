@@ -262,7 +262,7 @@
         "4.5"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\nM145 P1 ; set airduct mode to heating mode\n"
+        "; filament start gcode\n"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
