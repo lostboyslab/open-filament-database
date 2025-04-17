@@ -1,6 +1,6 @@
 {
     "type": "filament",
-    "name": "Prusa Generic ASA @MK3.5 0.8",
+    "name": "Prusa Generic ABS HF @MK3.5",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
@@ -43,7 +43,7 @@
         "1"
     ],
     "fan_cooling_layer_time": [
-        "35"
+        "30"
     ],
     "filament_cost": [
         "20"
@@ -58,7 +58,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "11"
+        "25"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -91,7 +91,7 @@
         "0"
     ],
     "filament_type": [
-        "ASA"
+        "ABS"
     ],
     "filament_vendor": [
         "Generic"
@@ -132,7 +132,7 @@
     "temperature_vitrification": [
         "110"
     ],
-    "filament_id": "GFB98_4",
+    "filament_id": "GFB99_5",
     "idle_temperature": "0",
     "nozzle_temperature_range_low": [
         "240"
@@ -145,9 +145,9 @@
         "1"
     ],
     "pressure_advance": [
-        "0.01"
+        "0.02"
     ],
     "compatible_printers": [
-        "Prusa MK3.5 0.8 nozzle"
+        "Prusa MK3.5 0.4 nozzle"
     ]
 }

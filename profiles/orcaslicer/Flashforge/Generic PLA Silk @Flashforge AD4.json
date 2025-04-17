@@ -1,6 +1,6 @@
 {
     "type": "filament",
-    "name": "PLA Silk @Flashforge AD4",
+    "name": "Generic PLA Silk @Flashforge AD4",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
@@ -165,5 +165,6 @@
         "Flashforge Adventurer 4 Series 0.3 Nozzle",
         "Flashforge Adventurer 4 Series 0.4 Nozzle",
         "Flashforge Adventurer 4 Series 0.6 Nozzle"
-    ]
+    ],
+    "renamed_from": "PLA Silk @Flashforge AD4"
 }

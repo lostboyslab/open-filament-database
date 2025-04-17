@@ -1,37 +1,46 @@
 {
     "type": "filament",
-    "name": "Prusa Generic ASA @MK3.5 0.8",
+    "name": "CoLiDo Generic TPU @CoLiDo X16",
     "from": "system",
     "instantiation": "true",
+    "activate_air_filtration": [
+        "0"
+    ],
     "cool_plate_temp": [
-        "100"
+        "30"
     ],
     "eng_plate_temp": [
-        "100"
+        "30"
     ],
     "hot_plate_temp": [
-        "100"
+        "40"
+    ],
+    "textured_plate_temp": [
+        "45"
     ],
     "cool_plate_temp_initial_layer": [
-        "100"
+        "30"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "30"
     ],
     "hot_plate_temp_initial_layer": [
-        "100"
+        "40"
+    ],
+    "textured_plate_temp_initial_layer": [
+        "45"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "95%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "100"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
     "filament_end_gcode": [
         "; filament end gcode \n"
@@ -43,13 +52,13 @@
         "1"
     ],
     "fan_cooling_layer_time": [
-        "35"
+        "100"
     ],
     "filament_cost": [
         "20"
     ],
     "filament_density": [
-        "1.04"
+        "1.22"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -58,7 +67,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "11"
+        "3.6"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
@@ -73,9 +82,12 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "nil"
+        "0.4"
     ],
     "filament_z_hop": [
+        "nil"
+    ],
+    "filament_z_hop_types": [
         "nil"
     ],
     "filament_retract_restart_extra": [
@@ -91,10 +103,10 @@
         "0"
     ],
     "filament_type": [
-        "ASA"
+        "TPU"
     ],
     "filament_vendor": [
-        "Generic"
+        "CoLiDo"
     ],
     "filament_wipe": [
         "nil"
@@ -106,48 +118,45 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "260"
+        "180"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "15"
+        "100"
     ],
     "fan_min_speed": [
-        "15"
+        "100"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "20"
+        "8"
     ],
     "filament_start_gcode": [
-        "; Filament gcode\n"
+        "; filament start gcode\n"
     ],
     "nozzle_temperature": [
-        "260"
+        "180"
     ],
     "temperature_vitrification": [
-        "110"
+        "30"
     ],
-    "filament_id": "GFB98_4",
-    "idle_temperature": "0",
-    "nozzle_temperature_range_low": [
-        "240"
+    "additional_cooling_fan_speed": [
+        "70"
     ],
     "nozzle_temperature_range_high": [
-        "270"
+        "250"
     ],
-    "setting_id": "GFSA04",
-    "enable_pressure_advance": [
-        "1"
+    "nozzle_temperature_range_low": [
+        "200"
     ],
-    "pressure_advance": [
-        "0.01"
-    ],
+    "filament_id": "GFU99",
+    "setting_id": "GFSU99_05",
     "compatible_printers": [
-        "Prusa MK3.5 0.8 nozzle"
+        "CoLiDo X16 0.4 nozzle",
+        "CoLiDo 160 V2 0.4 nozzle"
     ]
 }

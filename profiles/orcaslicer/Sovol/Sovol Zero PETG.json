@@ -1,49 +1,43 @@
 {
     "type": "filament",
-    "name": "Z-Bolt ABS HT @0.4 nozzle",
+    "name": "Sovol Zero PETG",
     "from": "system",
     "instantiation": "true",
-    "activate_air_filtration": [
-        "0"
-    ],
+    "activate_air_filtration": "1",
     "chamber_temperatures": [
-        "60"
+        "0"
     ],
     "close_fan_the_first_x_layers": [
-        "3"
+        "1"
     ],
-    "complete_print_exhaust_fan_speed": [
-        "70"
-    ],
+    "complete_print_exhaust_fan_speed": "50",
     "cool_plate_temp": [
-        "0"
+        "60"
     ],
     "cool_plate_temp_initial_layer": [
+        "60"
+    ],
+    "during_print_exhaust_fan_speed": "50",
+    "eng_plate_temp": [
         "0"
     ],
-    "during_print_exhaust_fan_speed": [
-        "70"
-    ],
-    "eng_plate_temp": [
-        "100"
-    ],
     "eng_plate_temp_initial_layer": [
-        "105"
+        "0"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "50"
     ],
     "fan_max_speed": [
-        "80"
+        "40"
     ],
     "fan_min_speed": [
-        "25"
+        "10"
     ],
     "filament_cost": [
-        "20"
+        "30"
     ],
     "filament_density": [
-        "1.04"
+        "1.27"
     ],
     "filament_deretraction_speed": [
         "nil"
@@ -52,7 +46,7 @@
         "1.75"
     ],
     "filament_flow_ratio": [
-        "0.926"
+        "1.0348"
     ],
     "filament_is_support": [
         "0"
@@ -79,7 +73,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "nil"
+        "0.5"
     ],
     "filament_retraction_minimum_travel": [
         "nil"
@@ -94,7 +88,7 @@
         "0"
     ],
     "filament_type": [
-        "ABS"
+        "PETG"
     ],
     "filament_vendor": [
         "Generic"
@@ -106,13 +100,13 @@
         "nil"
     ],
     "filament_z_hop": [
-        "nil"
+        "0.4"
     ],
     "filament_z_hop_types": [
         "nil"
     ],
     "full_fan_speed_layer": [
-        "0"
+        "3"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -130,22 +124,22 @@
         "100%"
     ],
     "hot_plate_temp": [
-        "110"
+        "85"
     ],
     "hot_plate_temp_initial_layer": [
-        "110"
+        "85"
     ],
     "nozzle_temperature": [
-        "250"
+        "245"
     ],
     "nozzle_temperature_initial_layer": [
-        "250"
+        "265"
     ],
     "overhang_fan_speed": [
-        "80"
+        "70"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "10%"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -154,28 +148,28 @@
         "3"
     ],
     "supertack_plate_temp": [
-        "0"
+        "70"
     ],
     "supertack_plate_temp_initial_layer": [
-        "0"
+        "70"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "slow_down_layer_time": [
-        "3"
+        "10"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "temperature_vitrification": [
-        "110"
+        "60"
     ],
     "textured_plate_temp": [
-        "110"
+        "80"
     ],
     "textured_plate_temp_initial_layer": [
-        "110"
+        "80"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
@@ -184,21 +178,18 @@
         "; filament end gcode\n"
     ],
     "compatible_printers": [
-        "Z-Bolt S300 0.4 nozzle",
-        "Z-Bolt S300 Dual 0.4 nozzle",
-        "Z-Bolt S400 0.4 nozzle",
-        "Z-Bolt S400 Dual 0.4 nozzle",
-        "Z-Bolt S600 0.4 nozzle",
-        "Z-Bolt S600 Dual 0.4 nozzle"
+        "Sovol Zero 0.4 nozzle"
     ],
+    "filament_id": "GFL99",
     "nozzle_temperature_range_high": [
         "280"
     ],
     "nozzle_temperature_range_low": [
-        "240"
+        "230"
     ],
-    "filament_id": "GFL504",
-    "setting_id": "GFSL504",
-    "description": "Use this filament profile to print big ABS models with chamber heating",
-    "renamed_from": "Z-Bolt ABS HT@0.4 nozzle"
+    "setting_id": "GFSA04",
+    "renamed_from": "My Generic PETG",
+    "enable_pressure_advance": "1",
+    "pressure_advance": "0.046",
+    "is_custom_defined": "0"
 }
