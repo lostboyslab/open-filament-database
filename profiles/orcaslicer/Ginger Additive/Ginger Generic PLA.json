@@ -16,10 +16,10 @@
         "4"
     ],
     "compatible_printers": [
-        "ginger G1 1.2 nozzle",
-        "ginger G1 3.0 nozzle",
-        "ginger G1 5.0 nozzle",
-        "ginger G1 8.0 nozzle"
+        "Ginger G1 1.2 nozzle",
+        "Ginger G1 3.0 nozzle",
+        "Ginger G1 5.0 nozzle",
+        "Ginger G1 8.0 nozzle"
     ],
     "compatible_printers_condition": "",
     "compatible_prints": [],
@@ -40,7 +40,7 @@
         "70"
     ],
     "enable_overhang_bridge_fan": [
-        "1"
+        "0"
     ],
     "enable_pressure_advance": [
         "1"
@@ -52,13 +52,13 @@
         "0"
     ],
     "fan_cooling_layer_time": [
-        "60"
+        "100"
     ],
     "fan_max_speed": [
-        "60"
+        "0"
     ],
     "fan_min_speed": [
-        "20"
+        "0"
     ],
     "filament_cooling_final_speed": [
         "3.4"
@@ -158,7 +158,7 @@
         "0"
     ],
     "filament_start_gcode": [
-        "; filament start gcode\n{if  (bed_temperature[current_extruder] >45)||(bed_temperature_initial_layer[current_extruder] >45)}M106 P3 S255\n{elsif(bed_temperature[current_extruder] >35)||(bed_temperature_initial_layer[current_extruder] >35)}M106 P3 S180\n{endif}\n\n{if activate_air_filtration[current_extruder] && support_air_filtration}\nM106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} \n{endif}"
+        "SET_PRESSURE_ADVANCE EXTRUDER=extruder SMOOTH_TIME=0.5"
     ],
     "filament_toolchange_delay": [
         "0"
@@ -200,16 +200,16 @@
     "is_custom_defined": "0",
     "name": "Ginger Generic PLA",
     "nozzle_temperature": [
-        "210"
+        "220"
     ],
     "nozzle_temperature_initial_layer": [
-        "210"
+        "220"
     ],
     "nozzle_temperature_range_high": [
         "220"
     ],
     "nozzle_temperature_range_low": [
-        "190"
+        "180"
     ],
     "overhang_fan_speed": [
         "100"
@@ -218,7 +218,7 @@
         "50%"
     ],
     "pressure_advance": [
-        "0"
+        "0.3"
     ],
     "reduce_fan_stop_start_freq": [
         "0"
@@ -230,10 +230,10 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "20"
+        "50"
     ],
     "slow_down_min_speed": [
-        "3"
+        "1"
     ],
     "support_material_interface_fan_speed": [
         "-1"
@@ -248,11 +248,19 @@
         "55"
     ],
     "version": "0.1.0.0",
+    "pellet_flow_coefficient": [
+        "1"
+    ],
     "instantiation": "true",
+    "extruder_rotation_volume": "456",
     "filament_type": [
         "PLA"
     ],
-    "pellet_flow_coefficient": [
-        "1"
-    ]
+    "mixing_stepper_rotation_volume": "8000",
+    "multi_zone_1_initial_layer": "200",
+    "multi_zone_1_temperature": "200",
+    "multi_zone_2_initial_layer": "200",
+    "multi_zone_2_temperature": "200",
+    "multi_zone_3_initial_layer": "200",
+    "multi_zone_3_temperature": "200"
 }
