@@ -13,7 +13,7 @@
         "3"
     ],
     "complete_print_exhaust_fan_speed": [
-        "70"
+        "10"
     ],
     "cool_plate_temp": [
         "0"
@@ -22,7 +22,7 @@
         "0"
     ],
     "during_print_exhaust_fan_speed": [
-        "70"
+        "30"
     ],
     "eng_plate_temp": [
         "105"
@@ -31,22 +31,22 @@
         "105"
     ],
     "fan_cooling_layer_time": [
-        "30"
+        "12"
     ],
     "fan_max_speed": [
-        "50"
+        "30"
     ],
     "fan_min_speed": [
         "10"
     ],
     "filament_cost": [
-        "0"
+        "13"
     ],
     "filament_density": [
-        "1.05"
+        "1.08"
     ],
     "filament_deretraction_speed": [
-        "nil"
+        "0"
     ],
     "filament_diameter": [
         "1.75"
@@ -61,19 +61,19 @@
         "1"
     ],
     "filament_max_volumetric_speed": [
-        "20"
+        "18"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
     ],
     "filament_retract_before_wipe": [
-        "nil"
+        "100%"
     ],
     "filament_retract_restart_extra": [
         "nil"
     ],
     "filament_retract_when_changing_layer": [
-        "nil"
+        "0"
     ],
     "filament_retraction_distances_when_cut": [
         "18"
@@ -82,10 +82,10 @@
         "0.8"
     ],
     "filament_retraction_minimum_travel": [
-        "nil"
+        "2"
     ],
     "filament_retraction_speed": [
-        "nil"
+        "30"
     ],
     "filament_settings_id": [
         ""
@@ -100,16 +100,16 @@
         "FusRock"
     ],
     "filament_wipe": [
-        "nil"
+        "0"
     ],
     "filament_wipe_distance": [
-        "nil"
+        "2"
     ],
     "filament_z_hop": [
-        "nil"
+        "0.4"
     ],
     "filament_z_hop_types": [
-        "nil"
+        "Spiral Lift"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -142,10 +142,10 @@
         "260"
     ],
     "overhang_fan_speed": [
-        "50"
+        "30"
     ],
     "overhang_fan_threshold": [
-        "25%"
+        "10%"
     ],
     "reduce_fan_stop_start_freq": [
         "0"
@@ -163,7 +163,7 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "3"
+        "4"
     ],
     "slow_down_min_speed": [
         "20"
@@ -190,19 +190,33 @@
     ],
     "filament_id": "GFR00",
     "description": "When printing this filament, there's a risk of nozzle clogging, oozing, warping and low layer adhesion strength. To get better results, please refer to this wiki: Printing Tips for High Temp / Engineering materials\uff08https://wiki.fusrock.com\uff09.",
-    "filament_notes": "//EN\n1.Be sure to read it carefully before using (https://wiki.fusrock.com).\n2.When printing this filament, there's a risk of nozzle clogging, oozing, warping and low layer adhesion strength. To get better results, please refer to this wiki: Printing Tips for High Temp / Engineering materials\uff08https://wiki.fusrock.com\uff09.\\n3.Thank you for choosing FusRock. \n//CN\n1.\u4f7f\u7528\u524d\u8bf7\u52a1\u5fc5\u4ed4\u7ec6\u9605\u8bfb\uff08https://wiki.fusrock.com\uff09\u3002\n2.\u6253\u5370\u8be5\u8017\u6750\u65f6\uff0c\u53ef\u80fd\u4f1a\u51fa\u73b0\u55b7\u5634\u5835\u585e\u3001\u62c9\u4e1d\u3001\u7fd8\u8fb9\u4ee5\u53ca\u5c42\u95f4\u9644\u7740\u529b\u4e0d\u8db3\u7b49\u95ee\u9898\u3002\u4e3a\u4e86\u83b7\u5f97\u66f4\u597d\u7684\u6253\u5370\u6548\u679c\uff0c\u8bf7\u53c2\u8003\u6b64\u7ef4\u57fa\u9875\u9762\uff1a\u9ad8\u6e29 / \u5de5\u7a0b\u6750\u6599\u6253\u5370\u6280\u5de7\uff08https://wiki.fusrock.com\uff09\u3002\n3.\u611f\u8c22\u60a8\u9009\u62e9FusRock\u3002",
-    "nozzle_temperature_range_high": [
-        "280"
+    "filament_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "filament_adhesiveness_category": [
+        "200"
     ],
     "nozzle_temperature_range_low": [
         "240"
     ],
-    "filament_adhesiveness_category": [
-        "100"
+    "nozzle_temperature_range_high": [
+        "280"
     ],
-    "filament_extruder_variant": [
-        "Direct Drive Standard"
+    "enable_overhang_bridge_fan": [
+        "1"
     ],
-    "version": "1.10.0.32",
+    "overhang_threshold_participating_cooling": [
+        "100%"
+    ],
+    "pre_start_fan_time": [
+        "0"
+    ],
+    "additional_cooling_fan_speed": [
+        "0"
+    ],
+    "filament_notes": "//EN\n1.Be sure to read it carefully before using (https://wiki.fusrock.com).\n2.When printing this filament, there's a risk of nozzle clogging, oozing, warping and low layer adhesion strength. To get better results, please refer to this wiki: Printing Tips for High Temp / Engineering materials\uff08https://wiki.fusrock.com\uff09.\\n3.Thank you for choosing FusRock. \n//CN\n1.\u4f7f\u7528\u524d\u8bf7\u52a1\u5fc5\u4ed4\u7ec6\u9605\u8bfb\uff08https://wiki.fusrock.com\uff09\u3002\n2.\u6253\u5370\u8be5\u8017\u6750\u65f6\uff0c\u53ef\u80fd\u4f1a\u51fa\u73b0\u55b7\u5634\u5835\u585e\u3001\u62c9\u4e1d\u3001\u7fd8\u8fb9\u4ee5\u53ca\u5c42\u95f4\u9644\u7740\u529b\u4e0d\u8db3\u7b49\u95ee\u9898\u3002\u4e3a\u4e86\u83b7\u5f97\u66f4\u597d\u7684\u6253\u5370\u6548\u679c\uff0c\u8bf7\u53c2\u8003\u6b64\u7ef4\u57fa\u9875\u9762\uff1a\u9ad8\u6e29 / \u5de5\u7a0b\u6750\u6599\u6253\u5370\u6280\u5de7\uff08https://wiki.fusrock.com\uff09\u3002\n3.\u611f\u8c22\u60a8\u9009\u62e9FusRock\u3002",
+    "impact_strength_z": [
+        "5.3"
+    ],
     "setting_id": "GFSR00_01"
 }
