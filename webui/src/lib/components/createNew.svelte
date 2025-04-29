@@ -1,0 +1,26 @@
+<script lang="ts">
+  let dialogElement: HTMLDialogElement | null = null;
+  let { children } = $props();
+</script>
+
+<button
+  type="button"
+  onclick={() => dialogElement?.showModal()}
+  class="flex items-center mb-2 gap-2 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-green-100 hover:text-green-700 dark:hover:bg-green-900 dark:hover:text-green-300 shadow transition-colors"
+  aria-label="Create"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+  </svg>
+  <span class="text-sm font-medium">Create</span>
+
+</button>
+
+<dialog 
+  bind:this={dialogElement} 
+  class="w-full h-full bg-transparent p-4 backdrop:bg-black/40 backdrop:backdrop-blur-sm"
+>
+  <div class="max-w-2xl w-full mx-auto bg-white dark:bg-gray-900 p-6 rounded-xl shadow-2xl text-gray-900 dark:text-gray-100">
+    {@render children()}
+  </div>
+</dialog>

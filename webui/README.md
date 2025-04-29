@@ -1,0 +1,1 @@
+Data der skal oprettes og ændres i: "Brand" (4 felter, 1 filupload), per brand er der en eller flere "Materials" (1 hovedfelt, + mulige "slicer settings" subfelter; ~6 felter). Hvert material har en eller flere "Filaments", med 7 felter. Filaments har farver, som har "sizes" og "variants"
