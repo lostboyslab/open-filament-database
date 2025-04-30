@@ -1,4 +1,6 @@
 <script lang="ts">
+  import BackBtn from '$lib/components/backBtn.svelte';
+  import Breadcrumb from '$lib/components/breadcrumb.svelte';
     import '../app.css';
     import type { LayoutProps } from './$types';
 
@@ -6,7 +8,11 @@
 </script>
 
 <div class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors">
-    <main class="mt-4 px-4 max-w-5xl mx-auto">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <nav class="sm:px-6 lg:px-8 flex gap-4 align-center">
+            <BackBtn />
+            <Breadcrumb />
+        </nav>
         {@render children()}
     </main>
 

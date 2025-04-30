@@ -12,6 +12,7 @@ export const load = async () => {
 
 export const actions = {
   brand: async ({ request }) => {
+    console.log('REQUEST : ', request);
     const form = await superValidate(request, zod(brandSchema));
     console.log('SUBMIT FORM : ', form);
 

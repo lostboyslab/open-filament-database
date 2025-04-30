@@ -221,7 +221,7 @@ export function loadFilamentDatabase(dataPath: string): FilamentDatabase {
       /\.(png|jpg|jpeg)$/i.test(file)
     );
     // Set logo path for browser (assuming you move/copy all logos to static/logos/)
-    const logo = logoFile ? `/logos/${logoFile}` : '';
+    const logo = logoFile ? `/data/${brandFolder.name}/${logoFile}` : '';
   
     if (!fs.existsSync(brandJsonPath)) continue;
   

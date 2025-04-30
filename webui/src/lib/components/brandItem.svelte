@@ -1,6 +1,5 @@
 <script lang="ts">
-  export let brandName: string;
-  export let brandData: any;
+  let { brandName, brandData } = $props();
 </script>
 
 <a

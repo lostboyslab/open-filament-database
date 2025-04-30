@@ -8,7 +8,7 @@ export const load: LayoutServerLoad = async () => {
 
 
   if (!filamentDataCache) {
-    filamentDataCache = loadFilamentDatabase('/Users/madsjacobsen/Desktop/web-ui/src/data');
+    filamentDataCache = loadFilamentDatabase('/Users/madsjacobsen/Desktop/open-filament-database/data');
   }
   return { filamentData: filamentDataCache };
 };
