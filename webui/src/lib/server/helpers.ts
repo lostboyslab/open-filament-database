@@ -20,19 +20,30 @@ export const removeUndefined = (obj: any): any  =>{
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.join(__dirname, '../../../data');
+const DATA_DIR = path.join(__dirname, '../../../../data');
 
 
 
-export const createBrand = (brandData: z.infer<typeof brandSchema>) => {
+export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
   const brandDir = path.join(DATA_DIR, brandData.name);
   if (!fs.existsSync(brandDir)) {
       fs.mkdirSync(brandDir, { recursive: true });
   }
+
+  let logoPath = '';
+  let logoUrl = '';
+  if (brandData.logo && typeof brandData.logo === 'object' && typeof brandData.logo.arrayBuffer === 'function') {
+    const arrayBuffer = await brandData.logo.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    logoPath = path.join(brandDir, brandData.logo.name);
+    fs.writeFileSync(logoPath, buffer);
+    logoUrl = `/data/${brandData.name}/${brandData.logo.name}`;
+  }
+
   const brandJson = {
       brand: brandData.name,
       website: brandData.website,
-      logo: brandData.logo,
+      logo: logoUrl,
       origin: brandData.origin
   };
 

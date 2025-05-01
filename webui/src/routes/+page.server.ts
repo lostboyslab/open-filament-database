@@ -1,8 +1,9 @@
 import { createBrand } from "$lib/server/helpers";
 import { brandSchema } from "$lib/validation/filament-brand-schema";
-import { fail, redirect } from "@sveltejs/kit";
+import { fail } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms";
 import { zod } from 'sveltekit-superforms/adapters';
+import { redirect, setFlash } from 'sveltekit-flash-message/server';
 
 export const load = async () => {
 
@@ -11,18 +12,17 @@ export const load = async () => {
 };
 
 export const actions = {
-  brand: async ({ request }) => {
-    console.log('REQUEST : ', request);
+  brand: async ({ request, cookies }) => {
     const form = await superValidate(request, zod(brandSchema));
     console.log('SUBMIT FORM : ', form);
 
     if (!form.valid) {
-      // Return { form } and things will just work.
+      setFlash({ type: 'error', message: "Please check your form data." }, cookies);
       return fail(400, { form });
     }
 
     createBrand(form.data)
-    return redirect(303, form.data.name);
+    redirect(form.data.name, { type: 'success', message: "Brand created" }, cookies);
 
 }
 }
