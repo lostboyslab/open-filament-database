@@ -16,7 +16,7 @@
     "filament_unload_time": "8.5",
     "filament_ramming_parameters": "\"250 100 42.4194 42.4194 42.4194 42.4194 42.4194| 0.05 42.4387 0.45 42.4387 0.95 42.4387 1.45 42.4387 1.95 42.4387 2.45 42.4387 2.95 42.4387 3.45 42.4387 3.95 42.4387 4.45 42.4387 4.95 42.4387\"",
     "filament_minimal_purge_on_wipe_tower": "35",
-    "filament_cost": "56.45",
+    "filament_cost": "46.65",
     "filament_density": "1.25",
     "filament_diameter": "1.75",
     "filament_notes": "\"\"",

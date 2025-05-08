@@ -1,7 +1,7 @@
 {
     "cooling": "1",
     "compatible_printers": "",
-    "compatible_printers_condition": "printer_model=~/(MK4|MK4IS|MK4ISMMU3|MK3.9|MK3.9MMU3)/ and nozzle_diameter[0]==0.5 and printer_notes=~/.*HF_NOZZLE.*/",
+    "compatible_printers_condition": "printer_model=~/(MK4|MK4IS|MK4ISMMU3|MK3.9|MK3.9MMU3)/ and nozzle_diameter[0]==0.5 and nozzle_high_flow[0]",
     "end_filament_gcode": "\"; Filament-specific end gcode\"",
     "extrusion_multiplier": "0.98",
     "filament_loading_speed": "10",

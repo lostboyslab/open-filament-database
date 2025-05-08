@@ -1,7 +1,7 @@
 {
     "cooling": "1",
     "compatible_printers": "",
-    "compatible_printers_condition": "printer_model=~/(MK4|MK4IS|MK4ISMMU3|MK3.9|MK3.9MMU3)/ and nozzle_diameter[0]!=0.8 and nozzle_diameter[0]!=0.6 and nozzle_diameter[0]!=0.5 and printer_notes=~/.*HF_NOZZLE.*/",
+    "compatible_printers_condition": "printer_model=~/(MK4|MK4IS|MK4ISMMU3|MK3.9|MK3.9MMU3)/ and nozzle_diameter[0]!=0.8 and nozzle_diameter[0]!=0.6 and nozzle_diameter[0]!=0.5 and nozzle_high_flow[0]",
     "end_filament_gcode": "\"; Filament-specific end gcode\"",
     "extrusion_multiplier": "1",
     "filament_loading_speed": "10",
@@ -16,7 +16,7 @@
     "filament_unload_time": "8.5",
     "filament_ramming_parameters": "\"250 100 39.871 39.871| 0.05 39.9547 0.45 39.9547 0.95 39.9547 1.45 39.9547 1.95 39.9547 2.45 39.9547 2.95 39.9547 3.45 39.9547 3.95 39.9547 4.45 39.9547 4.95 39.9547\"",
     "filament_minimal_purge_on_wipe_tower": "15",
-    "filament_cost": "54.84",
+    "filament_cost": "39.98",
     "filament_density": "1.24",
     "filament_diameter": "1.75",
     "filament_notes": "\"\"",

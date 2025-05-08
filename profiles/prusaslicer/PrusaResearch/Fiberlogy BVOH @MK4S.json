@@ -1,7 +1,7 @@
 {
     "cooling": "0",
     "compatible_printers": "",
-    "compatible_printers_condition": "printer_model=~/(MK4S|MK4SMMU3|MK3.9S|MK3.9SMMU3)/ and nozzle_diameter[0]!=0.8 and nozzle_diameter[0]!=0.6 and ! single_extruder_multi_material",
+    "compatible_printers_condition": "printer_model=~/(MK4S|MK4SMMU3|MK3.9S|MK3.9SMMU3)/ and nozzle_diameter[0]!=0.8 and nozzle_diameter[0]!=0.6 and ! nozzle_high_flow[0] and ! single_extruder_multi_material",
     "end_filament_gcode": "\"; Filament-specific end gcode\"",
     "extrusion_multiplier": "1",
     "filament_loading_speed": "10",
@@ -28,7 +28,7 @@
     "filament_vendor": "Fiberlogy",
     "filament_spool_weight": "0",
     "bed_temperature": "60",
-    "bridge_fan_speed": "20",
+    "bridge_fan_speed": "75",
     "disable_fan_first_layers": "1",
     "fan_always_on": "0",
     "fan_below_layer_time": "100",

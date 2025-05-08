@@ -1,7 +1,7 @@
 {
     "cooling": "1",
     "compatible_printers": "",
-    "compatible_printers_condition": "printer_notes=~/.*XL.*/ and nozzle_diameter[0]!=0.8 and nozzle_diameter[0]!=0.6 and printer_notes!~/.*HF_NOZZLE.*/",
+    "compatible_printers_condition": "nozzle_diameter[0]>=0.4 and nozzle_diameter[0]!=0.6 and nozzle_diameter[0]!=0.8 and printer_notes=~/.*XL.*/",
     "end_filament_gcode": "\"; Filament-specific end gcode\"",
     "extrusion_multiplier": "1",
     "filament_loading_speed": "10",
