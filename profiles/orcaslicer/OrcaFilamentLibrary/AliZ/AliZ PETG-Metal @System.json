@@ -184,7 +184,7 @@
         "; filament end gcode\n"
     ],
     "compatible_printers": [],
-    "filament_id": "AliZ001-2",
+    "filament_id": "AZ01-2",
     "nozzle_temperature_range_high": [
         "260"
     ],
