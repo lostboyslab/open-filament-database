@@ -38,7 +38,7 @@
     "first_layer_temperature": "230",
     "max_fan_speed": "100",
     "min_fan_speed": "70",
-    "temperature": "210",
+    "temperature": "220",
     "filament_vendor": "Hatchbox",
     "filament_spool_weight": "245",
     "idle_temperature": "70",
