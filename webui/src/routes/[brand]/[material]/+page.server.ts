@@ -4,6 +4,7 @@ import { superValidate } from 'sveltekit-superforms';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import { zod } from 'sveltekit-superforms/adapters';
 import { createMaterial, removeUndefined } from '$lib/server/helpers';
+import { baseFilamentSchema } from '$lib/validation/filament-schema';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material } = params;
@@ -13,7 +14,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   const normalizedMaterial = material.trim().toLowerCase().replace(/\s+/g, '');
 
   const brandKey = Object.keys(filamentData.brands).find(
-    key => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand
+    (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand,
   );
   if (!brandKey) {
     error(404, 'Brand not found');
@@ -21,11 +22,12 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 
   const brandData = filamentData.brands[brandKey];
 
-  const currentMaterial = brandData.materials[material]
+  const currentMaterial = brandData.materials[material];
   const materialForm = await superValidate(currentMaterial, zod(filamentMaterialSchema));
-  
+  const filamentForm = await superValidate(zod(baseFilamentSchema));
+
   const materialKey = Object.keys(brandData.materials).find(
-    key => key.toLowerCase().replace(/\s+/g, '') === normalizedMaterial
+    (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedMaterial,
   );
   if (!materialKey) {
     error(404, 'Material not found');
@@ -36,7 +38,8 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   return {
     brandData,
     materialForm,
-    materialData
+    filamentForm,
+    materialData,
   };
 };
 
@@ -44,7 +47,6 @@ export const actions = {
   material: async ({ request, params }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
     const { brand } = params;
-
 
     if (!form.valid) {
       fail(400, { form });
@@ -55,6 +57,5 @@ export const actions = {
     createMaterial(brand, filteredMaterial);
 
     return redirect(303, brand);
-
-}
-}
+  },
+};

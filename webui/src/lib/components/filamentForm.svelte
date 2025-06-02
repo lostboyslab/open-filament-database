@@ -1,28 +1,27 @@
 <script lang="ts">
-  import SuperDebug from "sveltekit-superforms";
-  type formType = "edit" | "create";
+  import SuperDebug from 'sveltekit-superforms';
+  type formType = 'edit' | 'create';
   let { form, errors, message, enhance, formType: formType, brandName } = $props();
 
   const slicerOptions = [
-    { key: "generic", label: "Generic" },
-    { key: "prusaslicer", label: "PrusaSlicer" },
-    { key: "bambustudio", label: "Bambu Studio" },
-    { key: "orcaslicer", label: "OrcaSlicer" },
-    { key: "cura", label: "Cura" }
+    { key: 'generic', label: 'Generic' },
+    { key: 'prusaslicer', label: 'PrusaSlicer' },
+    { key: 'bambustudio', label: 'Bambu Studio' },
+    { key: 'orcaslicer', label: 'OrcaSlicer' },
+    { key: 'cura', label: 'Cura' },
   ];
 
-  let selectedSlicer = $state("generic");
+  let selectedSlicer = $state('generic');
 </script>
 
-
-<div class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
+<div
+  class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
     use:enhance
     action="?/filament"
     enctype="multipart/form-data"
-    class="space-y-5"
-  >
+    class="space-y-5">
     <div>
       <label for="name" class="block font-medium mb-1">Filament name</label>
       <input
@@ -31,8 +30,7 @@
         name="name"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.name ? 'true' : undefined}
-        bind:value={$form.name}
-      />
+        bind:value={$form.name} />
 
       {#if $errors.name}
         <span class="text-red-600 text-xs">{$errors.name}</span>
@@ -47,8 +45,7 @@
         name="diameter_tolerance"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.diameter_tolerance ? 'true' : undefined}
-        bind:value={$form.diameter_tolerance}
-      />
+        bind:value={$form.diameter_tolerance} />
 
       {#if $errors.diameter_tolerance}
         <span class="text-red-600 text-xs">{$errors.diameter_tolerance}</span>
@@ -63,8 +60,7 @@
         name="density"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.density ? 'true' : undefined}
-        bind:value={$form.density}
-      />
+        bind:value={$form.density} />
 
       {#if $errors.density}
         <span class="text-red-600 text-xs">{$errors.density}</span>
@@ -79,8 +75,7 @@
         name="data_sheet_url"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.data_sheet_url ? 'true' : undefined}
-        bind:value={$form.data_sheet_url}
-      />
+        bind:value={$form.data_sheet_url} />
 
       {#if $errors.data_sheet_url}
         <span class="text-red-600 text-xs">{$errors.data_sheet_url}</span>
@@ -95,14 +90,13 @@
         name="safety_sheet_url"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.safety_sheet_url ? 'true' : undefined}
-        bind:value={$form.safety_sheet_url}
-      />
+        bind:value={$form.safety_sheet_url} />
 
       {#if $errors.safety_sheet_url}
         <span class="text-red-600 text-xs">{$errors.safety_sheet_url}</span>
       {/if}
     </div>
-
+    <!-- 
     <div class="slicerSettings space-y-4">
       <label class="block font-medium mb-1">Slicer Type</label>
       <div class="flex flex-wrap gap-4 mb-4">
@@ -187,12 +181,11 @@
           </div>
           {/if}
       </div>
-      
+       -->
 
     <button
       type="submit"
-      class="w-full py-2 px-4 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-colors"
-    >
+      class="w-full py-2 px-4 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-colors">
       {formType === 'edit' ? 'Save' : 'Create'}
     </button>
     {#if formType === 'edit'}
@@ -200,10 +193,20 @@
         type="button"
         class="w-full flex items-center justify-center gap-2 mt-2 py-2 px-4 rounded-lg bg-red-600 text-white font-semibold shadow hover:bg-red-700 transition-colors"
         aria-label="Delete brand"
-        onclick={() => {console.log('DELETE')}}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2" />
+        onclick={() => {
+          console.log('DELETE');
+        }}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 7l-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2" />
         </svg>
         Delete
       </button>
