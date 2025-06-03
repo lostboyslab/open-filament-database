@@ -1,5 +1,6 @@
 <script lang="ts">
   import CreateNew from '$lib/components/createNew.svelte';
+  import DownloadBtn from '$lib/components/downloadBtn.svelte';
   import EditModal from '$lib/components/editModal.svelte';
   import FilamentForm from '$lib/components/filamentForm.svelte';
   import FilamentItem from '$lib/components/filamentItem.svelte';
@@ -27,6 +28,7 @@
   <h1 class="text-3xl font-bold mb-4">
     Filament: {data.filamentData.name}
   </h1>
+
   <EditModal>
     <FilamentForm
       {form}
@@ -39,17 +41,24 @@
 
   <h2 class="text-2xl font-semibold mb-4">Colors & Sizes</h2>
   <div class="space-y-6">
-    <CreateNew>
-      <FilamentVariantForm
-        {form}
-        {errors}
-        {message}
+    <div class="flex justify-between">
+      <CreateNew>
+        <FilamentVariantForm
+          {form}
+          {errors}
+          {message}
+          brandName={data.brandData.name}
+          materialName={data.materialData.name}
+          filamentName={data.filamentData.name}
+          {enhance}
+          formType={'create'} />
+      </CreateNew>
+      <DownloadBtn
         brandName={data.brandData.name}
         materialName={data.materialData.name}
-        filamentName={data.filamentData.name}
-        {enhance}
-        formType={'create'} />
-    </CreateNew>
+        filamentName={data.filamentData.name} />
+    </div>
+
     {#each colorKeys as colorKey}
       {#if data.filamentData.colors[colorKey]}
         <FilamentItem

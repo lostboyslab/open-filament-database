@@ -4,9 +4,13 @@
   import BrandForm from '$lib/components/brandForm.svelte';
   import BrandItem from '$lib/components/brandItem.svelte';
   import CreateNew from '$lib/components/createNew.svelte';
+  import { zodClient } from 'sveltekit-superforms/adapters';
+  import { brandSchema } from '$lib/validation/filament-brand-schema.js';
   let { data } = $props();
   const { form, errors, constraints, delayed, message } = superForm(data.form, {
     resetForm: false,
+    validationMethod: 'oninput',
+    validators: zodClient(brandSchema),
   });
   const brands = $derived(data.filamentData);
   $inspect(brands);

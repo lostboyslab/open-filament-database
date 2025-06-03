@@ -23,11 +23,13 @@
     enctype="multipart/form-data"
     class="space-y-5">
     <div>
-      <label for="name" class="block font-medium mb-1">Material name</label>
+      <label for="name" class="block font-medium mb-1"
+        >Material name<span class="text-red-500">*</span></label>
       <input
         id="name"
         type="text"
         name="name"
+        aria-required="true"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.name ? 'true' : undefined}
         bind:value={$form.name} />

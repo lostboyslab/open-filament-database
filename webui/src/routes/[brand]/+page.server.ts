@@ -3,34 +3,38 @@ import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { brandSchema } from '$lib/validation/filament-brand-schema';
-import { createBrand, createMaterial, removeUndefined, updateBrand } from '$lib/server/helpers';
-import { filamentMaterialSchema, genericSlicerSchema, slicerSettingsSchema, specificSlicerSettingsSchema } from '$lib/validation/filament-material-schema';
-
-
+import { createMaterial, removeUndefined, updateBrand } from '$lib/server/helpers';
+import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand } = params;
   const { filamentData } = await parent();
 
   const normalizedBrand = brand.trim().toLowerCase().replace(/\s+/g, '');
-  
+
   const brandKey = Object.keys(filamentData.brands).find(
-    key => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand
+    (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand,
   );
   if (!brandKey) {
     throw error(404, 'Brand not found');
   }
-  
+
   const brandData = filamentData.brands[brandKey];
   const materialKey = Object.keys(brandData.materials).find(
-    key => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand
+    (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand,
   );
-  const brandForm = await superValidate(brandData, zod(brandSchema));
+
+  const formData = {
+    ...brandData,
+    logo: new File([brandData.logo], 'logo.png', { type: 'image/png' }),
+  };
+
+  const brandForm = await superValidate(formData, zod(brandSchema));
   const materialForm = await superValidate(zod(filamentMaterialSchema));
   return {
     brandForm,
     materialForm,
-    brandData
+    brandData,
   };
 };
 
@@ -41,24 +45,22 @@ export const actions = {
     if (!form.valid) {
       return fail(400, { form });
     }
-    updateBrand(form.data)
-    
+    updateBrand(form.data);
+
     return redirect(303, `/${form.data.name}/`);
+  },
+  material: async ({ request, params }) => {
+    const form = await superValidate(request, zod(filamentMaterialSchema));
+    const { brand } = params;
 
-},
-material: async ({ request, params}) => {
+    const filteredMaterial = removeUndefined(form.data);
 
-  const form = await superValidate(request, zod(filamentMaterialSchema));
-  const { brand } = params;
+    if (!form.valid) {
+      fail(400, { form });
+    }
 
-  const filteredMaterial = removeUndefined(form.data);
+    createMaterial(brand, filteredMaterial);
 
-  if (!form.valid) {
-    fail(400, { form });
-  }
-
-  createMaterial(brand , filteredMaterial)
-
-return redirect (303, `/${brand}`)
-}
-}
+    return redirect(303, `/${brand}`);
+  },
+};

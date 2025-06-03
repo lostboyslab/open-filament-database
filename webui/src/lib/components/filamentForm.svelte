@@ -23,11 +23,13 @@
     enctype="multipart/form-data"
     class="space-y-5">
     <div>
-      <label for="name" class="block font-medium mb-1">Filament name</label>
+      <label for="name" class="block font-medium mb-1"
+        >Filament name<span class="text-red-500">*</span></label>
       <input
         id="name"
         type="text"
         name="name"
+        aria-required="true"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.name ? 'true' : undefined}
         bind:value={$form.name} />
@@ -38,11 +40,13 @@
     </div>
 
     <div>
-      <label for="diameter_tolerance" class="block font-medium mb-1">Diameter tolerance</label>
+      <label for="diameter_tolerance" class="block font-medium mb-1"
+        >Diameter tolerance<span class="text-red-500">*</span></label>
       <input
         id="diameter_tolerance"
         type="text"
         name="diameter_tolerance"
+        aria-required="true"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.diameter_tolerance ? 'true' : undefined}
         bind:value={$form.diameter_tolerance} />
@@ -53,11 +57,13 @@
     </div>
 
     <div>
-      <label for="density" class="block font-medium mb-1">Density</label>
+      <label for="density" class="block font-medium mb-1"
+        >Density<span class="text-red-500">*</span></label>
       <input
         id="density"
         type="text"
         name="density"
+        aria-required="true"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.density ? 'true' : undefined}
         bind:value={$form.density} />
@@ -83,11 +89,13 @@
     </div>
 
     <div>
-      <label for="safety_sheet_url" class="block font-medium mb-1">Safety sheet URL</label>
+      <label for="safety_sheet_url" class="block font-medium mb-1"
+        >Safety sheet URL<span class="text-red-500">*</span></label>
       <input
         id="safety_sheet_url"
         type="text"
         name="safety_sheet_url"
+        aria-required="true"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.safety_sheet_url ? 'true' : undefined}
         bind:value={$form.safety_sheet_url} />
