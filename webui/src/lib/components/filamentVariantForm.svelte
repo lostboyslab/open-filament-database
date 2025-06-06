@@ -1,14 +1,6 @@
 <script lang="ts">
-  let {
-    form,
-    errors,
-    message,
-    enhance,
-    formType: formType,
-    brandName,
-    materialName,
-    filamentName,
-  } = $props();
+  let { form, errors, message, enhance, formType, brandName, materialName, filamentName } =
+    $props();
 </script>
 
 <div

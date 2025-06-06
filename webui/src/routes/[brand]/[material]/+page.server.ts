@@ -3,8 +3,10 @@ import type { PageServerLoad } from './$types';
 import { superValidate } from 'sveltekit-superforms';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import { zod } from 'sveltekit-superforms/adapters';
-import { createMaterial, removeUndefined } from '$lib/server/helpers';
+import { createFilament, removeUndefined } from '$lib/server/helpers';
 import { baseFilamentSchema } from '$lib/validation/filament-schema';
+import { refreshDatabase } from '$lib/dataCacher';
+import { setFlash } from 'sveltekit-flash-message/server';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material } = params;
@@ -44,18 +46,29 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 };
 
 export const actions = {
-  material: async ({ request, params }) => {
+  filament: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
-    const { brand } = params;
+    const { brand, material } = params;
 
     if (!form.valid) {
       fail(400, { form });
     }
 
-    const filteredMaterial = removeUndefined(form.data);
+    try {
+      const filteredFilament = removeUndefined(form.data);
+      await createFilament(brand, material, filteredFilament);
+      await refreshDatabase();
+    } catch (error) {
+      console.error('Failed to update filament:', error);
+      setFlash(
+        { type: 'error', message: 'Failed to update fiilament. Please try again.' },
+        cookies,
+      );
+      fail(500, { form });
+    }
+    const filamentPath = `/${brand}/${material}/${form.data.name}`;
 
-    createMaterial(brand, filteredMaterial);
-
-    return redirect(303, brand);
+    setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
+    redirect(303, filamentPath);
   },
 };

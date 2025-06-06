@@ -1,0 +1,9 @@
+{
+  "color_name": "Red",
+  "color_hex": "#ff0000",
+  "traits": {
+    "glow": true
+  },
+  "data_sheet_url": "https://google.com",
+  "safety_sheet_url": "https://google.com"
+}

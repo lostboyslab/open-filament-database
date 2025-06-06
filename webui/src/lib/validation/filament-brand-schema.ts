@@ -6,6 +6,6 @@ export const brandSchema = z.object({
   origin: z.string(),
   logo: z
     .instanceof(File, { message: 'Please upload a file.' })
-    .refine((f) => f.size < 100_000, 'Max 100 kB upload size.'),
+    .refine((f) => f.size < 5_000_000, 'Max 5 mB upload size.'),
   oldBrandName: z.string().optional(),
 });

@@ -13,17 +13,16 @@
 {#if $flash}
   {@const isSuccess = $flash.type == 'success'}
   {@const isError = $flash.type == 'error'}
-  <div class="fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 ease-in-out">
+  <div class="fixed top-4 right-4 z-50 transform transition-all duration-300 ease-in-out">
     <div
-      class="mx-4 mt-4 mb-0 rounded-lg shadow-lg border-l-4 {isSuccess
+      class="max-w-sm rounded-lg shadow-lg border-l-4 {isSuccess
         ? 'bg-green-50 border-green-500 dark:bg-green-900/20 dark:border-green-400'
         : 'bg-red-50 border-red-500 dark:bg-red-900/20 dark:border-red-400'}">
       <div class="flex items-center justify-between p-4">
         <div class="flex items-center space-x-3">
-          <!-- Icon -->
           {#if isSuccess}
             <svg
-              class="w-6 h-6 text-green-600 dark:text-green-400"
+              class="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
@@ -35,7 +34,7 @@
             </svg>
           {:else}
             <svg
-              class="w-6 h-6 text-red-600 dark:text-red-400"
+              class="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
@@ -47,7 +46,7 @@
             </svg>
           {/if}
           <p
-            class="font-medium {isSuccess
+            class="font-medium text-sm {isSuccess
               ? 'text-green-800 dark:text-green-200'
               : 'text-red-800 dark:text-red-200'}">
             {$flash.message}
@@ -56,7 +55,7 @@
 
         <button
           aria-label="close"
-          class="ml-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          class="ml-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors flex-shrink-0"
           onclick={() => flash.set(undefined)}>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -70,6 +69,7 @@
     </div>
   </div>
 {/if}
+
 <div
   class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors">
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

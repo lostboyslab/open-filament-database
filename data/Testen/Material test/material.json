@@ -1,0 +1,11 @@
+{
+  "name": "Material test",
+  "first_layer_bed_temp": 120,
+  "first_layer_nozzle_temp": 125,
+  "bed_temp": 99,
+  "nozzle_temp": 87,
+  "prusa_profile_path": "",
+  "bambus_profile_path": "",
+  "orca_profile_path": "",
+  "cura_profile_path": ""
+}

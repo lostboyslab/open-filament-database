@@ -5,8 +5,10 @@ import { zod } from 'sveltekit-superforms/adapters';
 import { brandSchema } from '$lib/validation/filament-brand-schema';
 import { createMaterial, removeUndefined, updateBrand } from '$lib/server/helpers';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
+import { refreshDatabase } from '$lib/dataCacher';
+import { setFlash } from 'sveltekit-flash-message/server';
 
-export const load: PageServerLoad = async ({ params, parent }) => {
+export const load: PageServerLoad = async ({ params, parent, cookies }) => {
   const { brand } = params;
   const { filamentData } = await parent();
 
@@ -25,8 +27,10 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   );
 
   const formData = {
-    ...brandData,
-    logo: new File([brandData.logo], 'logo.png', { type: 'image/png' }),
+    name: brandData.name,
+    website: brandData.website || 'https://',
+    origin: brandData.origin || '',
+    oldBrandName: brandData.name,
   };
 
   const brandForm = await superValidate(formData, zod(brandSchema));
@@ -39,17 +43,25 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 };
 
 export const actions = {
-  brand: async ({ request }) => {
+  brand: async ({ request, cookies }) => {
     const form = await superValidate(request, zod(brandSchema));
 
     if (!form.valid) {
       return fail(400, { form });
     }
-    updateBrand(form.data);
 
+    try {
+      await updateBrand(form.data);
+      await refreshDatabase();
+    } catch (error) {
+      console.error('Failed to update brand:', error);
+      setFlash({ type: 'error', message: 'Failed to update brand. Please try again.' }, cookies);
+      return fail(500, { form });
+    }
+    setFlash({ type: 'success', message: 'Brand updated successfully!' }, cookies);
     return redirect(303, `/${form.data.name}/`);
   },
-  material: async ({ request, params }) => {
+  material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
     const { brand } = params;
 
@@ -59,8 +71,15 @@ export const actions = {
       fail(400, { form });
     }
 
-    createMaterial(brand, filteredMaterial);
-
-    return redirect(303, `/${brand}`);
+    try {
+      await createMaterial(brand, filteredMaterial);
+      await refreshDatabase();
+    } catch (error) {
+      console.error('Failed to create material:', error);
+      setFlash({ type: 'error', message: 'Failed to create material. Please try again.' }, cookies);
+      return fail(500, { form });
+    }
+    setFlash({ type: 'success', message: 'Material created successfully!' }, cookies);
+    return redirect(303, `/${brand}/${form.data.name}`);
   },
 };

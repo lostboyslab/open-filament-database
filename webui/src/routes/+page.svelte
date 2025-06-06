@@ -6,14 +6,13 @@
   import CreateNew from '$lib/components/createNew.svelte';
   import { zodClient } from 'sveltekit-superforms/adapters';
   import { brandSchema } from '$lib/validation/filament-brand-schema.js';
-  let { data } = $props();
+  const { data } = $props();
   const { form, errors, constraints, delayed, message } = superForm(data.form, {
     resetForm: false,
     validationMethod: 'oninput',
     validators: zodClient(brandSchema),
   });
   const brands = $derived(data.filamentData);
-  $inspect(brands);
 </script>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
