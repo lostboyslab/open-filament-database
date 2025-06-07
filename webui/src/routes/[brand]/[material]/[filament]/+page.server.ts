@@ -3,8 +3,8 @@ import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { filamentSchema, filamentVariantSchema } from '$lib/validation/filament-schema';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import { createColorFiles } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { refreshDatabase } from '$lib/dataCacher';
@@ -48,7 +48,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 };
 
 export const actions = {
-  createFilament: async ({ url, request }) => {
+  createFilament: async ({ url, request, cookies }) => {
     const form = await superValidate(request, zod(filamentVariantSchema));
     console.log('SUBMIT FORM : ', form);
     if (!form.valid) {

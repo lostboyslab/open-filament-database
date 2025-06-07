@@ -25,11 +25,16 @@
     <div>
       <label for="name" class="block font-medium mb-1"
         >Filament name<span class="text-red-500">*</span></label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Enter the specific name or type of this filament material (e.g., "PLA+", "PETG", "ABS Pro")
+      </p>
       <input
         id="name"
         type="text"
         name="name"
         aria-required="true"
+        aria-describedby="name-help"
+        placeholder="e.g. PLA+"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.name ? 'true' : undefined}
         bind:value={$form.name} />
@@ -42,11 +47,16 @@
     <div>
       <label for="diameter_tolerance" class="block font-medium mb-1"
         >Diameter tolerance<span class="text-red-500">*</span></label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Acceptable variation in filament diameter (typically ±0.02mm or ±0.03mm)
+      </p>
       <input
         id="diameter_tolerance"
         type="text"
         name="diameter_tolerance"
         aria-required="true"
+        aria-describedby="diameter-tolerance-help"
+        placeholder="e.g. ±0.02mm"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.diameter_tolerance ? 'true' : undefined}
         bind:value={$form.diameter_tolerance} />
@@ -59,11 +69,16 @@
     <div>
       <label for="density" class="block font-medium mb-1"
         >Density<span class="text-red-500">*</span></label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Material density in grams per cubic centimeter (g/cm³)
+      </p>
       <input
         id="density"
         type="text"
         name="density"
         aria-required="true"
+        aria-describedby="density-help"
+        placeholder="e.g. 1.24"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.density ? 'true' : undefined}
         bind:value={$form.density} />
@@ -75,10 +90,15 @@
 
     <div>
       <label for="data_sheet_url" class="block font-medium mb-1">Data sheet URL</label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Link to technical data sheet with material specifications (optional)
+      </p>
       <input
         id="data_sheet_url"
         type="text"
         name="data_sheet_url"
+        aria-describedby="data-sheet-help"
+        placeholder="https://www.example.com/datasheet.pdf"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.data_sheet_url ? 'true' : undefined}
         bind:value={$form.data_sheet_url} />
@@ -91,11 +111,16 @@
     <div>
       <label for="safety_sheet_url" class="block font-medium mb-1"
         >Safety sheet URL<span class="text-red-500">*</span></label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Link to Material Safety Data Sheet (MSDS) for handling and safety information
+      </p>
       <input
         id="safety_sheet_url"
         type="text"
         name="safety_sheet_url"
         aria-required="true"
+        aria-describedby="safety-sheet-help"
+        placeholder="https://www.example.com/msds.pdf"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.safety_sheet_url ? 'true' : undefined}
         bind:value={$form.safety_sheet_url} />
@@ -104,92 +129,6 @@
         <span class="text-red-600 text-xs">{$errors.safety_sheet_url}</span>
       {/if}
     </div>
-    <!-- 
-    <div class="slicerSettings space-y-4">
-      <label class="block font-medium mb-1">Slicer Type</label>
-      <div class="flex flex-wrap gap-4 mb-4">
-        {#each slicerOptions as option}
-          <label class="flex items-center gap-2 cursor-pointer">
-            <input
-              type="radio"
-              name="slicerType"
-              value={option.key}
-              bind:group={selectedSlicer}
-            />
-            {option.label}
-          </label>
-        {/each}
-          {#if selectedSlicer === 'generic'}
-          <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
-            <legend class="font-semibold text-base mb-2">Generic Slicer Settings</legend>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label for="first_layer_bed_temp" class="block text-sm mb-1">First Layer Bed Temp</label>
-                <input
-                  id="first_layer_bed_temp"
-                  type="number"
-                  name="first_layer_bed_temp"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.first_layer_bed_temp}
-                />
-              </div>
-              <div>
-                <label for="first_layer_nozzle_temp" class="block text-sm mb-1">First Layer Nozzle Temp</label>
-                <input
-                  id="first_layer_nozzle_temp"
-                  type="number"
-                  name="first_layer_nozzle_temp"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.first_layer_nozzle_temp}
-                />
-              </div>
-              <div>
-                <label for="bed_temp" class="block text-sm mb-1">Bed Temp</label>
-                <input
-                  id="bed_temp"
-                  type="number"
-                  name="bed_temp"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.bed_temp}
-                />
-              </div>
-              <div>
-                <label for="nozzle_temp" class="block text-sm mb-1">Nozzle Temp</label>
-                <input
-                  id="nozzle_temp"
-                  type="number"
-                  name="nozzle_temp"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.nozzle_temp}
-                />
-              </div>
-            </div>
-          </fieldset>
-          {/if}
-          {#if selectedSlicer === 'prusaslicer' || selectedSlicer === 'cura' || selectedSlicer === 'bambustudio' || selectedSlicer === 'orcaslicer'} 
-          <div>
-            <label for="profile_path" class="block text-sm mb-1">Profile Path</label>
-            <input
-              id="profile_path"
-              type="text"
-              name="profile_path"
-              class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-              bind:value={$form.profile_path}
-            />
-          </div>
-          <div>
-            <label for="overrides" class="block text-sm mb-1">Overrides</label>
-            <input
-              id="overrides"
-              type="text"
-              name="overrides"
-              class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-              bind:value={$form.overrides}
-            />
-          </div>
-          {/if}
-      </div>
-       -->
 
     <button
       type="submit"

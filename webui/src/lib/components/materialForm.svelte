@@ -25,11 +25,16 @@
     <div>
       <label for="name" class="block font-medium mb-1"
         >Material name<span class="text-red-500">*</span></label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Enter the material type or category (e.g., "PLA", "PETG", "ABS", "TPU")
+      </p>
       <input
         id="name"
         type="text"
         name="name"
         aria-required="true"
+        aria-describedby="name-help"
+        placeholder="e.g. PLA"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.name ? 'true' : undefined}
         bind:value={$form.name} />
@@ -41,6 +46,10 @@
 
     <div class="slicerSettings space-y-4">
       <p class="block font-medium mb-1">Slicer Type</p>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Select which slicers you want to provide print settings for. Choose Generic for basic
+        temperature settings that work across all slicers.
+      </p>
       <div class="flex flex-wrap gap-4 mb-4">
         {#each slicerOptions as option}
           <label class="flex items-center gap-2 cursor-pointer">
@@ -55,20 +64,31 @@
         {#if selectedSlicer.includes('generic')}
           <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
             <legend class="font-semibold text-base mb-2">Generic Slicer Settings</legend>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+              Basic temperature settings that work across different slicers
+            </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label for="first_layer_bed_temp" class="block text-sm mb-1"
-                  >First Layer Bed Temp</label>
+                <label for="first_layer_bed_temp" class="block text-sm font-medium mb-1"
+                  >First Layer Bed Temp (°C)</label>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                  Bed temperature for first layer adhesion
+                </p>
                 <input
                   id="first_layer_bed_temp"
                   type="number"
                   name="first_layer_bed_temp"
+                  placeholder="e.g. 60"
+                  aria-describedby="first-layer-bed-temp-help"
                   class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
                   bind:value={$form.first_layer_bed_temp} />
               </div>
               <div>
-                <label for="first_layer_nozzle_temp" class="block text-sm mb-1"
-                  >First Layer Nozzle Temp</label>
+                <label for="first_layer_nozzle_temp" class="block text-sm font-medium mb-1"
+                  >First Layer Nozzle Temp (°C)</label>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                  Nozzle temperature for first layer
+                </p>
                 <input
                   id="first_layer_nozzle_temp"
                   type="number"
@@ -77,20 +97,31 @@
                   bind:value={$form.first_layer_nozzle_temp} />
               </div>
               <div>
-                <label for="bed_temp" class="block text-sm mb-1">Bed Temp</label>
+                <label for="bed_temp" class="block text-sm font-medium mb-1">Bed Temp (°C)</label>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                  Standard bed temperature for remaining layers
+                </p>
                 <input
                   id="bed_temp"
                   type="number"
                   name="bed_temp"
+                  placeholder="e.g. 60"
+                  aria-describedby="bed-temp-help"
                   class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
                   bind:value={$form.bed_temp} />
               </div>
               <div>
-                <label for="nozzle_temp" class="block text-sm mb-1">Nozzle Temp</label>
+                <label for="nozzle_temp" class="block text-sm font-medium mb-1"
+                  >Nozzle Temp (°C)</label>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                  Standard nozzle temperature for printing
+                </p>
                 <input
                   id="nozzle_temp"
                   type="number"
                   name="nozzle_temp"
+                  placeholder="e.g. 210"
+                  aria-describedby="nozzle-temp-help"
                   class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
                   bind:value={$form.nozzle_temp} />
               </div>

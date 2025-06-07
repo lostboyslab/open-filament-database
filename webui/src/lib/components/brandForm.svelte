@@ -12,11 +12,16 @@
     <div>
       <label for="name" class="block font-medium mb-1"
         >Brand name<span class="text-red-500">*</span></label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Enter the official name of the filament manufacturer (e.g., "Prusa", "Hatchbox")
+      </p>
       <input
         id="name"
         type="text"
         name="name"
         aria-required="true"
+        aria-describedby="name-help"
+        placeholder="e.g. Prusa"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.name ? 'true' : undefined}
         bind:value={$form.name} />
@@ -28,11 +33,14 @@
     <div>
       <label for="website" class="block font-medium mb-1"
         >Website<span class="text-red-500">*</span></label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Official website URL of the brand</p>
       <input
         id="website"
         type="text"
         name="website"
         aria-required="true"
+        aria-describedby="website-help"
+        placeholder="https://www.example.com"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.website ? 'true' : undefined}
         bind:value={$form.website} />
@@ -44,11 +52,16 @@
     <div>
       <label for="origin" class="block font-medium mb-1"
         >Origin<span class="text-red-500">*</span></label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Country or region where the brand is based
+      </p>
       <input
         id="origin"
         type="text"
         name="origin"
         aria-required="true"
+        aria-describedby="origin-help"
+        placeholder="e.g. DK"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.origin ? 'true' : undefined}
         bind:value={$form.origin} />
