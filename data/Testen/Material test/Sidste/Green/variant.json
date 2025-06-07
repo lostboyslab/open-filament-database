@@ -1,7 +1,8 @@
 {
-  "color_name": "Red",
-  "color_hex": "#ff0000",
+  "color_name": "Green",
+  "color_hex": "#2bff00",
   "traits": {
+    "translucent": true,
     "glow": true
   },
   "data_sheet_url": "https://google.com",

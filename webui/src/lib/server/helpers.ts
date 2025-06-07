@@ -131,9 +131,8 @@ export const createFilament = async (
   return filamentDir;
 };
 
-export function createColorFiles(formData: any) {
-  const DATA_DIR_FILAMENT = path.resolve('src/data');
-
+export async function createColorFiles(formData: any) {
+  const DATA_DIR_FILAMENT = path.resolve('../data');
   const colorFolder = path.join(
     DATA_DIR_FILAMENT,
     formData.brandName,

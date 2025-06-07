@@ -1,0 +1,9 @@
+[
+  {
+    "filament_weight": 100,
+    "empty_spool_weight": 25,
+    "diameter": 3,
+    "spool_refill": false,
+    "density": 0
+  }
+]
