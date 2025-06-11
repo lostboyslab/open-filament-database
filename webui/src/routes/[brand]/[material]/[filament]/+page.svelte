@@ -5,12 +5,17 @@
   import FilamentForm from '$lib/components/filamentForm.svelte';
   import FilamentItem from '$lib/components/filamentItem.svelte';
   import FilamentVariantForm from '$lib/components/filamentVariantForm.svelte';
+  import { baseFilamentSchema, filamentVariantSchema } from '$lib/validation/filament-schema.js';
   import { superForm } from 'sveltekit-superforms';
+  import { zodClient } from 'sveltekit-superforms/adapters';
+
   const { data } = $props();
   const colorKeys = Object.keys(data.filamentData.colors ?? {});
 
   const { form, errors, message, enhance } = superForm(data.filamentForm, {
     resetForm: false,
+    validationMethod: 'onblur',
+    validators: zodClient(baseFilamentSchema),
   });
 
   const {
@@ -20,6 +25,8 @@
     enhance: filamentVariantEnhance,
   } = superForm(data.filamentVariantForm, {
     resetForm: false,
+    validationMethod: 'onblur',
+    validators: zodClient(filamentVariantSchema),
   });
 </script>
 

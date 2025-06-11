@@ -1,14 +1,30 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import CreateNew from '$lib/components/createNew.svelte';
   import EditModal from '$lib/components/editModal.svelte';
   import FilamentForm from '$lib/components/filamentForm.svelte';
   import MaterialForm from '$lib/components/materialForm.svelte';
   import MaterialItem from '$lib/components/MaterialItem.svelte';
+  import { isItemDeleted } from '$lib/pseudoDeleter.js';
+  import { filamentMaterialSchema } from '$lib/validation/filament-material-schema.js';
+  import { baseFilamentSchema } from '$lib/validation/filament-schema.js';
   import { superForm } from 'sveltekit-superforms';
+  import { zodClient } from 'sveltekit-superforms/adapters';
+
   const { data } = $props();
   const filamentKeys = Object.keys(data.materialData.filaments ?? {});
+
+  const filteredFilamentKeys = $derived(
+    !browser
+      ? filamentKeys
+      : filamentKeys.filter((filamentKey) => !isItemDeleted('filament', filamentKey)),
+  );
+
   const { form, errors, message, enhance } = superForm(data.materialForm, {
     resetForm: false,
+    validationMethod: 'onblur',
+    validators: zodClient(filamentMaterialSchema),
   });
 
   const {
@@ -18,6 +34,8 @@
     enhance: filamentEnhance,
   } = superForm(data.filamentForm, {
     resetForm: false,
+    validationMethod: 'onblur',
+    validators: zodClient(baseFilamentSchema),
   });
 </script>
 
@@ -45,7 +63,7 @@
   </EditModal>
 
   <div class="space-y-8">
-    {#each filamentKeys as filamentKey}
+    {#each filteredFilamentKeys as filamentKey}
       {#if data.materialData.filaments[filamentKey]}
         <MaterialItem
           filament={data.materialData.filaments[filamentKey]}

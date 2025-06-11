@@ -1,5 +1,6 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
+  import { pseudoDelete } from '$lib/pseudoDeleter';
   import SuperDebug, { fileProxy, superForm } from 'sveltekit-superforms';
   type formType = 'edit' | 'create';
   let { form, errors, constraints, delayed, message, formType: formType, oldName = '' } = $props();
@@ -96,9 +97,7 @@
         type="button"
         class="w-full flex items-center justify-center gap-2 mt-2 py-2 px-4 rounded-lg bg-red-600 text-white font-semibold shadow hover:bg-red-700 transition-colors"
         aria-label="Delete brand"
-        onclick={() => {
-          console.log('DELETE');
-        }}>
+        onclick={() => pseudoDelete('brand', $form.name)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-5 h-5"

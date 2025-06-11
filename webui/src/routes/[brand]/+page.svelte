@@ -2,12 +2,20 @@
   import BrandForm from '$lib/components/brandForm.svelte';
   import EditModal from '$lib/components/editModal.svelte';
   import { superForm } from 'sveltekit-superforms';
+  import { zodClient } from 'sveltekit-superforms/adapters';
+
   import type { PageProps } from './$types';
   import CreateNew from '$lib/components/createNew.svelte';
   import MaterialForm from '$lib/components/materialForm.svelte';
+  import { isItemDeleted } from '$lib/pseudoDeleter';
+  import { browser } from '$app/environment';
+  import { brandSchema } from '$lib/validation/filament-brand-schema';
+  import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
   let { data }: PageProps = $props();
   const { form, errors, constraints, delayed, message, enhance } = superForm(data.brandForm, {
     resetForm: false,
+    validationMethod: 'onblur',
+    validators: zodClient(brandSchema),
   });
 
   const {
@@ -17,9 +25,17 @@
     enhance: materialEnhance,
   } = superForm(data.materialForm, {
     resetForm: false,
+    validationMethod: 'onblur',
+    validators: zodClient(filamentMaterialSchema),
   });
 
   const materialKeys = Object.keys(data.brandData.materials ?? {});
+
+  const filteredMaterialKeys = $derived(
+    !browser
+      ? materialKeys
+      : materialKeys.filter((materialKey) => !isItemDeleted('material', materialKey)),
+  );
 </script>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -64,7 +80,7 @@
         formType={'create'} />
     </CreateNew>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {#each materialKeys as materialKey}
+      {#each filteredMaterialKeys as materialKey}
         {#if data.brandData.materials[materialKey]}
           <a href={`/${data.brandData.name}/${materialKey}`}>
             <li
