@@ -38,7 +38,7 @@
     "first_layer_temperature": "230",
     "max_fan_speed": "100",
     "min_fan_speed": "70",
-    "temperature": "210",
+    "temperature": "220",
     "filament_vendor": "Generic",
     "idle_temperature": "70",
     "filament_travel_ramping_lift": "1",

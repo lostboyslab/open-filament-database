@@ -39,7 +39,7 @@
     "min_fan_speed": "12",
     "temperature": "275",
     "filament_vendor": "Filatech",
-    "idle_temperature": "130",
+    "idle_temperature": "150",
     "filament_infill_max_speed": "0",
     "filament_infill_max_crossing_speed": "100",
     "filament_stamping_distance": "45",

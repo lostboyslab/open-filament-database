@@ -30,7 +30,7 @@
     "disable_fan_first_layers": "3",
     "full_fan_speed_layer": "0",
     "fan_always_on": "0",
-    "fan_below_layer_time": "25",
+    "fan_below_layer_time": "20",
     "filament_colour": "#FF8000",
     "filament_max_volumetric_speed": "4",
     "filament_type": "PA",

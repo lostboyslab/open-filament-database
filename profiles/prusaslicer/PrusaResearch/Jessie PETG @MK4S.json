@@ -35,7 +35,7 @@
     "filament_max_volumetric_speed": "12",
     "filament_type": "PETG",
     "first_layer_bed_temperature": "85",
-    "first_layer_temperature": "240",
+    "first_layer_temperature": "245",
     "max_fan_speed": "40",
     "min_fan_speed": "20",
     "temperature": "245",

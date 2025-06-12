@@ -30,7 +30,7 @@
     "disable_fan_first_layers": "1",
     "full_fan_speed_layer": "3",
     "fan_always_on": "1",
-    "fan_below_layer_time": "25",
+    "fan_below_layer_time": "20",
     "filament_colour": "#9DC5FF",
     "filament_max_volumetric_speed": "8",
     "filament_type": "PET",

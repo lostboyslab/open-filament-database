@@ -41,7 +41,7 @@
     "filament_vendor": "Prusa Polymers",
     "filament_spool_weight": "193",
     "filament_retract_lift": "0.2",
-    "idle_temperature": "130",
+    "idle_temperature": "150",
     "filament_infill_max_speed": "0",
     "filament_infill_max_crossing_speed": "130",
     "filament_stamping_distance": "45",
