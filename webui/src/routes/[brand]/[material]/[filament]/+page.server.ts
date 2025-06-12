@@ -77,6 +77,7 @@ export const actions = {
     }
 
     // Redirect to current page with success message
-    redirect(url.pathname, { type: 'success', message: 'Color created successfully!' }, cookies);
+    setFlash({ type: 'success', message: 'Color created successfully!' }, cookies);
+    redirect(303, url.pathname);
   },
 };

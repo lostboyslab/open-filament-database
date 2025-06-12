@@ -86,7 +86,6 @@ export const createMaterial = async (
   brandName: string,
   materialData: z.infer<typeof filamentMaterialSchema>,
 ) => {
-  console.log('Material data:', materialData);
   const brandDir = path.join(DATA_DIR, brandName);
   if (!fs.existsSync(brandDir)) {
     throw new Error(`Brand directory "${brandName}" does not exist.`);
@@ -96,9 +95,49 @@ export const createMaterial = async (
   if (!fs.existsSync(materialDir)) {
     fs.mkdirSync(materialDir, { recursive: true });
   }
+  const transformedData: {
+    material: string;
+    default_slicer_settings?: {
+      [key: string]: {
+        profile_name: string;
+      };
+    };
+  } = {
+    material: materialData.name,
+  };
+
+  const slicerSettings: Record<string, any> = {};
+
+  if (materialData.prusa_profile_path) {
+    slicerSettings.prusaslicer = {
+      profile_name: materialData.prusa_profile_path,
+    };
+  }
+
+  if (materialData.bambus_profile_path) {
+    slicerSettings.bambustudio = {
+      profile_name: materialData.bambus_profile_path,
+    };
+  }
+
+  if (materialData.orca_profile_path) {
+    slicerSettings.orcaslicer = {
+      profile_name: materialData.orca_profile_path,
+    };
+  }
+
+  if (materialData.cura_profile_path) {
+    slicerSettings.cura = {
+      profile_name: materialData.cura_profile_path,
+    };
+  }
+
+  if (Object.keys(slicerSettings).length > 0) {
+    transformedData.default_slicer_settings = slicerSettings;
+  }
 
   const materialJsonPath = path.join(materialDir, 'material.json');
-  fs.writeFileSync(materialJsonPath, JSON.stringify(materialData, null, 2), 'utf-8');
+  fs.writeFileSync(materialJsonPath, JSON.stringify(transformedData, null, 2), 'utf-8');
 
   return materialDir;
 };
@@ -108,9 +147,8 @@ export const createFilament = async (
   materialName: string,
   filamentData: z.infer<typeof baseFilamentSchema>,
 ) => {
-  console.log('Filament data:', filamentData);
-
   const brandDir = path.join(DATA_DIR, brandName);
+  console.log('Filament data:', filamentData);
   if (!fs.existsSync(brandDir)) {
     throw new Error(`Brand directory "${brandName}" does not exist.`);
   }
@@ -209,10 +247,6 @@ function copyFileSync(src: string, dest: string) {
 }
 
 export function prepareFilamentDownload(colorFolder: string, tempDownloadDir: string) {
-  // colorFolder: e.g. src/data/3DO/ASA/ASA/Blue
-  // tempDownloadDir: e.g. /tmp/download-3DO-ASA-ASA-Blue
-
-  // 1. Copy sizes.json and variant.json
   for (const file of ['sizes.json', 'variant.json']) {
     const srcFile = path.join(colorFolder, file);
     if (fs.existsSync(srcFile)) {
@@ -223,21 +257,18 @@ export function prepareFilamentDownload(colorFolder: string, tempDownloadDir: st
     }
   }
 
-  // 2. Copy filament.json (one level up)
   const filamentFolder = path.dirname(colorFolder);
   const filamentJson = path.join(filamentFolder, 'filament.json');
   if (fs.existsSync(filamentJson)) {
     copyFileSync(filamentJson, path.join(tempDownloadDir, path.relative('src/data', filamentJson)));
   }
 
-  // 3. Copy material.json (two levels up)
   const materialFolder = path.dirname(filamentFolder);
   const materialJson = path.join(materialFolder, 'material.json');
   if (fs.existsSync(materialJson)) {
     copyFileSync(materialJson, path.join(tempDownloadDir, path.relative('src/data', materialJson)));
   }
 
-  // 4. Copy brand.json (three levels up)
   const brandFolder = path.dirname(materialFolder);
   const brandJson = path.join(brandFolder, 'brand.json');
   if (fs.existsSync(brandJson)) {
@@ -249,7 +280,7 @@ export function downloadColor(brand: string, material: string, filament: string,
   const url = `/api/download/${encodeURIComponent(brand)}/${encodeURIComponent(
     material,
   )}/${encodeURIComponent(filament)}/${encodeURIComponent(color)}`;
-  // Create a hidden link and click it to trigger download
+
   const a = document.createElement('a');
   a.href = url;
   a.download = '';

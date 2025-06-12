@@ -53,7 +53,8 @@
       </p>
       <input
         id="diameter_tolerance"
-        type="text"
+        type="number"
+        step="0.01"
         name="diameter_tolerance"
         aria-required="true"
         aria-describedby="diameter-tolerance-help"
@@ -75,8 +76,9 @@
       </p>
       <input
         id="density"
-        type="text"
+        type="number"
         name="density"
+        step="0.01"
         aria-required="true"
         aria-describedby="density-help"
         placeholder="e.g. 1.24"
