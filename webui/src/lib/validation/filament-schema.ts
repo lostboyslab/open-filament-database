@@ -6,8 +6,22 @@ export const baseFilamentSchema = z.object({
   name: z.string(),
   diameter_tolerance: z.number().optional(),
   density: z.number(),
-  data_sheet_url: z.string().url(),
-  safety_sheet_url: z.string().url(),
+  data_sheet_url: z
+    .string()
+    .url('Please enter a valid URL')
+    .refine((url) => {
+      return url.startsWith('http://') || url.startsWith('https://');
+    }, 'URL must use HTTP or HTTPS protocol')
+    .default('https://')
+    .optional(),
+  safety_sheet_url: z
+    .string()
+    .url('Please enter a valid URL')
+    .refine((url) => {
+      return url.startsWith('http://') || url.startsWith('https://');
+    }, 'URL must use HTTP or HTTPS protocol')
+    .default('https://')
+    .optional(),
 });
 
 export const filamentSchema = z
@@ -15,15 +29,35 @@ export const filamentSchema = z
     name: z.string(),
     diameter_tolerance: z.number().optional(),
     density: z.number(),
-    data_sheet_url: z.string().url(),
-    safety_sheet_url: z.string().url(),
+    data_sheet_url: z
+      .string()
+      .url('Please enter a valid URL')
+      .refine((url) => {
+        return url.startsWith('http://') || url.startsWith('https://');
+      }, 'URL must use HTTP or HTTPS protocol')
+      .default('https://')
+      .optional(),
+    safety_sheet_url: z
+      .string()
+      .url('Please enter a valid URL')
+      .refine((url) => {
+        return url.startsWith('http://') || url.startsWith('https://');
+      }, 'URL must use HTTP or HTTPS protocol')
+      .default('https://')
+      .optional(),
   })
   .merge(slicerSettingsSchema)
   .merge(genericSlicerSchema);
 
 const purchaseLinkSchema = z.object({
   store_id: z.string().optional(),
-  url: z.string().url(),
+  url: z
+    .string()
+    .url('Please enter a valid URL')
+    .refine((url) => {
+      return url.startsWith('http://') || url.startsWith('https://');
+    }, 'URL must use HTTP or HTTPS protocol')
+    .default('https://'),
   affiliate: z.boolean(),
   ships_from: z.union([z.string(), z.array(z.string())]).optional(),
   ships_to: z.union([z.string(), z.array(z.string())]).optional(),

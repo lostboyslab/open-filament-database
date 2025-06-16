@@ -46,6 +46,27 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 };
 
 export const actions = {
+  material: async ({ request, params, cookies }) => {
+    const form = await superValidate(request, zod(filamentMaterialSchema));
+    const { brand, material } = params;
+
+    if (!form.valid) {
+      return fail(400, { form });
+    }
+
+    try {
+      const filteredMaterial = removeUndefined(form.data);
+      await updateMaterial(brand, material, filteredMaterial);
+      await refreshDatabase();
+    } catch (error) {
+      console.error('Failed to update material:', error);
+      setFlash({ type: 'error', message: 'Failed to update material. Please try again.' }, cookies);
+      return fail(500, { form });
+    }
+
+    setFlash({ type: 'success', message: 'Material updated successfully!' }, cookies);
+    return redirect(303, `/${brand}/${form.data.name}`);
+  },
   filament: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(baseFilamentSchema));
     const { brand, material } = params;

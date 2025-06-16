@@ -3,7 +3,7 @@
   import { pseudoDelete } from '$lib/pseudoDeleter';
   import SuperDebug, { fileProxy, superForm } from 'sveltekit-superforms';
   type formType = 'edit' | 'create';
-  let { form, errors, constraints, delayed, message, formType: formType, oldName = '' } = $props();
+  let { form, errors, constraints, delayed, message, formType, oldName = '' } = $props();
   const file = fileProxy(form, 'logo');
 </script>
 

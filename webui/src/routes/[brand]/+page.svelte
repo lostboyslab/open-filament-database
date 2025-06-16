@@ -31,6 +31,12 @@
 
   const materialKeys = Object.keys(data.brandData.materials ?? {});
 
+  const websiteUrl = $derived(
+    data.brandData.website?.startsWith('http')
+      ? data.brandData.website
+      : `https://${data.brandData.website || ''}`,
+  );
+
   const filteredMaterialKeys = $derived(
     !browser
       ? materialKeys
@@ -49,7 +55,7 @@
         {data.brandData.name ?? ''}
       </h1>
       <a
-        href={data.brandData.website}
+        href={websiteUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="text-blue-600 dark:text-blue-400 hover:underline">

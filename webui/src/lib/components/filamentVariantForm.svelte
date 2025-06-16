@@ -14,23 +14,20 @@
     enctype="multipart/form-data"
     class="space-y-5">
     <div>
-      <label for="color_name" class="block font-medium mb-1"
-        >Color name<span class="text-red-500">*</span></label>
+      <label for="color_name" class="block font-medium mb-1">
+        Color name<span class="text-red-500">*</span>
+      </label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-        Enter the official color name as specified by the manufacturer (e.g., "Galaxy Black", "Ocean
-        Blue")
+        Enter the official color name as specified by the manufacturer
       </p>
       <input
         id="color_name"
         type="text"
         name="color_name"
-        aria-required="true"
-        aria-describedby="color-name-help"
+        required
         placeholder="e.g. Galaxy Black"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        aria-invalid={$errors.color_name ? 'true' : undefined}
         bind:value={$form.color_name} />
-
       {#if $errors.color_name}
         <span class="text-red-600 text-xs">{$errors.color_name}</span>
       {/if}
@@ -224,8 +221,9 @@
       </div>
 
       <div class="size-item mb-4">
-        <label for="diameter" class="block font-medium mb-1"
-          >Diameter (mm)<span class="text-red-500">*</span></label>
+        <label for="diameter" class="block font-medium mb-1">
+          Diameter (mm)<span class="text-red-500">*</span>
+        </label>
         <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
           Filament diameter (typically 1.75mm or 3.0mm)
         </p>
@@ -233,34 +231,34 @@
           id="diameter"
           type="number"
           name="diameter"
-          aria-required="true"
-          aria-describedby="diameter-help"
+          required
           placeholder="e.g. 1.75"
+          step="0.01"
           class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          aria-invalid={$errors.diameter ? 'true' : undefined}
           bind:value={$form.diameter} />
         {#if $errors.diameter}
           <span class="text-red-600 text-xs">{$errors.diameter}</span>
         {/if}
-        <div class="size-item mb-4">
-          <label for="spool_refill" class="inline-block font-medium mb-1"
-            >Spool refill<span class="text-red-500">*</span></label>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            Check if this is a refill (filament only) without a spool
-          </p>
-          <input
-            id="spool_refill"
-            type="checkbox"
-            name="spool_refill"
-            aria-required="true"
-            aria-describedby="spool-refill-help"
-            class="accent-blue-600 w-4 h-4"
-            bind:checked={$form.spool_refill} />
-        </div>
+      </div>
+
+      <div class="size-item mb-4">
+        <label for="spool_refill" class="inline-block font-medium mb-1">
+          Spool refill<span class="text-red-500">*</span>
+        </label>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+          Check if this is a refill (filament only) without a spool
+        </p>
+        <input
+          id="spool_refill"
+          type="checkbox"
+          name="spool_refill"
+          class="accent-blue-600 w-4 h-4"
+          bind:checked={$form.spool_refill} />
         {#if $errors.spool_refill}
           <span class="text-red-600 text-xs">{$errors.spool_refill}</span>
         {/if}
       </div>
+
       <div class="size-item mb-4">
         <label for="sku" class="block font-medium mb-1">SKU</label>
         <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
@@ -392,9 +390,9 @@
         </div>
       </div>
     </fieldset>
-    <input type="text" name="brandName" value={brandName} hidden />
-    <input type="text" name="materialName" value={materialName} hidden />
-    <input type="test" name="filamentName" value={filamentName} hidden />
+    <input type="hidden" name="brandName" value={brandName} />
+    <input type="hidden" name="materialName" value={materialName} />
+    <input type="hidden" name="filamentName" value={filamentName} />
     <button
       type="submit"
       class="w-full py-2 px-4 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-colors">
