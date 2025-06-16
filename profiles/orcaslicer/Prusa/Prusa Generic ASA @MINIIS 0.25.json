@@ -64,7 +64,7 @@
         "15"
     ],
     "filament_retraction_minimum_travel": [
-        "nil"
+        "2"
     ],
     "filament_retract_before_wipe": [
         "nil"

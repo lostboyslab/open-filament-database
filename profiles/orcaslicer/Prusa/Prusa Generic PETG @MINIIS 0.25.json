@@ -52,7 +52,7 @@
         "1.27"
     ],
     "filament_deretraction_speed": [
-        "nil"
+        "25"
     ],
     "filament_diameter": [
         "1.75"
@@ -64,7 +64,7 @@
         "15"
     ],
     "filament_retraction_minimum_travel": [
-        "nil"
+        "1"
     ],
     "filament_retract_before_wipe": [
         "nil"
@@ -82,7 +82,7 @@
         "nil"
     ],
     "filament_retraction_speed": [
-        "nil"
+        "45"
     ],
     "filament_settings_id": [
         ""

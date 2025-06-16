@@ -64,7 +64,7 @@
         "15"
     ],
     "filament_retraction_minimum_travel": [
-        "nil"
+        "3"
     ],
     "filament_retract_before_wipe": [
         "nil"
@@ -73,7 +73,7 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "nil"
+        "2.7"
     ],
     "filament_z_hop": [
         "nil"

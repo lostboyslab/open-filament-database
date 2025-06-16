@@ -1,31 +1,31 @@
 {
     "type": "filament",
-    "name": "Prusa Generic ASA @MINIIS",
+    "name": "Prusa Generic PC HF @MINIIS",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "100"
+        "0"
     ],
     "eng_plate_temp": [
-        "100"
+        "110"
     ],
     "hot_plate_temp": [
-        "100"
+        "110"
     ],
     "cool_plate_temp_initial_layer": [
-        "100"
+        "0"
     ],
     "eng_plate_temp_initial_layer": [
-        "100"
+        "110"
     ],
     "hot_plate_temp_initial_layer": [
-        "100"
+        "110"
     ],
     "overhang_fan_threshold": [
         "25%"
     ],
     "overhang_fan_speed": [
-        "80"
+        "60"
     ],
     "slow_down_for_layer_cooling": [
         "1"
@@ -43,7 +43,7 @@
         "1"
     ],
     "fan_cooling_layer_time": [
-        "35"
+        "30"
     ],
     "filament_cost": [
         "20"
@@ -58,13 +58,13 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "10"
+        "24"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
     ],
     "filament_retraction_minimum_travel": [
-        "2"
+        "nil"
     ],
     "filament_retract_before_wipe": [
         "nil"
@@ -91,7 +91,7 @@
         "0"
     ],
     "filament_type": [
-        "ASA"
+        "PC"
     ],
     "filament_vendor": [
         "Generic"
@@ -106,39 +106,39 @@
         "Cool Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "260"
+        "270"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "15"
+        "60"
     ],
     "fan_min_speed": [
-        "15"
+        "10"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "20"
+        "2"
     ],
     "filament_start_gcode": [
         "; Filament gcode\n"
     ],
     "nozzle_temperature": [
-        "260"
+        "280"
     ],
     "temperature_vitrification": [
-        "110"
+        "140"
     ],
-    "filament_id": "GFB98",
+    "filament_id": "GFC99",
     "idle_temperature": "0",
     "nozzle_temperature_range_low": [
-        "240"
+        "260"
     ],
     "nozzle_temperature_range_high": [
-        "270"
+        "280"
     ],
     "setting_id": "GFSA04",
     "enable_pressure_advance": [

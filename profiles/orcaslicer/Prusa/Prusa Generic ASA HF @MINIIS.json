@@ -1,6 +1,6 @@
 {
     "type": "filament",
-    "name": "Prusa Generic ASA @MINIIS",
+    "name": "Prusa Generic ASA HF @MINIIS",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
@@ -58,7 +58,7 @@
         "1.75"
     ],
     "filament_max_volumetric_speed": [
-        "10"
+        "25"
     ],
     "filament_minimal_purge_on_wipe_tower": [
         "15"
