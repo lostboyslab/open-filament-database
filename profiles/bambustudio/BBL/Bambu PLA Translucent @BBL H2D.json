@@ -160,7 +160,8 @@
         "1"
     ],
     "filament_extruder_variant": [
-        "Direct Drive Standard"
+        "Direct Drive Standard",
+        "Direct Drive High Flow"
     ],
     "filament_scarf_seam_type": [
         "none"
@@ -290,9 +291,11 @@
         "; filament end gcode \n"
     ],
     "filament_pre_cooling_temperature": [
+        "0",
         "0"
     ],
     "filament_ramming_travel_time": [
+        "0",
         "0"
     ],
     "filament_adhesiveness_category": [
