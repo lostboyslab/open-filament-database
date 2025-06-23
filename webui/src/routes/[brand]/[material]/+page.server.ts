@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import { superValidate } from 'sveltekit-superforms';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import { zod } from 'sveltekit-superforms/adapters';
-import { createFilament, removeUndefined } from '$lib/server/helpers';
+import { createFilament, removeUndefined, updateMaterial } from '$lib/server/helpers';
 import { baseFilamentSchema } from '$lib/validation/filament-schema';
 import { refreshDatabase } from '$lib/dataCacher';
 import { setFlash } from 'sveltekit-flash-message/server';
@@ -56,7 +56,7 @@ export const actions = {
 
     try {
       const filteredMaterial = removeUndefined(form.data);
-      await updateMaterial(brand, material, filteredMaterial);
+      updateMaterial(brand, material, filteredMaterial);
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to update material:', error);

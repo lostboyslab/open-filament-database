@@ -12,22 +12,22 @@ export const genericSlicerSchema = z.object({
 export const prusaSlicerSettingsSchema = z.object({
   prusa_profile_path: z.string(),
   // overrides: z.object({}).optional()
-  prusa_overrides: z.string().optional(),
+  prusa_overrides: genericSlicerSchema.optional(),
 });
 export const bambusStudioSlicerSettingsSchema = z.object({
   bambus_profile_path: z.string(),
   // overrides: z.object({}).optional()
-  bambus_overrides: z.string().optional(),
+  bambus_overrides: genericSlicerSchema.optional(),
 });
 export const orcaSlicerSettingsSchema = z.object({
   orca_profile_path: z.string(),
   // overrides: z.object({}).optional()
-  orca_overrides: z.string().optional(),
+  orca_overrides: genericSlicerSchema.optional(),
 });
 export const curaSlicerSettingsSchema = z.object({
   cura_profile_path: z.string(),
   // overrides: z.object({}).optional()
-  cura_overrides: z.string().optional(),
+  cura_overrides: genericSlicerSchema.optional(),
 });
 
 export const filamentMaterialSchema = z

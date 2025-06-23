@@ -5,7 +5,7 @@ import { zod } from 'sveltekit-superforms/adapters';
 import { filamentSchema, filamentVariantSchema } from '$lib/validation/filament-schema';
 import fs from 'node:fs';
 import path from 'node:path';
-import { createColorFiles } from '$lib/server/helpers';
+import { createColorFiles, removeUndefined, updateFilament } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { refreshDatabase } from '$lib/dataCacher';
 
@@ -79,5 +79,26 @@ export const actions = {
     // Redirect to current page with success message
     setFlash({ type: 'success', message: 'Color created successfully!' }, cookies);
     redirect(303, url.pathname);
+  },
+  filament: async ({ request, params, cookies }) => {
+    const form = await superValidate(request, zod(filamentSchema));
+    const { brand, material, filament } = params;
+
+    if (!form.valid) {
+      return fail(400, { form });
+    }
+
+    try {
+      const filteredFilament = removeUndefined(form.data);
+      await updateFilament(brand, material, filament, filteredFilament);
+      await refreshDatabase();
+    } catch (error) {
+      console.error('Failed to update filament:', error);
+      setFlash({ type: 'error', message: 'Failed to update filament. Please try again.' }, cookies);
+      return fail(500, { form });
+    }
+
+    setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
+    return redirect(303, `/${brand}/${material}/${form.data.name}`);
   },
 };

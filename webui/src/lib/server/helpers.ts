@@ -1,5 +1,6 @@
 import type { brandSchema } from '$lib/validation/filament-brand-schema';
 import type { z } from 'zod';
+
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -287,4 +288,197 @@ export function downloadColor(brand: string, material: string, filament: string,
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+}
+export function updateMaterial(brandName: string, currentMaterialName: string, materialData: any) {
+  const brandDir = path.join(DATA_DIR, brandName);
+
+  if (!fs.existsSync(brandDir)) {
+    throw new Error(`Brand directory "${brandName}" does not exist.`);
+  }
+
+  const currentMaterialDir = path.join(brandDir, currentMaterialName);
+
+  if (!fs.existsSync(currentMaterialDir)) {
+    throw new Error(
+      `Material directory "${currentMaterialName}" not found in brand "${brandName}"`,
+    );
+  }
+
+  try {
+    if (materialData.name !== currentMaterialName) {
+      const newMaterialDir = path.join(brandDir, materialData.name);
+
+      if (fs.existsSync(newMaterialDir)) {
+        throw new Error(`Material "${materialData.name}" already exists in brand "${brandName}"`);
+      }
+
+      fs.renameSync(currentMaterialDir, newMaterialDir);
+
+      const materialJsonPath = path.join(newMaterialDir, 'material.json');
+      const transformedData = transformMaterialData(materialData);
+
+      fs.writeFileSync(materialJsonPath, JSON.stringify(transformedData, null, 2), 'utf-8');
+
+      console.log(
+        `Material updated and renamed: ${brandName}/${currentMaterialName} -> ${materialData.name}`,
+      );
+    } else {
+      const materialJsonPath = path.join(currentMaterialDir, 'material.json');
+
+      const transformedData = transformMaterialData(materialData);
+
+      fs.writeFileSync(materialJsonPath, JSON.stringify(transformedData, null, 2), 'utf-8');
+
+      console.log(`Material updated: ${brandName}/${currentMaterialName}`);
+    }
+  } catch (error) {
+    console.error('Error updating material:', error);
+    throw error;
+  }
+}
+
+function transformMaterialData(materialData: any) {
+  const transformedData: any = {
+    name: materialData.name,
+  };
+
+  // Add generic temperature settings if they exist
+  if (materialData.first_layer_bed_temp !== undefined) {
+    transformedData.first_layer_bed_temp = materialData.first_layer_bed_temp;
+  }
+  if (materialData.first_layer_nozzle_temp !== undefined) {
+    transformedData.first_layer_nozzle_temp = materialData.first_layer_nozzle_temp;
+  }
+  if (materialData.bed_temp !== undefined) {
+    transformedData.bed_temp = materialData.bed_temp;
+  }
+  if (materialData.nozzle_temp !== undefined) {
+    transformedData.nozzle_temp = materialData.nozzle_temp;
+  }
+
+  // Add slicer-specific settings if they exist
+  if (materialData.prusa_profile_path !== undefined) {
+    transformedData.prusa_profile_path = materialData.prusa_profile_path;
+  }
+  if (materialData.prusa_overrides) {
+    transformedData.prusa_overrides = materialData.prusa_overrides;
+  }
+
+  if (materialData.bambus_profile_path !== undefined) {
+    transformedData.bambus_profile_path = materialData.bambus_profile_path;
+  }
+  if (materialData.bambus_overrides) {
+    transformedData.bambus_overrides = materialData.bambus_overrides;
+  }
+
+  if (materialData.orca_profile_path !== undefined) {
+    transformedData.orca_profile_path = materialData.orca_profile_path;
+  }
+  if (materialData.orca_overrides) {
+    transformedData.orca_overrides = materialData.orca_overrides;
+  }
+
+  if (materialData.cura_profile_path !== undefined) {
+    transformedData.cura_profile_path = materialData.cura_profile_path;
+  }
+  if (materialData.cura_overrides) {
+    transformedData.cura_overrides = materialData.cura_overrides;
+  }
+
+  return removeUndefined(transformedData);
+}
+
+export function updateFilament(
+  brandName: string,
+  materialName: string,
+  currentFilamentName: string,
+  filamentData: any,
+) {
+  const brandDir = path.join(DATA_DIR, brandName);
+
+  if (!fs.existsSync(brandDir)) {
+    throw new Error(`Brand directory "${brandName}" does not exist.`);
+  }
+
+  const materialDir = path.join(brandDir, materialName);
+  if (!fs.existsSync(materialDir)) {
+    throw new Error(`Material directory "${materialName}" does not exist in brand "${brandName}".`);
+  }
+
+  const currentFilamentDir = path.join(materialDir, currentFilamentName);
+  if (!fs.existsSync(currentFilamentDir)) {
+    throw new Error(
+      `Filament directory "${currentFilamentName}" not found in material "${materialName}"`,
+    );
+  }
+
+  try {
+    if (filamentData.name !== currentFilamentName) {
+      const newFilamentDir = path.join(materialDir, filamentData.name);
+
+      if (fs.existsSync(newFilamentDir)) {
+        throw new Error(
+          `Filament "${filamentData.name}" already exists in material "${materialName}"`,
+        );
+      }
+
+      fs.renameSync(currentFilamentDir, newFilamentDir);
+
+      const filamentJsonPath = path.join(newFilamentDir, 'filament.json');
+      const transformedData = transformFilamentData(filamentData);
+
+      fs.writeFileSync(filamentJsonPath, JSON.stringify(transformedData, null, 2), 'utf-8');
+
+      console.log(
+        `Filament updated and renamed: ${brandName}/${materialName}/${currentFilamentName} -> ${filamentData.name}`,
+      );
+    } else {
+      const filamentJsonPath = path.join(currentFilamentDir, 'filament.json');
+
+      const transformedData = transformFilamentData(filamentData);
+
+      fs.writeFileSync(filamentJsonPath, JSON.stringify(transformedData, null, 2), 'utf-8');
+
+      console.log(`Filament updated: ${brandName}/${materialName}/${currentFilamentName}`);
+    }
+  } catch (error) {
+    console.error('Error updating filament:', error);
+    throw error;
+  }
+}
+
+function transformFilamentData(filamentData: any) {
+  const transformedData: any = {
+    name: filamentData.name,
+  };
+
+  // Add filament-specific properties
+  if (filamentData.diameter_tolerance !== undefined) {
+    transformedData.diameter_tolerance = filamentData.diameter_tolerance;
+  }
+  if (filamentData.density !== undefined) {
+    transformedData.density = filamentData.density;
+  }
+  if (filamentData.data_sheet_url !== undefined) {
+    transformedData.data_sheet_url = filamentData.data_sheet_url;
+  }
+  if (filamentData.safety_sheet_url !== undefined) {
+    transformedData.safety_sheet_url = filamentData.safety_sheet_url;
+  }
+
+  // Add slicer profile paths if they exist
+  if (filamentData.prusa_profile_path !== undefined) {
+    transformedData.prusa_profile_path = filamentData.prusa_profile_path;
+  }
+  if (filamentData.bambus_profile_path !== undefined) {
+    transformedData.bambus_profile_path = filamentData.bambus_profile_path;
+  }
+  if (filamentData.orca_profile_path !== undefined) {
+    transformedData.orca_profile_path = filamentData.orca_profile_path;
+  }
+  if (filamentData.cura_profile_path !== undefined) {
+    transformedData.cura_profile_path = filamentData.cura_profile_path;
+  }
+
+  return removeUndefined(transformedData);
 }
