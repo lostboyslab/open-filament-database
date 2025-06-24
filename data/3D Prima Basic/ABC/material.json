@@ -1,0 +1,11 @@
+{
+  "name": "ABC",
+  "first_layer_bed_temp": 60,
+  "first_layer_nozzle_temp": 50,
+  "bed_temp": 60,
+  "nozzle_temp": 210,
+  "prusa_profile_path": "",
+  "bambus_profile_path": "",
+  "orca_profile_path": "",
+  "cura_profile_path": ""
+}

@@ -12,12 +12,14 @@
     { key: 'cura', label: 'Cura' },
   ];
 
-  $effect(() => {
-    if (!$form.prusa_overrides) $form.prusa_overrides = {};
-    if (!$form.bambus_overrides) $form.bambus_overrides = {};
-    if (!$form.orca_overrides) $form.orca_overrides = {};
-    if (!$form.cura_overrides) $form.cura_overrides = {};
-  });
+  function updateNestedValue(obj: any, key: string, value: any) {
+    if (!obj) obj = {};
+    if (value === '' || value === null) {
+      obj[key] = undefined;
+    } else {
+      obj[key] = value;
+    }
+  }
 
   let selectedSlicer: string[] = $state([]);
 </script>
@@ -31,8 +33,9 @@
     enctype="multipart/form-data"
     class="space-y-5">
     <div>
-      <label for="name" class="block font-medium mb-1"
-        >Material name<span class="text-red-500">*</span></label>
+      <label for="name" class="block font-medium mb-1">
+        Material name<span class="text-red-500">*</span>
+      </label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
         Enter the material type or category (e.g., "PLA", "PETG", "ABS", "TPU")
       </p>
@@ -41,12 +44,10 @@
         type="text"
         name="name"
         aria-required="true"
-        aria-describedby="name-help"
         placeholder="e.g. PLA"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.name ? 'true' : undefined}
         bind:value={$form.name} />
-
       {#if $errors.name}
         <span class="text-red-600 text-xs">{$errors.name}</span>
       {/if}
@@ -55,332 +56,327 @@
     <div class="slicerSettings space-y-4">
       <p class="block font-medium mb-1">Slicer Type</p>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-        Select which slicers you want to provide print settings for. Choose Generic for basic
-        temperature settings that work across all slicers.
+        Select which slicers you want to provide print settings for.
       </p>
+
       <div class="flex flex-wrap gap-4 mb-4">
         {#each slicerOptions as option}
           <label class="flex items-center gap-2 cursor-pointer">
             <input
               type="checkbox"
-              name="slicerType"
               value={option.key}
-              bind:group={selectedSlicer} />
+              bind:group={selectedSlicer}
+              class="rounded border-gray-300 dark:border-gray-600" />
             {option.label}
           </label>
         {/each}
-        {#if selectedSlicer.includes('generic')}
-          <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
-            <legend class="font-semibold text-base mb-2">Generic Slicer Settings</legend>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
-              Basic temperature settings that work across different slicers
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label for="first_layer_bed_temp" class="block text-sm font-medium mb-1"
-                  >First Layer Bed Temp (°C)</label>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                  Bed temperature for first layer adhesion
-                </p>
-                <input
-                  id="first_layer_bed_temp"
-                  type="number"
-                  name="first_layer_bed_temp"
-                  placeholder="e.g. 60"
-                  aria-describedby="first-layer-bed-temp-help"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.first_layer_bed_temp} />
-              </div>
-              <div>
-                <label for="first_layer_nozzle_temp" class="block text-sm font-medium mb-1"
-                  >First Layer Nozzle Temp (°C)</label>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                  Nozzle temperature for first layer
-                </p>
-                <input
-                  id="first_layer_nozzle_temp"
-                  type="number"
-                  name="first_layer_nozzle_temp"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.first_layer_nozzle_temp} />
-              </div>
-              <div>
-                <label for="bed_temp" class="block text-sm font-medium mb-1">Bed Temp (°C)</label>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                  Standard bed temperature for remaining layers
-                </p>
-                <input
-                  id="bed_temp"
-                  type="number"
-                  name="bed_temp"
-                  placeholder="e.g. 60"
-                  aria-describedby="bed-temp-help"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.bed_temp} />
-              </div>
-              <div>
-                <label for="nozzle_temp" class="block text-sm font-medium mb-1"
-                  >Nozzle Temp (°C)</label>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                  Standard nozzle temperature for printing
-                </p>
-                <input
-                  id="nozzle_temp"
-                  type="number"
-                  name="nozzle_temp"
-                  placeholder="e.g. 210"
-                  aria-describedby="nozzle-temp-help"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.nozzle_temp} />
-              </div>
-            </div>
-          </fieldset>
-        {/if}
-        {#if selectedSlicer.includes('prusaslicer')}
-          <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
-            <legend class="font-semibold text-base mb-2">PrusaSlicer Settings</legend>
-            <div class="space-y-4">
-              <div>
-                <label for="prusa_profile_path" class="block text-sm font-medium mb-1"
-                  >Profile Path</label>
-                <input
-                  id="prusa_profile_path"
-                  type="text"
-                  name="prusa_profile_path"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.prusa_profile_path} />
-              </div>
-              <div>
-                <h4 class="text-sm font-medium mb-2">Override Settings</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label for="prusa_first_layer_bed_temp" class="block text-xs mb-1"
-                      >First Layer Bed Temp (°C)</label>
-                    <input
-                      id="prusa_first_layer_bed_temp"
-                      type="number"
-                      name="prusa_first_layer_bed_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.prusa_overrides.first_layer_bed_temp} />
-                  </div>
-                  <div>
-                    <label for="prusa_first_layer_nozzle_temp" class="block text-xs mb-1"
-                      >First Layer Nozzle Temp (°C)</label>
-                    <input
-                      id="prusa_first_layer_nozzle_temp"
-                      type="number"
-                      name="prusa_first_layer_nozzle_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.prusa_overrides.first_layer_nozzle_temp} />
-                  </div>
-                  <div>
-                    <label for="prusa_bed_temp" class="block text-xs mb-1">Bed Temp (°C)</label>
-                    <input
-                      id="prusa_bed_temp"
-                      type="number"
-                      name="prusa_bed_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.prusa_overrides.bed_temp} />
-                  </div>
-                  <div>
-                    <label for="prusa_nozzle_temp" class="block text-xs mb-1"
-                      >Nozzle Temp (°C)</label>
-                    <input
-                      id="prusa_nozzle_temp"
-                      type="number"
-                      name="prusa_nozzle_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.prusa_overrides.nozzle_temp} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        {/if}
-        {#if selectedSlicer.includes('bambustudio')}
-          <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
-            <legend class="font-semibold text-base mb-2">Bambu Studio Settings</legend>
-            <div class="space-y-4">
-              <div>
-                <label for="bambus_profile_path" class="block text-sm font-medium mb-1"
-                  >Profile Path</label>
-                <input
-                  id="bambus_profile_path"
-                  type="text"
-                  name="bambus_profile_path"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.bambus_profile_path} />
-              </div>
-              <div>
-                <h4 class="text-sm font-medium mb-2">Override Settings</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label for="bambus_first_layer_bed_temp" class="block text-xs mb-1"
-                      >First Layer Bed Temp (°C)</label>
-                    <input
-                      id="bambus_first_layer_bed_temp"
-                      type="number"
-                      name="bambus_first_layer_bed_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.bambus_overrides.first_layer_bed_temp} />
-                  </div>
-                  <div>
-                    <label for="bambus_first_layer_nozzle_temp" class="block text-xs mb-1"
-                      >First Layer Nozzle Temp (°C)</label>
-                    <input
-                      id="bambus_first_layer_nozzle_temp"
-                      type="number"
-                      name="bambus_first_layer_nozzle_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.bambus_overrides.first_layer_nozzle_temp} />
-                  </div>
-                  <div>
-                    <label for="bambus_bed_temp" class="block text-xs mb-1">Bed Temp (°C)</label>
-                    <input
-                      id="bambus_bed_temp"
-                      type="number"
-                      name="bambus_bed_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.bambus_overrides.bed_temp} />
-                  </div>
-                  <div>
-                    <label for="bambus_nozzle_temp" class="block text-xs mb-1"
-                      >Nozzle Temp (°C)</label>
-                    <input
-                      id="bambus_nozzle_temp"
-                      type="number"
-                      name="bambus_nozzle_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.bambus_overrides.nozzle_temp} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        {/if}
-        {#if selectedSlicer.includes('orcaslicer')}
-          <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
-            <legend class="font-semibold text-base mb-2">OrcaSlicer Settings</legend>
-            <div class="space-y-4">
-              <div>
-                <label for="orca_profile_path" class="block text-sm font-medium mb-1"
-                  >Profile Path</label>
-                <input
-                  id="orca_profile_path"
-                  type="text"
-                  name="orca_profile_path"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.orca_profile_path} />
-              </div>
-              <div>
-                <h4 class="text-sm font-medium mb-2">Override Settings</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label for="orca_first_layer_bed_temp" class="block text-xs mb-1"
-                      >First Layer Bed Temp (°C)</label>
-                    <input
-                      id="orca_first_layer_bed_temp"
-                      type="number"
-                      name="orca_first_layer_bed_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.orca_overrides.first_layer_bed_temp} />
-                  </div>
-                  <div>
-                    <label for="orca_first_layer_nozzle_temp" class="block text-xs mb-1"
-                      >First Layer Nozzle Temp (°C)</label>
-                    <input
-                      id="orca_first_layer_nozzle_temp"
-                      type="number"
-                      name="orca_first_layer_nozzle_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.orca_overrides.first_layer_nozzle_temp} />
-                  </div>
-                  <div>
-                    <label for="orca_bed_temp" class="block text-xs mb-1">Bed Temp (°C)</label>
-                    <input
-                      id="orca_bed_temp"
-                      type="number"
-                      name="orca_bed_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.orca_overrides.bed_temp} />
-                  </div>
-                  <div>
-                    <label for="orca_nozzle_temp" class="block text-xs mb-1"
-                      >Nozzle Temp (°C)</label>
-                    <input
-                      id="orca_nozzle_temp"
-                      type="number"
-                      name="orca_nozzle_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.orca_overrides.nozzle_temp} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        {/if}
-        {#if selectedSlicer.includes('cura')}
-          <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
-            <legend class="font-semibold text-base mb-2">Cura Settings</legend>
-            <div class="space-y-4">
-              <div>
-                <label for="cura_profile_path" class="block text-sm font-medium mb-1"
-                  >Profile Path</label>
-                <input
-                  id="cura_profile_path"
-                  type="text"
-                  name="cura_profile_path"
-                  class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2"
-                  bind:value={$form.cura_profile_path} />
-              </div>
-              <div>
-                <h4 class="text-sm font-medium mb-2">Override Settings</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label for="cura_first_layer_bed_temp" class="block text-xs mb-1"
-                      >First Layer Bed Temp (°C)</label>
-                    <input
-                      id="cura_first_layer_bed_temp"
-                      type="number"
-                      name="cura_first_layer_bed_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.cura_overrides.first_layer_bed_temp} />
-                  </div>
-                  <div>
-                    <label for="cura_first_layer_nozzle_temp" class="block text-xs mb-1"
-                      >First Layer Nozzle Temp (°C)</label>
-                    <input
-                      id="cura_first_layer_nozzle_temp"
-                      type="number"
-                      name="cura_first_layer_nozzle_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.cura_overrides.first_layer_nozzle_temp} />
-                  </div>
-                  <div>
-                    <label for="cura_bed_temp" class="block text-xs mb-1">Bed Temp (°C)</label>
-                    <input
-                      id="cura_bed_temp"
-                      type="number"
-                      name="cura_bed_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.cura_overrides.bed_temp} />
-                  </div>
-                  <div>
-                    <label for="cura_nozzle_temp" class="block text-xs mb-1"
-                      >Nozzle Temp (°C)</label>
-                    <input
-                      id="cura_nozzle_temp"
-                      type="number"
-                      name="cura_nozzle_temp"
-                      class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                      bind:value={$form.cura_overrides.nozzle_temp} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        {/if}
       </div>
+
+      {#if selectedSlicer.includes('generic')}
+        <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
+          <legend class="font-semibold text-base mb-2">Generic Settings</legend>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="first_layer_bed_temp" class="block text-sm font-medium mb-1"
+                >First Layer Bed Temp (°C)</label>
+              <input
+                id="first_layer_bed_temp"
+                type="number"
+                name="first_layer_bed_temp"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.first_layer_bed_temp} />
+            </div>
+            <div>
+              <label for="first_layer_nozzle_temp" class="block text-sm font-medium mb-1"
+                >First Layer Nozzle Temp (°C)</label>
+              <input
+                id="first_layer_nozzle_temp"
+                type="number"
+                name="first_layer_nozzle_temp"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.first_layer_nozzle_temp} />
+            </div>
+            <div>
+              <label for="bed_temp" class="block text-sm font-medium mb-1">Bed Temp (°C)</label>
+              <input
+                id="bed_temp"
+                type="number"
+                name="bed_temp"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.bed_temp} />
+            </div>
+            <div>
+              <label for="nozzle_temp" class="block text-sm font-medium mb-1"
+                >Nozzle Temp (°C)</label>
+              <input
+                id="nozzle_temp"
+                type="number"
+                name="nozzle_temp"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.nozzle_temp} />
+            </div>
+          </div>
+        </fieldset>
+      {/if}
+
+      {#if selectedSlicer.includes('prusaslicer')}
+        <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
+          <legend class="font-semibold text-base mb-2">PrusaSlicer Settings</legend>
+          <div class="space-y-4">
+            <div>
+              <label for="prusa_profile_path" class="block text-sm font-medium mb-1"
+                >Profile Path</label>
+              <input
+                id="prusa_profile_path"
+                type="text"
+                name="prusa_profile_path"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.prusa_profile_path} />
+            </div>
+            <input
+              id="prusa_first_layer_bed_temp"
+              type="number"
+              name="prusa_overrides.first_layer_bed_temp"
+              class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+              bind:value={$form.prusa_overrides.first_layer_bed_temp} />
+
+            <input
+              id="prusa_first_layer_nozzle_temp"
+              type="number"
+              name="prusa_overrides.first_layer_nozzle_temp"
+              class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+              bind:value={$form.prusa_overrides.first_layer_nozzle_temp} />
+
+            <input
+              id="prusa_bed_temp"
+              type="number"
+              name="prusa_overrides.bed_temp"
+              class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+              bind:value={$form.prusa_overrides.bed_temp} />
+
+            <input
+              id="prusa_nozzle_temp"
+              type="number"
+              name="prusa_overrides.nozzle_temp"
+              class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+              bind:value={$form.prusa_overrides.nozzle_temp} />
+          </div>
+        </fieldset>
+      {/if}
+      {#if selectedSlicer.includes('bambustudio')}
+        <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
+          <legend class="font-semibold text-base mb-2">Bambu Studio Settings</legend>
+          <div class="space-y-4">
+            <div>
+              <label for="bambus_profile_path" class="block text-sm font-medium mb-1"
+                >Profile Path</label>
+              <input
+                id="bambus_profile_path"
+                type="text"
+                name="bambus_profile_path"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.bambus_profile_path} />
+            </div>
+            <input
+              id="prusa_first_layer_bed_temp"
+              type="number"
+              name="prusa_overrides.first_layer_bed_temp"
+              class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+              bind:value={$form.prusa_overrides.first_layer_bed_temp} />
+
+            <input
+              id="prusa_first_layer_nozzle_temp"
+              type="number"
+              name="prusa_overrides.first_layer_nozzle_temp"
+              class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+              bind:value={$form.prusa_overrides.first_layer_nozzle_temp} />
+
+            <input
+              id="prusa_bed_temp"
+              type="number"
+              name="prusa_overrides.bed_temp"
+              class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+              bind:value={$form.prusa_overrides.bed_temp} />
+
+            <input
+              id="prusa_nozzle_temp"
+              type="number"
+              name="prusa_overrides.nozzle_temp"
+              class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+              bind:value={$form.prusa_overrides.nozzle_temp} />
+          </div>
+        </fieldset>
+      {/if}
+
+      {#if selectedSlicer.includes('orcaslicer')}
+        <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
+          <legend class="font-semibold text-base mb-2">OrcaSlicer Settings</legend>
+          <div class="space-y-4">
+            <div>
+              <label for="orca_profile_path" class="block text-sm font-medium mb-1"
+                >Profile Path</label>
+              <input
+                id="orca_profile_path"
+                type="text"
+                name="orca_profile_path"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.orca_profile_path} />
+            </div>
+            <div>
+              <p class="text-sm font-medium mb-2">Temperature Overrides</p>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="orca_first_layer_bed_temp" class="block text-xs mb-1"
+                    >First Layer Bed Temp</label>
+                  <input
+                    id="orca_first_layer_bed_temp"
+                    type="number"
+                    name="orca_overrides.first_layer_bed_temp"
+                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                    value={$form.orca_overrides?.first_layer_bed_temp || ''}
+                    oninput={(e) => {
+                      if (!$form.orca_overrides) $form.orca_overrides = {};
+                      $form.orca_overrides.first_layer_bed_temp = e.target.value
+                        ? Number(e.target.value)
+                        : undefined;
+                    }} />
+                </div>
+                <div>
+                  <label for="orca_first_layer_nozzle_temp" class="block text-xs mb-1"
+                    >First Layer Nozzle Temp</label>
+                  <input
+                    id="orca_first_layer_nozzle_temp"
+                    type="number"
+                    name="orca_overrides.first_layer_nozzle_temp"
+                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                    value={$form.orca_overrides?.first_layer_nozzle_temp || ''}
+                    oninput={(e) => {
+                      if (!$form.orca_overrides) $form.orca_overrides = {};
+                      $form.orca_overrides.first_layer_nozzle_temp = e.target.value
+                        ? Number(e.target.value)
+                        : undefined;
+                    }} />
+                </div>
+                <div>
+                  <label for="orca_bed_temp" class="block text-xs mb-1">Bed Temp</label>
+                  <input
+                    id="orca_bed_temp"
+                    type="number"
+                    name="orca_overrides.bed_temp"
+                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                    value={$form.orca_overrides?.bed_temp || ''}
+                    oninput={(e) => {
+                      if (!$form.orca_overrides) $form.orca_overrides = {};
+                      $form.orca_overrides.bed_temp = e.target.value
+                        ? Number(e.target.value)
+                        : undefined;
+                    }} />
+                </div>
+                <div>
+                  <label for="orca_nozzle_temp" class="block text-xs mb-1">Nozzle Temp</label>
+                  <input
+                    id="orca_nozzle_temp"
+                    type="number"
+                    name="orca_overrides.nozzle_temp"
+                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                    value={$form.orca_overrides?.nozzle_temp || ''}
+                    oninput={(e) => {
+                      if (!$form.orca_overrides) $form.orca_overrides = {};
+                      $form.orca_overrides.nozzle_temp = e.target.value
+                        ? Number(e.target.value)
+                        : undefined;
+                    }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      {/if}
+
+      {#if selectedSlicer.includes('cura')}
+        <fieldset class="border border-gray-200 dark:border-gray-700 rounded p-4 mb-4">
+          <legend class="font-semibold text-base mb-2">Cura Settings</legend>
+          <div class="space-y-4">
+            <div>
+              <label for="cura_profile_path" class="block text-sm font-medium mb-1"
+                >Profile Path</label>
+              <input
+                id="cura_profile_path"
+                type="text"
+                name="cura_profile_path"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.cura_profile_path} />
+            </div>
+            <div>
+              <p class="text-sm font-medium mb-2">Temperature Overrides</p>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="cura_first_layer_bed_temp" class="block text-xs mb-1"
+                    >First Layer Bed Temp</label>
+                  <input
+                    id="cura_first_layer_bed_temp"
+                    type="number"
+                    name="cura_overrides.first_layer_bed_temp"
+                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                    value={$form.cura_overrides?.first_layer_bed_temp || ''}
+                    oninput={(e) => {
+                      if (!$form.cura_overrides) $form.cura_overrides = {};
+                      $form.cura_overrides.first_layer_bed_temp = e.target.value
+                        ? Number(e.target.value)
+                        : undefined;
+                    }} />
+                </div>
+                <div>
+                  <label for="cura_first_layer_nozzle_temp" class="block text-xs mb-1"
+                    >First Layer Nozzle Temp</label>
+                  <input
+                    id="cura_first_layer_nozzle_temp"
+                    type="number"
+                    name="cura_overrides.first_layer_nozzle_temp"
+                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                    value={$form.cura_overrides?.first_layer_nozzle_temp || ''}
+                    oninput={(e) => {
+                      if (!$form.cura_overrides) $form.cura_overrides = {};
+                      $form.cura_overrides.first_layer_nozzle_temp = e.target.value
+                        ? Number(e.target.value)
+                        : undefined;
+                    }} />
+                </div>
+                <div>
+                  <label for="cura_bed_temp" class="block text-xs mb-1">Bed Temp</label>
+                  <input
+                    id="cura_bed_temp"
+                    type="number"
+                    name="cura_overrides.bed_temp"
+                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                    value={$form.cura_overrides?.bed_temp || ''}
+                    oninput={(e) => {
+                      if (!$form.cura_overrides) $form.cura_overrides = {};
+                      $form.cura_overrides.bed_temp = e.target.value
+                        ? Number(e.target.value)
+                        : undefined;
+                    }} />
+                </div>
+                <div>
+                  <label for="cura_nozzle_temp" class="block text-xs mb-1">Nozzle Temp</label>
+                  <input
+                    id="cura_nozzle_temp"
+                    type="number"
+                    name="cura_overrides.nozzle_temp"
+                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                    value={$form.cura_overrides?.nozzle_temp || ''}
+                    oninput={(e) => {
+                      if (!$form.cura_overrides) $form.cura_overrides = {};
+                      $form.cura_overrides.nozzle_temp = e.target.value
+                        ? Number(e.target.value)
+                        : undefined;
+                    }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      {/if}
 
       <button
         type="submit"

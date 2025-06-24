@@ -64,7 +64,6 @@ export const actions = {
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
     const { brand } = params;
-
     const filteredMaterial = removeUndefined(form.data);
 
     if (!form.valid) {
