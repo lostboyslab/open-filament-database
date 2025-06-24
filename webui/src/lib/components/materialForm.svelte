@@ -4,13 +4,13 @@
   type formType = 'edit' | 'create';
   let { form, errors, message, enhance, formType: formType, brandName } = $props();
 
-  const slicerOptions = [
-    { key: 'generic', label: 'Generic' },
-    { key: 'prusaslicer', label: 'PrusaSlicer' },
-    { key: 'bambustudio', label: 'Bambu Studio' },
-    { key: 'orcaslicer', label: 'OrcaSlicer' },
-    { key: 'cura', label: 'Cura' },
-  ];
+const slicerOptions = [
+  { key: 'generic', label: 'Generic' },
+  { key: 'prusaslicer', label: 'PrusaSlicer' }, 
+  { key: 'bambustudio', label: 'Bambu Studio' }
+  { key: 'orcaslicer', label: 'OrcaSlicer' },
+  { key: 'cura', label: 'Cura' },
+];
 
   function updateNestedValue(obj: any, key: string, value: any) {
     if (!obj) obj = {};
@@ -178,32 +178,32 @@
                 bind:value={$form.bambus_profile_path} />
             </div>
             <input
-              id="prusa_first_layer_bed_temp"
+              id="bambus_first_layer_bed_temp"
               type="number"
-              name="prusa_overrides.first_layer_bed_temp"
+              name="bambus_overrides.first_layer_bed_temp"
               class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-              bind:value={$form.prusa_overrides.first_layer_bed_temp} />
+              bind:value={$form.bambus_overrides.first_layer_bed_temp} />
 
             <input
-              id="prusa_first_layer_nozzle_temp"
+              id="bambus_first_layer_nozzle_temp"
               type="number"
-              name="prusa_overrides.first_layer_nozzle_temp"
+              name="bambus_overrides.first_layer_nozzle_temp"
               class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-              bind:value={$form.prusa_overrides.first_layer_nozzle_temp} />
+              bind:value={$form.bambus_overrides.first_layer_nozzle_temp} />
 
             <input
-              id="prusa_bed_temp"
+              id="bambus_bed_temp"
               type="number"
-              name="prusa_overrides.bed_temp"
+              name="bambus_overrides.bed_temp"
               class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-              bind:value={$form.prusa_overrides.bed_temp} />
+              bind:value={$form.bambus_overrides.bed_temp} />
 
             <input
-              id="prusa_nozzle_temp"
+              id="bambus_nozzle_temp"
               type="number"
-              name="prusa_overrides.nozzle_temp"
+              name="bambus_overrides.nozzle_temp"
               class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-              bind:value={$form.prusa_overrides.nozzle_temp} />
+              bind:value={$form.bambus_overrides.nozzle_temp} />
           </div>
         </fieldset>
       {/if}
@@ -225,68 +225,33 @@
             <div>
               <p class="text-sm font-medium mb-2">Temperature Overrides</p>
               <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label for="orca_first_layer_bed_temp" class="block text-xs mb-1"
-                    >First Layer Bed Temp</label>
-                  <input
-                    id="orca_first_layer_bed_temp"
-                    type="number"
-                    name="orca_overrides.first_layer_bed_temp"
-                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                    value={$form.orca_overrides?.first_layer_bed_temp || ''}
-                    oninput={(e) => {
-                      if (!$form.orca_overrides) $form.orca_overrides = {};
-                      $form.orca_overrides.first_layer_bed_temp = e.target.value
-                        ? Number(e.target.value)
-                        : undefined;
-                    }} />
-                </div>
-                <div>
-                  <label for="orca_first_layer_nozzle_temp" class="block text-xs mb-1"
-                    >First Layer Nozzle Temp</label>
-                  <input
-                    id="orca_first_layer_nozzle_temp"
-                    type="number"
-                    name="orca_overrides.first_layer_nozzle_temp"
-                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                    value={$form.orca_overrides?.first_layer_nozzle_temp || ''}
-                    oninput={(e) => {
-                      if (!$form.orca_overrides) $form.orca_overrides = {};
-                      $form.orca_overrides.first_layer_nozzle_temp = e.target.value
-                        ? Number(e.target.value)
-                        : undefined;
-                    }} />
-                </div>
-                <div>
-                  <label for="orca_bed_temp" class="block text-xs mb-1">Bed Temp</label>
-                  <input
-                    id="orca_bed_temp"
-                    type="number"
-                    name="orca_overrides.bed_temp"
-                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                    value={$form.orca_overrides?.bed_temp || ''}
-                    oninput={(e) => {
-                      if (!$form.orca_overrides) $form.orca_overrides = {};
-                      $form.orca_overrides.bed_temp = e.target.value
-                        ? Number(e.target.value)
-                        : undefined;
-                    }} />
-                </div>
-                <div>
-                  <label for="orca_nozzle_temp" class="block text-xs mb-1">Nozzle Temp</label>
-                  <input
-                    id="orca_nozzle_temp"
-                    type="number"
-                    name="orca_overrides.nozzle_temp"
-                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                    value={$form.orca_overrides?.nozzle_temp || ''}
-                    oninput={(e) => {
-                      if (!$form.orca_overrides) $form.orca_overrides = {};
-                      $form.orca_overrides.nozzle_temp = e.target.value
-                        ? Number(e.target.value)
-                        : undefined;
-                    }} />
-                </div>
+                <input
+                  id="orca_first_layer_bed_temp"
+                  type="number"
+                  name="orca_overrides.first_layer_bed_temp"
+                  class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                  bind:value={$form.orca_overrides.first_layer_bed_temp} />
+
+                <input
+                  id="orca_first_layer_nozzle_temp"
+                  type="number"
+                  name="orca_overrides.first_layer_nozzle_temp"
+                  class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                  bind:value={$form.orca_overrides.first_layer_nozzle_temp} />
+
+                <input
+                  id="orca_bed_temp"
+                  type="number"
+                  name="orca_overrides.bed_temp"
+                  class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                  bind:value={$form.orca_overrides.bed_temp} />
+
+                <input
+                  id="orca_nozzle_temp"
+                  type="number"
+                  name="orca_overrides.nozzle_temp"
+                  class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                  bind:value={$form.orca_overrides.nozzle_temp} />
               </div>
             </div>
           </div>
@@ -308,75 +273,38 @@
                 bind:value={$form.cura_profile_path} />
             </div>
             <div>
-              <p class="text-sm font-medium mb-2">Temperature Overrides</p>
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label for="cura_first_layer_bed_temp" class="block text-xs mb-1"
-                    >First Layer Bed Temp</label>
-                  <input
-                    id="cura_first_layer_bed_temp"
-                    type="number"
-                    name="cura_overrides.first_layer_bed_temp"
-                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                    value={$form.cura_overrides?.first_layer_bed_temp || ''}
-                    oninput={(e) => {
-                      if (!$form.cura_overrides) $form.cura_overrides = {};
-                      $form.cura_overrides.first_layer_bed_temp = e.target.value
-                        ? Number(e.target.value)
-                        : undefined;
-                    }} />
-                </div>
-                <div>
-                  <label for="cura_first_layer_nozzle_temp" class="block text-xs mb-1"
-                    >First Layer Nozzle Temp</label>
-                  <input
-                    id="cura_first_layer_nozzle_temp"
-                    type="number"
-                    name="cura_overrides.first_layer_nozzle_temp"
-                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                    value={$form.cura_overrides?.first_layer_nozzle_temp || ''}
-                    oninput={(e) => {
-                      if (!$form.cura_overrides) $form.cura_overrides = {};
-                      $form.cura_overrides.first_layer_nozzle_temp = e.target.value
-                        ? Number(e.target.value)
-                        : undefined;
-                    }} />
-                </div>
-                <div>
-                  <label for="cura_bed_temp" class="block text-xs mb-1">Bed Temp</label>
-                  <input
-                    id="cura_bed_temp"
-                    type="number"
-                    name="cura_overrides.bed_temp"
-                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                    value={$form.cura_overrides?.bed_temp || ''}
-                    oninput={(e) => {
-                      if (!$form.cura_overrides) $form.cura_overrides = {};
-                      $form.cura_overrides.bed_temp = e.target.value
-                        ? Number(e.target.value)
-                        : undefined;
-                    }} />
-                </div>
-                <div>
-                  <label for="cura_nozzle_temp" class="block text-xs mb-1">Nozzle Temp</label>
-                  <input
-                    id="cura_nozzle_temp"
-                    type="number"
-                    name="cura_overrides.nozzle_temp"
-                    class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
-                    value={$form.cura_overrides?.nozzle_temp || ''}
-                    oninput={(e) => {
-                      if (!$form.cura_overrides) $form.cura_overrides = {};
-                      $form.cura_overrides.nozzle_temp = e.target.value
-                        ? Number(e.target.value)
-                        : undefined;
-                    }} />
-                </div>
-              </div>
+              <input
+                id="cura_first_layer_bed_temp"
+                type="number"
+                name="cura_overrides.first_layer_bed_temp"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.cura_overrides.first_layer_bed_temp} />
+
+              <input
+                id="cura_first_layer_nozzle_temp"
+                type="number"
+                name="cura_overrides.first_layer_nozzle_temp"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.cura_overrides.first_layer_nozzle_temp} />
+
+              <input
+                id="cura_bed_temp"
+                type="number"
+                name="cura_overrides.bed_temp"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.cura_overrides.bed_temp} />
+
+              <input
+                id="cura_nozzle_temp"
+                type="number"
+                name="cura_overrides.nozzle_temp"
+                class="w-full rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm"
+                bind:value={$form.cura_overrides.nozzle_temp} />
             </div>
           </div>
         </fieldset>
       {/if}
+    </div>
 
       <button
         type="submit"
