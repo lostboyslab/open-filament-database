@@ -98,6 +98,6 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
-    return redirect(303, `/${brand}/${material}/${form.data.name}`);
+    return { form, success: true };
   },
 };

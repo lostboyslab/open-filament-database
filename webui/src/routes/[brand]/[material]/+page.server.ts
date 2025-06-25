@@ -73,7 +73,7 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Material updated successfully!' }, cookies);
-    return redirect(303, `/${brand}/${form.data.name}`);
+    return { form, success: true };
   },
   filament: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(baseFilamentSchema));
