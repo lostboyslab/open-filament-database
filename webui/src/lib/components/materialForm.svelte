@@ -412,13 +412,10 @@
       {/if}
     </div>
 
-    <!-- Submit button -->
     <button
       type="submit"
       class="w-full py-2 px-4 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-colors">
       {formType === 'edit' ? 'Save' : 'Create'}
     </button>
-
-    <SuperDebug data={$form} />
   </form>
 </div>

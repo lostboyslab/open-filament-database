@@ -58,10 +58,14 @@ export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
 };
 
 export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
-  const oldDir = path.join(DATA_DIR, brandData.oldBrandName);
+  const oldDir = path.join(DATA_DIR, brandData.oldBrandName || brandData.name);
   const newDir = path.join(DATA_DIR, brandData.name);
 
-  if (brandData.oldBrandName !== brandData.name && fs.existsSync(oldDir)) {
+  if (
+    brandData.oldBrandName &&
+    brandData.oldBrandName !== brandData.name &&
+    fs.existsSync(oldDir)
+  ) {
     if (fs.existsSync(newDir)) {
       throw new Error(`Brand folder "${brandData.name}" already exists.`);
     }
@@ -70,16 +74,48 @@ export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
     fs.mkdirSync(newDir, { recursive: true });
   }
 
+  // Handle logo upload if it's a new file
+  let logoUrl = '';
+  if (
+    brandData.logo &&
+    typeof brandData.logo === 'object' &&
+    typeof brandData.logo.arrayBuffer === 'function'
+  ) {
+    // New logo uploaded
+    const arrayBuffer = await brandData.logo.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    const logoPath = path.join(newDir, brandData.logo.name);
+    fs.writeFileSync(logoPath, buffer);
+    logoUrl = `/data/${brandData.name}/${brandData.logo.name}`;
+  } else if (typeof brandData.logo === 'string') {
+    // Existing logo URL
+    logoUrl = brandData.logo;
+  } else {
+    // Try to find existing logo in the directory
+    try {
+      const files = fs.readdirSync(newDir);
+      const logoFile = files.find(
+        (file) => file.toLowerCase().match(/\.(jpg|jpeg|png|gif|webp)$/i) && !file.startsWith('.'),
+      );
+      if (logoFile) {
+        logoUrl = `/data/${brandData.name}/${logoFile}`;
+      }
+    } catch (error) {
+      console.warn('Could not find existing logo:', error);
+    }
+  }
+
   const brandJson = {
-    brand: brandData.name,
+    name: brandData.name, // Changed from 'brand' to 'name' to match your schema
     website: brandData.website,
-    logo: brandData.logo,
+    logo: logoUrl,
     origin: brandData.origin,
   };
 
   const brandJsonPath = path.join(newDir, 'brand.json');
   fs.writeFileSync(brandJsonPath, JSON.stringify(brandJson, null, 2), 'utf-8');
 
+  console.log(`Brand updated: ${brandData.oldBrandName || brandData.name} -> ${brandData.name}`);
   return newDir;
 }
 
@@ -105,8 +141,6 @@ export const createMaterial = async (
     const transformedData = transformMaterialData(materialData);
 
     fs.writeFileSync(materialJsonPath, JSON.stringify(transformedData, null, 2), 'utf-8');
-
-    console.log(`Material created: ${brandName}/${materialData.name}`);
   } catch (error) {
     console.error('Error creating material:', error);
     throw error;
@@ -276,7 +310,6 @@ export const createFilament = async (
   filamentData: z.infer<typeof baseFilamentSchema>,
 ) => {
   const brandDir = path.join(DATA_DIR, brandName);
-  console.log('Filament data:', filamentData);
   if (!fs.existsSync(brandDir)) {
     throw new Error(`Brand directory "${brandName}" does not exist.`);
   }
@@ -445,18 +478,12 @@ export function updateMaterial(brandName: string, currentMaterialName: string, m
       const transformedData = transformMaterialData(materialData);
 
       fs.writeFileSync(materialJsonPath, JSON.stringify(transformedData, null, 2), 'utf-8');
-
-      console.log(
-        `Material updated and renamed: ${brandName}/${currentMaterialName} -> ${materialData.name}`,
-      );
     } else {
       const materialJsonPath = path.join(currentMaterialDir, 'material.json');
 
       const transformedData = transformMaterialData(materialData);
 
       fs.writeFileSync(materialJsonPath, JSON.stringify(transformedData, null, 2), 'utf-8');
-
-      console.log(`Material updated: ${brandName}/${currentMaterialName}`);
     }
   } catch (error) {
     console.error('Error updating material:', error);
@@ -560,8 +587,6 @@ function transformFilamentData(filamentData: any) {
 }
 
 export function flattenMaterialData(materialData: any) {
-  console.log('Input material data:', JSON.stringify(materialData, null, 2)); // Debug log
-
   const flattened: any = {
     name: materialData.name,
   };
@@ -615,6 +640,5 @@ export function flattenMaterialData(materialData: any) {
     },
   };
 
-  console.log('Flattened result:', JSON.stringify(flattened, null, 2)); // Debug log
   return flattened;
 }

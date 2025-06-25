@@ -50,7 +50,6 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 export const actions = {
   createFilament: async ({ url, request, cookies }) => {
     const form = await superValidate(request, zod(filamentVariantSchema));
-    console.log('SUBMIT FORM : ', form);
     if (!form.valid) {
       fail(400, { form });
     }

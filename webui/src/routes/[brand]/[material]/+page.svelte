@@ -1,6 +1,5 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import { base } from '$app/paths';
   import CreateNew from '$lib/components/createNew.svelte';
   import EditModal from '$lib/components/editModal.svelte';
   import FilamentForm from '$lib/components/filamentForm.svelte';

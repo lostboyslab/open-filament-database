@@ -1,6 +1,6 @@
 {
-  "brand": "3DO",
+  "name": "3DO",
   "website": "https://3do.dk/",
-  "logo": "3dologo.png",
+  "logo": "/data/3DO/3dologo.png",
   "origin": "EU"
 }

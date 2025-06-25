@@ -113,6 +113,5 @@
         Delete
       </button>
     {/if}
-    <SuperDebug data={$form} />
   </form>
 </div>

@@ -45,6 +45,7 @@ export const load: PageServerLoad = async ({ params, parent, cookies }) => {
 export const actions = {
   brand: async ({ request, cookies }) => {
     const form = await superValidate(request, zod(brandSchema));
+    console.log('Form data:', form.data);
 
     if (!form.valid) {
       return fail(400, { form });
@@ -59,13 +60,11 @@ export const actions = {
       return fail(500, { form });
     }
     setFlash({ type: 'success', message: 'Brand updated successfully!' }, cookies);
-    return redirect(303, `/${form.data.name}/`);
+    redirect(303, `/${form.data.name}/`);
   },
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
     const { brand } = params;
-    // const filteredMaterial = removeUndefined(form.data);
-    console.log('Form!:', form.data);
     if (!form.valid) {
       fail(400, { form });
     }
@@ -79,6 +78,6 @@ export const actions = {
       return fail(500, { form });
     }
     setFlash({ type: 'success', message: 'Material created successfully!' }, cookies);
-    return redirect(303, `/${brand}/${form.data.name}`);
+    redirect(303, `/${brand}/${form.data.name}`);
   },
 };

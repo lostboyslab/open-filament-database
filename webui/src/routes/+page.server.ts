@@ -14,7 +14,6 @@ export const load = async () => {
 export const actions = {
   brand: async ({ request, cookies }) => {
     const form = await superValidate(request, zod(brandSchema));
-    console.log('SUBMIT FORM : ', form);
 
     if (!form.valid) {
       setFlash({ type: 'error', message: 'Please check your form data.' }, cookies);
