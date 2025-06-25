@@ -1,9 +1,0 @@
-{
-  "name": "HEJHEJ",
-  "generic": {
-    "first_layer_bed_temp": 30
-  },
-  "prusa": {
-    "first_layer_nozzle_temp": 59
-  }
-}
