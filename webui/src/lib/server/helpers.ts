@@ -117,71 +117,153 @@ function transformMaterialData(materialData: any) {
     name: materialData.name,
   };
 
-  // Add generic temperature settings if they exist and have values
-  if (
-    materialData.first_layer_bed_temp !== undefined &&
-    materialData.first_layer_bed_temp !== null
-  ) {
-    transformedData.first_layer_bed_temp = materialData.first_layer_bed_temp;
-  }
-  if (
-    materialData.first_layer_nozzle_temp !== undefined &&
-    materialData.first_layer_nozzle_temp !== null
-  ) {
-    transformedData.first_layer_nozzle_temp = materialData.first_layer_nozzle_temp;
-  }
-  if (materialData.bed_temp !== undefined && materialData.bed_temp !== null) {
-    transformedData.bed_temp = materialData.bed_temp;
-  }
-  if (materialData.nozzle_temp !== undefined && materialData.nozzle_temp !== null) {
-    transformedData.nozzle_temp = materialData.nozzle_temp;
-  }
-
-  // Add PrusaSlicer settings if they exist
-  if (materialData.prusa_profile_path) {
-    transformedData.prusa_profile_path = materialData.prusa_profile_path;
-  }
-  // Only include prusa_overrides if it has actual values
-  if (materialData.prusa_overrides && Object.keys(materialData.prusa_overrides).length > 0) {
-    const filteredOverrides = removeUndefined(materialData.prusa_overrides);
-    if (Object.keys(filteredOverrides).length > 0) {
-      transformedData.prusa_overrides = filteredOverrides;
+  // Handle generic settings - already in correct structure
+  if (materialData.generic) {
+    const genericSettings: any = {};
+    if (
+      materialData.generic.first_layer_bed_temp !== undefined &&
+      materialData.generic.first_layer_bed_temp !== null
+    ) {
+      genericSettings.first_layer_bed_temp = materialData.generic.first_layer_bed_temp;
+    }
+    if (
+      materialData.generic.first_layer_nozzle_temp !== undefined &&
+      materialData.generic.first_layer_nozzle_temp !== null
+    ) {
+      genericSettings.first_layer_nozzle_temp = materialData.generic.first_layer_nozzle_temp;
+    }
+    if (materialData.generic.bed_temp !== undefined && materialData.generic.bed_temp !== null) {
+      genericSettings.bed_temp = materialData.generic.bed_temp;
+    }
+    if (
+      materialData.generic.nozzle_temp !== undefined &&
+      materialData.generic.nozzle_temp !== null
+    ) {
+      genericSettings.nozzle_temp = materialData.generic.nozzle_temp;
+    }
+    // Only add generic object if it has properties
+    if (Object.keys(genericSettings).length > 0) {
+      transformedData.generic = genericSettings;
     }
   }
 
-  // Add Bambu Studio settings if they exist
-  if (materialData.bambus_profile_path) {
-    transformedData.bambus_profile_path = materialData.bambus_profile_path;
-  }
-  // Only include bambus_overrides if it has actual values
-  if (materialData.bambus_overrides && Object.keys(materialData.bambus_overrides).length > 0) {
-    const filteredOverrides = removeUndefined(materialData.bambus_overrides);
-    if (Object.keys(filteredOverrides).length > 0) {
-      transformedData.bambus_overrides = filteredOverrides;
+  // Handle PrusaSlicer settings
+  if (materialData.prusa) {
+    const prusaSettings: any = {};
+    if (materialData.prusa.prusa_profile_path) {
+      prusaSettings.profile_path = materialData.prusa.prusa_profile_path;
+    }
+
+    // Handle prusa overrides
+    if (materialData.prusa.prusa_overrides) {
+      const overrides = materialData.prusa.prusa_overrides;
+      if (overrides.first_layer_bed_temp !== undefined) {
+        prusaSettings.first_layer_bed_temp = overrides.first_layer_bed_temp;
+      }
+      if (overrides.first_layer_nozzle_temp !== undefined) {
+        prusaSettings.first_layer_nozzle_temp = overrides.first_layer_nozzle_temp;
+      }
+      if (overrides.bed_temp !== undefined) {
+        prusaSettings.bed_temp = overrides.bed_temp;
+      }
+      if (overrides.nozzle_temp !== undefined) {
+        prusaSettings.nozzle_temp = overrides.nozzle_temp;
+      }
+    }
+
+    // Only add prusa object if it has properties
+    if (Object.keys(prusaSettings).length > 0) {
+      transformedData.prusa = prusaSettings;
     }
   }
 
-  // Add OrcaSlicer settings if they exist
-  if (materialData.orca_profile_path) {
-    transformedData.orca_profile_path = materialData.orca_profile_path;
-  }
-  // Only include orca_overrides if it has actual values
-  if (materialData.orca_overrides && Object.keys(materialData.orca_overrides).length > 0) {
-    const filteredOverrides = removeUndefined(materialData.orca_overrides);
-    if (Object.keys(filteredOverrides).length > 0) {
-      transformedData.orca_overrides = filteredOverrides;
+  // Handle Bambu Studio settings
+  if (materialData.bambus) {
+    const bambusSettings: any = {};
+    if (materialData.bambus.bambus_profile_path) {
+      bambusSettings.profile_path = materialData.bambus.bambus_profile_path;
+    }
+
+    // Handle bambus overrides
+    if (materialData.bambus.bambus_overrides) {
+      const overrides = materialData.bambus.bambus_overrides;
+      if (overrides.first_layer_bed_temp !== undefined) {
+        bambusSettings.first_layer_bed_temp = overrides.first_layer_bed_temp;
+      }
+      if (overrides.first_layer_nozzle_temp !== undefined) {
+        bambusSettings.first_layer_nozzle_temp = overrides.first_layer_nozzle_temp;
+      }
+      if (overrides.bed_temp !== undefined) {
+        bambusSettings.bed_temp = overrides.bed_temp;
+      }
+      if (overrides.nozzle_temp !== undefined) {
+        bambusSettings.nozzle_temp = overrides.nozzle_temp;
+      }
+    }
+
+    // Only add bambus object if it has properties
+    if (Object.keys(bambusSettings).length > 0) {
+      transformedData.bambus = bambusSettings;
     }
   }
 
-  // Add Cura settings if they exist
-  if (materialData.cura_profile_path) {
-    transformedData.cura_profile_path = materialData.cura_profile_path;
+  // Handle OrcaSlicer settings
+  if (materialData.orca) {
+    const orcaSettings: any = {};
+    if (materialData.orca.orca_profile_path) {
+      orcaSettings.profile_path = materialData.orca.orca_profile_path;
+    }
+
+    // Handle orca overrides
+    if (materialData.orca.orca_overrides) {
+      const overrides = materialData.orca.orca_overrides;
+      if (overrides.first_layer_bed_temp !== undefined) {
+        orcaSettings.first_layer_bed_temp = overrides.first_layer_bed_temp;
+      }
+      if (overrides.first_layer_nozzle_temp !== undefined) {
+        orcaSettings.first_layer_nozzle_temp = overrides.first_layer_nozzle_temp;
+      }
+      if (overrides.bed_temp !== undefined) {
+        orcaSettings.bed_temp = overrides.bed_temp;
+      }
+      if (overrides.nozzle_temp !== undefined) {
+        orcaSettings.nozzle_temp = overrides.nozzle_temp;
+      }
+    }
+
+    // Only add orca object if it has properties
+    if (Object.keys(orcaSettings).length > 0) {
+      transformedData.orca = orcaSettings;
+    }
   }
-  // Only include cura_overrides if it has actual values
-  if (materialData.cura_overrides && Object.keys(materialData.cura_overrides).length > 0) {
-    const filteredOverrides = removeUndefined(materialData.cura_overrides);
-    if (Object.keys(filteredOverrides).length > 0) {
-      transformedData.cura_overrides = filteredOverrides;
+
+  // Handle Cura settings
+  if (materialData.cura) {
+    const curaSettings: any = {};
+    if (materialData.cura.cura_profile_path) {
+      curaSettings.profile_path = materialData.cura.cura_profile_path;
+    }
+
+    // Handle cura overrides
+    if (materialData.cura.cura_overrides) {
+      const overrides = materialData.cura.cura_overrides;
+      if (overrides.first_layer_bed_temp !== undefined) {
+        curaSettings.first_layer_bed_temp = overrides.first_layer_bed_temp;
+      }
+      if (overrides.first_layer_nozzle_temp !== undefined) {
+        curaSettings.first_layer_nozzle_temp = overrides.first_layer_nozzle_temp;
+      }
+      if (overrides.bed_temp !== undefined) {
+        curaSettings.bed_temp = overrides.bed_temp;
+      }
+      if (overrides.nozzle_temp !== undefined) {
+        curaSettings.nozzle_temp = overrides.nozzle_temp;
+      }
+    }
+
+    // Only add cura object if it has properties
+    if (Object.keys(curaSettings).length > 0) {
+      transformedData.cura = curaSettings;
     }
   }
 
@@ -475,4 +557,64 @@ function transformFilamentData(filamentData: any) {
   }
 
   return removeUndefined(transformedData);
+}
+
+export function flattenMaterialData(materialData: any) {
+  console.log('Input material data:', JSON.stringify(materialData, null, 2)); // Debug log
+
+  const flattened: any = {
+    name: materialData.name,
+  };
+
+  // Build nested structure that matches your form schema
+  flattened.generic = {
+    first_layer_bed_temp: materialData.generic?.first_layer_bed_temp,
+    first_layer_nozzle_temp: materialData.generic?.first_layer_nozzle_temp,
+    bed_temp: materialData.generic?.bed_temp,
+    nozzle_temp: materialData.generic?.nozzle_temp,
+  };
+
+  flattened.prusa = {
+    prusa_profile_path: materialData.prusa?.profile_path, // This should match your JSON structure
+    prusa_overrides: {
+      // Map the direct properties from prusa object to overrides
+      first_layer_bed_temp: materialData.prusa?.first_layer_bed_temp,
+      first_layer_nozzle_temp: materialData.prusa?.first_layer_nozzle_temp,
+      bed_temp: materialData.prusa?.bed_temp,
+      nozzle_temp: materialData.prusa?.nozzle_temp,
+    },
+  };
+
+  flattened.bambus = {
+    bambus_profile_path: materialData.bambus?.profile_path,
+    bambus_overrides: {
+      first_layer_bed_temp: materialData.bambus?.first_layer_bed_temp,
+      first_layer_nozzle_temp: materialData.bambus?.first_layer_nozzle_temp,
+      bed_temp: materialData.bambus?.bed_temp,
+      nozzle_temp: materialData.bambus?.nozzle_temp,
+    },
+  };
+
+  flattened.orca = {
+    orca_profile_path: materialData.orca?.profile_path,
+    orca_overrides: {
+      first_layer_bed_temp: materialData.orca?.first_layer_bed_temp,
+      first_layer_nozzle_temp: materialData.orca?.first_layer_nozzle_temp,
+      bed_temp: materialData.orca?.bed_temp,
+      nozzle_temp: materialData.orca?.nozzle_temp,
+    },
+  };
+
+  flattened.cura = {
+    cura_profile_path: materialData.cura?.profile_path,
+    cura_overrides: {
+      first_layer_bed_temp: materialData.cura?.first_layer_bed_temp,
+      first_layer_nozzle_temp: materialData.cura?.first_layer_nozzle_temp,
+      bed_temp: materialData.cura?.bed_temp,
+      nozzle_temp: materialData.cura?.nozzle_temp,
+    },
+  };
+
+  console.log('Flattened result:', JSON.stringify(flattened, null, 2)); // Debug log
+  return flattened;
 }

@@ -24,6 +24,7 @@
     message: materialMessage,
     enhance: materialEnhance,
   } = superForm(data.materialForm, {
+    dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
     validators: zodClient(filamentMaterialSchema),

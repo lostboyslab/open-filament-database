@@ -1,6 +1,5 @@
 import { z } from 'zod';
 
-// For "generic" field
 export const genericSlicerSchema = z.object({
   first_layer_bed_temp: z.number().optional(),
   first_layer_nozzle_temp: z.number().optional(),
@@ -23,44 +22,44 @@ export const prusaSlicerSettingsSchema = z.object({
 
 export const bambusStudioSlicerSettingsSchema = z.object({
   bambus_profile_path: z.string().optional(),
-  bambus_overrides: z
-    .object({
-      first_layer_bed_temp: z.number().optional(),
-      first_layer_nozzle_temp: z.number().optional(),
-      bed_temp: z.number().optional(),
-      nozzle_temp: z.number().optional(),
-    })
-    .optional(),
+  bambus_overrides: z.object({
+    first_layer_bed_temp: z.number().optional(),
+    first_layer_nozzle_temp: z.number().optional(),
+    bed_temp: z.number().optional(),
+    nozzle_temp: z.number().optional(),
+  }),
 });
+
 export const orcaSlicerSettingsSchema = z.object({
   orca_profile_path: z.string().optional(),
-  orca_overrides: z
-    .object({
-      first_layer_bed_temp: z.number().optional(),
-      first_layer_nozzle_temp: z.number().optional(),
-      bed_temp: z.number().optional(),
-      nozzle_temp: z.number().optional(),
-    })
-    .optional(),
+  orca_overrides: z.object({
+    first_layer_bed_temp: z.number().optional(),
+    first_layer_nozzle_temp: z.number().optional(),
+    bed_temp: z.number().optional(),
+    nozzle_temp: z.number().optional(),
+  }),
 });
+
 export const curaSlicerSettingsSchema = z.object({
   cura_profile_path: z.string().optional(),
-  cura_overrides: z
-    .object({
-      first_layer_bed_temp: z.number().optional(),
-      first_layer_nozzle_temp: z.number().optional(),
-      bed_temp: z.number().optional(),
-      nozzle_temp: z.number().optional(),
-    })
-    .optional(),
+  cura_overrides: z.object({
+    first_layer_bed_temp: z.number().optional(),
+    first_layer_nozzle_temp: z.number().optional(),
+    bed_temp: z.number().optional(),
+    nozzle_temp: z.number().optional(),
+  }),
+});
+
+export const slicerSettingsSchema = z.object({
+  generic: genericSlicerSchema,
+  prusa: prusaSlicerSettingsSchema,
+  bambus: bambusStudioSlicerSettingsSchema,
+  orca: orcaSlicerSettingsSchema,
+  cura: curaSlicerSettingsSchema,
 });
 
 export const filamentMaterialSchema = z
   .object({
     name: z.string(),
   })
-  .merge(genericSlicerSchema)
-  .merge(prusaSlicerSettingsSchema)
-  .merge(bambusStudioSlicerSettingsSchema)
-  .merge(orcaSlicerSettingsSchema)
-  .merge(curaSlicerSettingsSchema);
+  .merge(slicerSettingsSchema);

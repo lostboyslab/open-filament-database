@@ -1,0 +1,7 @@
+{
+  "name": "PPPO",
+  "prusa": {
+    "first_layer_bed_temp": 30,
+    "nozzle_temp": 100
+  }
+}

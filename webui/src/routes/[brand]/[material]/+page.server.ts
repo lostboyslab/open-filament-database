@@ -3,7 +3,12 @@ import type { PageServerLoad } from './$types';
 import { superValidate } from 'sveltekit-superforms';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import { zod } from 'sveltekit-superforms/adapters';
-import { createFilament, removeUndefined, updateMaterial } from '$lib/server/helpers';
+import {
+  createFilament,
+  flattenMaterialData,
+  removeUndefined,
+  updateMaterial,
+} from '$lib/server/helpers';
 import { baseFilamentSchema } from '$lib/validation/filament-schema';
 import { refreshDatabase } from '$lib/dataCacher';
 import { setFlash } from 'sveltekit-flash-message/server';
@@ -15,17 +20,21 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   const normalizedBrand = brand.trim().toLowerCase().replace(/\s+/g, '');
   const normalizedMaterial = material.trim().toLowerCase().replace(/\s+/g, '');
 
+  console.log('Normalized:', { normalizedBrand, normalizedMaterial }); // Debug log
+
   const brandKey = Object.keys(filamentData.brands).find(
     (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand,
   );
   if (!brandKey) {
     error(404, 'Brand not found');
   }
+  console.log('Found brand key:', brandKey); // Debug log
 
   const brandData = filamentData.brands[brandKey];
+  console.log('Brand data:', brandData); // Debug log
 
   const currentMaterial = brandData.materials[material];
-  const materialForm = await superValidate(currentMaterial, zod(filamentMaterialSchema));
+
   const filamentForm = await superValidate(zod(baseFilamentSchema));
 
   const materialKey = Object.keys(brandData.materials).find(
@@ -34,8 +43,15 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   if (!materialKey) {
     error(404, 'Material not found');
   }
+  console.log('Found material key:', materialKey); // Debug log
 
   const materialData = brandData.materials[materialKey];
+  console.log('Raw material data from JSON:', JSON.stringify(materialData, null, 2)); // Debug log
+
+  const flattenedMaterialData = flattenMaterialData(materialData);
+  console.log('Flattened Material Data:', flattenedMaterialData);
+
+  const materialForm = await superValidate(flattenedMaterialData, zod(filamentMaterialSchema));
 
   return {
     brandData,
@@ -49,14 +65,14 @@ export const actions = {
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
     const { brand, material } = params;
+    console.log('Edit form data:', form.data);
 
     if (!form.valid) {
       return fail(400, { form });
     }
 
     try {
-      const filteredMaterial = removeUndefined(form.data);
-      updateMaterial(brand, material, filteredMaterial);
+      updateMaterial(brand, material, form.data);
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to update material:', error);

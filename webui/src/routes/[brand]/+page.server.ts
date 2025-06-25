@@ -64,14 +64,14 @@ export const actions = {
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
     const { brand } = params;
-    const filteredMaterial = removeUndefined(form.data);
-
+    // const filteredMaterial = removeUndefined(form.data);
+    console.log('Form!:', form.data);
     if (!form.valid) {
       fail(400, { form });
     }
 
     try {
-      await createMaterial(brand, filteredMaterial);
+      await createMaterial(brand, form.data);
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to create material:', error);

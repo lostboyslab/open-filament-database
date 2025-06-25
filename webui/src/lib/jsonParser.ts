@@ -156,6 +156,7 @@ export async function loadFilamentDatabase(dataPath: string): Promise<FilamentDa
         return {
           key: materialFolder.name,
           value: {
+            ...materialData,
             name: materialFolder.name,
             filaments,
           },

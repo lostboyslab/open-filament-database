@@ -1,0 +1,9 @@
+{
+  "name": "DUMDUM",
+  "generic": {
+    "first_layer_bed_temp": 59
+  },
+  "prusa": {
+    "first_layer_nozzle_temp": 70
+  }
+}
