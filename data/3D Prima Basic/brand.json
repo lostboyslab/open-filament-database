@@ -1,6 +1,6 @@
 {
-  "brand": "3D Prima Basic",
+  "name": "3D Prima Basic",
   "website": "https://www.3dprima.com/",
-  "logo": "primacreator.png",
+  "logo": "/data/3D Prima Basic/primacreator.png",
   "origin": "unknown"
 }

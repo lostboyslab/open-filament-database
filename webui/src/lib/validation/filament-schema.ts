@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { slicerSettingsSchema } from '$lib/validation/slicer-settings-schema';
 import { genericSlicerSchema } from './filament-material-schema';
 
 export const baseFilamentSchema = z.object({
@@ -46,7 +45,6 @@ export const filamentSchema = z
       .default('https://')
       .optional(),
   })
-  .merge(slicerSettingsSchema)
   .merge(genericSlicerSchema);
 
 const purchaseLinkSchema = z.object({

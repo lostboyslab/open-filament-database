@@ -1,5 +1,6 @@
 <script lang="ts">
   import { browser } from '$app/environment';
+  import { page } from '$app/state';
   import CreateNew from '$lib/components/createNew.svelte';
   import EditModal from '$lib/components/editModal.svelte';
   import FilamentForm from '$lib/components/filamentForm.svelte';
@@ -43,24 +44,26 @@
   <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">
     Filaments for {data.materialData.name}
   </h1>
-  <CreateNew
-    ><FilamentForm
-      form={filamentForm}
-      errors={filamentErrors}
-      message={filamentMessage}
-      enhance={filamentEnhance}
-      brandName={data.brandData.name}
-      formType={'create'} />
-  </CreateNew>
-  <EditModal>
-    <MaterialForm
-      {form}
-      {errors}
-      {message}
-      brandName={data.brandData.name}
-      {enhance}
-      formType={'edit'} />
-  </EditModal>
+  <div class="btn-wrapper flex gap-2">
+    <EditModal>
+      <MaterialForm
+        {form}
+        {errors}
+        {message}
+        brandName={data.brandData.name}
+        {enhance}
+        formType={'edit'} />
+    </EditModal>
+    <CreateNew
+      ><FilamentForm
+        form={filamentForm}
+        errors={filamentErrors}
+        message={filamentMessage}
+        enhance={filamentEnhance}
+        brandName={data.brandData.name}
+        formType={'create'} />
+    </CreateNew>
+  </div>
 
   <div class="space-y-8">
     {#each filteredFilamentKeys as filamentKey}

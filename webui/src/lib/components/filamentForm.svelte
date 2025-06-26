@@ -112,8 +112,7 @@
     </div>
 
     <div>
-      <label for="safety_sheet_url" class="block font-medium mb-1"
-        >Safety sheet URL<span class="text-red-500">*</span></label>
+      <label for="safety_sheet_url" class="block font-medium mb-1">Safety sheet URL</label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
         Link to Material Safety Data Sheet (MSDS) for handling and safety information
       </p>
@@ -121,7 +120,6 @@
         id="safety_sheet_url"
         type="text"
         name="safety_sheet_url"
-        aria-required="true"
         aria-describedby="safety-sheet-help"
         placeholder="https://www.example.com/msds.pdf"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"

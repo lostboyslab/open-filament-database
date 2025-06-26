@@ -1,6 +1,8 @@
 <script lang="ts">
+  import { page } from '$app/state';
+
   let dialogElement: HTMLDialogElement | null = null;
-  let { children } = $props();
+  let { children, closeDialog = $bindable() } = $props();
 </script>
 
 <button
