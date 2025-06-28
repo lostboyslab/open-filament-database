@@ -1,6 +1,3 @@
 {
-  "name": "PLA",
-  "generic": {
-    "first_layer_bed_temp": 49
-  }
+  "material": "PLA"
 }
