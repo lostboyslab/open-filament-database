@@ -77,7 +77,7 @@ export const actions = {
 
     // Redirect to current page with success message
     setFlash({ type: 'success', message: 'Color created successfully!' }, cookies);
-    redirect(303, url.pathname);
+    return { form, success: true, redirect: url.pathname };
   },
   filament: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentSchema));
@@ -98,6 +98,27 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
+    return { form, success: true };
+  },
+  editInstance: async ({ request, params, cookies }) => {
+    const form = await superValidate(request, zod(filamentVariantSchema));
+    const { brand, material, filament } = params;
+
+    if (!form.valid) {
+      return fail(400, { form });
+    }
+
+    try {
+      const filteredData = removeUndefined(form.data);
+      await createColorFiles(filteredData);
+      await refreshDatabase();
+    } catch (error) {
+      console.error('Failed to update color:', error);
+      setFlash({ type: 'error', message: 'Failed to update color. Please try again.' }, cookies);
+      return fail(500, { form });
+    }
+
+    setFlash({ type: 'success', message: 'Color updated successfully!' }, cookies);
     return { form, success: true };
   },
 };

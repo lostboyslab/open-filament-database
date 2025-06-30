@@ -6,7 +6,7 @@ export interface FilamentDatabase {
 }
 
 interface Brand {
-  name: string;
+  brand: string;
   logo: string;
   website?: string;
   origin?: string;
@@ -69,7 +69,7 @@ export async function loadFilamentDatabase(dataPath: string): Promise<FilamentDa
       ]);
 
       const brandData = JSON.parse(brandDataBuffer.toString());
-      const logoFile = files.find((file) => /\.(png|jpg|jpeg)$/i.test(file));
+      const logoFile = files.find((file) => /\.(png|jpg|jpeg|svg)$/i.test(file));
       const logo = logoFile ? `/data/${brandFolder.name}/${logoFile}` : '';
 
       // Get material folders
@@ -173,7 +173,7 @@ export async function loadFilamentDatabase(dataPath: string): Promise<FilamentDa
       return {
         key: brandFolder.name,
         value: {
-          name: brandData.brand ?? brandFolder.name,
+          brand: brandData.brand ?? brandFolder.name,
           logo,
           website: brandData.website ?? '',
           origin: brandData.origin ?? '',

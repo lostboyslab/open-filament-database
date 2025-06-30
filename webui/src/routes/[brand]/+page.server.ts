@@ -27,10 +27,10 @@ export const load: PageServerLoad = async ({ params, parent, cookies }) => {
   );
 
   const formData = {
-    name: brandData.name,
+    brand: brandData.brand,
     website: brandData.website || 'https://',
     origin: brandData.origin || '',
-    oldBrandName: brandData.name,
+    oldBrandName: brandData.brand,
   };
 
   const brandForm = await superValidate(formData, zod(brandSchema));

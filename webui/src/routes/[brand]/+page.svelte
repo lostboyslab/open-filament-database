@@ -3,7 +3,6 @@
   import EditModal from '$lib/components/editModal.svelte';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
-
   import type { PageProps } from './$types';
   import CreateNew from '$lib/components/createNew.svelte';
   import MaterialForm from '$lib/components/materialForm.svelte';
@@ -11,7 +10,6 @@
   import { browser } from '$app/environment';
   import { brandSchema } from '$lib/validation/filament-brand-schema';
   import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
-  import { getFlash } from 'sveltekit-flash-message';
   let { data }: PageProps = $props();
 
   const { form, errors, constraints, delayed, message, enhance } = superForm(data.brandForm, {
@@ -51,11 +49,11 @@
   <div class="relative flex flex-col md:flex-row items-center md:items-start gap-6 mb-12">
     <img
       src={data.brandData.logo}
-      alt={data.brandData.name ?? 'Brand logo'}
+      alt={data.brandData.brand ?? 'Brand logo'}
       class="w-32 h-32 rounded-xl object-contain bg-white shadow-md dark:bg-gray-900" />
     <div class="text-center md:text-left">
       <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-        {data.brandData.name ?? ''}
+        {data.brandData.brand ?? ''}
       </h1>
       <a
         href={websiteUrl}
@@ -73,7 +71,7 @@
         {delayed}
         {message}
         formType={'edit'}
-        oldName={data.brandData.name} />
+        oldName={data.brandData.brand} />
     </EditModal>
   </div>
 
@@ -84,14 +82,14 @@
         form={materialForm}
         errors={materialErrors}
         message={materialMessage}
-        brandName={data.brandData.name}
+        brandName={data.brandData.brand}
         enhance={materialEnhance}
         formType={'create'} />
     </CreateNew>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {#each filteredMaterialKeys as materialKey}
         {#if data.brandData.materials[materialKey]}
-          <a href={`/${data.brandData.name}/${materialKey}`}>
+          <a href={`/${data.brandData.brand}/${materialKey}`}>
             <li
               class="border rounded p-4 bg-white border-gray-200 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 shadow-md transition-colors flex flex-col justify-between">
               <div>

@@ -50,7 +50,7 @@
         {form}
         {errors}
         {message}
-        brandName={data.brandData.name}
+        brandName={data.brandData.brand}
         {enhance}
         formType={'edit'} />
     </EditModal>
@@ -60,7 +60,7 @@
         errors={filamentErrors}
         message={filamentMessage}
         enhance={filamentEnhance}
-        brandName={data.brandData.name}
+        brandName={data.brandData.brand}
         formType={'create'} />
     </CreateNew>
   </div>
@@ -71,7 +71,7 @@
         <MaterialItem
           filament={data.materialData.filaments[filamentKey]}
           {filamentKey}
-          brandName={data.brandData.name}
+          brandName={data.brandData.brand}
           materialName={data.materialData.name} />
       {/if}
     {/each}

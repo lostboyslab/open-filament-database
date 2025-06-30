@@ -1,10 +1,28 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
+  import { env } from '$env/dynamic/public';
   import { pseudoDelete } from '$lib/pseudoDeleter';
-  import SuperDebug, { fileProxy, superForm } from 'sveltekit-superforms';
+  import { realDelete } from '$lib/realDeleter';
+  import { fileProxy } from 'sveltekit-superforms';
   type formType = 'edit' | 'create';
   let { form, errors, constraints, delayed, message, formType, oldName = '' } = $props();
   const file = fileProxy(form, 'logo');
+
+  async function handleDelete() {
+    if (
+      confirm(
+        `Are you sure you want to delete the brand "${$form.name}"? This action cannot be undone.`,
+      )
+    ) {
+      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
+
+      if (isLocal) {
+        await realDelete('brand', $form.name);
+      } else {
+        pseudoDelete('brand', $form.name);
+      }
+    }
+  }
 </script>
 
 <div
@@ -97,7 +115,7 @@
         type="button"
         class="w-full flex items-center justify-center gap-2 mt-2 py-2 px-4 rounded-lg bg-red-600 text-white font-semibold shadow hover:bg-red-700 transition-colors"
         aria-label="Delete brand"
-        onclick={() => pseudoDelete('brand', $form.name)}>
+        onclick={handleDelete}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-5 h-5"

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import DownloadBtn from './downloadBtn.svelte';
-
   let { color, brandName, materialName, filamentName } = $props();
 </script>
 

@@ -1,9 +1,26 @@
 <script lang="ts">
   import { pseudoDelete } from '$lib/pseudoDeleter';
-  import SuperDebug from 'sveltekit-superforms';
+  import { realDelete } from '$lib/realDeleter';
+  import { env } from '$env/dynamic/public';
+
   type formType = 'edit' | 'create';
   let { form, errors, message, enhance, formType: formType, brandName } = $props();
 
+  async function handleDelete() {
+    if (
+      confirm(
+        `Are you sure you want to delete the filament "${$form.name}"? This action cannot be undone.`,
+      )
+    ) {
+      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
+
+      if (isLocal) {
+        await realDelete('filament', $form.name, brandName, materialName);
+      } else {
+        pseudoDelete('filament', $form.name);
+      }
+    }
+  }
   const slicerOptions = [
     { key: 'generic', label: 'Generic' },
     { key: 'prusaslicer', label: 'PrusaSlicer' },
@@ -141,7 +158,7 @@
         type="button"
         class="w-full flex items-center justify-center gap-2 mt-2 py-2 px-4 rounded-lg bg-red-600 text-white font-semibold shadow hover:bg-red-700 transition-colors"
         aria-label="Delete filament"
-        onclick={() => pseudoDelete('filament', $form.name)}>
+        onclick={handleDelete}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-5 h-5"
