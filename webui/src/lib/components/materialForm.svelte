@@ -2,6 +2,7 @@
   import { pseudoDelete } from '$lib/pseudoDeleter';
   import { intProxy } from 'sveltekit-superforms';
   import { env } from '$env/dynamic/public';
+  import { realDelete } from '$lib/realDeleter';
 
   type formType = 'edit' | 'create';
   let { form, errors, message, enhance, formType: formType, brandName } = $props();

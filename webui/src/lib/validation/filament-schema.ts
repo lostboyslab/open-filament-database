@@ -93,7 +93,6 @@ export const filamentVariantSchema = z
     color_hex: z.string().regex(/^#?[a-fA-F0-9]{6}$/, 'Must be a valid hex code (#RRGGBB)'),
   })
   .merge(traitsSchema)
-  .merge(traitsSchema)
   .merge(filamentSizeSchema)
   .merge(filamentSchema)
   .merge(pathData);
