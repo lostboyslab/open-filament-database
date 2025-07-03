@@ -5,12 +5,7 @@
 
 <div
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
-  <form
-    method="POST"
-    use:enhance
-    action="?/updateVariant"
-    enctype="multipart/form-data"
-    class="space-y-5">
+  <form method="POST" use:enhance action="?/updateVariant" class="space-y-5">
     <h3 class="text-xl font-bold mb-4">{formType === 'edit' ? 'Edit' : 'Create'} Color Variant</h3>
 
     <div>

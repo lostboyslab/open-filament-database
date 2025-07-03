@@ -2,7 +2,7 @@
   import { page } from '$app/state';
 
   let dialogElement: HTMLDialogElement | null = null;
-  let { children } = $props();
+  let { children, spanText = 'Edit' } = $props();
 
   const closeDialog = $derived(page.data.flash?.type === 'success');
 
@@ -30,7 +30,7 @@
       stroke-linejoin="round"
       d="M16.862 4.487a2.25 2.25 0 1 1 3.182 3.182l-11.25 11.25a2 2 0 0 1-.878.513l-4 1a.5.5 0 0 1-.606-.606l1-4a2 2 0 0 1 .513-.878l11.25-11.25z" />
   </svg>
-  <span class="text-sm font-medium">Edit</span>
+  <span class="text-sm font-medium">{spanText}</span>
 </button>
 
 <dialog

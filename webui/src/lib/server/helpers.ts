@@ -642,3 +642,227 @@ export function flattenMaterialData(materialData: any) {
 
   return flattened;
 }
+export async function updateColorVariant(
+  brandName: string,
+  materialName: string,
+  filamentName: string,
+  colorName: string,
+  variantData: any,
+) {
+  const colorDir = path.join(DATA_DIR, brandName, materialName, filamentName, colorName);
+
+  if (!fs.existsSync(colorDir)) {
+    throw new Error(`Color directory "${colorName}" not found in filament "${filamentName}"`);
+  }
+
+  try {
+    // Prepare variant data
+    const traitKeys = ['translucent', 'glow', 'matte', 'recycled', 'recyclable', 'biodegradable'];
+    const traits: Record<string, boolean> = {};
+
+    for (const key of traitKeys) {
+      if (variantData[key] !== undefined) {
+        traits[key] = variantData[key];
+      }
+    }
+
+    const variantObj: any = {
+      color_name: variantData.color_name,
+      color_hex: variantData.color_hex,
+    };
+
+    // Only include traits if at least one is present
+    if (Object.keys(traits).length > 0) {
+      variantObj.traits = traits;
+    }
+
+    // Add optional fields
+    if (variantData.data_sheet_url) variantObj.data_sheet_url = variantData.data_sheet_url;
+    if (variantData.safety_sheet_url) variantObj.safety_sheet_url = variantData.safety_sheet_url;
+    if (variantData.url) variantObj.url = variantData.url;
+    if (variantData.affiliate !== undefined) variantObj.affiliate = variantData.affiliate;
+    if (variantData.sku) variantObj.sku = variantData.sku;
+
+    // Check if the color name has changed and requires folder rename
+    if (variantData.color_name !== colorName) {
+      const newColorDir = path.join(
+        DATA_DIR,
+        brandName,
+        materialName,
+        filamentName,
+        variantData.color_name,
+      );
+
+      // Check if new directory already exists
+      if (fs.existsSync(newColorDir)) {
+        throw new Error(
+          `Color "${variantData.color_name}" already exists in filament "${filamentName}"`,
+        );
+      }
+
+      // Rename the directory
+      fs.renameSync(colorDir, newColorDir);
+
+      // Update the variant.json in the new location
+      const variantPath = path.join(newColorDir, 'variant.json');
+      fs.writeFileSync(variantPath, JSON.stringify(removeUndefined(variantObj), null, 2), 'utf-8');
+
+      console.log(
+        `Color variant updated and renamed: ${brandName}/${materialName}/${filamentName}/${colorName} -> ${variantData.color_name}`,
+      );
+    } else {
+      // No rename needed, just update the variant.json
+      const variantPath = path.join(colorDir, 'variant.json');
+      fs.writeFileSync(variantPath, JSON.stringify(removeUndefined(variantObj), null, 2), 'utf-8');
+
+      console.log(
+        `Color variant updated: ${brandName}/${materialName}/${filamentName}/${colorName}`,
+      );
+    }
+  } catch (error) {
+    console.error('Error updating color variant:', error);
+    throw error;
+  }
+}
+
+export async function updateColorSize(
+  brandName: string,
+  materialName: string,
+  filamentName: string,
+  colorName: string,
+  sizeData: any,
+) {
+  const colorDir = path.join(DATA_DIR, brandName, materialName, filamentName, colorName);
+
+  if (!fs.existsSync(colorDir)) {
+    throw new Error(`Color directory "${colorName}" not found in filament "${filamentName}"`);
+  }
+
+  try {
+    const sizesPath = path.join(colorDir, 'sizes.json');
+
+    // Prepare size object
+    const sizeObj: any = {};
+
+    // Map form fields to JSON structure
+    if (sizeData.filament_weight !== undefined) sizeObj.filament_weight = sizeData.filament_weight;
+    if (sizeData.empty_spool_weight !== undefined)
+      sizeObj.empty_spool_weight = sizeData.empty_spool_weight;
+    if (sizeData.diameter !== undefined) sizeObj.diameter = sizeData.diameter;
+    if (sizeData.spool_refill !== undefined) sizeObj.spool_refill = sizeData.spool_refill;
+    if (sizeData.sku !== undefined) sizeObj.sku = sizeData.sku;
+    if (sizeData.ean !== undefined) sizeObj.ean = sizeData.ean;
+
+    // Handle purchase links if provided
+    if (sizeData.store_id || sizeData.url || sizeData.ships_from || sizeData.ships_to) {
+      const purchaseLink: any = {};
+      if (sizeData.store_id) purchaseLink.store_id = sizeData.store_id;
+      if (sizeData.url) purchaseLink.url = sizeData.url;
+      if (sizeData.affiliate !== undefined) purchaseLink.affiliate = sizeData.affiliate;
+      if (sizeData.ships_from) purchaseLink.ships_from = sizeData.ships_from;
+      if (sizeData.ships_to) purchaseLink.ships_to = sizeData.ships_to;
+
+      if (Object.keys(purchaseLink).length > 0) {
+        sizeObj.purchase_links = [purchaseLink];
+      }
+    }
+
+    // Always create or update the single size object
+    const sizesArr = [removeUndefined(sizeObj)];
+
+    fs.writeFileSync(sizesPath, JSON.stringify(sizesArr, null, 2), 'utf-8');
+    console.log(`Size updated: ${brandName}/${materialName}/${filamentName}/${colorName}`);
+  } catch (error) {
+    console.error('Error updating color size:', error);
+    throw error;
+  }
+}
+
+export async function deleteColorSize(
+  brandName: string,
+  materialName: string,
+  filamentName: string,
+  colorName: string,
+  sizeIndex: number,
+) {
+  const colorDir = path.join(DATA_DIR, brandName, materialName, filamentName, colorName);
+
+  if (!fs.existsSync(colorDir)) {
+    throw new Error(`Color directory "${colorName}" not found in filament "${filamentName}"`);
+  }
+
+  try {
+    const sizesPath = path.join(colorDir, 'sizes.json');
+
+    if (!fs.existsSync(sizesPath)) {
+      throw new Error('No sizes.json file found');
+    }
+
+    let sizesArr: any[] = [];
+    try {
+      sizesArr = JSON.parse(fs.readFileSync(sizesPath, 'utf-8'));
+      if (!Array.isArray(sizesArr)) {
+        throw new Error('Invalid sizes.json format');
+      }
+    } catch {
+      throw new Error('Could not parse sizes.json');
+    }
+
+    if (sizeIndex < 0 || sizeIndex >= sizesArr.length) {
+      throw new Error(`Size index ${sizeIndex} is out of range`);
+    }
+
+    sizesArr.splice(sizeIndex, 1);
+
+    fs.writeFileSync(sizesPath, JSON.stringify(sizesArr, null, 2), 'utf-8');
+    console.log(
+      `Size deleted at index ${sizeIndex}: ${brandName}/${materialName}/${filamentName}/${colorName}`,
+    );
+  } catch (error) {
+    console.error('Error deleting color size:', error);
+    throw error;
+  }
+}
+
+export async function deleteColorVariant(
+  brandName: string,
+  materialName: string,
+  filamentName: string,
+  colorName: string,
+) {
+  const colorDir = path.join(DATA_DIR, brandName, materialName, filamentName, colorName);
+
+  if (!fs.existsSync(colorDir)) {
+    throw new Error(`Color directory "${colorName}" not found in filament "${filamentName}"`);
+  }
+
+  try {
+    const variantPath = path.join(colorDir, 'variant.json');
+
+    if (!fs.existsSync(variantPath)) {
+      throw new Error('No variant.json file found');
+    }
+
+    fs.unlinkSync(variantPath);
+
+    console.log(`Color variant deleted: ${brandName}/${materialName}/${filamentName}/${colorName}`);
+
+    const remainingFiles = fs.readdirSync(colorDir);
+    const hasOtherFiles = remainingFiles.some((file) => file !== 'sizes.json');
+
+    if (remainingFiles.length === 0) {
+      // Directory is completely empty, remove it
+      fs.rmdirSync(colorDir);
+      console.log(
+        `Empty color directory removed: ${brandName}/${materialName}/${filamentName}/${colorName}`,
+      );
+    } else if (remainingFiles.length === 1 && remainingFiles[0] === 'sizes.json') {
+      console.log(
+        `Only sizes.json remains in: ${brandName}/${materialName}/${filamentName}/${colorName}`,
+      );
+    }
+  } catch (error) {
+    console.error('Error deleting color variant:', error);
+    throw error;
+  }
+}

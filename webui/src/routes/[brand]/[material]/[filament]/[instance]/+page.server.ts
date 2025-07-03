@@ -1,8 +1,8 @@
-import { error, fail } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import { removeUndefined } from '$lib/server/helpers';
+import { removeUndefined, updateColorSize, updateColorVariant } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
 import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
@@ -42,7 +42,6 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   if (!colorKey) throw error(404, 'Color not found');
   const colorData = filamentDataObj.colors[colorKey];
 
-  console.log('Color Data Object:', colorData.sizes[0]);
   // Prepare forms - combine variant and first size data for editing
   const combinedData = {
     ...colorData.variant,
@@ -72,23 +71,12 @@ export const actions = {
   updateVariant: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentVariantSchema));
     const { brand, material, filament, instance } = params;
-
     if (!form.valid) {
       return fail(400, { form });
     }
 
     try {
-      // Add path information to form data
-      const formDataWithPaths = {
-        ...form.data,
-        brandName: brand,
-        materialName: material,
-        filamentName: filament,
-        color_name: instance, // Use the instance as the color name
-      };
-
-      const filteredData = removeUndefined(formDataWithPaths);
-      await createColorFiles(filteredData);
+      await updateColorVariant(brand, material, filament, instance, form.data);
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to update color variant:', error);
@@ -100,10 +88,10 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Color variant updated successfully!' }, cookies);
-    return { form, success: true };
+    redirect(303, `/${brand}/${material}/${filament}/${form.data.color_name}`);
   },
 
-  addSize: async ({ request, params, cookies }) => {
+  updateSize: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentSizeSchema));
     const { brand, material, filament, instance } = params;
 
@@ -112,25 +100,15 @@ export const actions = {
     }
 
     try {
-      // Add path information and color name to form data
-      const formDataWithPaths = {
-        ...form.data,
-        brandName: brand,
-        materialName: material,
-        filamentName: filament,
-        color_name: instance,
-      };
-
-      const filteredData = removeUndefined(formDataWithPaths);
-      await createColorFiles(filteredData);
+      await updateColorSize(brand, material, filament, instance, form.data);
       await refreshDatabase();
     } catch (error) {
-      console.error('Failed to add size:', error);
-      setFlash({ type: 'error', message: 'Failed to add size. Please try again.' }, cookies);
+      console.error('Failed to update size:', error);
+      setFlash({ type: 'error', message: 'Failed to update size. Please try again.' }, cookies);
       return fail(500, { form });
     }
 
-    setFlash({ type: 'success', message: 'Size added successfully!' }, cookies);
+    setFlash({ type: 'success', message: 'Size updated successfully!' }, cookies);
     return { form, success: true };
   },
 };
