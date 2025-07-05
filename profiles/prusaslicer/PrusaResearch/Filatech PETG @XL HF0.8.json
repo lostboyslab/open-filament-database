@@ -3,7 +3,7 @@
     "compatible_printers": "",
     "compatible_printers_condition": "printer_notes=~/.*XL.*/ and nozzle_diameter[0]==0.8 and printer_notes=~/.*HF_NOZZLE.*/",
     "end_filament_gcode": "\"; Filament-specific end gcode\"",
-    "extrusion_multiplier": "0.95",
+    "extrusion_multiplier": "1",
     "filament_loading_speed": "10",
     "filament_loading_speed_start": "50",
     "filament_unloading_speed": "100",
