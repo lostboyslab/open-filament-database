@@ -21,7 +21,15 @@
                 "pattern": "^#?[a-fA-F0-9]{6}$"
             },
             "pattern": "^#?[a-fA-F0-9]{6}$",
-            "description": "The hex color code for this filament"
+            "description": "The official hex color code for this filament"
+        },
+        "hex_variants": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^#?[a-fA-F0-9]{6}$"
+            },
+            "description": "Alternative hex color codes that this filament is known to report or be identified as (e.g., via NFC)"
         },
         "discontinued": {
             "type": "boolean"
