@@ -1,5 +1,30 @@
 <script lang="ts">
   let { form, errors, message, enhance, formType } = $props();
+
+  $inspect('Form Data size:', $form);
+
+  // Function to add a new purchase link
+  function addPurchaseLink() {
+    if (!$form.purchase_links) {
+      $form.purchase_links = [];
+    }
+    $form.purchase_links = [
+      ...$form.purchase_links,
+      { store_id: '', url: '', affiliate: false, ships_from: '', ships_to: '' },
+    ];
+  }
+
+  // Function to remove a purchase link
+  function removePurchaseLink(index: number) {
+    $form.purchase_links = $form.purchase_links.filter((_, i) => i !== index);
+  }
+
+  // Reactive statement to ensure purchase_links exists
+  $effect(() => {
+    if (!$form.purchase_links) {
+      $form.purchase_links = [];
+    }
+  });
 </script>
 
 <div
@@ -120,62 +145,118 @@
     </div>
 
     <fieldset>
-      <legend class="block font-medium mb-1">Purchase Information (Optional)</legend>
-      <div class="space-y-4">
-        <div>
-          <label for="store_id" class="block font-medium mb-1">Store ID</label>
-          <input
-            id="store_id"
-            type="text"
-            name="store_id"
-            placeholder="amazon-us"
-            class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            bind:value={$form.store_id} />
-        </div>
-
-        <div>
-          <label for="url" class="block font-medium mb-1">Purchase URL</label>
-          <input
-            id="url"
-            type="url"
-            name="url"
-            placeholder="https://www.store.com/product/12345"
-            class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            bind:value={$form.url} />
-        </div>
-
-        <div class="flex items-center gap-2">
-          <input
-            id="affiliate"
-            type="checkbox"
-            name="affiliate"
-            class="accent-blue-600 w-4 h-4"
-            bind:checked={$form.affiliate} />
-          <label for="affiliate" class="font-medium">Affiliate link</label>
-        </div>
-
-        <div>
-          <label for="ships_from" class="block font-medium mb-1">Ships from</label>
-          <input
-            id="ships_from"
-            type="text"
-            name="ships_from"
-            placeholder="USA"
-            class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            bind:value={$form.ships_from} />
-        </div>
-
-        <div>
-          <label for="ships_to" class="block font-medium mb-1">Ships to</label>
-          <input
-            id="ships_to"
-            type="text"
-            name="ships_to"
-            placeholder="Worldwide"
-            class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            bind:value={$form.ships_to} />
-        </div>
+      <div class="flex items-center justify-between mb-4">
+        <legend class="block font-medium">Purchase Links (Optional)</legend>
+        <button
+          type="button"
+          onclick={addPurchaseLink}
+          class="text-sm px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+          + Add Link
+        </button>
       </div>
+
+      {#if $form.purchase_links && $form.purchase_links.length > 0}
+        <div class="space-y-6">
+          {#each $form.purchase_links as link, index}
+            <div
+              class="border border-gray-300 dark:border-gray-600 rounded-lg p-4 bg-gray-50 dark:bg-gray-800">
+              <div class="flex justify-between items-center mb-4">
+                <h4 class="font-medium text-gray-700 dark:text-gray-300">
+                  Purchase Link {index + 1}
+                </h4>
+                {#if $form.purchase_links.length > 1}
+                  <button
+                    type="button"
+                    onclick={() => removePurchaseLink(index)}
+                    class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-200">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
+                {/if}
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <label for="store_id_{index}" class="block font-medium mb-1 text-sm"
+                    >Store ID</label>
+                  <input
+                    id="store_id_{index}"
+                    type="text"
+                    name="purchase_links[{index}].store_id"
+                    placeholder="amazon-us"
+                    class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                    bind:value={link.store_id} />
+                  {#if $errors.purchase_links?.[index]?.store_id}
+                    <span class="text-red-600 text-xs"
+                      >{$errors.purchase_links[index].store_id}</span>
+                  {/if}
+                </div>
+
+                <div>
+                  <label for="url_{index}" class="block font-medium mb-1 text-sm"
+                    >Purchase URL</label>
+                  <input
+                    id="url_{index}"
+                    type="url"
+                    name="purchase_links[{index}].url"
+                    placeholder="https://www.store.com/product/12345"
+                    class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                    bind:value={link.url} />
+                  {#if $errors.purchase_links?.[index]?.url}
+                    <span class="text-red-600 text-xs">{$errors.purchase_links[index].url}</span>
+                  {/if}
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <input
+                    id="affiliate_{index}"
+                    type="checkbox"
+                    name="purchase_links[{index}].affiliate"
+                    class="accent-blue-600 w-4 h-4"
+                    bind:checked={link.affiliate} />
+                  <label for="affiliate_{index}" class="font-medium text-sm">Affiliate link</label>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label for="ships_from_{index}" class="block font-medium mb-1 text-sm"
+                      >Ships from</label>
+                    <input
+                      id="ships_from_{index}"
+                      type="text"
+                      name="purchase_links[{index}].ships_from"
+                      placeholder="USA"
+                      class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                      bind:value={link.ships_from} />
+                  </div>
+
+                  <div>
+                    <label for="ships_to_{index}" class="block font-medium mb-1 text-sm"
+                      >Ships to</label>
+                    <input
+                      id="ships_to_{index}"
+                      type="text"
+                      name="purchase_links[{index}].ships_to"
+                      placeholder="Worldwide"
+                      class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                      bind:value={link.ships_to} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          {/each}
+        </div>
+      {:else}
+        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
+          <p class="text-sm">No purchase links added yet.</p>
+          <p class="text-xs mt-1">Click "Add Link" to add purchase information.</p>
+        </div>
+      {/if}
     </fieldset>
 
     <button

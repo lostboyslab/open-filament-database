@@ -11,12 +11,15 @@
 
   const { data } = $props();
 
+  $inspect('Data: ', data);
+
   const {
     form: variantForm,
     errors: variantErrors,
     message: variantMessage,
     enhance: variantEnhance,
   } = superForm(data.variantForm, {
+    dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
     validators: zodClient(filamentVariantSchema),
@@ -28,6 +31,7 @@
     message: sizeMessage,
     enhance: sizeEnhance,
   } = superForm(data.sizeForm, {
+    dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
     validators: zodClient(filamentSizeSchema),
