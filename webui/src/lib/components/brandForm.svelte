@@ -1,7 +1,9 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
+  import { invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
   import { pseudoDelete } from '$lib/pseudoDeleter';
+  import { pseudoEdit } from '$lib/pseudoEditor';
   import { realDelete } from '$lib/realDeleter';
   import { fileProxy } from 'sveltekit-superforms';
   type formType = 'edit' | 'create';
@@ -23,11 +25,34 @@
       }
     }
   }
+
+  const enhancedSubmit = () => {
+    return async ({ result, update }) => {
+      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
+
+      if (result.type === 'success' && !isLocal) {
+        const brandData = {
+          name: $form.name,
+          // Add other brand fields as needed
+        };
+
+        pseudoEdit('brand', $form.name, brandData);
+        await invalidateAll();
+      }
+
+      await update();
+    };
+  };
 </script>
 
 <div
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
-  <form method="POST" use:enhance action="?/brand" enctype="multipart/form-data" class="space-y-5">
+  <form
+    method="POST"
+    use:enhance={enhancedSubmit}
+    action="?/brand"
+    enctype="multipart/form-data"
+    class="space-y-5">
     <div>
       <label for="name" class="block font-medium mb-1"
         >Brand name<span class="text-red-500">*</span></label>

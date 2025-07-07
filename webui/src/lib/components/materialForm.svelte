@@ -3,6 +3,8 @@
   import { intProxy } from 'sveltekit-superforms';
   import { env } from '$env/dynamic/public';
   import { realDelete } from '$lib/realDeleter';
+  import { invalidateAll } from '$app/navigation';
+  import { pseudoEdit } from '$lib/pseudoEditor';
 
   type formType = 'edit' | 'create';
   let { form, errors, message, enhance, formType: formType, brandName } = $props();
@@ -22,6 +24,30 @@
       }
     }
   }
+
+  const enhancedSubmit = () => {
+    return async ({ result, update }) => {
+      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
+
+      if (result.type === 'success' && !isLocal) {
+        // Get the current form data
+        const materialData = {
+          name: $form.name,
+          generic: $form.generic,
+          prusa: $form.prusa,
+          bambus: $form.bambus,
+          orca: $form.orca,
+          cura: $form.cura,
+        };
+
+        // Apply pseudo edit for web version
+        pseudoEdit('material', brandName, materialData);
+        await invalidateAll();
+      }
+
+      await update();
+    };
+  };
 
   const slicerOptions = [
     { key: 'generic', label: 'Generic' },
@@ -64,7 +90,7 @@
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
-    use:enhance
+    use:enhance={enhancedSubmit}
     action="?/material"
     enctype="multipart/form-data"
     class="space-y-5">

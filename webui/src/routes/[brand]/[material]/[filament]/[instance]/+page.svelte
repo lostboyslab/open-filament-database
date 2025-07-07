@@ -1,17 +1,12 @@
 <script lang="ts">
   import EditModal from '$lib/components/editModal.svelte';
-  import FilamentVariantForm from '$lib/components/filamentVariantForm.svelte';
   import InstanceSizeForm from '$lib/components/instanceSizeForm.svelte';
   import InstanceVariantForm from '$lib/components/instanceVariantForm.svelte';
   import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
   import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
-
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
-
   const { data } = $props();
-
-  $inspect('Data: ', data);
 
   const {
     form: variantForm,
@@ -66,6 +61,10 @@
             form={sizeForm}
             errors={sizeErrors}
             message={sizeMessage}
+            brandName={data.brandData.brand}
+            materialName={data.materialData.name}
+            filamentName={data.filamentData.name}
+            colorName={data.colorData.name}
             enhance={sizeEnhance}
             formType={'edit'} />
         </EditModal>
@@ -77,6 +76,7 @@
             brandName={data.brandData.brand}
             materialName={data.materialData.name}
             filamentName={data.filamentData.name}
+            colorName={data.colorData.name}
             enhance={variantEnhance}
             formType={'edit'} />
         </EditModal>

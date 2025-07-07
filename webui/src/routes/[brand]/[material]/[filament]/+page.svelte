@@ -42,6 +42,7 @@
       {errors}
       {message}
       brandName={data.brandData.brand}
+      materialName={data.materialData.name}
       {enhance}
       formType={'edit'} />
   </EditModal>

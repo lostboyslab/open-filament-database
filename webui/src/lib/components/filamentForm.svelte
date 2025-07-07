@@ -2,9 +2,11 @@
   import { pseudoDelete } from '$lib/pseudoDeleter';
   import { realDelete } from '$lib/realDeleter';
   import { env } from '$env/dynamic/public';
+  import { pseudoEdit, pseudoEdit } from '$lib/pseudoEditor';
+  import { invalidateAll } from '$app/navigation';
 
   type formType = 'edit' | 'create';
-  let { form, errors, message, enhance, formType: formType, brandName } = $props();
+  let { form, errors, message, enhance, formType: formType, brandName, materialName } = $props();
 
   async function handleDelete() {
     if (
@@ -30,13 +32,31 @@
   ];
 
   let selectedSlicer = $state('generic');
+
+  const enhancedSubmit = () => {
+    return async ({ result, update }) => {
+      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
+
+      if (result.type === 'success' && !isLocal) {
+        const filamentData = {
+          name: $form.name,
+          // Add other filament fields as needed
+        };
+
+        pseudoEdit('filament', brandName, filamentData, materialName);
+        await invalidateAll();
+      }
+
+      await update();
+    };
+  };
 </script>
 
 <div
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
-    use:enhance
+    use:enhance={enhancedSubmit}
     action="?/filament"
     enctype="multipart/form-data"
     class="space-y-5">

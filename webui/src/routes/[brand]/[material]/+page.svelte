@@ -61,6 +61,7 @@
         message={filamentMessage}
         enhance={filamentEnhance}
         brandName={data.brandData.brand}
+        materialName={data.materialData.name}
         formType={'create'} />
     </CreateNew>
   </div>

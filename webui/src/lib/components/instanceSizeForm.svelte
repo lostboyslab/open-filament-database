@@ -1,7 +1,19 @@
 <script lang="ts">
-  let { form, errors, message, enhance, formType } = $props();
+  import { env } from '$env/dynamic/public';
+  import { pseudoEdit } from '$lib/pseudoEditor';
+  import { invalidateAll } from '$app/navigation';
 
-  $inspect('Form Data size:', $form);
+  let {
+    form,
+    errors,
+    message,
+    enhance,
+    formType,
+    brandName,
+    materialName,
+    filamentName,
+    colorName,
+  } = $props();
 
   // Function to add a new purchase link
   function addPurchaseLink() {
@@ -19,6 +31,37 @@
     $form.purchase_links = $form.purchase_links.filter((_, i) => i !== index);
   }
 
+  // Enhanced form submission
+  const enhancedSubmit = () => {
+    return async ({ result, update }) => {
+      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
+
+      if (result.type === 'success' && !isLocal) {
+        // For web version, apply pseudo edit after server returns
+        const sizeData = {
+          filament_weight: Number($form.filament_weight),
+          empty_spool_weight: $form.empty_spool_weight
+            ? Number($form.empty_spool_weight)
+            : undefined,
+          diameter: Number($form.diameter),
+          spool_refill: Boolean($form.spool_refill),
+          sku: $form.sku || undefined,
+          ean: $form.ean || undefined,
+          purchase_links: $form.purchase_links || [],
+        };
+
+        try {
+          pseudoEdit('color_size', brandName, sizeData, materialName, filamentName, colorName);
+          await invalidateAll();
+        } catch (error) {
+          console.error('Pseudo edit failed:', error);
+        }
+      }
+
+      await update();
+    };
+  };
+
   // Reactive statement to ensure purchase_links exists
   $effect(() => {
     if (!$form.purchase_links) {
@@ -29,7 +72,7 @@
 
 <div
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
-  <form method="POST" use:enhance action="?/updateSize" class="space-y-5">
+  <form method="POST" use:enhance={enhancedSubmit} action="?/updateSize" class="space-y-5">
     <h3 class="text-xl font-bold mb-4">{formType === 'edit' ? 'Edit' : 'Add'} Size</h3>
 
     <div>
