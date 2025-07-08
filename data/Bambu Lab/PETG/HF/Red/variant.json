@@ -1,4 +1,5 @@
 {
     "color_name": "Red",
-    "color_hex": "#EB3A3A"
+    "color_hex": "#EB3A3A",
+    "hex_variants": ["#BC0900"]
 }
