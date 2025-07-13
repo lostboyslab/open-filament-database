@@ -76,6 +76,6 @@
     "seal_print": "1",
     "slowdown_below_layer_time": "5",
     "start_filament_gcode": "\"; Filament gcode\\nM900 K0.032 T0.03\\n\"",
-    "temperature": "300",
+    "temperature": "280",
     "chamber_temperature": "0"
 }
