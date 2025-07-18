@@ -78,8 +78,8 @@
         "nil"
     ],
     "filament_max_volumetric_speed": [
-        "16",
-        "16"
+        "20",
+        "30"
     ],
     "filament_ramming_volumetric_speed": [
         "-1",
@@ -111,8 +111,8 @@
         "nil"
     ],
     "filament_retraction_length": [
-        "nil",
-        "nil"
+        "0.4",
+        "0.4"
     ],
     "filament_retraction_minimum_travel": [
         "nil",
@@ -135,12 +135,12 @@
         "Bambu Lab"
     ],
     "filament_wipe": [
-        "nil",
-        "nil"
+        "1",
+        "1"
     ],
     "filament_wipe_distance": [
-        "nil",
-        "nil"
+        "1",
+        "1"
     ],
     "filament_prime_volume": [
         "45"
@@ -150,8 +150,8 @@
         "nil"
     ],
     "filament_z_hop_types": [
-        "nil",
-        "nil"
+        "Spiral Lift",
+        "Spiral Lift"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -279,8 +279,7 @@
         "50"
     ],
     "compatible_printers": [
-        "Bambu Lab H2D 0.4 nozzle",
-        "Bambu Lab H2D 0.6 nozzle"
+        "Bambu Lab H2D 0.4 nozzle"
     ],
     "impact_strength_z": [
         "7.4"
