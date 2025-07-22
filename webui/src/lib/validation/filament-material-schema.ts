@@ -60,6 +60,6 @@ export const slicerSettingsSchema = z.object({
 
 export const filamentMaterialSchema = z
   .object({
-    name: z.string(),
+    material: z.string(),
   })
   .merge(slicerSettingsSchema);

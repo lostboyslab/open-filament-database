@@ -62,7 +62,7 @@
             errors={sizeErrors}
             message={sizeMessage}
             brandName={data.brandData.brand}
-            materialName={data.materialData.name}
+            materialName={data.materialData.material}
             filamentName={data.filamentData.name}
             colorName={data.colorData.name}
             enhance={sizeEnhance}
@@ -74,7 +74,7 @@
             errors={variantErrors}
             message={variantMessage}
             brandName={data.brandData.brand}
-            materialName={data.materialData.name}
+            materialName={data.materialData.material}
             filamentName={data.filamentData.name}
             colorName={data.colorData.name}
             enhance={variantEnhance}
@@ -199,46 +199,5 @@
         </div>
       {/if}
     </div>
-
-    {#if data.colorData.variant?.data_sheet_url || data.colorData.variant?.safety_sheet_url}
-      <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
-        <h2 class="text-xl font-semibold mb-4">Documentation</h2>
-        <div class="flex flex-wrap gap-4">
-          {#if data.colorData.variant?.data_sheet_url}
-            <a
-              href={data.colorData.variant.data_sheet_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Technical Data Sheet
-            </a>
-          {/if}
-
-          {#if data.colorData.variant?.safety_sheet_url}
-            <a
-              href={data.colorData.variant.safety_sheet_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
-              </svg>
-              Safety Data Sheet
-            </a>
-          {/if}
-        </div>
-      </div>
-    {/if}
   </div>
 </div>

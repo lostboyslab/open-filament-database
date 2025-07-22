@@ -44,7 +44,6 @@
             ? Number($form.empty_spool_weight)
             : undefined,
           diameter: Number($form.diameter),
-          spool_refill: Boolean($form.spool_refill),
           sku: $form.sku || undefined,
           ean: $form.ean || undefined,
           purchase_links: $form.purchase_links || [],
@@ -136,22 +135,6 @@
         <span class="text-red-600 text-xs">{$errors.diameter}</span>
       {/if}
     </div>
-
-    <div class="flex items-center gap-2">
-      <input
-        id="spool_refill"
-        type="checkbox"
-        name="spool_refill"
-        class="accent-blue-600 w-4 h-4"
-        bind:checked={$form.spool_refill} />
-      <label for="spool_refill" class="font-medium"> Spool refill </label>
-      <p class="text-sm text-gray-600 dark:text-gray-400">
-        Check if this is a refill (filament only) without a spool
-      </p>
-    </div>
-    {#if $errors.spool_refill}
-      <span class="text-red-600 text-xs">{$errors.spool_refill}</span>
-    {/if}
 
     <div>
       <label for="sku" class="block font-medium mb-1">SKU</label>

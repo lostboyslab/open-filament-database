@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { brandSchema } from '$lib/validation/filament-brand-schema';
-import { createMaterial, removeUndefined, updateBrand } from '$lib/server/helpers';
+import { createMaterial, updateBrand } from '$lib/server/helpers';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import { refreshDatabase } from '$lib/dataCacher';
 import { setFlash } from 'sveltekit-flash-message/server';
@@ -78,6 +78,6 @@ export const actions = {
       return fail(500, { form });
     }
     setFlash({ type: 'success', message: 'Material created successfully!' }, cookies);
-    return { form, redirect: `/${brand}/${form.data.name}`, success: true };
+    return { form, redirect: `/${brand}/${form.data.material}`, success: true };
   },
 };

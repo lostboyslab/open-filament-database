@@ -2,7 +2,7 @@
   import { pseudoDelete } from '$lib/pseudoDeleter';
   import { realDelete } from '$lib/realDeleter';
   import { env } from '$env/dynamic/public';
-  import { pseudoEdit, pseudoEdit } from '$lib/pseudoEditor';
+  import { pseudoEdit } from '$lib/pseudoEditor';
   import { invalidateAll } from '$app/navigation';
 
   type formType = 'edit' | 'create';

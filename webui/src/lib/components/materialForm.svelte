@@ -32,7 +32,7 @@
       if (result.type === 'success' && !isLocal) {
         // Get the current form data
         const materialData = {
-          name: $form.name,
+          material: $form.material,
           generic: $form.generic,
           prusa: $form.prusa,
           bambus: $form.bambus,
@@ -96,23 +96,23 @@
     class="space-y-5">
     <!-- Material Name -->
     <div>
-      <label for="name" class="block font-medium mb-1">
+      <label for="material" class="block font-medium mb-1">
         Material name<span class="text-red-500">*</span>
       </label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
         Enter the material type or category (e.g., "PLA", "PETG", "ABS", "TPU")
       </p>
       <input
-        id="name"
+        id="material"
         type="text"
-        name="name"
+        name="material"
         aria-required="true"
         placeholder="e.g. PLA"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        aria-invalid={$errors.name ? 'true' : undefined}
-        bind:value={$form.name} />
-      {#if $errors.name}
-        <span class="text-red-600 text-xs">{$errors.name}</span>
+        aria-invalid={$errors.material ? 'true' : undefined}
+        bind:value={$form.material} />
+      {#if $errors.material}
+        <span class="text-red-600 text-xs">{$errors.material}</span>
       {/if}
     </div>
 

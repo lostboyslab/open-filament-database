@@ -94,7 +94,7 @@
               class="border rounded p-4 bg-white border-gray-200 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 shadow-md transition-colors flex flex-col justify-between">
               <div>
                 <div class="font-medium text-lg mb-1">
-                  {data.brandData.materials[materialKey].name ?? materialKey}
+                  {data.brandData.materials[materialKey].material ?? materialKey}
                 </div>
               </div>
             </li>

@@ -34,8 +34,6 @@
         const variantData = {
           color_name: $form.color_name,
           color_hex: $form.color_hex,
-          data_sheet_url: $form.data_sheet_url || undefined,
-          safety_sheet_url: $form.safety_sheet_url || undefined,
           url: $form.url || undefined,
           affiliate: $form.affiliate || false,
           sku: $form.sku || undefined,

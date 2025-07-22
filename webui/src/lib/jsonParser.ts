@@ -14,7 +14,7 @@ interface Brand {
 }
 
 interface Material {
-  name: string;
+  material: string;
   filaments: Record<string, Filament>;
 }
 

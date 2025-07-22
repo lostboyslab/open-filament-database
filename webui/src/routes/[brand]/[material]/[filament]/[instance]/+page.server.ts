@@ -61,8 +61,6 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   const defaultVariantData = {
     color_name: '',
     color_hex: '#000000',
-    data_sheet_url: '',
-    safety_sheet_url: '',
     url: '',
     affiliate: false,
     sku: '',

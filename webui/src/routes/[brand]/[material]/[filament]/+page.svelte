@@ -42,7 +42,7 @@
       {errors}
       {message}
       brandName={data.brandData.brand}
-      materialName={data.materialData.name}
+      materialName={data.materialData.material}
       {enhance}
       formType={'edit'} />
   </EditModal>
@@ -56,14 +56,14 @@
           {errors}
           {message}
           brandName={data.brandData.brand}
-          materialName={data.materialData.name}
+          materialName={data.materialData.material}
           filamentName={data.filamentData.name}
           {enhance}
           formType={'create'} />
       </CreateNew>
       <DownloadBtn
         brandName={data.brandData.brand}
-        materialName={data.materialData.name}
+        materialName={data.materialData.material}
         filamentName={data.filamentData.name} />
     </div>
 
@@ -72,7 +72,7 @@
         <FilamentItem
           color={data.filamentData.colors[colorKey]}
           brandName={data.brandData.brand}
-          materialName={data.materialData.name}
+          materialName={data.materialData.material}
           filamentName={data.filamentData.name} />
       {/if}
     {/each}
