@@ -1,7 +1,21 @@
-export const pseudoDelete = (type: 'brand' | 'material' | 'filament', name: string) => {
+export interface DeletedItem {
+  type: 'brand' | 'material' | 'filament' | 'instance';
+  name: string;
+  brandName?: string;
+  materialName?: string;
+  filamentName?: string;
+}
+
+export const pseudoDelete = (
+  type: 'brand' | 'material' | 'filament' | 'instance',
+  name: string,
+  brandName?: string,
+  materialName?: string,
+  filamentName?: string,
+) => {
   const storageKey = 'deletedItems';
   const existingItems = localStorage.getItem(storageKey);
-  let deletedItems: Array<{ type: string; name: string }> = [];
+  let deletedItems: DeletedItem[] = [];
 
   if (existingItems) {
     try {
@@ -11,23 +25,58 @@ export const pseudoDelete = (type: 'brand' | 'material' | 'filament', name: stri
       deletedItems = [];
     }
   }
-  const itemExists = deletedItems.some((item) => item.type === type && item.name === name);
+
+  // Create item keys that are brand-specific for materials, filaments, and instances
+  const itemKey =
+    type === 'brand'
+      ? `${type}|${name}`
+      : type === 'material'
+      ? `${type}|${brandName}|${name}`
+      : type === 'filament'
+      ? `${type}|${brandName}|${materialName}|${name}`
+      : `${type}|${brandName}|${materialName}|${filamentName}|${name}`;
+
+  const itemExists = deletedItems.some((item) => {
+    const existingKey =
+      item.type === 'brand'
+        ? `${item.type}|${item.name}`
+        : item.type === 'material'
+        ? `${item.type}|${item.brandName}|${item.name}`
+        : item.type === 'filament'
+        ? `${item.type}|${item.brandName}|${item.materialName}|${item.name}`
+        : `${item.type}|${item.brandName}|${item.materialName}|${item.filamentName}|${item.name}`;
+    return existingKey === itemKey;
+  });
 
   if (!itemExists) {
-    deletedItems.push({ type, name });
+    const newItem: DeletedItem = {
+      type,
+      name,
+      brandName: type !== 'brand' ? brandName : undefined,
+      materialName: type === 'filament' || type === 'instance' ? materialName : undefined,
+      filamentName: type === 'instance' ? filamentName : undefined,
+    };
 
+    deletedItems.push(newItem);
     localStorage.setItem(storageKey, JSON.stringify(deletedItems));
 
+    // Navigate to parent page
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter((segment) => segment !== '');
-    pathSegments.pop(); // Remove the last segment
+    pathSegments.pop(); // Remove the current item
     const parentPath = pathSegments.length > 0 ? '/' + pathSegments.join('/') : '/';
 
     window.location.href = parentPath;
   }
 };
 
-export const isItemDeleted = (type: 'brand' | 'material' | 'filament', name: string): boolean => {
+export const isItemDeleted = (
+  type: 'brand' | 'material' | 'filament' | 'instance',
+  name: string,
+  brandName?: string,
+  materialName?: string,
+  filamentName?: string,
+): boolean => {
   if (typeof localStorage === 'undefined') return false;
 
   const storageKey = 'deletedItems';
@@ -36,10 +85,28 @@ export const isItemDeleted = (type: 'brand' | 'material' | 'filament', name: str
   if (!existingItems) return false;
 
   try {
-    const deletedItems = JSON.parse(existingItems);
-    return deletedItems.some(
-      (item: { type: string; name: string }) => item.type === type && item.name === name,
-    );
+    const deletedItems: DeletedItem[] = JSON.parse(existingItems);
+
+    return deletedItems.some((item) => {
+      if (item.type !== type || item.name !== name) return false;
+
+      switch (type) {
+        case 'brand':
+          return true;
+        case 'material':
+          return item.brandName === brandName;
+        case 'filament':
+          return item.brandName === brandName && item.materialName === materialName;
+        case 'instance':
+          return (
+            item.brandName === brandName &&
+            item.materialName === materialName &&
+            item.filamentName === filamentName
+          );
+        default:
+          return false;
+      }
+    });
   } catch (error) {
     console.error('Error parsing deleted items from localStorage:', error);
     return false;

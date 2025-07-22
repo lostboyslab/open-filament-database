@@ -588,7 +588,7 @@ function transformFilamentData(filamentData: any) {
 
 export function flattenMaterialData(materialData: any) {
   const flattened: any = {
-    name: materialData.name,
+    material: materialData.material,
   };
 
   // Build nested structure that matches your form schema

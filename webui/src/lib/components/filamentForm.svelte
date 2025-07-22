@@ -19,7 +19,7 @@
       if (isLocal) {
         await realDelete('filament', $form.name, brandName, materialName);
       } else {
-        pseudoDelete('filament', $form.name);
+        pseudoDelete('filament', $form.name, brandName, materialName);
       }
     }
   }

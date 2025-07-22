@@ -1,10 +1,11 @@
 import { goto } from '$app/navigation';
 
 export async function realDelete(
-  type: 'brand' | 'material' | 'filament',
+  type: 'brand' | 'material' | 'filament' | 'instance',
   name: string,
   brandName?: string,
   materialName?: string,
+  filamentName?: string,
 ): Promise<boolean> {
   try {
     const response = await fetch('/api/delete', {
@@ -17,6 +18,7 @@ export async function realDelete(
         name,
         brandName,
         materialName,
+        filamentName,
       }),
     });
 

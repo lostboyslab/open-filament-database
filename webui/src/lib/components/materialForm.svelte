@@ -12,15 +12,15 @@
   async function handleDelete() {
     if (
       confirm(
-        `Are you sure you want to delete the material "${$form.name}"? This action cannot be undone.`,
+        `Are you sure you want to delete the material "${$form.material}"? This action cannot be undone.`,
       )
     ) {
       const isLocal = env.PUBLIC_IS_LOCAL === 'true';
 
       if (isLocal) {
-        await realDelete('material', $form.name, brandName);
+        await realDelete('material', $form.material, brandName);
       } else {
-        pseudoDelete('material', $form.name);
+        pseudoDelete('material', $form.material, brandName);
       }
     }
   }

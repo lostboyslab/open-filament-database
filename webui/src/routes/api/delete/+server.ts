@@ -14,7 +14,7 @@ function deleteFolderRecursive(folderPath) {
 
 export async function DELETE({ request }) {
   try {
-    const { type, name, brandName, materialName } = await request.json();
+    const { type, name, brandName, materialName, filamentName } = await request.json();
 
     let targetPath;
 
@@ -40,9 +40,22 @@ export async function DELETE({ request }) {
         targetPath = path.join(DATA_DIR, brandName, materialName, name);
         break;
 
+      case 'instance':
+        if (!brandName || !materialName || !filamentName) {
+          return json(
+            {
+              error:
+                'Brand name, material name, and filament name are required for instance deletion',
+            },
+            { status: 400 },
+          );
+        }
+        targetPath = path.join(DATA_DIR, brandName, materialName, filamentName, name);
+        break;
+
       default:
         return json(
-          { error: 'Invalid type. Must be brand, material, or filament' },
+          { error: 'Invalid type. Must be brand, material, filament, or instance' },
           { status: 400 },
         );
     }

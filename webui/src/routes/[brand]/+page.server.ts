@@ -45,7 +45,6 @@ export const load: PageServerLoad = async ({ params, parent, cookies }) => {
 export const actions = {
   brand: async ({ request, cookies }) => {
     const form = await superValidate(request, zod(brandSchema));
-    console.log('Form data:', form.data);
 
     if (!form.valid) {
       return fail(400, { form });

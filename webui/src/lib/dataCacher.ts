@@ -3,6 +3,7 @@ import { getEditedItem, isItemEdited } from './pseudoEditor';
 import { browser } from '$app/environment';
 import path from 'node:path';
 import type { FilamentDatabase } from './jsonParser';
+import { isItemDeleted } from './pseudoDeleter';
 
 let cachedDatabase: FilamentDatabase | null = null;
 let loadingPromise: Promise<FilamentDatabase> | null = null;
@@ -32,20 +33,24 @@ async function loadDatabase(): Promise<FilamentDatabase> {
 }
 
 function applyPseudoEdits(database: FilamentDatabase): FilamentDatabase {
-  console.log('Applying pseudo edits to database (browser-side)');
+  console.log('Applying pseudo edits and deletes to database (browser-side)');
 
-  // Only apply edits in browser environment
   if (!browser || typeof localStorage === 'undefined') {
     console.log('Not in browser or localStorage not available, returning original database');
     return database;
   }
 
-  // Deep clone the database to avoid mutations
   const editedDatabase = JSON.parse(JSON.stringify(database));
-  console.log('Database cloned for pseudo edits');
+  console.log('Database cloned for pseudo edits and deletes');
 
-  // Apply brand edits
+  const filteredBrands: { [key: string]: any } = {};
+
   for (const [brandKey, brand] of Object.entries(editedDatabase.brands)) {
+    if (isItemDeleted('brand', brandKey)) {
+      console.log(`Brand ${brandKey} is deleted, skipping`);
+      continue;
+    }
+
     if (isItemEdited('brand', brandKey)) {
       const editedData = getEditedItem('brand', brandKey);
       if (editedData) {
@@ -54,8 +59,14 @@ function applyPseudoEdits(database: FilamentDatabase): FilamentDatabase {
       }
     }
 
-    // Apply material edits
+    const filteredMaterials: { [key: string]: any } = {};
+
     for (const [materialKey, material] of Object.entries(brand.materials)) {
+      if (isItemDeleted('material', materialKey, brandKey)) {
+        console.log(`Material ${brandKey}/${materialKey} is deleted, skipping`);
+        continue;
+      }
+
       if (isItemEdited('material', brandKey, materialKey)) {
         const editedData = getEditedItem('material', brandKey, materialKey);
         if (editedData) {
@@ -64,8 +75,14 @@ function applyPseudoEdits(database: FilamentDatabase): FilamentDatabase {
         }
       }
 
-      // Apply filament edits
+      const filteredFilaments: { [key: string]: any } = {};
+
       for (const [filamentKey, filament] of Object.entries(material.filaments)) {
+        if (isItemDeleted('filament', filamentKey, brandKey, materialKey)) {
+          console.log(`Filament ${brandKey}/${materialKey}/${filamentKey} is deleted, skipping`);
+          continue;
+        }
+
         if (isItemEdited('filament', brandKey, materialKey, filamentKey)) {
           const editedData = getEditedItem('filament', brandKey, materialKey, filamentKey);
           if (editedData) {
@@ -77,9 +94,16 @@ function applyPseudoEdits(database: FilamentDatabase): FilamentDatabase {
           }
         }
 
-        // Apply color edits
+        const filteredColors: { [key: string]: any } = {};
+
         for (const [colorKey, color] of Object.entries(filament.colors)) {
-          // Apply variant edits
+          if (isItemDeleted('instance', colorKey, brandKey, materialKey, filamentKey)) {
+            console.log(
+              `Instance ${brandKey}/${materialKey}/${filamentKey}/${colorKey} is deleted, skipping`,
+            );
+            continue;
+          }
+
           if (isItemEdited('color_variant', brandKey, materialKey, filamentKey, colorKey)) {
             const editedVariantData = getEditedItem(
               'color_variant',
@@ -97,7 +121,6 @@ function applyPseudoEdits(database: FilamentDatabase): FilamentDatabase {
             }
           }
 
-          // Apply size edits
           if (isItemEdited('color_size', brandKey, materialKey, filamentKey, colorKey)) {
             const editedSizeData = getEditedItem(
               'color_size',
@@ -115,12 +138,34 @@ function applyPseudoEdits(database: FilamentDatabase): FilamentDatabase {
               color.sizes[0] = { ...color.sizes[0], ...editedSizeData };
             }
           }
+
+          filteredColors[colorKey] = color;
+        }
+
+        filament.colors = filteredColors;
+
+        if (Object.keys(filteredColors).length > 0) {
+          filteredFilaments[filamentKey] = filament;
         }
       }
+
+      material.filaments = filteredFilaments;
+
+      if (Object.keys(filteredMaterials).length > 0) {
+        filteredMaterials[materialKey] = material;
+      }
+    }
+
+    brand.materials = filteredMaterials;
+
+    if (Object.keys(filteredMaterials).length > 0) {
+      filteredBrands[brandKey] = brand;
     }
   }
 
-  console.log('Pseudo edits applied successfully, returning edited database');
+  editedDatabase.brands = filteredBrands;
+
+  console.log('Pseudo edits and deletes applied successfully, returning edited database');
   return editedDatabase;
 }
 
