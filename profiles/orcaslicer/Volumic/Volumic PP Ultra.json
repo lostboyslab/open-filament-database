@@ -1,52 +1,52 @@
 {
     "type": "filament",
-    "name": "Volumic PETG Ultra carbone",
+    "name": "Volumic PP Ultra",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
-        "60"
+        "90"
     ],
     "eng_plate_temp": [
-        "60"
+        "90"
     ],
     "hot_plate_temp": [
-        "65"
+        "90"
     ],
     "textured_plate_temp": [
-        "60"
+        "90"
     ],
     "cool_plate_temp_initial_layer": [
-        "60"
+        "90"
     ],
     "eng_plate_temp_initial_layer": [
-        "60"
+        "90"
     ],
     "hot_plate_temp_initial_layer": [
-        "60"
+        "90"
     ],
     "textured_plate_temp_initial_layer": [
-        "60"
+        "90"
     ],
     "filament_max_volumetric_speed": [
         "22"
     ],
     "overhang_fan_speed": [
-        "100"
+        "80"
     ],
     "slow_down_for_layer_cooling": [
         "1"
     ],
     "close_fan_the_first_x_layers": [
-        "1"
+        "4"
     ],
     "fan_cooling_layer_time": [
-        "20"
+        "30"
     ],
     "filament_cost": [
         "37.50"
     ],
     "filament_density": [
-        "1.27"
+        "0.92"
     ],
     "filament_diameter": [
         "1.75"
@@ -55,7 +55,7 @@
         "15"
     ],
     "filament_type": [
-        "PETG"
+        "PP"
     ],
     "filament_vendor": [
         "Volumic"
@@ -64,33 +64,33 @@
         "Hot Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "235"
+        "225"
     ],
     "full_fan_speed_layer": [
         "0"
     ],
     "fan_max_speed": [
-        "60"
+        "100"
     ],
     "fan_min_speed": [
-        "60"
+        "80"
     ],
     "slow_down_min_speed": [
         "10"
     ],
     "slow_down_layer_time": [
-        "8"
+        "3"
     ],
     "nozzle_temperature": [
-        "230"
+        "225"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
     ],
-    "filament_id": "GFG98",
-    "setting_id": "GFSG50",
+    "filament_id": "GFB99",
+    "setting_id": "GFSA04",
     "filament_flow_ratio": [
-        "1.00"
+        "1.24"
     ],
     "compatible_printers": [
         "EXO42 (0.4 nozzle)",

@@ -1,6 +1,6 @@
 {
     "type": "filament",
-    "name": "Volumic PETG Ultra carbone",
+    "name": "Volumic PETG Ultra carbone (Performance)",
     "from": "system",
     "instantiation": "true",
     "cool_plate_temp": [
@@ -28,7 +28,7 @@
         "60"
     ],
     "filament_max_volumetric_speed": [
-        "22"
+        "50"
     ],
     "overhang_fan_speed": [
         "100"
@@ -64,7 +64,7 @@
         "Hot Plate"
     ],
     "nozzle_temperature_initial_layer": [
-        "235"
+        "245"
     ],
     "full_fan_speed_layer": [
         "0"
@@ -82,7 +82,7 @@
         "8"
     ],
     "nozzle_temperature": [
-        "230"
+        "245"
     ],
     "reduce_fan_stop_start_freq": [
         "1"
@@ -93,19 +93,19 @@
         "1.00"
     ],
     "compatible_printers": [
-        "EXO42 (0.4 nozzle)",
-        "EXO65 (0.6 nozzle)",
-        "SH65 (0.4 nozzle)",
-        "VS30MK3 (0.4 nozzle)",
-        "VS30SC2 (0.4 nozzle)",
-        "VS30SC (0.4 nozzle)",
-        "VS30ULTRA (0.4 nozzle)",
-        "VS30MK2 (0.4 nozzle)",
-        "VS20MK2 (0.4 nozzle)",
-        "EXO42 Stage 2 (0.4 nozzle)",
-        "EXO65 Stage 2 (0.6 nozzle)",
-        "SH65 Stage 2 (0.4 nozzle)",
-        "VS30SC2 Stage 2 (0.4 nozzle)",
-        "VS30MK3 Stage 2 (0.4 nozzle)"
+        "EXO42 Performance (0.4 nozzle)",
+        "EXO65 Performance (0.4 nozzle)",
+        "EXO65 Performance (0.6 nozzle)",
+        "EXO65 Performance (0.8 nozzle)",
+        "SH65 Performance (0.4 nozzle)",
+        "EXO42 IDRE (0.4 nozzle)",
+        "EXO42 IDRE COPY MODE (0.4 nozzle)",
+        "EXO42 IDRE MIRROR MODE (0.4 nozzle)",
+        "EXO65 IDRE (0.4 nozzle)",
+        "EXO65 IDRE COPY MODE (0.4 nozzle)",
+        "EXO65 IDRE MIRROR MODE (0.4 nozzle)",
+        "SH65 IDRE (0.4 nozzle)",
+        "SH65 IDRE COPY MODE (0.4 nozzle)",
+        "SH65 IDRE MIRROR MODE (0.4 nozzle)"
     ]
 }
