@@ -43,6 +43,16 @@
       await update();
     };
   };
+
+  function setDefaultFormName() {
+    if (oldName != "" && $form.name == "") {
+      $form.name = oldName;
+    }
+  };
+
+  $effect(() => {
+    setDefaultFormName();
+  });
 </script>
 
 <div
