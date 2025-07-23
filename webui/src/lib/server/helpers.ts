@@ -25,7 +25,7 @@ const __dirname = path.dirname(__filename);
 const DATA_DIR = path.join(__dirname, '../../../../data');
 
 export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
-  const brandDir = path.join(DATA_DIR, brandData.name);
+  const brandDir = path.join(DATA_DIR, brandData.brand);
   if (!fs.existsSync(brandDir)) {
     fs.mkdirSync(brandDir, { recursive: true });
   }
@@ -41,11 +41,11 @@ export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
     const buffer = Buffer.from(arrayBuffer);
     logoPath = path.join(brandDir, brandData.logo.name);
     fs.writeFileSync(logoPath, buffer);
-    logoUrl = `/data/${brandData.name}/${brandData.logo.name}`;
+    logoUrl = `/data/${brandData.brand}/${brandData.logo.name}`;
   }
 
   const brandJson = {
-    brand: brandData.name,
+    brand: brandData.brand,
     website: brandData.website,
     logo: logoUrl,
     origin: brandData.origin,
@@ -58,16 +58,16 @@ export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
 };
 
 export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
-  const oldDir = path.join(DATA_DIR, brandData.oldBrandName || brandData.name);
-  const newDir = path.join(DATA_DIR, brandData.name);
+  const oldDir = path.join(DATA_DIR, brandData.oldBrandName || brandData.brand);
+  const newDir = path.join(DATA_DIR, brandData.brand);
 
   if (
     brandData.oldBrandName &&
-    brandData.oldBrandName !== brandData.name &&
+    brandData.oldBrandName !== brandData.brand &&
     fs.existsSync(oldDir)
   ) {
     if (fs.existsSync(newDir)) {
-      throw new Error(`Brand folder "${brandData.name}" already exists.`);
+      throw new Error(`Brand folder "${brandData.brand}" already exists.`);
     }
     fs.renameSync(oldDir, newDir);
   } else if (!fs.existsSync(newDir)) {
@@ -86,7 +86,7 @@ export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
     const buffer = Buffer.from(arrayBuffer);
     const logoPath = path.join(newDir, brandData.logo.name);
     fs.writeFileSync(logoPath, buffer);
-    logoUrl = `/data/${brandData.name}/${brandData.logo.name}`;
+    logoUrl = `/data/${brandData.brand}/${brandData.logo.name}`;
   } else if (typeof brandData.logo === 'string') {
     // Existing logo URL
     logoUrl = brandData.logo;
@@ -98,7 +98,7 @@ export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
         (file) => file.toLowerCase().match(/\.(jpg|jpeg|png|gif|webp)$/i) && !file.startsWith('.'),
       );
       if (logoFile) {
-        logoUrl = `/data/${brandData.name}/${logoFile}`;
+        logoUrl = `/data/${brandData.brand}/${logoFile}`;
       }
     } catch (error) {
       console.warn('Could not find existing logo:', error);
@@ -106,7 +106,7 @@ export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
   }
 
   const brandJson = {
-    name: brandData.name, // Changed from 'brand' to 'name' to match your schema
+    name: brandData.brand, // Changed from 'brand' to 'name' to match your schema
     website: brandData.website,
     logo: logoUrl,
     origin: brandData.origin,
@@ -115,7 +115,7 @@ export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
   const brandJsonPath = path.join(newDir, 'brand.json');
   fs.writeFileSync(brandJsonPath, JSON.stringify(brandJson, null, 2), 'utf-8');
 
-  console.log(`Brand updated: ${brandData.oldBrandName || brandData.name} -> ${brandData.name}`);
+  console.log(`Brand updated: ${brandData.oldBrandName || brandData.brand} -> ${brandData.brand}`);
   return newDir;
 }
 

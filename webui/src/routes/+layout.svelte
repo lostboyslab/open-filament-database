@@ -7,7 +7,7 @@
   import { page } from '$app/state';
 
   const flash = getFlash(page);
-  let { data, children }: LayoutProps = $props();
+  let { children }: LayoutProps = $props();
 </script>
 
 {#if $flash}
