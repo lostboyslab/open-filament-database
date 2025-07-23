@@ -10,7 +10,6 @@
   import { browser } from '$app/environment';
   import { brandSchema } from '$lib/validation/filament-brand-schema';
   import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
-  import { cons } from 'effect/List';
   let { data }: PageProps = $props();
 
   const { form, errors, constraints, delayed, message, enhance } = superForm(data.brandForm, {
@@ -92,7 +91,7 @@
         formType={'create'} />
     </CreateNew>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {#key filteredMaterialKeys}
+      {#key [filteredMaterialKeys, data.brandData.materials]}
         {#each filteredMaterialKeys as materialKey}
           {#if data.brandData.materials[materialKey]}
             <a href={`/${data.brandData.brand}/${materialKey}`}>

@@ -9,17 +9,15 @@ export const baseFilamentSchema = z.object({
     .string()
     .url('Please enter a valid URL')
     .refine((url) => {
-      return url.startsWith('http://') || url.startsWith('https://');
+        return url.startsWith('http://') || url.startsWith('https://');
     }, 'URL must use HTTP or HTTPS protocol')
-    .default('https://')
     .optional(),
   safety_sheet_url: z
     .string()
     .url('Please enter a valid URL')
     .refine((url) => {
-      return url.startsWith('http://') || url.startsWith('https://');
+        return url.startsWith('http://') || url.startsWith('https://');
     }, 'URL must use HTTP or HTTPS protocol')
-    .default('https://')
     .optional(),
 });
 
@@ -34,7 +32,6 @@ export const filamentSchema = z
       .refine((url) => {
         return url.startsWith('http://') || url.startsWith('https://');
       }, 'URL must use HTTP or HTTPS protocol')
-      .default('https://')
       .optional(),
     safety_sheet_url: z
       .string()
@@ -42,7 +39,6 @@ export const filamentSchema = z
       .refine((url) => {
         return url.startsWith('http://') || url.startsWith('https://');
       }, 'URL must use HTTP or HTTPS protocol')
-      .default('https://')
       .optional(),
   })
   .merge(genericSlicerSchema);

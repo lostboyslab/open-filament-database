@@ -1,6 +1,5 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import { page } from '$app/state';
   import CreateNew from '$lib/components/createNew.svelte';
   import EditModal from '$lib/components/editModal.svelte';
   import FilamentForm from '$lib/components/filamentForm.svelte';
@@ -13,12 +12,12 @@
   import { zodClient } from 'sveltekit-superforms/adapters';
 
   const { data } = $props();
-  const filamentKeys = Object.keys(data.materialData.filaments ?? {});
+  var filamentKeys = Object.keys(data.materialData.filaments ?? {});
 
   const filteredFilamentKeys = $derived(
     !browser
       ? filamentKeys
-      : filamentKeys.filter((filamentKey) => !isItemDeleted('filament', filamentKey)),
+      : filamentKeys.filter((filamentKey) => !isItemDeleted('filament', filamentKey, data.brandData.brand, data.materialData.material)),
   );
 
   const { form, errors, message, enhance } = superForm(data.materialForm, {
@@ -37,6 +36,10 @@
     resetForm: false,
     validationMethod: 'onblur',
     validators: zodClient(baseFilamentSchema),
+  });
+
+  $effect(() => {
+    filamentKeys = Object.keys(data.materialData.filaments ?? {});
   });
 </script>
 
@@ -58,7 +61,7 @@
         form={filamentForm}
         errors={filamentErrors}
         message={filamentMessage}
-        enhance={filamentEnhance}
+        overrideEnhance={filamentEnhance}
         brandName={data.brandData.brand}
         materialName={data.materialData.material}
         formType={'create'} />
@@ -66,14 +69,16 @@
   </div>
 
   <div class="space-y-8">
-    {#each filteredFilamentKeys as filamentKey}
-      {#if data.materialData.filaments[filamentKey]}
-        <MaterialItem
-          filament={data.materialData.filaments[filamentKey]}
-          {filamentKey}
-          brandName={data.brandData.brand}
-          materialName={data.materialData.material} />
-      {/if}
-    {/each}
+    {#key [filteredFilamentKeys, data.materialData.filaments]}
+      {#each filteredFilamentKeys as filamentKey}
+        {#if data.materialData.filaments[filamentKey]}
+          <MaterialItem
+            filament={data.materialData.filaments[filamentKey]}
+            {filamentKey}
+            brandName={data.brandData.brand}
+            materialName={data.materialData.material} />
+        {/if}
+      {/each}
+    {/key}
   </div>
 </section>
