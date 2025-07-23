@@ -52,7 +52,7 @@
         // Handle case!!
         // await realDelete('brand', $form.brand);
       } else {
-        pseudoUndoDelete('material', $form.name);
+        pseudoUndoDelete('filament', $form.name);
       }
 
       await update();
