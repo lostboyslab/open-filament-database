@@ -7,7 +7,7 @@
   import { realDelete } from '$lib/realDeleter';
   import { intProxy } from 'sveltekit-superforms';
   type formType = 'edit' | 'create';
-  let { form, errors, constraints, delayed, message, formType, brandName } = $props();
+  let { form, errors, constraints, delayed, message, overrideEnhance, formType, brandName } = $props();
 
   async function handleDelete() {
     if (
@@ -44,11 +44,13 @@
         pseudoEdit('material', brandName, materialData);
         await invalidateAll();
 
-        const path = window.location.pathname,
-              splitPath = path.split("/"),
-              currentMaterial = splitPath[splitPath.length - 1];
-        // Goto url after 0 micro seconds bc JS...
-        setTimeout(() => {goto(path.replace(currentMaterial, materialData.material))}, 0);
+        if (formType === 'edit') {
+          const path = window.location.pathname,
+                splitPath = path.split("/"),
+                currentMaterial = splitPath[splitPath.length - 1];
+          // Goto url after 0 micro seconds bc JS...
+          setTimeout(() => {goto(path.replace(currentMaterial, materialData.material))}, 0);
+        }
       }
 
       await update();
@@ -96,7 +98,7 @@
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
-    use:enhance={enhancedSubmit}
+    use:enhance={overrideEnhance ? enhancedSubmit : overrideEnhance}
     action="?/material"
     enctype="multipart/form-data"
     class="space-y-5">
