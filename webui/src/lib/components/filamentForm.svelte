@@ -2,7 +2,7 @@
   import { enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
-  import { pseudoDelete } from '$lib/pseudoDeleter';
+  import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
   import { pseudoEdit } from '$lib/pseudoEditor';
   import { realDelete } from '$lib/realDeleter';
 
@@ -46,6 +46,13 @@
 
         pseudoEdit('filament', brandName, filamentData, materialName);
         await invalidateAll();
+      }
+
+      if (isLocal) {
+        // Handle case!!
+        // await realDelete('brand', $form.brand);
+      } else {
+        pseudoUndoDelete('material', $form.name);
       }
 
       await update();

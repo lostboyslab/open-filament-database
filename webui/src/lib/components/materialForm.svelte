@@ -2,7 +2,7 @@
   import { enhance } from '$app/forms';
   import { goto, invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
-  import { pseudoDelete } from '$lib/pseudoDeleter';
+  import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
   import { pseudoEdit } from '$lib/pseudoEditor';
   import { realDelete } from '$lib/realDeleter';
   import { intProxy } from 'sveltekit-superforms';
@@ -43,14 +43,13 @@
         // Apply pseudo edit for web version
         pseudoEdit('material', brandName, materialData);
         await invalidateAll();
+      }
 
-        if (formType === 'edit') {
-          const path = window.location.pathname,
-                splitPath = path.split("/"),
-                currentMaterial = splitPath[splitPath.length - 1];
-          // Goto url after 0 micro seconds bc JS...
-          setTimeout(() => {goto(path.replace(currentMaterial, materialData.material))}, 0);
-        }
+      if (isLocal) {
+        // Handle case!!
+        // await realDelete('brand', $form.brand);
+      } else {
+        pseudoUndoDelete('material', $form.material);
       }
 
       await update();
