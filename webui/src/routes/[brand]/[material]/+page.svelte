@@ -47,11 +47,10 @@
   <div class="btn-wrapper flex gap-2">
     <EditModal>
       <MaterialForm
-        {form}
-        {errors}
-        {message}
+        form={form}
+        errors={errors}
+        message={message}
         brandName={data.brandData.brand}
-        {enhance}
         formType={'edit'} />
     </EditModal>
     <CreateNew

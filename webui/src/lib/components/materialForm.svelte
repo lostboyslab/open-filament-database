@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { pseudoDelete } from '$lib/pseudoDeleter';
-  import { intProxy } from 'sveltekit-superforms';
+  import { enhance } from '$app/forms';
+  import { goto, invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
-  import { realDelete } from '$lib/realDeleter';
-  import { invalidateAll } from '$app/navigation';
+  import { pseudoDelete } from '$lib/pseudoDeleter';
   import { pseudoEdit } from '$lib/pseudoEditor';
-
+  import { realDelete } from '$lib/realDeleter';
+  import { intProxy } from 'sveltekit-superforms';
   type formType = 'edit' | 'create';
-  let { form, errors, message, enhance, formType: formType, brandName } = $props();
+  let { form, errors, constraints, delayed, message, formType, brandName } = $props();
 
   async function handleDelete() {
     if (
@@ -43,6 +43,12 @@
         // Apply pseudo edit for web version
         pseudoEdit('material', brandName, materialData);
         await invalidateAll();
+
+        const path = window.location.pathname,
+              splitPath = path.split("/"),
+              currentMaterial = splitPath[splitPath.length - 1];
+        // Goto url after 0 micro seconds bc JS...
+        setTimeout(() => {goto(path.replace(currentMaterial, materialData.material))}, 0);
       }
 
       await update();
