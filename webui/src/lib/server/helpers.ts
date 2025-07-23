@@ -129,9 +129,9 @@ export const createMaterial = async (
     throw new Error(`Brand directory "${brandName}" does not exist.`);
   }
 
-  const materialDir = path.join(brandDir, materialData.name);
+  const materialDir = path.join(brandDir, materialData.material);
   if (fs.existsSync(materialDir)) {
-    throw new Error(`Material "${materialData.name}" already exists in brand "${brandName}".`);
+    throw new Error(`Material "${materialData.material}" already exists in brand "${brandName}".`);
   }
 
   try {
@@ -148,7 +148,7 @@ export const createMaterial = async (
 };
 function transformMaterialData(materialData: any) {
   const transformedData: any = {
-    name: materialData.name,
+    material: materialData.material,
   };
 
   // Handle generic settings - already in correct structure
@@ -465,11 +465,11 @@ export function updateMaterial(brandName: string, currentMaterialName: string, m
   }
 
   try {
-    if (materialData.name !== currentMaterialName) {
-      const newMaterialDir = path.join(brandDir, materialData.name);
+    if (materialData.material !== currentMaterialName) {
+      const newMaterialDir = path.join(brandDir, materialData.material);
 
       if (fs.existsSync(newMaterialDir)) {
-        throw new Error(`Material "${materialData.name}" already exists in brand "${brandName}"`);
+        throw new Error(`Material "${materialData.material}" already exists in brand "${brandName}"`);
       }
 
       fs.renameSync(currentMaterialDir, newMaterialDir);
