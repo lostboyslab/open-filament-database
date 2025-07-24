@@ -1,4 +1,4 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
@@ -6,6 +6,8 @@ import { baseFilamentSchema, filamentSchema } from '$lib/validation/filament-sch
 import { createColorFiles, removeUndefined, updateFilament } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { refreshDatabase } from '$lib/dataCacher';
+import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
+import { type z } from 'zod';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material, filament } = params;
@@ -70,14 +72,33 @@ export const actions = {
     return { form, success: true };
   },
   instance: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(filamentSchema));
+    var data = await request.formData();
+    const form = await superValidate(data, zod(filamentSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
       return fail(400, { form });
     }
+
     try {
       var filteredData = removeUndefined(form.data);
+
+      var tempArr = JSON.parse(form.data.serializedSizes);
+
+      tempArr.filter((li, i) => {
+        Object.keys(li).forEach(key => {
+          if (!li[key]) delete li[key];
+        });
+
+        if (li == {}) {
+          tempArr[i] = li;
+          return false;
+        }
+
+        return true;
+      });
+
+      filteredData["sizes"] = tempArr;
       
       filteredData["brandName"] = brand;
       filteredData["materialName"] = material;

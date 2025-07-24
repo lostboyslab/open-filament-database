@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
   import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
@@ -6,7 +7,7 @@
   import { realDelete } from '$lib/realDeleter';
 
   type formType = 'edit' | 'create';
-  let { form, errors, message, enhance, formType: formType, brandName, materialName } = $props();
+  let { form, errors, message, formType: formType, brandName, materialName } = $props();
 
   async function handleDelete() {
     if (
@@ -23,16 +24,6 @@
       }
     }
   }
-  
-  const slicerOptions = [
-    { key: 'generic', label: 'Generic' },
-    { key: 'prusaslicer', label: 'PrusaSlicer' },
-    { key: 'bambustudio', label: 'Bambu Studio' },
-    { key: 'orcaslicer', label: 'OrcaSlicer' },
-    { key: 'cura', label: 'Cura' },
-  ];
-
-  let selectedSlicer = $state('generic');
 
   const enhancedSubmit = () => {
     return async ({ result, update }) => {
@@ -92,7 +83,7 @@
 
     <div>
       <label for="diameter_tolerance" class="block font-medium mb-1"
-        >Diameter tolerance</label>
+        >Diameter tolerance<span class="text-red-500">*</span></label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
         Acceptable variation in filament diameter (typically ±0.02mm or ±0.03mm)
       </p>
@@ -137,25 +128,25 @@
     </div>
 
     <div>
-      <label for="diameter_tolerance" class="block font-medium mb-1"
+      <label for="max_dry_temperature" class="block font-medium mb-1"
         >Max Dry Temperature</label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
         Maximum drying temperature (typically somewhere around 55-65°C (131°F-149°F) ) 
       </p>
       <input
-        id="diameter_tolerance"
+        id="max_dry_temperature"
         type="number"
         step="0.01"
-        name="diameter_tolerance"
+        name="max_dry_temperature"
         aria-required="true"
-        aria-describedby="diameter-tolerance-help"
+        aria-describedby="max-dry-temperature-help"
         placeholder="e.g. ±0.02mm"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        aria-invalid={$errors.diameter_tolerance ? 'true' : undefined}
-        bind:value={$form.diameter_tolerance} />
+        aria-invalid={$errors.max_dry_temperature ? 'true' : undefined}
+        bind:value={$form.max_dry_temperature} />
 
-      {#if $errors.diameter_tolerance}
-        <span class="text-red-600 text-xs">{$errors.diameter_tolerance}</span>
+      {#if $errors.max_dry_temperature}
+        <span class="text-red-600 text-xs">{$errors.max_dry_temperature}</span>
       {/if}
     </div>
 

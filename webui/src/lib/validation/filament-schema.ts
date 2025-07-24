@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { filamentVariantSchema } from './filament-variant-schema';
-import { filamentSizeSchema } from './filament-size-schema';
+import { filamentSizeSchemas } from './filament-size-schema';
 
 export const baseFilamentSchema = z.object({
   name: z.string(),
@@ -25,7 +25,5 @@ export const baseFilamentSchema = z.object({
 });
 
 
-export const filamentSchema = z.object({
-  sizes: z.array(filamentSizeSchema)
-})
+export const filamentSchema = filamentSizeSchemas
 .merge(filamentVariantSchema);

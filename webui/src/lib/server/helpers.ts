@@ -1,5 +1,5 @@
 import type { brandSchema } from '$lib/validation/filament-brand-schema';
-import { string, type z } from 'zod';
+import { type z } from 'zod';
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -340,59 +340,12 @@ export async function createColorFiles(formData: any) {
     formData.color_name,
   );
 
-  console.log("formData");
-  console.log(formData);
-
   if (!fs.existsSync(colorFolder)) fs.mkdirSync(colorFolder, { recursive: true });
 
-  const sizeFields = [
-    'filament_weight',
-    'diameter',
-    'empty_spool_weight',
-    'spool_core_diameter',
-    'ean',
-    'article_number',
-    'size_specific_discontinued',
-    'purchase_links',
-  ];
-  
-  const sizeObj: any = {};
-  for (const key of sizeFields) {
-    if (formData[key] !== undefined) {
-      let value = formData[key];
-
-      if (typeof value == "string") {
-        value = value.replaceAll("size_specific_", "");
-      }
-
-      sizeObj[key] = value;
-    }
+  if (formData["sizes"]) {
+    const sizesPath = path.join(colorFolder, 'sizes.json');
+    fs.writeFileSync(sizesPath, JSON.stringify(formData["sizes"], null, 2), 'utf-8');
   }
-
-  console.log("sizeObj");
-  console.log(sizeObj);
-
-  if (formData.diameter_tolerance !== undefined)
-    sizeObj.diameter_tolerance = formData.diameter_tolerance;
-  if (formData.density !== undefined) sizeObj.density = formData.density;
-
-  // Read existing sizes.json if it exists, otherwise start with empty array
-  let sizesArr: any[] = [];
-  const sizesPath = path.join(colorFolder, 'sizes.json');
-  if (fs.existsSync(sizesPath)) {
-    try {
-      sizesArr = JSON.parse(fs.readFileSync(sizesPath, 'utf-8'));
-      if (!Array.isArray(sizesArr)) sizesArr = [];
-    } catch {
-      sizesArr = [];
-    }
-  }
-  // Add the new size object if it has at least filament_weight or diameter
-  if (Object.keys(sizeObj).length > 0) {
-    sizesArr.push(removeUndefined(sizeObj));
-  }
-  fs.writeFileSync(sizesPath, JSON.stringify(sizesArr, null, 2), 'utf-8');
-
   // --- 2. Prepare variant.json (single object) ---
   // Traits are grouped under a "traits" object
   const traitKeys = ['translucent', 'glow', 'matte', 'recycled', 'recyclable', 'biodegradable'];

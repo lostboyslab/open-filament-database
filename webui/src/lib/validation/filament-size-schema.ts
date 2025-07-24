@@ -25,3 +25,9 @@ export const filamentSizeSchema = z.object({
   discontinued: z.boolean().default(false),
   purchase_links: z.array(purchaseLinkSchema).optional(),
 });
+
+export const filamentSizeSchemas = z.object({
+  sizes: z.array(filamentSizeSchema),
+  // The list indicators account for 2, 2 for ", everything above is it means there's data inside
+  serializedSizes: z.string().min(5)
+})

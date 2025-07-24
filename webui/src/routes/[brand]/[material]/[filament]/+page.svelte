@@ -43,7 +43,6 @@
       message={message}
       brandName={data.brandData.brand}
       materialName={data.materialData.material}
-      enhance={enhance}
       formType={'edit'} />
   </EditModal>
 
