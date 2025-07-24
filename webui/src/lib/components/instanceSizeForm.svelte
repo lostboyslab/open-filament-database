@@ -40,12 +40,16 @@
         // For web version, apply pseudo edit after server returns
         const sizeData = {
           filament_weight: Number($form.filament_weight),
+          diameter: Number($form.diameter),
           empty_spool_weight: $form.empty_spool_weight
             ? Number($form.empty_spool_weight)
             : undefined,
-          diameter: Number($form.diameter),
-          sku: $form.sku || undefined,
+          spool_core_diameter: $form.spool_core_diameter
+            ? Number($form.spool_core_diameter)
+            : undefined,
           ean: $form.ean || undefined,
+          article_number: $form.article_number || undefined,
+          discontinued: $form.discontinued || undefined,
           purchase_links: $form.purchase_links || [],
         };
 
@@ -96,26 +100,6 @@
     </div>
 
     <div>
-      <label for="empty_spool_weight" class="block font-medium mb-1">
-        Empty spool weight (g)
-      </label>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-        Weight of the empty spool without any filament
-      </p>
-      <input
-        id="empty_spool_weight"
-        type="number"
-        name="empty_spool_weight"
-        step="0.1"
-        placeholder="250"
-        class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        bind:value={$form.empty_spool_weight} />
-      {#if $errors.empty_spool_weight}
-        <span class="text-red-600 text-xs">{$errors.empty_spool_weight}</span>
-      {/if}
-    </div>
-
-    <div>
       <label for="diameter" class="block font-medium mb-1">
         Diameter (mm)<span class="text-red-500">*</span>
       </label>
@@ -137,26 +121,49 @@
     </div>
 
     <div>
-      <label for="sku" class="block font-medium mb-1">SKU</label>
+      <label for="empty_spool_weight" class="block font-medium mb-1">
+        Empty spool weight (g)
+      </label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-        Stock Keeping Unit - manufacturer's internal product code (optional)
+        Weight of the empty spool without any filament
       </p>
       <input
-        id="sku"
-        type="text"
-        name="sku"
-        placeholder="PLA-1000-BLK"
+        id="empty_spool_weight"
+        type="number"
+        name="empty_spool_weight"
+        step="0.1"
+        placeholder="250"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        bind:value={$form.sku} />
-      {#if $errors.sku}
-        <span class="text-red-600 text-xs">{$errors.sku}</span>
+        bind:value={$form.empty_spool_weight} />
+      {#if $errors.empty_spool_weight}
+        <span class="text-red-600 text-xs">{$errors.empty_spool_weight}</span>
+      {/if}
+    </div>
+
+    <div>
+      <label for="spool_core_diameter" class="block font-medium mb-1">
+        Spool core diameter (mm)
+      </label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        The diameter of the core of the spool
+      </p>
+      <input
+        id="spool_core_diameter"
+        type="number"
+        name="spool_core_diameter"
+        step="0.1"
+        placeholder="100"
+        class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        bind:value={$form.spool_core_diameter} />
+      {#if $errors.spool_core_diameter}
+        <span class="text-red-600 text-xs">{$errors.spool_core_diameter}</span>
       {/if}
     </div>
 
     <div>
       <label for="ean" class="block font-medium mb-1">EAN</label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-        European Article Number - barcode identifier (optional)
+        European Article Number - barcode identifier
       </p>
       <input
         id="ean"
@@ -167,6 +174,48 @@
         bind:value={$form.ean} />
       {#if $errors.ean}
         <span class="text-red-600 text-xs">{$errors.ean}</span>
+      {/if}
+    </div>
+
+    <div>
+      <label for="article_number" class="block font-medium mb-1">
+        Article number
+      </label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Article number - manufacturer's internal product code
+      </p>
+      <input
+        id="article_number"
+        type="text"
+        name="article_number"
+        placeholder="PLA-1000-BLK"
+        class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        bind:value={$form.article_number} />
+      {#if $errors.article_number}
+        <span class="text-red-600 text-xs">{$errors.article_number}</span>
+      {/if}
+    </div>
+
+    <div>
+      <div>
+        <div class="flex flex-row items-center">
+          <input
+          id="discontinued"
+          type="checkbox"
+          name="discontinued"
+          class="accent-blue-600 w-4 h-4 mr-2"
+          bind:checked={$form.discontinued} />
+
+          <label for="discontinued" class="inline-block font-medium">
+            Discontinued
+          </label>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            Select if this size is discontinued 
+          </p>
+      </div>
+      {#if $errors.discontinued}
+        <span class="text-red-600 text-xs">{$errors.discontinued}</span>
       {/if}
     </div>
 
@@ -190,7 +239,6 @@
                 <h4 class="font-medium text-gray-700 dark:text-gray-300">
                   Purchase Link {index + 1}
                 </h4>
-                {#if $form.purchase_links.length > 1}
                   <button
                     type="button"
                     onclick={() => removePurchaseLink(index)}
@@ -203,7 +251,6 @@
                         d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
                   </button>
-                {/if}
               </div>
 
               <div class="space-y-4">
@@ -246,6 +293,16 @@
                     class="accent-blue-600 w-4 h-4"
                     bind:checked={link.affiliate} />
                   <label for="affiliate_{index}" class="font-medium text-sm">Affiliate link</label>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <input
+                    id="spool_refill_{index}"
+                    type="checkbox"
+                    name="purchase_links[{index}].spool_refill"
+                    class="accent-blue-600 w-4 h-4"
+                    bind:checked={link.spool_refill} />
+                  <label for="spool_refill_{index}" class="font-medium text-sm">Is spool refill</label>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">

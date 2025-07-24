@@ -1,5 +1,5 @@
 import type { brandSchema } from '$lib/validation/filament-brand-schema';
-import type { z } from 'zod';
+import { string, type z } from 'zod';
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -340,20 +340,38 @@ export async function createColorFiles(formData: any) {
     formData.color_name,
   );
 
+  console.log("formData");
+  console.log(formData);
+
   if (!fs.existsSync(colorFolder)) fs.mkdirSync(colorFolder, { recursive: true });
+
   const sizeFields = [
     'filament_weight',
-    'empty_spool_weight',
     'diameter',
-    'spool_refill',
-    'sku',
+    'empty_spool_weight',
+    'spool_core_diameter',
     'ean',
+    'article_number',
+    'size_specific_discontinued',
     'purchase_links',
   ];
+  
   const sizeObj: any = {};
   for (const key of sizeFields) {
-    if (formData[key] !== undefined) sizeObj[key] = formData[key];
+    if (formData[key] !== undefined) {
+      let value = formData[key];
+
+      if (typeof value == "string") {
+        value = value.replaceAll("size_specific_", "");
+      }
+
+      sizeObj[key] = value;
+    }
   }
+
+  console.log("sizeObj");
+  console.log(sizeObj);
+
   if (formData.diameter_tolerance !== undefined)
     sizeObj.diameter_tolerance = formData.diameter_tolerance;
   if (formData.density !== undefined) sizeObj.density = formData.density;

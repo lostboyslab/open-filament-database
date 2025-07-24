@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
   import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
@@ -7,7 +6,7 @@
   import { realDelete } from '$lib/realDeleter';
 
   type formType = 'edit' | 'create';
-  let { form, errors, message, overrideEnhance, formType: formType, brandName, materialName } = $props();
+  let { form, errors, message, enhance, formType: formType, brandName, materialName } = $props();
 
   async function handleDelete() {
     if (
@@ -24,6 +23,7 @@
       }
     }
   }
+  
   const slicerOptions = [
     { key: 'generic', label: 'Generic' },
     { key: 'prusaslicer', label: 'PrusaSlicer' },
@@ -64,7 +64,7 @@
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
-    use:enhance={overrideEnhance ? enhancedSubmit : overrideEnhance}
+    use:enhance={enhancedSubmit}
     action="?/filament"
     enctype="multipart/form-data"
     class="space-y-5">
@@ -92,7 +92,7 @@
 
     <div>
       <label for="diameter_tolerance" class="block font-medium mb-1"
-        >Diameter tolerance<span class="text-red-500">*</span></label>
+        >Diameter tolerance</label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
         Acceptable variation in filament diameter (typically ±0.02mm or ±0.03mm)
       </p>
@@ -133,6 +133,52 @@
 
       {#if $errors.density}
         <span class="text-red-600 text-xs">{$errors.density}</span>
+      {/if}
+    </div>
+
+    <div>
+      <label for="diameter_tolerance" class="block font-medium mb-1"
+        >Max Dry Temperature</label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Maximum drying temperature (typically somewhere around 55-65°C (131°F-149°F) ) 
+      </p>
+      <input
+        id="diameter_tolerance"
+        type="number"
+        step="0.01"
+        name="diameter_tolerance"
+        aria-required="true"
+        aria-describedby="diameter-tolerance-help"
+        placeholder="e.g. ±0.02mm"
+        class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        aria-invalid={$errors.diameter_tolerance ? 'true' : undefined}
+        bind:value={$form.diameter_tolerance} />
+
+      {#if $errors.diameter_tolerance}
+        <span class="text-red-600 text-xs">{$errors.diameter_tolerance}</span>
+      {/if}
+    </div>
+
+    <div>
+      <div>
+        <div class="flex flex-row items-center">
+          <input
+          id="discontinued"
+          type="checkbox"
+          name="discontinued"
+          class="accent-blue-600 w-4 h-4 mr-2"
+          bind:checked={$form.discontinued} />
+
+          <label for="discontinued" class="inline-block font-medium">
+            Discontinued
+          </label>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            Select if this colour variant is discontinued 
+          </p>
+      </div>
+      {#if $errors.discontinued}
+        <span class="text-red-600 text-xs">{$errors.discontinued}</span>
       {/if}
     </div>
 

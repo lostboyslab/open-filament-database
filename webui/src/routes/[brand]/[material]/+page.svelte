@@ -7,7 +7,8 @@
   import MaterialItem from '$lib/components/MaterialItem.svelte';
   import { isItemDeleted } from '$lib/pseudoDeleter.js';
   import { filamentMaterialSchema } from '$lib/validation/filament-material-schema.js';
-  import { baseFilamentSchema } from '$lib/validation/filament-schema.js';
+  import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
+  import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
 
@@ -20,7 +21,12 @@
       : filamentKeys.filter((filamentKey) => !isItemDeleted('filament', filamentKey, data.brandData.brand, data.materialData.material)),
   );
 
-  const { form, errors, message, enhance } = superForm(data.materialForm, {
+  const { 
+    form: materialForm, 
+    errors: materialErrors, 
+    message: materialMessage, 
+    enhance: materialEnhance
+  } = superForm(data.materialForm, {
     dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
@@ -35,7 +41,7 @@
   } = superForm(data.filamentForm, {
     resetForm: false,
     validationMethod: 'onblur',
-    validators: zodClient(baseFilamentSchema),
+    validators: zodClient(filamentVariantSchema),
   });
 
   $effect(() => {
@@ -50,9 +56,10 @@
   <div class="btn-wrapper flex gap-2">
     <EditModal>
       <MaterialForm
-        form={form}
-        errors={errors}
-        message={message}
+        form={materialForm}
+        errors={materialErrors}
+        message={materialMessage}
+        overrideEnhance={materialEnhance}
         brandName={data.brandData.brand}
         formType={'edit'} />
     </EditModal>
@@ -61,7 +68,7 @@
         form={filamentForm}
         errors={filamentErrors}
         message={filamentMessage}
-        overrideEnhance={filamentEnhance}
+        enhance={filamentEnhance}
         brandName={data.brandData.brand}
         materialName={data.materialData.material}
         formType={'create'} />
