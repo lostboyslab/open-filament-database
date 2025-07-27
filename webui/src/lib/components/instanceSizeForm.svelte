@@ -12,7 +12,7 @@
     brandName,
     materialName,
     filamentName,
-    colorName,
+    colorData,
   } = $props();
 
   // Function to add a new purchase link
@@ -61,7 +61,7 @@
         };
 
         try {
-          pseudoEdit('color_size', brandName, sizeData, materialName, filamentName, colorName);
+          pseudoEdit('color_size', brandName, sizeData, materialName, filamentName, colorData.name);
           await invalidateAll();
         } catch (error) {
           console.error('Pseudo edit failed:', error);
@@ -72,18 +72,20 @@
     };
   };
 
-  console.log($form);
-
   // Reactive statement to ensure sizes exists
   $effect(() => {
     if (!$form.sizes) {
-      $form.sizes = [];
+      if (!colorData || !colorData?.sizes) {
+        $form.sizes = [];
+      } else {
+        $form.sizes = colorData.sizes;
+      }
     }
   });
 </script>
 
 <div
-  class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
+  class="max-w-xl mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form 
     method="POST" 
     use:enhance={({formData}) => {enhancedSubmit(formData)}} 

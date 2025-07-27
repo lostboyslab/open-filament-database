@@ -97,7 +97,7 @@
 </script>
 
 <div
-  class="max-w-2xl mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-4 text-gray-900 dark:text-gray-100">
+  class="max-w-xl mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-4 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
     use:enhance={({formData}) => {enhancedSubmit(formData)}}

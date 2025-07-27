@@ -90,7 +90,7 @@ export const actions = {
           if (!li[key]) delete li[key];
         });
 
-        if (li == {}) {
+        if (li) {
           tempArr[i] = li;
           return false;
         }
