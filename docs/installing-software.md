@@ -6,14 +6,14 @@ In this document we'll go through what we need to install and how to do it, depe
 
 ## Git
 ### Windows
-Go to https://git-scm.com/downloads and click the `Download for Windows` Button
+Go to https://git-scm.com/downloads and click the `Download for Windows` Button  
 ![](img/windowsGitDownload01.png)  
-You'll most likely want to click on `Git for Windows/x64 Setup` on most systems as of writing
+You'll most likely want to click on `Git for Windows/x64 Setup` on most systems as of writing  
 ![](img/windowsGitDownload02.png)  
 
-Once the download is complete, click on the executable in the top right to start installing Git. Simply click through the setup wizard leaving all options on default.
+Once the download is complete, click on the executable in the top right to start installing Git. Simply click through the setup wizard leaving all options on default.  
 ![](img/windowsGitInstaller01.png)  
-Once it's done installing we'd recommend you uncheck `View Release Notes` and click finish, this will close the installer without opening a text file with info about git
+Once it's done installing we'd recommend you uncheck `View Release Notes` and click finish, this will close the installer without opening a text file with info about git  
 ![](img/windowsGitInstaller02.png)  
 
 ### Linux
@@ -41,10 +41,9 @@ If you don't have homebrew you can also use the [latest macOS Git Installer](htt
 ## Python
 
 ### Windows
-Go to https://apps.microsoft.com/detail/9pnrbtzxmb4z?ocid=webpdpshare and click the `View in Store` button
+Go to https://apps.microsoft.com/detail/9pnrbtzxmb4z?ocid=webpdpshare and click the `View in Store` button  
 ![](img/windowsPythonDownload01.png)  
-Click `Open Microsoft Store` if prompted
-and click `Get`
+Click `Open Microsoft Store` if prompted and click `Get`  
 ![](img/windowsPythonDownload02.png)  
 
 ### Linux
@@ -73,10 +72,10 @@ brew install python
 ```
 
 #### Installer
-Go to https://www.python.org/downloads/ and click the `Download Python` button \
+Go to https://www.python.org/downloads/ and click the `Download Python` button  
 ![](img/macOSDownloadPython.png)  
 
-Once the download is complete, double-click the package to start installing Python. The installer will walk you through a wizard to complete the installation, and in most cases, the default settings work well, so install it like the other applications on macOS. You may also have to enter your Mac password to let it know that you agree with installing Python. \
+Once the download is complete, double-click the package to start installing Python. The installer will walk you through a wizard to complete the installation, and in most cases, the default settings work well, so install it like the other applications on macOS. You may also have to enter your Mac password to let it know that you agree with installing Python.  
 ![](img/macOSPythonInstall.png)  
 
 <sup>Mac Python instructions copied from https://www.dataquest.io/blog/installing-python-on-mac/</sup>
@@ -84,10 +83,10 @@ Once the download is complete, double-click the package to start installing Pyth
 ## NodeJS/NPM
 
 ### Windows
-Go to https://nodejs.org/en/download/ and click the `Windows Installer (.msi)` button
+Go to https://nodejs.org/en/download/ and click the `Windows Installer (.msi)` button  
 ![](img/windowsNodeDownload.png)  
 
-Once the download is complete, click on the executable in the top right to start installing Node. Wait a bit for it to load and then next, you'll have to check a box and after that just click through and wait for it to finish, then click `Close`
+Once the download is complete, click on the executable in the top right to start installing Node. Wait a bit for it to load and then next, you'll have to check a box and after that just click through and wait for it to finish, then click `Close`  
 ![](img/windowsNodeInstall01.png)  
 
 ### Linux
@@ -114,8 +113,7 @@ brew install node
 ```
 
 #### Installer
-Go to https://nodejs.org/en/download and click the `macOS Installer (.pkg)` button near the bottom of the page
-
+Go to https://nodejs.org/en/download and click the `macOS Installer (.pkg)` button near the bottom of the page  
 ![](img/macOSNodeDownload.png)  
 
 Once the download is complete, double-click the package to start installing node. The installer will walk you through a wizard to complete the installation, and in most cases, the default settings work well, so install it like the other applications on macOS. You may also have to enter your Mac password to let it know that you agree with installing node.
