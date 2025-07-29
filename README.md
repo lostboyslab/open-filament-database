@@ -49,6 +49,6 @@ git commit -m "COMMIT_MESSAGE"
 ```
 When that's done you can run this command to upload your stuff
 ```bash
-git push –u origin main
+git push -u origin main
 ```
 Afterwards you can make a pull request [using this guide](docs/pull-requesting.md)
