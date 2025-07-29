@@ -34,7 +34,7 @@ You can now modify the database using either the WebUI or [the manual method](do
    ```bash
    npm run dev
    ```
-    Navigate to the URL printed in the console, most of the time this will be `http://localhost:5173`.
+    Navigate to the URL printed in the console, most of the time this will be [http://localhost:5173](http://localhost:5173).
 
 ### Submitting changes
 After you've added your data you should run the data_validator like so to make sure your formatting and data is correct like so.
