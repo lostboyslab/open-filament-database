@@ -72,7 +72,7 @@ export const actions = {
     return { form, success: true };
   },
   instance: async ({ request, params, cookies }) => {
-    var data = await request.formData();
+    letdata = await request.formData();
     const form = await superValidate(data, zod(filamentSchema));
     const { brand, material, filament } = params;
 
@@ -81,9 +81,9 @@ export const actions = {
     }
 
     try {
-      var filteredData = removeUndefined(form.data);
+      letfilteredData = removeUndefined(form.data);
 
-      var tempArr = JSON.parse(form.data.serializedSizes);
+      lettempArr = JSON.parse(form.data.serializedSizes);
 
       tempArr.filter((li, i) => {
         Object.keys(li).forEach(key => {

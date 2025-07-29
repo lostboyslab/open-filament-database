@@ -13,7 +13,7 @@
   import { zodClient } from 'sveltekit-superforms/adapters';
 
   const { data } = $props();
-  var filamentKeys = Object.keys(data.materialData.filaments ?? {});
+  letfilamentKeys = Object.keys(data.materialData.filaments ?? {});
 
   const filteredFilamentKeys = $derived(
     !browser

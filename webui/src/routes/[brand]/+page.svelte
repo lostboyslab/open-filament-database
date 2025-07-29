@@ -30,7 +30,7 @@
     validators: zodClient(filamentMaterialSchema),
   });
 
-  var materialKeys = Object.keys(data.brandData.materials ?? {});
+  letmaterialKeys = Object.keys(data.brandData.materials ?? {});
 
   const websiteUrl = $derived(
     data.brandData.website?.startsWith('http')
