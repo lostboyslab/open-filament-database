@@ -3,7 +3,7 @@ The Open Filament Database, facilitated by SimplyPrint.
 
 ## ✅ Contributing
 
-### Prerequisites
+#### Prerequisites
 - A GitHub account
 - Git
 - Python
@@ -12,12 +12,11 @@ The Open Filament Database, facilitated by SimplyPrint.
 
 Please follow the instructions below to contribute new brands, materials, filaments and/or variants!
 
-- You start by creating a fork of this repository and creating a new branch for your brand.
-- You can then clone your new repository onto your computer and create a new branch using either the CLI or github desktop.
+You start by creating a fork of this repository and cloning it onto your computer using either the CLI or github desktop.
 ```bash
 git clone https://github.com/YOUR_USERNAME/open-filament-database.git
 cd open-filament-database
-git switch YOUR_BRANCHNAME
+git checkout -b YOUR_BRANCHNAME
 ```
 
 ### Modifying the database
@@ -37,7 +36,7 @@ You can now modify the database using either the WebUI or [the manual method](do
     Navigate to the URL printed in the console, most of the time this will be [http://localhost:5173](http://localhost:5173).
 
 ### Submitting changes
-After you've added your data you should run the data_validator like so to make sure your formatting and data is correct like so.
+After you've added your data you should run the **data_validator** to make sure your formatting and data is correct like so.
 
 ```bash
 python data_validator.py --folder-names # Validates folder names.
@@ -45,7 +44,7 @@ python data_validator.py --json-files # Validates json files.
 python data_validator.py --store-ids # Validates store ids.
 ```
 
-If anything gets printed to the console you should fix it and rerun the command, when non occur you can push the changes to your remote repository using either github desktop or doing like so.
+If anything gets printed to the console you should fix it and rerun the command, when non occur you can push the changes to your remote repository using either github desktop or the CLI like here.
 
 ```bash
 git add .
