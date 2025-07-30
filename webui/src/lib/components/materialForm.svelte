@@ -7,7 +7,7 @@
   import { realDelete } from '$lib/realDeleter';
   import { intProxy } from 'sveltekit-superforms';
   type formType = 'edit' | 'create';
-  let { form, errors, constraints, delayed, message, overrideEnhance, formType, brandName } = $props();
+  let { form, errors, constraints, delayed, message, formType, brandName } = $props();
 
   async function handleDelete() {
     if (
@@ -97,7 +97,7 @@
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
-    use:enhance={overrideEnhance ? enhancedSubmit : overrideEnhance}
+    use:enhance={enhancedSubmit}
     action="?/material"
     enctype="multipart/form-data"
     class="space-y-5">
@@ -120,6 +120,29 @@
         bind:value={$form.material} />
       {#if $errors.material}
         <span class="text-red-600 text-xs">{$errors.material}</span>
+      {/if}
+    </div>
+
+    <div>
+      <label for="max_dry_temperature" class="block font-medium mb-1"
+        >Default Max Dry Temperature</label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Default Maximum drying temperature (typically somewhere around 55-65°C ) 
+      </p>
+      <input
+        id="max_dry_temperature"
+        type="number"
+        step="0.01"
+        name="max_dry_temperature"
+        aria-required="true"
+        aria-describedby="max-dry-temperature-help"
+        placeholder="e.g. ±55-65°C"
+        class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        aria-invalid={$errors.max_dry_temperature ? 'true' : undefined}
+        bind:value={$form.max_dry_temperature} />
+
+      {#if $errors.max_dry_temperature}
+        <span class="text-red-600 text-xs">{$errors.max_dry_temperature}</span>
       {/if}
     </div>
 
