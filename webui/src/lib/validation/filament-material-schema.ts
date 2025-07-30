@@ -20,9 +20,9 @@ export const prusaSlicerSettingsSchema = z.object({
     .optional(),
 });
 
-export const bambusStudioSlicerSettingsSchema = z.object({
-  bambus_profile_path: z.string().optional(),
-  bambus_overrides: z.object({
+export const bambuStudioSlicerSettingsSchema = z.object({
+  bambu_profile_path: z.string().optional(),
+  bambu_overrides: z.object({
     first_layer_bed_temp: z.number().optional(),
     first_layer_nozzle_temp: z.number().optional(),
     bed_temp: z.number().optional(),
