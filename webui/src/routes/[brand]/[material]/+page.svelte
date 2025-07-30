@@ -72,7 +72,6 @@
         form={materialForm}
         errors={materialErrors}
         message={materialMessage}
-        overrideEnhance={materialEnhance}
         brandName={data.brandData.brand}
         formType={'edit'} />
     </EditModal>
@@ -81,7 +80,6 @@
         form={filamentForm}
         errors={filamentErrors}
         message={filamentMessage}
-        enhance={filamentEnhance}
         brandName={data.brandData.brand}
         materialName={data.materialData.material}
         formType={'create'} />
