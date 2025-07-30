@@ -71,7 +71,6 @@ export const actions = {
       setFlash({ type: 'error', message: 'Failed to update material. Please try again.' }, cookies);
       return fail(500, { form });
     }
-    console.log('Form data:', form.data);
     setFlash({ type: 'success', message: 'Material updated successfully!' }, cookies);
     return { form, success: true, redirect: `/${brand}/${form.data.material}` };
   },

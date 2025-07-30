@@ -106,7 +106,7 @@ export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
   }
 
   const brandJson = {
-    name: brandData.brand, // Changed from 'brand' to 'name' to match your schema
+    name: brandData.brand,
     website: brandData.website,
     logo: logoUrl,
     origin: brandData.origin,
@@ -342,9 +342,9 @@ export async function createColorFiles(formData: any) {
 
   if (!fs.existsSync(colorFolder)) fs.mkdirSync(colorFolder, { recursive: true });
 
-  if (formData["sizes"]) {
+  if (formData['sizes']) {
     const sizesPath = path.join(colorFolder, 'sizes.json');
-    fs.writeFileSync(sizesPath, JSON.stringify(formData["sizes"], null, 2), 'utf-8');
+    fs.writeFileSync(sizesPath, JSON.stringify(formData['sizes'], null, 2), 'utf-8');
   }
   // --- 2. Prepare variant.json (single object) ---
   // Traits are grouped under a "traits" object
@@ -440,7 +440,9 @@ export function updateMaterial(brandName: string, currentMaterialName: string, m
       const newMaterialDir = path.join(brandDir, materialData.material);
 
       if (fs.existsSync(newMaterialDir)) {
-        throw new Error(`Material "${materialData.material}" already exists in brand "${brandName}"`);
+        throw new Error(
+          `Material "${materialData.material}" already exists in brand "${brandName}"`,
+        );
       }
 
       fs.renameSync(currentMaterialDir, newMaterialDir);

@@ -6,8 +6,6 @@ import { baseFilamentSchema, filamentSchema } from '$lib/validation/filament-sch
 import { createColorFiles, removeUndefined, updateFilament } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { refreshDatabase } from '$lib/dataCacher';
-import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
-import { type z } from 'zod';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material, filament } = params;
