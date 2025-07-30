@@ -30,12 +30,18 @@ const illegal_characters = [
 ]; // TODO: Add emojis and alt codes
 // This should at all times be the same as /data_validator.py:22
 
-export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
-  let folderName = brandData.brand;
+export const stripOfIllegalChars = (input: string): string => {
+  let value = input;
 
   illegal_characters.forEach((char) => {
-    folderName = folderName.replaceAll(char, "");
+    value = value.replaceAll(char, "");
   })
+
+  return value;
+};
+
+export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
+  let folderName = stripOfIllegalChars(brandData.brand);
 
   const brandDir = path.join(DATA_DIR, folderName);
   if (!fs.existsSync(brandDir)) {
@@ -70,8 +76,8 @@ export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
 };
 
 export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
-  const oldDir = path.join(DATA_DIR, brandData.oldBrandName || brandData.brand);
-  const newDir = path.join(DATA_DIR, brandData.brand);
+  const oldDir = path.join(DATA_DIR, stripOfIllegalChars(brandData.oldBrandName || brandData.brand));
+  const newDir = path.join(DATA_DIR, stripOfIllegalChars(brandData.brand));
 
   if (
     brandData.oldBrandName &&
@@ -79,7 +85,7 @@ export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
     fs.existsSync(oldDir)
   ) {
     if (fs.existsSync(newDir)) {
-      throw new Error(`Brand folder "${brandData.brand}" already exists.`);
+      console.warn(`Brand folder "${brandData.brand}" already exists.`);
     }
     fs.renameSync(oldDir, newDir);
   } else if (!fs.existsSync(newDir)) {
@@ -118,7 +124,7 @@ export async function updateBrand(brandData: z.infer<typeof brandSchema>) {
   }
 
   const brandJson = {
-    name: brandData.brand,
+    brand: brandData.brand,
     website: brandData.website,
     logo: logoUrl,
     origin: brandData.origin,

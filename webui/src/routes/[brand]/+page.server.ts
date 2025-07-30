@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { brandSchema } from '$lib/validation/filament-brand-schema';
-import { createMaterial, updateBrand } from '$lib/server/helpers';
+import { createMaterial, updateBrand, stripOfIllegalChars } from '$lib/server/helpers';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import { refreshDatabase } from '$lib/dataCacher';
 import { setFlash } from 'sveltekit-flash-message/server';
@@ -59,7 +59,7 @@ export const actions = {
       return fail(500, { form });
     }
     setFlash({ type: 'success', message: 'Brand updated successfully!' }, cookies);
-    redirect(303, `/${form.data.brand}/`);
+    redirect(303, `/${stripOfIllegalChars(form.data.brand)}/`);
   },
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
