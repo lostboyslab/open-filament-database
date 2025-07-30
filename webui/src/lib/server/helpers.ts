@@ -23,9 +23,21 @@ export const removeUndefined = (obj: any): any => {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_DIR = path.join(__dirname, '../../../../data');
+const illegal_characters = [
+  "#","%","&","{","}","\\","<",
+  ">","*","?","/","$","!","'",
+  '"',":","@","+","`","|","="
+]; // TODO: Add emojis and alt codes
+// This should at all times be the same as /data_validator.py:22
 
 export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
-  const brandDir = path.join(DATA_DIR, brandData.brand);
+  let folderName = brandData.brand;
+
+  illegal_characters.forEach((char) => {
+    folderName = folderName.replaceAll(char, "");
+  })
+
+  const brandDir = path.join(DATA_DIR, folderName);
   if (!fs.existsSync(brandDir)) {
     fs.mkdirSync(brandDir, { recursive: true });
   }
@@ -41,7 +53,7 @@ export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
     const buffer = Buffer.from(arrayBuffer);
     logoPath = path.join(brandDir, brandData.logo.name);
     fs.writeFileSync(logoPath, buffer);
-    logoUrl = `/data/${brandData.brand}/${brandData.logo.name}`;
+    logoUrl = `/data/${folderName}/${brandData.logo.name}`;
   }
 
   const brandJson = {
