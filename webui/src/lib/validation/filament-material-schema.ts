@@ -53,7 +53,7 @@ export const curaSlicerSettingsSchema = z.object({
 export const slicerSettingsSchema = z.object({
   generic: genericSlicerSchema,
   prusa: prusaSlicerSettingsSchema,
-  bambus: bambusStudioSlicerSettingsSchema,
+  bambus: bambuStudioSlicerSettingsSchema,
   orca: orcaSlicerSettingsSchema,
   cura: curaSlicerSettingsSchema,
 });
