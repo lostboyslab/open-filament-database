@@ -1,7 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { stripOfIllegalChars } from './server/helpers';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 export interface FilamentDatabase {
   brands: Record<string, Brand>;
 }
@@ -173,7 +173,7 @@ export async function loadFilamentDatabase(dataPath: string): Promise<FilamentDa
       });
 
       return {
-        key: brandData?.brand ?? folderName,
+        key: folderName,
         value: {
           brand: brandData?.brand ?? folderName,
           logo,

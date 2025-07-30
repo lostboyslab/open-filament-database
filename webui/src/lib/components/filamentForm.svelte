@@ -39,10 +39,7 @@
         await invalidateAll();
       }
 
-      if (isLocal) {
-        // Handle case!!
-        // await realDelete('brand', $form.brand);
-      } else {
+      if (!isLocal) {
         pseudoUndoDelete('filament', $form.name);
       }
 

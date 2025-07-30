@@ -6,6 +6,7 @@
   import { pseudoEdit } from '$lib/pseudoEditor';
   import { realDelete } from '$lib/realDeleter';
   import { fileProxy } from 'sveltekit-superforms';
+  import { stripOfIllegalChars } from '$lib/globalHelpers';
   type formType = 'edit' | 'create';
   let { form, errors, constraints, delayed, message, formType, oldName = '' } = $props();
   const file = fileProxy(form, 'logo');
@@ -19,7 +20,7 @@
       const isLocal = env.PUBLIC_IS_LOCAL === 'true';
 
       if (isLocal) {
-        await realDelete('brand', $form.brand);
+        await realDelete('brand', stripOfIllegalChars($form.brand));
       } else {
         pseudoDelete('brand', $form.brand);
       }
@@ -33,17 +34,13 @@
       if (result.type === 'success' && !isLocal) {
         const brandData = {
           brand: $form.brand,
-          // Add other brand fields as needed
         };
 
         pseudoEdit('brand', $form.brand, brandData);
         await invalidateAll();
       }
 
-      if (isLocal) {
-        // Handle case!!
-        // await realDelete('brand', $form.brand);
-      } else {
+      if (!isLocal) {
         pseudoUndoDelete('brand', $form.brand);
       }
 

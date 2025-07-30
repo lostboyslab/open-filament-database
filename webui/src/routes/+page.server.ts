@@ -1,4 +1,5 @@
-import { createBrand, stripOfIllegalChars } from '$lib/server/helpers';
+import { createBrand } from '$lib/server/helpers';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 import { brandSchema } from '$lib/validation/filament-brand-schema';
 import { fail } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';

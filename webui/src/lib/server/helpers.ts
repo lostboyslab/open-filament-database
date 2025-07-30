@@ -6,6 +6,7 @@ import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import type { baseFilamentSchema } from '$lib/validation/filament-schema';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 
 export const removeUndefined = (obj: any): any => {
   if (Array.isArray(obj)) {
@@ -23,22 +24,6 @@ export const removeUndefined = (obj: any): any => {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_DIR = path.join(__dirname, '../../../../data');
-const illegal_characters = [
-  "#","%","&","{","}","\\","<",
-  ">","*","?","/","$","!","'",
-  '"',":","@","+","`","|","="
-]; // TODO: Add emojis and alt codes
-// This should at all times be the same as /data_validator.py:22
-
-export const stripOfIllegalChars = (input: string): string => {
-  let value = input;
-
-  illegal_characters.forEach((char) => {
-    value = value.replaceAll(char, "");
-  })
-
-  return value;
-};
 
 export const createBrand = async (brandData: z.infer<typeof brandSchema>) => {
   let folderName = stripOfIllegalChars(brandData.brand);

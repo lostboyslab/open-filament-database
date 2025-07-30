@@ -6,6 +6,7 @@
   import { zodClient } from 'sveltekit-superforms/adapters';
   import { brandSchema } from '$lib/validation/filament-brand-schema.js';
   import { browser } from '$app/environment';
+  import { stripOfIllegalChars } from '$lib/globalHelpers';
   import { isItemDeleted } from '$lib/pseudoDeleter.js';
   const { data } = $props();
   const { form, errors, constraints, delayed, message } = superForm(data.form, {
@@ -20,7 +21,7 @@
     !browser || !filamentData?.brands
       ? {}
       : Object.fromEntries(
-          Object.entries(filamentData.brands).filter(([brand]) => !isItemDeleted('brand', brand)),
+          Object.entries(filamentData.brands).filter(([brand]) => !isItemDeleted('brand', stripOfIllegalChars(brand))),
         ),
   );
 </script>
