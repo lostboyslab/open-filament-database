@@ -1,4 +1,4 @@
-import { createBrand } from '$lib/server/helpers';
+import { createBrand, stripOfIllegalChars } from '$lib/server/helpers';
 import { brandSchema } from '$lib/validation/filament-brand-schema';
 import { fail } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
@@ -47,6 +47,6 @@ export const actions = {
       return fail(500, { form: sanitizedForm });
     }
 
-    redirect(form.data.brand, { type: 'success', message: 'Brand created successfully!' }, cookies);
+    redirect(stripOfIllegalChars(form.data.brand), { type: 'success', message: 'Brand created successfully!' }, cookies);
   },
 };
