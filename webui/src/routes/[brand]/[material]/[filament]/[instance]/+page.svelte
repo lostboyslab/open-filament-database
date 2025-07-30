@@ -34,6 +34,11 @@
   });
 </script>
 
+<svelte:head>
+	<title>{data?.colorData?.variant?.color_name ? data.colorData.variant.color_name : "Color"}</title>
+	<meta name="description" content="This is an overview of {data?.colorData?.variant?.color_name ? data.colorData.variant.color_name : "a Color"}"/>
+</svelte:head>
+
 <div class="max-w-6xl mx-auto p-6">
   <!-- Main Color Card -->
   <div

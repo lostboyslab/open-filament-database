@@ -51,6 +51,11 @@
   });
 </script>
 
+<svelte:head>
+	<title>{data?.brandData?.brand ? data.brandData.brand : "Brand"}</title>
+	<meta name="description" content="This is an overview {data?.brandData?.brand ? data.brandData.brand : "a Brand"}"/>
+</svelte:head>
+
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
   <div class="relative flex flex-col md:flex-row items-center md:items-start gap-6 mb-12">
     <img

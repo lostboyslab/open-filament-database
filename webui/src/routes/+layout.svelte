@@ -80,7 +80,10 @@
     {@render children()}
   </main>
 
-  <footer class="bg-gray-900 dark:bg-gray-800 text-white text-center p-3 mt-5 shadow-inner">
-    © 2025 SimplyPrint – All rights reserved
+  <footer
+    class="bg-gray-900 dark:bg-gray-800 text-white text-center p-3 mt-5 shadow-inner"
+    style="position: fixed; bottom: 0; width: 100vw;"
+  >
+    © 2025 Open Filament Database – All rights reserved
   </footer>
 </div>

@@ -57,6 +57,11 @@
   });
 </script>
 
+<svelte:head>
+	<title>{data?.materialData?.material ? data.materialData.material : "Material"}</title>
+	<meta name="description" content="This is an overview of {data?.materialData?.material ? data.materialData.material : "a Material"}"/>
+</svelte:head>
+
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
   <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">
     Filaments for {data.materialData.material}
