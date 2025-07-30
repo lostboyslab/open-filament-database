@@ -1,6 +1,5 @@
 <script>
-  import { fileProxy, superForm } from 'sveltekit-superforms';
-  import { page } from '$app/state';
+  import { superForm } from 'sveltekit-superforms';
   import BrandForm from '$lib/components/brandForm.svelte';
   import BrandItem from '$lib/components/brandItem.svelte';
   import CreateNew from '$lib/components/createNew.svelte';
@@ -14,13 +13,14 @@
     validationMethod: 'onblur',
     validators: zodClient(brandSchema),
   });
-  const brands = $derived(data.filamentData);
+
+  const filamentData = $derived(data.filamentData);
 
   const filteredBrands = $derived(
-    !browser || !brands?.brands
+    !browser || !filamentData?.brands
       ? {}
       : Object.fromEntries(
-          Object.entries(brands.brands).filter(([brandName]) => !isItemDeleted('brand', brandName)),
+          Object.entries(filamentData.brands).filter(([brand]) => !isItemDeleted('brand', brand)),
         ),
   );
 

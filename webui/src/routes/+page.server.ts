@@ -47,6 +47,6 @@ export const actions = {
       return fail(500, { form: sanitizedForm });
     }
 
-    redirect(form.data.name, { type: 'success', message: 'Brand created successfully!' }, cookies);
+    redirect(form.data.brand, { type: 'success', message: 'Brand created successfully!' }, cookies);
   },
 };

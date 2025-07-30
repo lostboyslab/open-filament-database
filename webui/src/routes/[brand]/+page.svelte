@@ -30,7 +30,7 @@
     validators: zodClient(filamentMaterialSchema),
   });
 
-  const materialKeys = Object.keys(data.brandData.materials ?? {});
+  letmaterialKeys = Object.keys(data.brandData.materials ?? {});
 
   const websiteUrl = $derived(
     data.brandData.website?.startsWith('http')
@@ -41,8 +41,12 @@
   const filteredMaterialKeys = $derived(
     !browser
       ? materialKeys
-      : materialKeys.filter((materialKey) => !isItemDeleted('material', materialKey)),
+      : materialKeys.filter((materialKey) => !isItemDeleted('material', materialKey, data.brandData.brand)),
   );
+
+  $effect(() => {
+    materialKeys = Object.keys(data.brandData.materials ?? {})
+  })
 </script>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -83,24 +87,26 @@
         errors={materialErrors}
         message={materialMessage}
         brandName={data.brandData.brand}
-        enhance={materialEnhance}
+        overrideEnhance={materialEnhance}
         formType={'create'} />
     </CreateNew>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {#each filteredMaterialKeys as materialKey}
-        {#if data.brandData.materials[materialKey]}
-          <a href={`/${data.brandData.brand}/${materialKey}`}>
-            <li
-              class="border rounded p-4 bg-white border-gray-200 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 shadow-md transition-colors flex flex-col justify-between">
-              <div>
-                <div class="font-medium text-lg mb-1">
-                  {data.brandData.materials[materialKey].material ?? materialKey}
+      {#key [filteredMaterialKeys, data.brandData.materials]}
+        {#each filteredMaterialKeys as materialKey}
+          {#if data.brandData.materials[materialKey]}
+            <a href={`/${data.brandData.brand}/${materialKey}`}>
+              <li
+                class="border rounded p-4 bg-white border-gray-200 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 shadow-md transition-colors flex flex-col justify-between">
+                <div>
+                  <div class="font-medium text-lg mb-1">
+                    {data.brandData.materials[materialKey].material ?? materialKey}
+                  </div>
                 </div>
-              </div>
-            </li>
-          </a>
-        {/if}
-      {/each}
+              </li>
+            </a>
+          {/if}
+        {/each}
+      {/key}
     </ul>
   </div>
 </section>

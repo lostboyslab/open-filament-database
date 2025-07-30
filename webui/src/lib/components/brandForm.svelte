@@ -2,7 +2,7 @@
   import { enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
-  import { pseudoDelete } from '$lib/pseudoDeleter';
+  import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
   import { pseudoEdit } from '$lib/pseudoEditor';
   import { realDelete } from '$lib/realDeleter';
   import { fileProxy } from 'sveltekit-superforms';
@@ -13,15 +13,15 @@
   async function handleDelete() {
     if (
       confirm(
-        `Are you sure you want to delete the brand "${$form.name}"? This action cannot be undone.`,
+        `Are you sure you want to delete the brand "${$form.brand}"? This action cannot be undone.`,
       )
     ) {
       const isLocal = env.PUBLIC_IS_LOCAL === 'true';
 
       if (isLocal) {
-        await realDelete('brand', $form.name);
+        await realDelete('brand', $form.brand);
       } else {
-        pseudoDelete('brand', $form.name);
+        pseudoDelete('brand', $form.brand);
       }
     }
   }
@@ -32,17 +32,34 @@
 
       if (result.type === 'success' && !isLocal) {
         const brandData = {
-          name: $form.name,
+          brand: $form.brand,
           // Add other brand fields as needed
         };
 
-        pseudoEdit('brand', $form.name, brandData);
+        pseudoEdit('brand', $form.brand, brandData);
         await invalidateAll();
+      }
+
+      if (isLocal) {
+        // Handle case!!
+        // await realDelete('brand', $form.brand);
+      } else {
+        pseudoUndoDelete('brand', $form.brand);
       }
 
       await update();
     };
   };
+
+  function setDefaultFormName() {
+    if (oldName != "" && $form.brand == "") {
+      $form.brand = oldName;
+    }
+  };
+
+  $effect(() => {
+    setDefaultFormName();
+  });
 </script>
 
 <div
@@ -54,23 +71,23 @@
     enctype="multipart/form-data"
     class="space-y-5">
     <div>
-      <label for="name" class="block font-medium mb-1"
+      <label for="brand" class="block font-medium mb-1"
         >Brand name<span class="text-red-500">*</span></label>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
         Enter the official name of the filament manufacturer (e.g., "Prusa", "Hatchbox")
       </p>
       <input
-        id="name"
+        id="brand"
         type="text"
-        name="name"
+        name="brand"
         aria-required="true"
-        aria-describedby="name-help"
+        aria-describedby="brand-help"
         placeholder="e.g. Prusa"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        aria-invalid={$errors.name ? 'true' : undefined}
-        bind:value={$form.name} />
-      {#if $errors.name}
-        <span class="text-red-600 text-xs">{$errors.name}</span>
+        aria-invalid={$errors.brand ? 'true' : undefined}
+        bind:value={$form.brand} />
+      {#if $errors.brand}
+        <span class="text-red-600 text-xs">{$errors.brand}</span>
       {/if}
     </div>
 

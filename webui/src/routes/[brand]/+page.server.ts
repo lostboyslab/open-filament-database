@@ -59,7 +59,7 @@ export const actions = {
       return fail(500, { form });
     }
     setFlash({ type: 'success', message: 'Brand updated successfully!' }, cookies);
-    redirect(303, `/${form.data.name}/`);
+    redirect(303, `/${form.data.brand}/`);
   },
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));

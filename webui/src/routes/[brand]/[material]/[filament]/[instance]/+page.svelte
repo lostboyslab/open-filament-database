@@ -65,7 +65,7 @@
             brandName={data.brandData.brand}
             materialName={data.materialData.material}
             filamentName={data.filamentData.name}
-            colorName={data.colorData.name}
+            colorData={data.colorData}
             enhance={sizeEnhance}
             formType={'edit'} />
         </EditModal>

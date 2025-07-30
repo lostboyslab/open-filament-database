@@ -1,13 +1,13 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import { filamentSchema, filamentVariantSchema } from '$lib/validation/filament-schema';
-import fs from 'node:fs';
-import path from 'node:path';
+import { baseFilamentSchema, filamentSchema } from '$lib/validation/filament-schema';
 import { createColorFiles, removeUndefined, updateFilament } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { refreshDatabase } from '$lib/dataCacher';
+import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
+import { type z } from 'zod';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material, filament } = params;
@@ -37,8 +37,8 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 
   console.log('Filament Data Object:', filamentDataObj);
 
-  const filamentForm = await superValidate(filamentDataObj, zod(filamentSchema));
-  const filamentVariantForm = await superValidate(zod(filamentVariantSchema));
+  const filamentForm = await superValidate(filamentDataObj, zod(baseFilamentSchema));
+  const filamentVariantForm = await superValidate(zod(filamentSchema));
 
   return {
     brandData,
@@ -50,39 +50,8 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 };
 
 export const actions = {
-  createFilament: async ({ url, request, cookies }) => {
-    const form = await superValidate(request, zod(filamentVariantSchema));
-    if (!form.valid) {
-      fail(400, { form });
-    }
-    try {
-      const DATA_DIR = path.resolve('../data');
-      const colorFolder = path.join(
-        DATA_DIR,
-        form.data.brandName,
-        form.data.materialName,
-        form.data.filamentName,
-        form.data.color_name,
-      );
-
-      if (!fs.existsSync(colorFolder)) {
-        fs.mkdirSync(colorFolder, { recursive: true });
-      }
-
-      await createColorFiles(form.data);
-      await refreshDatabase();
-    } catch (error) {
-      console.error('Failed to create color:', error);
-      setFlash({ type: 'error', message: 'Failed to create color. Please try again.' }, cookies);
-      return fail(500, { form });
-    }
-
-    // Redirect to current page with success message
-    setFlash({ type: 'success', message: 'Color created successfully!' }, cookies);
-    return { form, success: true, redirect: url.pathname };
-  },
   filament: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(filamentSchema));
+    const form = await superValidate(request, zod(baseFilamentSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
@@ -102,8 +71,9 @@ export const actions = {
     setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
     return { form, success: true };
   },
-  editInstance: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(filamentVariantSchema));
+  instance: async ({ request, params, cookies }) => {
+    letdata = await request.formData();
+    const form = await superValidate(data, zod(filamentSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
@@ -111,7 +81,30 @@ export const actions = {
     }
 
     try {
-      const filteredData = removeUndefined(form.data);
+      letfilteredData = removeUndefined(form.data);
+
+      lettempArr = JSON.parse(form.data.serializedSizes);
+
+      tempArr.filter((li, i) => {
+        Object.keys(li).forEach(key => {
+          if (!li[key]) delete li[key];
+        });
+
+        if (li) {
+          tempArr[i] = li;
+          return false;
+        }
+
+        return true;
+      });
+
+      filteredData["sizes"] = tempArr;
+      
+      filteredData["brandName"] = brand;
+      filteredData["materialName"] = material;
+      filteredData["filamentName"] = filament;
+      filteredData["color_name"] = filteredData.color_name;
+
       await createColorFiles(filteredData);
       await refreshDatabase();
     } catch (error) {

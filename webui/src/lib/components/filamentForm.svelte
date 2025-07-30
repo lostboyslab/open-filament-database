@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { pseudoDelete } from '$lib/pseudoDeleter';
-  import { realDelete } from '$lib/realDeleter';
-  import { env } from '$env/dynamic/public';
-  import { pseudoEdit } from '$lib/pseudoEditor';
+  import { enhance } from '$app/forms';
   import { invalidateAll } from '$app/navigation';
+  import { env } from '$env/dynamic/public';
+  import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
+  import { pseudoEdit } from '$lib/pseudoEditor';
+  import { realDelete } from '$lib/realDeleter';
 
   type formType = 'edit' | 'create';
-  let { form, errors, message, enhance, formType: formType, brandName, materialName } = $props();
+  let { form, errors, message, formType: formType, brandName, materialName } = $props();
 
   async function handleDelete() {
     if (
@@ -23,15 +24,6 @@
       }
     }
   }
-  const slicerOptions = [
-    { key: 'generic', label: 'Generic' },
-    { key: 'prusaslicer', label: 'PrusaSlicer' },
-    { key: 'bambustudio', label: 'Bambu Studio' },
-    { key: 'orcaslicer', label: 'OrcaSlicer' },
-    { key: 'cura', label: 'Cura' },
-  ];
-
-  let selectedSlicer = $state('generic');
 
   const enhancedSubmit = () => {
     return async ({ result, update }) => {
@@ -45,6 +37,13 @@
 
         pseudoEdit('filament', brandName, filamentData, materialName);
         await invalidateAll();
+      }
+
+      if (isLocal) {
+        // Handle case!!
+        // await realDelete('brand', $form.brand);
+      } else {
+        pseudoUndoDelete('filament', $form.name);
       }
 
       await update();
@@ -125,6 +124,52 @@
 
       {#if $errors.density}
         <span class="text-red-600 text-xs">{$errors.density}</span>
+      {/if}
+    </div>
+
+    <div>
+      <label for="max_dry_temperature" class="block font-medium mb-1"
+        >Max Dry Temperature</label>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        Maximum drying temperature (typically somewhere around 55-65°C (131°F-149°F) ) 
+      </p>
+      <input
+        id="max_dry_temperature"
+        type="number"
+        step="0.01"
+        name="max_dry_temperature"
+        aria-required="true"
+        aria-describedby="max-dry-temperature-help"
+        placeholder="e.g. ±0.02mm"
+        class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        aria-invalid={$errors.max_dry_temperature ? 'true' : undefined}
+        bind:value={$form.max_dry_temperature} />
+
+      {#if $errors.max_dry_temperature}
+        <span class="text-red-600 text-xs">{$errors.max_dry_temperature}</span>
+      {/if}
+    </div>
+
+    <div>
+      <div>
+        <div class="flex flex-row items-center">
+          <input
+          id="discontinued"
+          type="checkbox"
+          name="discontinued"
+          class="accent-blue-600 w-4 h-4 mr-2"
+          bind:checked={$form.discontinued} />
+
+          <label for="discontinued" class="inline-block font-medium">
+            Discontinued
+          </label>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            Select if this colour variant is discontinued 
+          </p>
+      </div>
+      {#if $errors.discontinued}
+        <span class="text-red-600 text-xs">{$errors.discontinued}</span>
       {/if}
     </div>
 

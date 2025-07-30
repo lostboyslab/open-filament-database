@@ -1,6 +1,5 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import { page } from '$app/state';
   import CreateNew from '$lib/components/createNew.svelte';
   import EditModal from '$lib/components/editModal.svelte';
   import FilamentForm from '$lib/components/filamentForm.svelte';
@@ -8,20 +7,26 @@
   import MaterialItem from '$lib/components/MaterialItem.svelte';
   import { isItemDeleted } from '$lib/pseudoDeleter.js';
   import { filamentMaterialSchema } from '$lib/validation/filament-material-schema.js';
-  import { baseFilamentSchema } from '$lib/validation/filament-schema.js';
+  import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
+  import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
 
   const { data } = $props();
-  const filamentKeys = Object.keys(data.materialData.filaments ?? {});
+  letfilamentKeys = Object.keys(data.materialData.filaments ?? {});
 
   const filteredFilamentKeys = $derived(
     !browser
       ? filamentKeys
-      : filamentKeys.filter((filamentKey) => !isItemDeleted('filament', filamentKey)),
+      : filamentKeys.filter((filamentKey) => !isItemDeleted('filament', filamentKey, data.brandData.brand, data.materialData.material)),
   );
 
-  const { form, errors, message, enhance } = superForm(data.materialForm, {
+  const { 
+    form: materialForm, 
+    errors: materialErrors, 
+    message: materialMessage, 
+    enhance: materialEnhance
+  } = superForm(data.materialForm, {
     dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
@@ -36,7 +41,11 @@
   } = superForm(data.filamentForm, {
     resetForm: false,
     validationMethod: 'onblur',
-    validators: zodClient(baseFilamentSchema),
+    validators: zodClient(filamentVariantSchema),
+  });
+
+  $effect(() => {
+    filamentKeys = Object.keys(data.materialData.filaments ?? {});
   });
 </script>
 
@@ -47,11 +56,11 @@
   <div class="btn-wrapper flex gap-2">
     <EditModal>
       <MaterialForm
-        {form}
-        {errors}
-        {message}
+        form={materialForm}
+        errors={materialErrors}
+        message={materialMessage}
+        overrideEnhance={materialEnhance}
         brandName={data.brandData.brand}
-        {enhance}
         formType={'edit'} />
     </EditModal>
     <CreateNew
@@ -67,14 +76,16 @@
   </div>
 
   <div class="space-y-8">
-    {#each filteredFilamentKeys as filamentKey}
-      {#if data.materialData.filaments[filamentKey]}
-        <MaterialItem
-          filament={data.materialData.filaments[filamentKey]}
-          {filamentKey}
-          brandName={data.brandData.brand}
-          materialName={data.materialData.material} />
-      {/if}
-    {/each}
+    {#key [filteredFilamentKeys, data.materialData.filaments]}
+      {#each filteredFilamentKeys as filamentKey}
+        {#if data.materialData.filaments[filamentKey]}
+          <MaterialItem
+            filament={data.materialData.filaments[filamentKey]}
+            {filamentKey}
+            brandName={data.brandData.brand}
+            materialName={data.materialData.material} />
+        {/if}
+      {/each}
+    {/key}
   </div>
 </section>

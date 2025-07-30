@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { pseudoDelete } from '$lib/pseudoDeleter';
-  import { intProxy } from 'sveltekit-superforms';
+  import { enhance } from '$app/forms';
+  import { goto, invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
-  import { realDelete } from '$lib/realDeleter';
-  import { invalidateAll } from '$app/navigation';
+  import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
   import { pseudoEdit } from '$lib/pseudoEditor';
-
+  import { realDelete } from '$lib/realDeleter';
+  import { intProxy } from 'sveltekit-superforms';
   type formType = 'edit' | 'create';
-  let { form, errors, message, enhance, formType: formType, brandName } = $props();
+  let { form, errors, constraints, delayed, message, overrideEnhance, formType, brandName } = $props();
 
   async function handleDelete() {
     if (
@@ -43,6 +43,13 @@
         // Apply pseudo edit for web version
         pseudoEdit('material', brandName, materialData);
         await invalidateAll();
+      }
+
+      if (isLocal) {
+        // Handle case!!
+        // await realDelete('brand', $form.brand);
+      } else {
+        pseudoUndoDelete('material', $form.material);
       }
 
       await update();
@@ -90,7 +97,7 @@
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
-    use:enhance={enhancedSubmit}
+    use:enhance={overrideEnhance ? enhancedSubmit : overrideEnhance}
     action="?/material"
     enctype="multipart/form-data"
     class="space-y-5">

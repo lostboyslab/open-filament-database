@@ -5,7 +5,7 @@
   import FilamentForm from '$lib/components/filamentForm.svelte';
   import FilamentItem from '$lib/components/filamentItem.svelte';
   import FilamentVariantForm from '$lib/components/filamentVariantForm.svelte';
-  import { baseFilamentSchema, filamentVariantSchema } from '$lib/validation/filament-schema.js';
+  import { baseFilamentSchema, filamentSchema } from '$lib/validation/filament-schema.js';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
 
@@ -26,7 +26,7 @@
   } = superForm(data.filamentVariantForm, {
     resetForm: false,
     validationMethod: 'onblur',
-    validators: zodClient(filamentVariantSchema),
+    validators: zodClient(filamentSchema),
   });
 </script>
 
@@ -38,12 +38,11 @@
 
   <EditModal>
     <FilamentForm
-      {form}
-      {errors}
-      {message}
+      form={form}
+      errors={errors}
+      message={message}
       brandName={data.brandData.brand}
       materialName={data.materialData.material}
-      {enhance}
       formType={'edit'} />
   </EditModal>
 
@@ -52,13 +51,12 @@
     <div class="flex justify-between">
       <CreateNew>
         <FilamentVariantForm
-          {form}
-          {errors}
-          {message}
+          form={filamentVariantForm}
+          errors={filamentVariantErrors}
+          message={filamentVariantMessage}
           brandName={data.brandData.brand}
           materialName={data.materialData.material}
           filamentName={data.filamentData.name}
-          {enhance}
           formType={'create'} />
       </CreateNew>
       <DownloadBtn

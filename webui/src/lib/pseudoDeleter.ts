@@ -70,6 +70,40 @@ export const pseudoDelete = (
   }
 };
 
+export const pseudoUndoDelete = (
+  type: 'brand' | 'material' | 'filament' | 'instance',
+  name: string
+) => {
+  if (typeof localStorage === 'undefined') return true;
+
+  const storageKey = 'deletedItems';
+  const existingItems = localStorage.getItem(storageKey);
+
+  if (!existingItems) return true;
+
+  let deletedItems: DeletedItem[] = [];
+
+  if (existingItems) {
+    try {
+      deletedItems = JSON.parse(existingItems);
+    } catch (error) {
+      console.error('Error parsing deleted items from localStorage:', error);
+      // return true; // We assume the key cannot exist in this case
+    }
+  }
+
+  deletedItems = deletedItems.filter((item) => {
+    return !( // Return false on match
+      item.type == type &&
+      item.name == name
+    )
+  });
+
+  localStorage.setItem(storageKey, JSON.stringify(deletedItems));
+
+  return true;
+}
+
 export const isItemDeleted = (
   type: 'brand' | 'material' | 'filament' | 'instance',
   name: string,

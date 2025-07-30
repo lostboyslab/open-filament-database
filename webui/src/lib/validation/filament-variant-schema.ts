@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const traitsSchema = z.object({
+export const traitsSchema = z.object({
   translucent: z.boolean().optional(),
   glow: z.boolean().optional(),
   matte: z.boolean().optional(),
@@ -12,8 +12,6 @@ const traitsSchema = z.object({
 export const filamentVariantSchema = z.object({
   color_name: z.string(),
   color_hex: z.string().regex(/^#?[a-fA-F0-9]{6}$/, 'Must be a valid hex code (#RRGGBB)'),
-  url: z.string().optional(),
-  affiliate: z.boolean().optional(),
-  sku: z.string().optional(),
+  discontinued: z.boolean().default(false),
   traits: traitsSchema.optional(),
 });
