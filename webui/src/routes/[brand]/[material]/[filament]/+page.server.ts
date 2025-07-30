@@ -35,8 +35,6 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   if (!filamentKey) throw error(404, 'Filament not found');
   const filamentDataObj = materialData.filaments[filamentKey];
 
-  console.log('Filament Data Object:', filamentDataObj);
-
   const filamentForm = await superValidate(filamentDataObj, zod(baseFilamentSchema));
   const filamentVariantForm = await superValidate(zod(filamentSchema));
 
@@ -86,7 +84,7 @@ export const actions = {
       lettempArr = JSON.parse(form.data.serializedSizes);
 
       tempArr.filter((li, i) => {
-        Object.keys(li).forEach(key => {
+        Object.keys(li).forEach((key) => {
           if (!li[key]) delete li[key];
         });
 
@@ -98,12 +96,12 @@ export const actions = {
         return true;
       });
 
-      filteredData["sizes"] = tempArr;
-      
-      filteredData["brandName"] = brand;
-      filteredData["materialName"] = material;
-      filteredData["filamentName"] = filament;
-      filteredData["color_name"] = filteredData.color_name;
+      filteredData['sizes'] = tempArr;
+
+      filteredData['brandName'] = brand;
+      filteredData['materialName'] = material;
+      filteredData['filamentName'] = filament;
+      filteredData['color_name'] = filteredData.color_name;
 
       await createColorFiles(filteredData);
       await refreshDatabase();
