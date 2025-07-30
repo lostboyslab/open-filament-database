@@ -173,7 +173,7 @@ export async function loadFilamentDatabase(dataPath: string): Promise<FilamentDa
       });
 
       return {
-        key: folderName,
+        key: brandData?.brand ?? folderName,
         value: {
           brand: brandData?.brand ?? folderName,
           logo,
