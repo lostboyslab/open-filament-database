@@ -50,16 +50,6 @@
       await update();
     };
   };
-
-  function setDefaultFormName() {
-    if (oldName != "" && $form.brand == "") {
-      $form.brand = oldName;
-    }
-  };
-
-  $effect(() => {
-    setDefaultFormName();
-  });
 </script>
 
 <div
@@ -85,7 +75,8 @@
         placeholder="e.g. Prusa"
         class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-invalid={$errors.brand ? 'true' : undefined}
-        bind:value={$form.brand} />
+        bind:value={$form.brand} 
+        defaultValue={$form.brand ? $form.brand : ""} />
       {#if $errors.brand}
         <span class="text-red-600 text-xs">{$errors.brand}</span>
       {/if}
