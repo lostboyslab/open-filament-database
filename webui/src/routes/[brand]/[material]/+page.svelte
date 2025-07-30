@@ -13,19 +13,27 @@
   import { zodClient } from 'sveltekit-superforms/adapters';
 
   const { data } = $props();
-  letfilamentKeys = Object.keys(data.materialData.filaments ?? {});
+  let filamentKeys = Object.keys(data.materialData.filaments ?? {});
 
   const filteredFilamentKeys = $derived(
     !browser
       ? filamentKeys
-      : filamentKeys.filter((filamentKey) => !isItemDeleted('filament', filamentKey, data.brandData.brand, data.materialData.material)),
+      : filamentKeys.filter(
+          (filamentKey) =>
+            !isItemDeleted(
+              'filament',
+              filamentKey,
+              data.brandData.brand,
+              data.materialData.material,
+            ),
+        ),
   );
 
-  const { 
-    form: materialForm, 
-    errors: materialErrors, 
-    message: materialMessage, 
-    enhance: materialEnhance
+  const {
+    form: materialForm,
+    errors: materialErrors,
+    message: materialMessage,
+    enhance: materialEnhance,
   } = superForm(data.materialForm, {
     dataType: 'json',
     resetForm: false,

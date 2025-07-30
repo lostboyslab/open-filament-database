@@ -30,7 +30,7 @@
     validators: zodClient(filamentMaterialSchema),
   });
 
-  letmaterialKeys = Object.keys(data.brandData.materials ?? {});
+  let materialKeys = Object.keys(data.brandData.materials ?? {});
 
   const websiteUrl = $derived(
     data.brandData.website?.startsWith('http')
@@ -41,12 +41,14 @@
   const filteredMaterialKeys = $derived(
     !browser
       ? materialKeys
-      : materialKeys.filter((materialKey) => !isItemDeleted('material', materialKey, data.brandData.brand)),
+      : materialKeys.filter(
+          (materialKey) => !isItemDeleted('material', materialKey, data.brandData.brand),
+        ),
   );
 
   $effect(() => {
-    materialKeys = Object.keys(data.brandData.materials ?? {})
-  })
+    materialKeys = Object.keys(data.brandData.materials ?? {});
+  });
 </script>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
