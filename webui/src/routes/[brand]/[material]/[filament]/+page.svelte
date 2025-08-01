@@ -8,6 +8,7 @@
   import { baseFilamentSchema, filamentSchema } from '$lib/validation/filament-schema.js';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
+  import { stripOfIllegalChars } from '$lib/globalHelpers.js';
 
   const { data } = $props();
   const colorKeys = Object.keys(data.filamentData.colors ?? {});
@@ -46,7 +47,7 @@
       form={form}
       errors={errors}
       message={message}
-      brandName={data.brandData.brand}
+      brandName={stripOfIllegalChars(data.brandData.brand)}
       materialName={data.materialData.material}
       formType={'edit'} />
   </EditModal>
@@ -59,13 +60,13 @@
           form={filamentVariantForm}
           errors={filamentVariantErrors}
           message={filamentVariantMessage}
-          brandName={data.brandData.brand}
+          brandName={stripOfIllegalChars(data.brandData.brand)}
           materialName={data.materialData.material}
           filamentName={data.filamentData.name}
           formType={'create'} />
       </CreateNew>
       <DownloadBtn
-        brandName={data.brandData.brand}
+        brandName={stripOfIllegalChars(data.brandData.brand)}
         materialName={data.materialData.material}
         filamentName={data.filamentData.name} />
     </div>
@@ -74,7 +75,7 @@
       {#if data.filamentData.colors[colorKey]}
         <FilamentItem
           color={data.filamentData.colors[colorKey]}
-          brandName={data.brandData.brand}
+          brandName={stripOfIllegalChars(data.brandData.brand)}
           materialName={data.materialData.material}
           filamentName={data.filamentData.name} />
       {/if}

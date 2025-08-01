@@ -70,7 +70,15 @@ export const actions = {
     }
 
     try {
-      await createMaterial(brand, form.data);
+      let submitData = form.data;
+      // Deserialize data after getting it from front end
+      submitData.generic = JSON.parse(submitData.serializedGeneric);
+      submitData.prusa = JSON.parse(submitData.serializedPrusa);
+      submitData.bambus = JSON.parse(submitData.serializedBambus);
+      submitData.orca = JSON.parse(submitData.serializedOrca);
+      submitData.cura = JSON.parse(submitData.serializedCura);
+
+      await createMaterial(brand, submitData);
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to create material:', error);

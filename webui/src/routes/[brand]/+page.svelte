@@ -10,6 +10,7 @@
   import { browser } from '$app/environment';
   import { brandSchema } from '$lib/validation/filament-brand-schema';
   import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
+  import { stripOfIllegalChars } from '$lib/globalHelpers.js';
   let { data }: PageProps = $props();
 
   const { form, errors, constraints, delayed, message, enhance } = superForm(data.brandForm, {
@@ -100,7 +101,7 @@
       {#key [filteredMaterialKeys, data.brandData.materials]}
         {#each filteredMaterialKeys as materialKey}
           {#if data.brandData.materials[materialKey]}
-            <a href={`/${data.brandData.brand}/${materialKey}`}>
+            <a href={`/${stripOfIllegalChars(data.brandData.brand)}/${materialKey}`}>
               <li
                 class="border rounded p-4 bg-white border-gray-200 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 shadow-md transition-colors flex flex-col justify-between">
                 <div>

@@ -8,7 +8,6 @@
   import { isItemDeleted } from '$lib/pseudoDeleter.js';
   import { filamentMaterialSchema } from '$lib/validation/filament-material-schema.js';
   import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
-  import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
 
