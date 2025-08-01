@@ -5,6 +5,7 @@
   import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
   import { pseudoEdit } from '$lib/pseudoEditor';
   import { realDelete } from '$lib/realDeleter';
+  import { redirect } from '@sveltejs/kit';
   import { booleanProxy } from 'sveltekit-superforms';
 
   type formType = 'edit' | 'create';
@@ -70,10 +71,21 @@
   const enhancedSubmit = (formData: FormData) => {
     formData.set("serializedSizes", JSON.stringify($form.sizes));
 
+    if ($form.traits) {
+      let traitData = $form.traits;
+      // 🤷‍♀️ for some reason $form.traits all has the value of false, setting them to true as if they exist they should be
+      Object.keys(traitData).forEach((key: any) => {
+        traitData[key] == true;
+      });
+      // Also... serialize data before transmitting to backend
+      formData.set("serializedTraits", JSON.stringify(traitData));
+    }
+
     return async ({ result, update }) => {
       const isLocal = env.PUBLIC_IS_LOCAL === 'true';
 
       if (result.type === 'success' && !isLocal) {
+
         const filamentData = {
           color_name: $form.color_name,
           color_hex: $form.color_hex,
@@ -81,14 +93,12 @@
           traits: $form.traits || {},
         };
         pseudoEdit('filament', brandName, filamentData, materialName, filamentName);
+        pseudoUndoDelete('filament', $form.name);
         await invalidateAll();
       }
 
-      if (isLocal) {
-        // Handle case!!
-        // await realDelete('brand', $form.brand);
-      } else {
-        pseudoUndoDelete('filament', $form.name);
+      if (result?.redirect) {
+        redirect(303, result.redirect);
       }
 
       await update();
@@ -401,13 +411,13 @@
                 <div>
                   <div class="flex flex-row items-center">
                     <input
-                    id="size_specific_discontinued"
+                    id="discontinued"
                     type="checkbox"
-                    name="size_specific_discontinued"
+                    name="discontinued"
                     class="accent-blue-600 w-4 h-4 mr-2"
-                    bind:checked={$form.sizes[sizesIndex].size_specific_discontinued} />
+                    bind:checked={$form.sizes[sizesIndex].discontinued} />
 
-                    <label for="size_specific_discontinued" class="inline-block font-medium">
+                    <label for="discontinued" class="inline-block font-medium">
                       Discontinued
                     </label>
                   </div>
@@ -415,8 +425,8 @@
                       Select if this size is discontinued 
                     </p>
                 </div>
-                {#if $errors.size_specific_discontinued}
-                  <span class="text-red-600 text-xs">{$errors.size_specific_discontinued}</span>
+                {#if $errors.discontinued}
+                  <span class="text-red-600 text-xs">{$errors.discontinued}</span>
                 {/if}
               </div>
 

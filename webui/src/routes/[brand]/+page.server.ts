@@ -86,6 +86,7 @@ export const actions = {
       return fail(500, { form });
     }
     setFlash({ type: 'success', message: 'Material created successfully!' }, cookies);
+    redirect(303, `/${brand}/${form.data.material}`);
     return { form, redirect: `/${brand}/${form.data.material}`, success: true };
   },
 };

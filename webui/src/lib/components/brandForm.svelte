@@ -37,11 +37,8 @@
         };
 
         pseudoEdit('brand', $form.brand, brandData);
-        await invalidateAll();
-      }
-
-      if (!isLocal) {
         pseudoUndoDelete('brand', $form.brand);
+        await invalidateAll();
       }
 
       await update();

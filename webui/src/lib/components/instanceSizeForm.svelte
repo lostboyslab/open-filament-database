@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { enhance } from '$app/forms';
   import { env } from '$env/dynamic/public';
   import { pseudoEdit } from '$lib/pseudoEditor';
   import { invalidateAll } from '$app/navigation';
@@ -7,7 +8,6 @@
     form,
     errors,
     message,
-    enhance,
     formType,
     brandName,
     materialName,
@@ -31,18 +31,21 @@
     $form.sizes[sizeIndex].purchase_links = $form.sizes[sizeIndex].purchase_links.filter((_, i) => i !== index);
   }
 
-  // Function to add a new purchase link
+  // Function to add a new size
   function addSize() {
-    if (!$form.sizes) {
-      $form.sizes = [];
+    if (!$form.sizes || $form.sizes.length <= 0) {
+      $form.sizes = [
+        { filament_weight: 0, diameter: 0 }
+      ];
+    } else {
+      $form.sizes = [
+        ...$form.sizes,
+        { filament_weight: 0, diameter: 0 },
+      ];
     }
-    $form.sizes = [
-      ...$form.sizes,
-      { store_id: '', url: '', affiliate: false, ships_from: '', ships_to: '' },
-    ];
   }
 
-  // Function to remove a purchase link
+  // Function to remove a size
   function removeSize(index: number) {
     $form.sizes = $form.sizes.filter((_, i) => i !== index);
   }
@@ -72,11 +75,13 @@
     };
   };
 
-  // Reactive statement to ensure sizes exists
+  // Reactive statement to ensure sizes exists and upadtes
   $effect(() => {
-    if (!$form.sizes) {
+    if (!$form.sizes || $form.sizes.length <= 0) { 
       if (!colorData || !colorData?.sizes) {
-        $form.sizes = [];
+        $form.sizes = [
+          { filament_weight: 0, diameter: 0 }
+        ];
       } else {
         $form.sizes = colorData.sizes;
       }
@@ -88,7 +93,7 @@
   class="max-w-xl mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form 
     method="POST" 
-    use:enhance={({formData}) => {enhancedSubmit(formData)}} 
+    use:enhance={({formData}) => {enhancedSubmit(formData)}}
     action="?/updateSize" 
     class="space-y-5">
     <fieldset>
@@ -246,13 +251,13 @@
                 <div>
                   <div class="flex flex-row items-center">
                     <input
-                    id="size_specific_discontinued"
+                    id="discontinued"
                     type="checkbox"
-                    name="size_specific_discontinued"
+                    name="discontinued"
                     class="accent-blue-600 w-4 h-4 mr-2"
-                    bind:checked={$form.sizes[sizesIndex].size_specific_discontinued} />
+                    bind:checked={$form.sizes[sizesIndex].discontinued} />
 
-                    <label for="size_specific_discontinued" class="inline-block font-medium">
+                    <label for="discontinued" class="inline-block font-medium">
                       Discontinued
                     </label>
                   </div>
@@ -260,8 +265,8 @@
                       Select if this size is discontinued 
                     </p>
                 </div>
-                {#if $errors.size_specific_discontinued}
-                  <span class="text-red-600 text-xs">{$errors.size_specific_discontinued}</span>
+                {#if $errors.discontinued}
+                  <span class="text-red-600 text-xs">{$errors.discontinued}</span>
                 {/if}
               </div>
 

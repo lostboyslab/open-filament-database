@@ -1,12 +1,13 @@
 import type { brandSchema } from '$lib/validation/filament-brand-schema';
 import { type z } from 'zod';
 
+import { error, fail } from '@sveltejs/kit';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import type { baseFilamentSchema } from '$lib/validation/filament-schema';
-import { stripOfIllegalChars, isEmptyObject } from '$lib/globalHelpers';
+import { stripOfIllegalChars, isEmptyObject, isValidJSON } from '$lib/globalHelpers';
 
 export const removeUndefined = (obj: any): any => {
   if (Array.isArray(obj)) {
@@ -349,6 +350,8 @@ export async function createColorFiles(formData: any) {
 
   if (!fs.existsSync(colorFolder)) fs.mkdirSync(colorFolder, { recursive: true });
 
+  // --- 2. Prepare sizes.json (list of objects) ---
+  // Traits are grouped under a "traits" object
   if (formData['sizes']) {
     const sizesPath = path.join(colorFolder, 'sizes.json');
     fs.writeFileSync(sizesPath, JSON.stringify(formData['sizes'], null, 2), 'utf-8');
@@ -358,7 +361,7 @@ export async function createColorFiles(formData: any) {
   const traitKeys = ['translucent', 'glow', 'matte', 'recycled', 'recyclable', 'biodegradable'];
   const traits: Record<string, boolean> = {};
   for (const key of traitKeys) {
-    if (formData[key] !== undefined) traits[key] = formData[key];
+    if (formData?.traits[key] !== undefined) traits[key] = formData.traits[key];
   }
 
   // Only include traits if at least one is present
@@ -372,6 +375,7 @@ export async function createColorFiles(formData: any) {
   // Add any additional fields you want in variant.json
   if (formData.data_sheet_url) variantObj.data_sheet_url = formData.data_sheet_url;
   if (formData.safety_sheet_url) variantObj.safety_sheet_url = formData.safety_sheet_url;
+  if (formData.discontinued) variantObj.discontinued = formData.discontinued;
 
   fs.writeFileSync(
     path.join(colorFolder, 'variant.json'),
@@ -542,26 +546,32 @@ function transformFilamentData(filamentData: any) {
   if (filamentData.density !== undefined) {
     transformedData.density = filamentData.density;
   }
+  if (filamentData.max_dry_temperature !== undefined) {
+    transformedData.max_dry_temperature = filamentData.max_dry_temperature;
+  }
   if (filamentData.data_sheet_url !== undefined) {
     transformedData.data_sheet_url = filamentData.data_sheet_url;
   }
   if (filamentData.safety_sheet_url !== undefined) {
     transformedData.safety_sheet_url = filamentData.safety_sheet_url;
   }
+  if (filamentData.discontinued !== undefined) {
+    transformedData.discontinued = filamentData.discontinued;
+  }
 
-  // Add slicer profile paths if they exist
-  if (filamentData.prusa_profile_path !== undefined) {
-    transformedData.prusa_profile_path = filamentData.prusa_profile_path;
-  }
-  if (filamentData.bambus_profile_path !== undefined) {
-    transformedData.bambus_profile_path = filamentData.bambus_profile_path;
-  }
-  if (filamentData.orca_profile_path !== undefined) {
-    transformedData.orca_profile_path = filamentData.orca_profile_path;
-  }
-  if (filamentData.cura_profile_path !== undefined) {
-    transformedData.cura_profile_path = filamentData.cura_profile_path;
-  }
+  // // Add slicer profile paths if they exist
+  // if (filamentData.prusa_profile_path !== undefined) {
+  //   transformedData.prusa_profile_path = filamentData.prusa_profile_path;
+  // }
+  // if (filamentData.bambus_profile_path !== undefined) {
+  //   transformedData.bambus_profile_path = filamentData.bambus_profile_path;
+  // }
+  // if (filamentData.orca_profile_path !== undefined) {
+  //   transformedData.orca_profile_path = filamentData.orca_profile_path;
+  // }
+  // if (filamentData.cura_profile_path !== undefined) {
+  //   transformedData.cura_profile_path = filamentData.cura_profile_path;
+  // }
 
   return removeUndefined(transformedData);
 }
@@ -710,7 +720,7 @@ export async function updateColorSize(
   materialName: string,
   filamentName: string,
   colorName: string,
-  sizeData: any,
+  sizeData: Object,
 ) {
   const colorDir = path.join(DATA_DIR, brandName, materialName, filamentName, colorName);
 
@@ -720,38 +730,8 @@ export async function updateColorSize(
 
   try {
     const sizesPath = path.join(colorDir, 'sizes.json');
-
-    // Prepare size object
-    const sizeObj: any = {};
-
-    // Map form fields to JSON structure
-    if (sizeData.filament_weight !== undefined) sizeObj.filament_weight = sizeData.filament_weight;
-    if (sizeData.empty_spool_weight !== undefined)
-      sizeObj.empty_spool_weight = sizeData.empty_spool_weight;
-    if (sizeData.diameter !== undefined) sizeObj.diameter = sizeData.diameter;
-    if (sizeData.spool_refill !== undefined) sizeObj.spool_refill = sizeData.spool_refill;
-    if (sizeData.sku !== undefined) sizeObj.sku = sizeData.sku;
-    if (sizeData.ean !== undefined) sizeObj.ean = sizeData.ean;
-
-    // Handle purchase links if provided
-    if (sizeData.store_id || sizeData.url || sizeData.ships_from || sizeData.ships_to) {
-      const purchaseLink: any = {};
-      if (sizeData.store_id) purchaseLink.store_id = sizeData.store_id;
-      if (sizeData.url) purchaseLink.url = sizeData.url;
-      if (sizeData.affiliate !== undefined) purchaseLink.affiliate = sizeData.affiliate;
-      if (sizeData.ships_from) purchaseLink.ships_from = sizeData.ships_from;
-      if (sizeData.ships_to) purchaseLink.ships_to = sizeData.ships_to;
-
-      if (Object.keys(purchaseLink).length > 0) {
-        sizeObj.purchase_links = [purchaseLink];
-      }
-    }
-
-    // Always create or update the single size object
-    const sizesArr = [removeUndefined(sizeObj)];
-
-    fs.writeFileSync(sizesPath, JSON.stringify(sizesArr, null, 2), 'utf-8');
-    console.log(`Size updated: ${brandName}/${materialName}/${filamentName}/${colorName}`);
+    // Yes we're just dumping raw JSON to a file.
+    fs.writeFileSync(sizesPath, JSON.stringify(sizeData, null, 2), 'utf-8');
   } catch (error) {
     console.error('Error updating color size:', error);
     throw error;

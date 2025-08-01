@@ -50,11 +50,8 @@
 
         // Apply pseudo edit for web version
         pseudoEdit('material', brandName, materialData);
-        await invalidateAll();
-      }
-
-      if (!isLocal) {
         pseudoUndoDelete('material', $form.material);
+        await invalidateAll();
       }
 
       await update();

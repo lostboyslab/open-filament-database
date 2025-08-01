@@ -24,7 +24,15 @@
   const recyclable = booleanProxy(form, 'traits.recyclable');
   const biodegradable = booleanProxy(form, 'traits.biodegradable');
 
-  const enhancedSubmit = () => {
+  const enhancedSubmit = (formData: FormData) => {
+    let traitData = $form.traits;
+    // 🤷‍♀️ for some reason $form.traits all has the value of false, setting them to true as if they exist they should be
+    Object.keys(traitData).forEach((key: any) => {
+      traitData[key] == true
+    });
+    // Also... serialize data before transmitting to backend
+    formData.set("serializedTraits", JSON.stringify(traitData));
+
     return async ({ result, update }) => {
       const isLocal = env.PUBLIC_IS_LOCAL === 'true';
 
@@ -62,7 +70,7 @@
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form 
     method="POST"
-    use:enhance={enhancedSubmit}
+    use:enhance={({formData}) => {enhancedSubmit(formData)}}
     action="?/updateVariant" 
     class="space-y-5" >
     <h3 class="text-xl font-bold mb-4">{formType === 'edit' ? 'Edit' : 'Create'} Color Variant</h3>
