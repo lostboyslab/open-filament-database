@@ -35,12 +35,12 @@
   function addSize() {
     if (!$form.sizes || $form.sizes.length <= 0) {
       $form.sizes = [
-        { filament_weight: 0, diameter: 0 }
+        { filament_weight: undefined, diameter: undefined }
       ];
     } else {
       $form.sizes = [
         ...$form.sizes,
-        { filament_weight: 0, diameter: 0 },
+        { filament_weight: undefined, diameter: undefined },
       ];
     }
   }
@@ -51,7 +51,7 @@
   }
 
   // Enhanced form submission
-  const enhancedSubmit = (formData: FormData) => {
+  const enhancedSubmit = ({ formData }) => {
     formData.set("serializedSizes", JSON.stringify($form.sizes));
 
     return async ({ result, update }) => {
@@ -75,13 +75,11 @@
     };
   };
 
-  // Reactive statement to ensure sizes exists and upadtes
+  // Reactive statement to ensure sizes exists and updates
   $effect(() => {
     if (!$form.sizes || $form.sizes.length <= 0) { 
       if (!colorData || !colorData?.sizes) {
-        $form.sizes = [
-          { filament_weight: 0, diameter: 0 }
-        ];
+        $form.sizes = [];
       } else {
         $form.sizes = colorData.sizes;
       }
@@ -93,7 +91,7 @@
   class="max-w-xl mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form 
     method="POST" 
-    use:enhance={({formData}) => {enhancedSubmit(formData)}}
+    use:enhance={enhancedSubmit}
     action="?/updateSize" 
     class="space-y-5">
     <fieldset>
@@ -106,6 +104,9 @@
           + Add Size
         </button>
       </div>
+      {#if $form.sizes.length <= 0}
+        <span class="text-red-600 text-xs">You need at least one size</span>
+      {/if}
 
       {#if $form.sizes && $form.sizes.length > 0}
         <div class="space-y-5">

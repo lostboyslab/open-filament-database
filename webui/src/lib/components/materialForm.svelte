@@ -25,7 +25,7 @@
     }
   }
 
-  const enhancedSubmit = (formData: FormData) => {
+  const enhancedSubmit = ({ formData }) => {
     // Serialize data for transmittance to back end
     formData.set("serializedGeneric", JSON.stringify($form.generic));
     formData.set("serializedPrusa", JSON.stringify($form.prusa));
@@ -99,7 +99,7 @@
   class="max-w-md mx-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8 text-gray-900 dark:text-gray-100">
   <form
     method="POST"
-    use:enhance={({formData}) => {enhancedSubmit(formData)}}
+    use:enhance={enhancedSubmit}
     action="?/material"
     enctype="multipart/form-data"
     class="space-y-5">

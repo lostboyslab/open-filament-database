@@ -650,6 +650,8 @@ export async function updateColorVariant(
     const traitKeys = ['translucent', 'glow', 'matte', 'recycled', 'recyclable', 'biodegradable'];
     const traits: Record<string, boolean> = {};
 
+    console.log(variantData);
+
     for (const key of traitKeys) {
       if (variantData[key] !== undefined) {
         traits[key] = variantData[key];
@@ -669,9 +671,7 @@ export async function updateColorVariant(
     // Add optional fields
     if (variantData.data_sheet_url) variantObj.data_sheet_url = variantData.data_sheet_url;
     if (variantData.safety_sheet_url) variantObj.safety_sheet_url = variantData.safety_sheet_url;
-    if (variantData.url) variantObj.url = variantData.url;
-    if (variantData.affiliate !== undefined) variantObj.affiliate = variantData.affiliate;
-    if (variantData.sku) variantObj.sku = variantData.sku;
+    if (variantData.discontinued) variantObj.discontinued = variantData.discontinued;
 
     // Check if the color name has changed and requires folder rename
     if (variantData.color_name !== colorName) {

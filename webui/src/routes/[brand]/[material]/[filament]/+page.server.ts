@@ -83,17 +83,18 @@ export const actions = {
       if (isValidJSON(form.data.serializedSizes)) {
         let tempSizesArr = JSON.parse(filteredData.serializedSizes);
 
-        tempSizesArr.filter((li, i) => {
-          Object.keys(li).forEach((key) => {
-            if (!li[key]) delete li[key];
+        Array.from(tempSizesArr).forEach((size, si) => {
+          Object.keys(size).forEach((key) => {
+            if (!size[key]) {
+              delete size[key];
+            }
+
+            if (size[key] === "") {
+              delete size[key];
+            }
           });
-
-          if (li) {
-            tempSizesArr[i] = li;
-            return false;
-          }
-
-          return true;
+          
+          tempSizesArr[si] = size;
         });
 
         filteredData['sizes'] = tempSizesArr;

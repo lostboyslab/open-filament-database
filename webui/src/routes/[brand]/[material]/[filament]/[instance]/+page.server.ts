@@ -157,6 +157,8 @@ export const actions = {
     const form = await superValidate(request, zod(filamentVariantSchema));
     const { brand, material, filament, instance } = params;
 
+    console.log(form);
+
     if (!form.valid) {
       return fail(400, { form });
     }
@@ -190,6 +192,6 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Variant updated successfully!' }, cookies);
-    return { form, success: true };
+    return { form, type: 'success', redirect: `/${brand}/${material}/${filament}/${form.data.color_name}` };
   },
 };

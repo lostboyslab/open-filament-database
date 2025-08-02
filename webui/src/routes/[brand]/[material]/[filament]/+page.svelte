@@ -25,6 +25,7 @@
     message: filamentVariantMessage,
     enhance: filamentVariantEnhance,
   } = superForm(data.filamentVariantForm, {
+    dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
     validators: zodClient(filamentSchema),
