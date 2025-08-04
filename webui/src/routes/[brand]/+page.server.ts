@@ -23,9 +23,6 @@ export const load: PageServerLoad = async ({ params, parent, cookies }) => {
   }
 
   const brandData = filamentData.brands[brandKey];
-  const materialKey = Object.keys(brandData.materials).find(
-    (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand,
-  );
 
   const formData = {
     brand: brandData.brand,
@@ -59,19 +56,20 @@ export const actions = {
       setFlash({ type: 'error', message: 'Failed to update brand. Please try again.' }, cookies);
       return fail(500, { form });
     }
+
     setFlash({ type: 'success', message: 'Brand updated successfully!' }, cookies);
     redirect(303, `/${stripOfIllegalChars(form.data.brand)}/`);
   },
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
     const { brand } = params;
+
     if (!form.valid) {
       fail(400, { form });
     }
 
     try {
       let submitData = form.data;
-      // Deserialize data after getting it from front end
       submitData.generic = JSON.parse(submitData.serializedGeneric);
       submitData.prusa = JSON.parse(submitData.serializedPrusa);
       submitData.bambus = JSON.parse(submitData.serializedBambus);
@@ -85,8 +83,8 @@ export const actions = {
       setFlash({ type: 'error', message: 'Failed to create material. Please try again.' }, cookies);
       return fail(500, { form });
     }
+    
     setFlash({ type: 'success', message: 'Material created successfully!' }, cookies);
     redirect(303, `/${brand}/${form.data.material}`);
-    return { form, redirect: `/${brand}/${form.data.material}`, success: true };
   },
 };

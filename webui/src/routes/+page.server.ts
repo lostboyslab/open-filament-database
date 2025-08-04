@@ -17,35 +17,16 @@ export const actions = {
     const form = await superValidate(request, zod(brandSchema));
 
     if (!form.valid) {
-      setFlash({ type: 'error', message: 'Please check your form data.' }, cookies);
-
-      const sanitizedForm = {
-        ...form,
-        data: {
-          ...form.data,
-          logo: undefined,
-        },
-      };
-
-      return fail(400, { form: sanitizedForm });
+      return fail(400, { form });
     }
 
     try {
       await createBrand(form.data);
-
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to create brand:', error);
       setFlash({ type: 'error', message: 'Failed to create brand. Please try again.' }, cookies);
-      const sanitizedForm = {
-        ...form,
-        data: {
-          ...form.data,
-          logo: undefined,
-        },
-      };
-
-      return fail(500, { form: sanitizedForm });
+      return fail(500, { form });
     }
 
     redirect(stripOfIllegalChars(form.data.brand), { type: 'success', message: 'Brand created successfully!' }, cookies);

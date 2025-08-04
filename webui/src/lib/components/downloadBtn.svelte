@@ -38,7 +38,7 @@
 <button
   type="button"
   class="flex items-center gap-2 p-2 mb-2 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-green-100 hover:text-green-700 dark:hover:bg-green-900 dark:hover:text-green-300 shadow transition-colors"
-  aria-label="Download All Colors"
+  aria-label="Download All Variants"
   onclick={() => downloadFilament(brandName, materialName, filamentName)}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -49,5 +49,5 @@
     stroke-width="2">
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-6-6m6 6l6-6" />
   </svg>
-  <span class="text-sm font-medium">Download All Colors</span>
+  <span class="text-sm font-medium">Download All Variants</span>
 </button>

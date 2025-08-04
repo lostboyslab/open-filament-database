@@ -1,11 +1,11 @@
 <script lang="ts">
-  import CreateNew from '$lib/components/createNew.svelte';
   import DownloadBtn from '$lib/components/downloadBtn.svelte';
   import EditModal from '$lib/components/editModal.svelte';
-  import FilamentForm from '$lib/components/filamentForm.svelte';
-  import FilamentItem from '$lib/components/filamentItem.svelte';
-  import FilamentVariantForm from '$lib/components/filamentVariantForm.svelte';
-  import { baseFilamentSchema, filamentSchema } from '$lib/validation/filament-schema.js';
+  import FilamentForm from '$lib/components/forms/filament/filamentForm.svelte';
+  import FilamentItem from '$lib/components/items/filamentItem.svelte';
+  import VariantForm from '$lib/components/forms/variant/VariantForm.svelte';
+  import { filamentSchema } from '$lib/validation/filament-schema.js';
+  import { filamentVariantSchema } from '$lib/validation/filament-variant-schema.js';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
   import { stripOfIllegalChars } from '$lib/globalHelpers.js';
@@ -16,19 +16,19 @@
   const { form, errors, message, enhance } = superForm(data.filamentForm, {
     resetForm: false,
     validationMethod: 'onblur',
-    validators: zodClient(baseFilamentSchema),
+    validators: zodClient(filamentSchema),
   });
 
   const {
-    form: filamentVariantForm,
-    errors: filamentVariantErrors,
-    message: filamentVariantMessage,
-    enhance: filamentVariantEnhance,
+    form: variantForm,
+    errors: variantErrors,
+    message: variantMessage,
+    enhance: variantEnhance,
   } = superForm(data.filamentVariantForm, {
     dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
-    validators: zodClient(filamentSchema),
+    validators: zodClient(filamentVariantSchema),
   });
 </script>
 
@@ -47,7 +47,6 @@
     <FilamentForm
       form={form}
       errors={errors}
-      message={message}
       brandName={stripOfIllegalChars(data.brandData.brand)}
       materialName={data.materialData.material}
       formType={'edit'} />
@@ -56,16 +55,17 @@
   <h2 class="text-2xl font-semibold mb-4">Colors & Sizes</h2>
   <div class="space-y-6">
     <div class="flex justify-between">
-      <CreateNew>
-        <FilamentVariantForm
-          form={filamentVariantForm}
-          errors={filamentVariantErrors}
-          message={filamentVariantMessage}
+      <EditModal
+      btnType={'create'}
+    >
+        <VariantForm
+          form={variantForm}
+          errors={variantErrors}
           brandName={stripOfIllegalChars(data.brandData.brand)}
           materialName={data.materialData.material}
           filamentName={data.filamentData.name}
           formType={'create'} />
-      </CreateNew>
+      </EditModal>
       <DownloadBtn
         brandName={stripOfIllegalChars(data.brandData.brand)}
         materialName={data.materialData.material}

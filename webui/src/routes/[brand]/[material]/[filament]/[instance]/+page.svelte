@@ -1,12 +1,9 @@
 <script lang="ts">
   import EditModal from '$lib/components/editModal.svelte';
-  import InstanceSizeForm from '$lib/components/instanceSizeForm.svelte';
-  import InstanceVariantForm from '$lib/components/instanceVariantForm.svelte';
   import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
-  import { filamentSizeSchemas } from '$lib/validation/filament-size-schema';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
-  import InstanceDeleteButton from '$lib/components/instanceDeleteButton.svelte';
+  import VariantForm from '$lib/components/forms/variant/VariantForm.svelte';
   const { data } = $props();
 
   const {
@@ -19,18 +16,6 @@
     resetForm: false,
     validationMethod: 'onblur',
     validators: zodClient(filamentVariantSchema),
-  });
-
-  const {
-    form: sizeForm,
-    errors: sizeErrors,
-    message: sizeMessage,
-    enhance: sizeEnhance,
-  } = superForm(data.sizeForm, {
-    dataType: 'json',
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(filamentSizeSchemas),
   });
 </script>
 
@@ -63,33 +48,16 @@
       </div>
       <div class="btn-wraper flex gap-2">
         {#key data.colorData}
-          <EditModal spanText={'Edit Size'}>
-            <InstanceSizeForm
-              form={sizeForm}
-              errors={sizeErrors}
-              message={sizeMessage}
+          <EditModal spanText={'Edit Variant'}>
+            <VariantForm
+              form={variantForm}
+              errors={variantErrors}
               brandName={data.brandData.brand}
               materialName={data.materialData.material}
               filamentName={data.filamentData.name}
               colorData={data.colorData}
               formType={'edit'} />
           </EditModal>
-          <EditModal spanText={'Edit Variant'}>
-            <InstanceVariantForm
-              form={variantForm}
-              errors={variantErrors}
-              message={variantMessage}
-              brandName={data.brandData.brand}
-              materialName={data.materialData.material}
-              filamentName={data.filamentData.name}
-              colorName={data.colorData.name}
-              formType={'edit'} />
-          </EditModal>
-          <InstanceDeleteButton
-            brandName={data.brandData.brand}
-            materialName={data.materialData.material}
-            filamentName={data.filamentData.name}
-            instanceName={data.colorData.name} />
         {/key}
       </div>
     </div>

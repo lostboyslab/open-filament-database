@@ -1,10 +1,9 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import CreateNew from '$lib/components/createNew.svelte';
   import EditModal from '$lib/components/editModal.svelte';
-  import FilamentForm from '$lib/components/filamentForm.svelte';
-  import MaterialForm from '$lib/components/materialForm.svelte';
-  import MaterialItem from '$lib/components/MaterialItem.svelte';
+  import FilamentForm from '$lib/components/forms/filament/filamentForm.svelte';
+  import MaterialForm from '$lib/components/forms/material/materialForm.svelte';
+  import MaterialItem from '$lib/components/items/materialItem.svelte';
   import { isItemDeleted } from '$lib/pseudoDeleter.js';
   import { filamentMaterialSchema } from '$lib/validation/filament-material-schema.js';
   import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
@@ -46,6 +45,7 @@
     message: filamentMessage,
     enhance: filamentEnhance,
   } = superForm(data.filamentForm, {
+    dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
     validators: zodClient(filamentVariantSchema),
@@ -66,26 +66,29 @@
     Filaments for {data.materialData.material}
   </h1>
   <div class="btn-wrapper flex gap-2">
-    <EditModal>
+    <EditModal
+      spanText={data?.materialData?.material ? `Edit ${data.materialData.material}` : ""}
+    >
       <MaterialForm
         form={materialForm}
         errors={materialErrors}
-        message={materialMessage}
         brandName={data.brandData.brand}
         formType={'edit'} />
     </EditModal>
-    <CreateNew
-      ><FilamentForm
+    <EditModal
+      btnType={'create'}
+      spanText="Create filament"
+    >
+      <FilamentForm
         form={filamentForm}
         errors={filamentErrors}
-        message={filamentMessage}
         brandName={data.brandData.brand}
         materialName={data.materialData.material}
         formType={'create'} />
-    </CreateNew>
+    </EditModal>
   </div>
 
-  <div class="space-y-8">
+  <div class="flex space-x-4 space-y-4 mt-2">
     {#key [filteredFilamentKeys, data.materialData.filaments]}
       {#each filteredFilamentKeys as filamentKey}
         {#if data.materialData.filaments[filamentKey]}

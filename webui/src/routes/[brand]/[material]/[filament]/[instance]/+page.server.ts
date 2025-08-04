@@ -4,7 +4,6 @@ import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { removeUndefined, updateColorSize, updateColorVariant } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
-import { filamentSizeSchemas } from '$lib/validation/filament-size-schema';
 import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
 import { env } from '$env/dynamic/public';
 import { refreshDatabase } from '$lib/dataCacher';
@@ -81,7 +80,6 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     },
   };
 
-  const sizeForm = await superValidate(sizeData, zod(filamentSizeSchemas));
   const variantForm = await superValidate(variantData, zod(filamentVariantSchema));
 
   return {
@@ -89,13 +87,13 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     materialData,
     filamentData: filamentDataObj,
     colorData,
-    sizeForm,
     variantForm,
   };
 };
 
 export const actions = {
   updateSize: async ({ request, params, cookies }) => {
+    /*
     const form = await superValidate(request, zod(filamentSizeSchemas));
     const { brand, material, filament, instance } = params;
 
@@ -149,8 +147,8 @@ export const actions = {
       return fail(500, { form });
     }
 
-    setFlash({ type: 'success', message: 'Size updated successfully!' }, cookies);
-    return { form, success: true };
+    setFlash({ type: 'success', message: 'Size updated successfully!' }, cookies);*/
+    return { success: true };
   },
 
   updateVariant: async ({ request, params, cookies }) => {

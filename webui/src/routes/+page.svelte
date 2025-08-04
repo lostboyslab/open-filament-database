@@ -1,8 +1,8 @@
 <script>
   import { superForm } from 'sveltekit-superforms';
-  import BrandForm from '$lib/components/brandForm.svelte';
-  import BrandItem from '$lib/components/brandItem.svelte';
-  import CreateNew from '$lib/components/createNew.svelte';
+  import BrandForm from '$lib/components/forms/brand/brandForm.svelte';
+  import BrandItem from '$lib/components/items/brandItem.svelte';
+  import EditModal from '$lib/components/editModal.svelte';
   import { zodClient } from 'sveltekit-superforms/adapters';
   import { brandSchema } from '$lib/validation/filament-brand-schema.js';
   import { browser } from '$app/environment';
@@ -10,6 +10,7 @@
   import { isItemDeleted } from '$lib/pseudoDeleter.js';
   const { data } = $props();
   const { form, errors, constraints, delayed, message } = superForm(data.form, {
+    dataType: 'json',
     resetForm: false,
     validationMethod: 'onblur',
     validators: zodClient(brandSchema),
@@ -34,9 +35,11 @@
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">Brands</h1>
 
-  <CreateNew>
+  <EditModal
+    btnType={'create'}
+  >
     <BrandForm {form} {errors} {constraints} {delayed} {message} formType={'create'} />
-  </CreateNew>
+  </EditModal>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     {#each Object.entries(filteredBrands) as [brandName, brandData]}
       <BrandItem {brandName} {brandData} />

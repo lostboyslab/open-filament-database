@@ -3,12 +3,13 @@ import type { RequestHandler } from './$types';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { env } from '$env/dynamic/public';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Path to your data directory
-const DATA_DIR = path.join(__dirname, '../../../../../data');
+const DATA_DIR = env.PUBLIC_DATA_PATH;
 
 export const GET: RequestHandler = async ({ params }) => {
   try {

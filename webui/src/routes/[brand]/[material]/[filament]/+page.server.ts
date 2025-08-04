@@ -2,7 +2,8 @@ import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import { baseFilamentSchema, filamentSchema } from '$lib/validation/filament-schema';
+import { filamentSchema } from '$lib/validation/filament-schema';
+import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
 import { createColorFiles, removeUndefined, updateFilament } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { refreshDatabase } from '$lib/dataCacher';
@@ -34,8 +35,8 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   if (!filamentKey) throw error(404, 'Filament not found');
   const filamentDataObj = materialData.filaments[filamentKey];
 
-  const filamentForm = await superValidate(filamentDataObj, zod(baseFilamentSchema));
-  const filamentVariantForm = await superValidate(zod(filamentSchema));
+  const filamentForm = await superValidate(filamentDataObj, zod(filamentSchema));
+  const filamentVariantForm = await superValidate(zod(filamentVariantSchema));
 
   return {
     brandData,
@@ -48,7 +49,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 
 export const actions = {
   filament: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(baseFilamentSchema));
+    const form = await superValidate(request, zod(filamentSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
@@ -69,8 +70,7 @@ export const actions = {
     return { form, success: true };
   },
   instance: async ({ request, params, cookies }) => {
-    let data = await request.formData();
-    const form = await superValidate(data, zod(filamentSchema));
+    const form = await superValidate(request, zod(filamentVariantSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
