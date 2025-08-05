@@ -5,10 +5,6 @@
   import MaterialForm from '$lib/components/forms/material/materialForm.svelte';
   import MaterialItem from '$lib/components/items/materialItem.svelte';
   import { isItemDeleted } from '$lib/pseudoDeleter.js';
-  import { filamentMaterialSchema } from '$lib/validation/filament-material-schema.js';
-  import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
-  import { superForm } from 'sveltekit-superforms';
-  import { zodClient } from 'sveltekit-superforms/adapters';
 
   const { data } = $props();
   let filamentKeys = Object.keys(data.materialData.filaments ?? {});
@@ -27,30 +23,6 @@
         ),
   );
 
-  const {
-    form: materialForm,
-    errors: materialErrors,
-    message: materialMessage,
-    enhance: materialEnhance,
-  } = superForm(data.materialForm, {
-    dataType: 'json',
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(filamentMaterialSchema),
-  });
-
-  const {
-    form: filamentForm,
-    errors: filamentErrors,
-    message: filamentMessage,
-    enhance: filamentEnhance,
-  } = superForm(data.filamentForm, {
-    dataType: 'json',
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(filamentVariantSchema),
-  });
-
   $effect(() => {
     filamentKeys = Object.keys(data.materialData.filaments ?? {});
   });
@@ -67,24 +39,25 @@
   </h1>
   <div class="btn-wrapper flex gap-2">
     <EditModal
+      externalStyling="bg-yellow-600 hover:bg-yellow-700 border border-gray-300 dark:border-gray-700 mb-4 rounded-lg shadow transition-colors"
       spanText={data?.materialData?.material ? `Edit ${data.materialData.material}` : ""}
     >
       <MaterialForm
-        form={materialForm}
-        errors={materialErrors}
+        defaultForm={data.materialForm}
         brandName={data.brandData.brand}
         formType={'edit'} />
     </EditModal>
     <EditModal
+      externalStyling="bg-blue-500 hover:bg-blue-700 border border-gray-300 dark:border-gray-700 mb-4 rounded-lg shadow transition-colors"
       btnType={'create'}
-      spanText="Create filament"
+      spanText="Add filament"
     >
       <FilamentForm
-        form={filamentForm}
-        errors={filamentErrors}
+        defaultForm={data.filamentForm}
         brandName={data.brandData.brand}
         materialName={data.materialData.material}
-        formType={'create'} />
+        formType={'create'} 
+      />
     </EditModal>
   </div>
 

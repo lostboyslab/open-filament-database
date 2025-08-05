@@ -1,23 +1,12 @@
 <script lang="ts">
+  import Fa from 'svelte-fa'
+  import { faX } from '@fortawesome/free-solid-svg-icons'
   import EditModal from '$lib/components/editModal.svelte';
-  import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
-  import { superForm } from 'sveltekit-superforms';
-  import { zodClient } from 'sveltekit-superforms/adapters';
   import VariantForm from '$lib/components/forms/variant/VariantForm.svelte';
   import SizeItem from '$lib/components/items/sizeItem.svelte';
-  const { data } = $props();
+  import Tooltip from "sv-tooltip"
 
-  const {
-    form: variantForm,
-    errors: variantErrors,
-    message: variantMessage,
-    enhance: variantEnhance,
-  } = superForm(data.variantForm, {
-    dataType: 'json',
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(filamentVariantSchema),
-  });
+  const { data } = $props();
 </script>
 
 <svelte:head>
@@ -30,29 +19,47 @@
   <div
     class="border rounded-lg p-8 bg-white border-gray-200 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors mb-2">
     <!-- Header Section -->
-    <div class="flex items-center justify-between mb-8">
-      <div class="flex items-center gap-4">
-        {#if data.colorData.variant?.color_hex}
-          <span
-            class="inline-block w-12 h-12 rounded-full border-2 border-gray-300 dark:border-gray-600 shadow-lg"
-            style="background-color: {data.colorData.variant.color_hex};"
-            title={data.colorData.variant.color_hex}></span>
-        {/if}
-        <div>
-          <h1 class="text-4xl font-bold mb-1">{data.colorData.name}</h1>
+    <div class="flex items-center justify-between">
+      <div> 
+        <div class="flex text-left items-center gap-4">
           {#if data.colorData.variant?.color_hex}
-            <span class="text-lg text-gray-500 dark:text-gray-400 font-mono">
-              {data.colorData.variant.color_hex}
-            </span>
+            <span
+              class="inline-block w-12 h-12 rounded-full border-2 border-gray-300 dark:border-gray-600 shadow-lg"
+              style="background-color: {data.colorData.variant.color_hex};"
+              title={data.colorData.variant.color_hex}></span>
           {/if}
+
+          <div>
+            <h1 class="text-4xl font-bold mb-1">{data.colorData.name}</h1>
+
+            {#if data.colorData.variant?.color_hex}
+              <span class="text-lg text-gray-500 dark:text-gray-400 font-mono">
+                {data.colorData.variant.color_hex}
+              </span>
+            {/if}
+          </div>
         </div>
+
+        {#if data.colorData.variant?.discontinued}
+          <Tooltip tip="It has being marked as no longer being made" right>
+            <span class="text-red-500 flex items-center">
+              <div class="bg-red-700 mr-1 p-1 rounded-md">
+                <Fa icon={faX} />
+              </div>
+              Discontinued
+            </span>
+          </Tooltip>
+        {/if}
       </div>
+
       <div class="btn-wraper flex gap-2">
         {#key data.colorData}
-          <EditModal spanText={'Edit Variant'}>
+          <EditModal
+            externalStyling="bg-yellow-600 hover:bg-yellow-700 border border-gray-300 dark:border-gray-700 mb-4 rounded-lg shadow transition-colors" 
+            spanText={'Edit Variant'}
+          >
             <VariantForm
-              form={variantForm}
-              errors={variantErrors}
+              defaultForm={data.variantForm}
               brandName={data.brandData.brand}
               materialName={data.materialData.material}
               filamentName={data.filamentData.name}

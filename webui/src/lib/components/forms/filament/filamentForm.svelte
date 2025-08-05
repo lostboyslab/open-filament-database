@@ -1,19 +1,36 @@
 <script lang="ts">
-  import { invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
-  import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
-  import { pseudoEdit } from '$lib/pseudoEditor';
+  import { pseudoDelete } from '$lib/pseudoDeleter';
   import { realDelete } from '$lib/realDeleter';
-  import { redirect } from '@sveltejs/kit';
   import DeleteButton from '../components/deleteButton.svelte';
   import DiscontinuedCheck from '../components/discontinuedCheck.svelte';
   import Form from '../components/form.svelte';
   import NumberField from '../components/numberField.svelte';
   import SubmitButton from '../components/submitButton.svelte';
   import TextField from '../components/textField.svelte';
+  import { superForm } from 'sveltekit-superforms';
+  import { zodClient } from 'sveltekit-superforms/adapters';
+  import { filamentSchema } from '$lib/validation/filament-schema';
 
   type formType = 'edit' | 'create';
-  let { form, errors, formType: formType, brandName, materialName } = $props();
+  let { defaultForm, formType: formType, brandName, materialName } = $props();
+
+  const {
+    form,
+    errors,
+    message,
+    enhance,
+  } = superForm(defaultForm, {
+    dataType: 'json',
+    resetForm: false,
+    invalidateAll: false,
+    clearOnSubmit: "none",
+    validationMethod: 'onblur',
+    validators: zodClient(filamentSchema),
+    onResult: ({ result}) => {
+      console.log(result);
+    }
+  });
 
   async function handleDelete() {
     if (
@@ -31,28 +48,11 @@
     }
   }
 
-  const enhancedSubmit = () => {
-    return async ({ result, update }) => {
-      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
-
-      if (result.type === 'success' && !isLocal) {
-        const filamentData = {
-          name: $form.name,
-        };
-
-        pseudoEdit('filament', brandName, filamentData, materialName);
-        pseudoUndoDelete('filament', $form.name);
-        await invalidateAll();
-      }
-
-      await update();
-    };
-  };
 </script>
 
 <Form
-  enhancedSubmit={enhancedSubmit}
   endpoint="filament"
+  enhance={enhance}
 >
   <TextField
     id="name"

@@ -9,12 +9,6 @@
   import { stripOfIllegalChars } from '$lib/globalHelpers';
   import { isItemDeleted } from '$lib/pseudoDeleter.js';
   const { data } = $props();
-  const { form, errors, constraints, delayed, message } = superForm(data.form, {
-    dataType: 'json',
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(brandSchema),
-  });
 
   const filamentData = $derived(data.filamentData);
 
@@ -36,9 +30,11 @@
   <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">Brands</h1>
 
   <EditModal
+    externalStyling="bg-blue-500 hover:bg-blue-700 border border-gray-300 dark:border-gray-700 mb-4 rounded-lg shadow transition-colors"
     btnType={'create'}
+    spanText="Add brand"
   >
-    <BrandForm {form} {errors} {constraints} {delayed} {message} formType={'create'} />
+    <BrandForm defaultForm={data.form} formType={'create'} />
   </EditModal>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     {#each Object.entries(filteredBrands) as [brandName, brandData]}

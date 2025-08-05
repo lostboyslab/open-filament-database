@@ -1,4 +1,7 @@
 <script lang="ts">
+  import Fa from 'svelte-fa'
+  import { faPen, faX } from '@fortawesome/free-solid-svg-icons'
+  import Tooltip from "sv-tooltip"
   let { color, brandName, materialName, filamentName } = $props();
 
   $inspect('Color Item', color);
@@ -18,10 +21,7 @@
         viewBox="0 0 24 24"
         stroke="currentColor"
         stroke-width="2">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M16.862 4.487a2.25 2.25 0 1 1 3.182 3.182l-11.25 11.25a2 2 0 0 1-.878.513l-4 1a.5.5 0 0 1-.606-.606l1-4a2 2 0 0 1 .513-.878l11.25-11.25z" />
+        <Fa icon={faPen} />
       </svg>
       <span class="text-sm font-medium">Edit</span>
     </a>
@@ -38,6 +38,17 @@
       <span class="font-medium">{color.name}</span>
       {#if color.variant?.color_hex}
         <span class="text-xs text-gray-500 dark:text-gray-400">{color.variant.color_hex}</span>
+      {/if}
+
+      {#if color.variant?.discontinued}
+        <Tooltip tip={`${color.name} Is no longer being made`} right>
+          <span class="text-xs text-red-500 flex items-center">
+            <div class="bg-red-700 mr-1 p-1 rounded-md">
+              <Fa icon={faX} />
+            </div>
+            Discontinued
+          </span>
+        </Tooltip>
       {/if}
     </div>
   </div>

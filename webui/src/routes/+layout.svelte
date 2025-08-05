@@ -10,6 +10,8 @@
 
   let flash = getFlash(page);
   let { children }: LayoutProps = $props();
+
+  let currentYear = new Date().getFullYear();
 </script>
 
 {#if $flash}
@@ -86,7 +88,7 @@
     class="bg-gray-900 dark:bg-gray-800 text-white text-center p-2 mt-5 shadow-inner"
     style="position: fixed; bottom: 0; width: 100vw; display: inline;"
   >
-    © 2025 Open Filament Database – All rights reserved
+    © {currentYear} Open Filament Database – All rights reserved
 
     {#if isLocal}
       <button

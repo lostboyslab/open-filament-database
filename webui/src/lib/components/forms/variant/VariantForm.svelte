@@ -1,8 +1,6 @@
 <script lang="ts">
   import { env } from '$env/dynamic/public';
-  import { pseudoEdit } from '$lib/pseudoEditor';
-  import { invalidateAll } from '$app/navigation';
-  import { pseudoUndoDelete } from '$lib/pseudoDeleter';
+  import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
   import { realDelete } from '$lib/realDeleter';
   import { pseudoDelete } from '$lib/pseudoDeleter';
   import { traitsSchema } from '$lib/validation/filament-variant-schema';
@@ -16,9 +14,28 @@
   import HexPicker from './components/hexPicker.svelte';
   import Size from './components/size.svelte';
   import Trait from './components/trait.svelte';
+  import { superForm } from 'sveltekit-superforms';
+  import { zodClient } from 'sveltekit-superforms/adapters';
 
   type formType = 'edit' | 'create';
-  let { form, errors, formType, brandName, materialName, filamentName, colorData = null } = $props();
+  let { defaultForm, formType, brandName, materialName, filamentName, colorData = null } = $props();
+
+  const {
+    form,
+    errors,
+    message,
+    enhance,
+  } = superForm(defaultForm, {
+    dataType: 'json',
+    resetForm: false,
+    invalidateAll: false,
+    clearOnSubmit: "none",
+    validationMethod: 'onblur',
+    validators: zodClient(filamentVariantSchema),
+    onResult: ({ result}) => {
+      console.log(result);
+    }
+  });
 
   async function handleDelete() {
     if (
@@ -52,36 +69,6 @@
     tempSizes.update(items => items.filter((_, i) => i !== index));
   }
 
-  const enhancedSubmit = ({ formData }) => {
-    // These are both required, unsure why color_hex dosen't get transmitted but ig we'll reaffirm it
-    formData.set("color_hex", $form.color_hex);
-    formData.set("serializedSizes", JSON.stringify($form.sizes));
-
-    if ($form.traits) {
-      formData.set("serializedTraits", JSON.stringify($form.traits));
-    }
-
-    return async ({ result, update }) => {
-      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
-
-      if (result.type === 'success' && !isLocal) {
-
-        const filamentData = {
-          color_name: $form.color_name,
-          color_hex: $form.color_hex,
-          discontinued: $form.discontinued || undefined,
-          traits: $form.traits || {},
-        };
-
-        pseudoEdit('filament', brandName, filamentData, materialName, filamentName);
-        pseudoUndoDelete('filament', $form.name);
-        await invalidateAll();
-      }
-
-      await update();
-    };
-  };
-
   let tempSizes;
 
   if (colorData && colorData?.sizes) {
@@ -103,38 +90,34 @@
       { id: 0, value: { filament_weight: undefined, diameter: undefined } }
     ]);
   }
-
-  let tempTraits = writable({});
-  $form.traits = {};
-
+  
   tempSizes.subscribe((value) => {
-    //console.log(value);
     $form.sizes = value.map((x) => x.value);
   });
-
-  // Init all keys in writable and real data, create subscriptions
-  Object.keys(traitsSchema.shape).forEach((trait) => {
-    let traitBool = $form.traits[trait] ? $form.traits[trait] : false;
-
-    $tempTraits[trait] = traitBool;
-    $form.traits[trait] = traitBool;
-
-    tempTraits.subscribe((value) => {
-      $form.traits = value;
-    });
-  });
-
+  
   if (colorData?.variant) {
     form.set(structuredClone(colorData.variant));
+    console.log($form);
+    $form.name = colorData.variant.color_name;
   }
+  
+  let tempTraits = writable({});
+  
+  if ($form.traits) {
+    tempTraits.set(structuredClone($form.traits));
+  }
+
+  tempTraits.subscribe((value) => {
+    $form.traits = value;
+  });
 </script>
 
 <Form
-  enhancedSubmit={enhancedSubmit}
   endpoint="variant"
+  enhance={enhance}
 >
   <div class="flex space-x-4 flex-col md:flex-row">
-    <div class="mb-5 md:w-3/5">
+    <div class="mb-5 md:w-3/5 space-y-4">
       <h3 class="text-xl font-bold mb-4">{formType === 'edit' ? 'Edit' : 'Create'} Color Variant</h3>
 
       <TextField
@@ -142,8 +125,8 @@
         title="Color name"
         description="Enter the official color name as specified by the manufacturer"
         placeholder="e.g. Galaxy Black"
-        bind:formVar={$form.color_name}
-        errorVar={$errors.color_name}
+        bind:formVar={$form.name}
+        errorVar={$errors.name}
         required={true}
       />
 
@@ -180,8 +163,8 @@
     </div>
 
     <fieldset class="md:w-2/5">
-      {#if $tempSizes.length <= 0}
-        <span class="text-red-600 text-xs">You need at least one size</span>
+      {#if $tempSizes.length <= 0 || $errors?.sizes?._errors?.[0]}
+        <span class="text-red-600 text-xs">{$errors?.sizes?._errors?.[0] || "You need at least one size"}</span>
       {/if}
 
       <div class="flex items-center justify-between mb-4">
@@ -204,6 +187,7 @@
               bind:size={$tempSizes[index].value}
               sizeIndex={index}
               removeSize={removeSize}
+              errors={errors}
             />
           {/each}
         </div>

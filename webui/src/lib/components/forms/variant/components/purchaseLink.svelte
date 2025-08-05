@@ -4,7 +4,7 @@
   import PurchaseTextField from "./purchaseTextField.svelte";
   import { onMount } from "svelte";
 
-  export let link, purchaseIndex, sizeIndex, removePurchaseLink;
+  export let link, purchaseIndex, sizeIndex, removePurchaseLink, errors;
   let localLink = writable({});
 
   onMount(() => {
@@ -16,6 +16,8 @@
     console.log("changing link from: ", link, "to: ", value);
     link = value;
   });
+
+  // We're not passing the errors below bc... then everythign breaks at random :D
 </script>
 
 <div

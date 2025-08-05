@@ -23,11 +23,5 @@ export const filamentMaterialSchema = z
   .object({
     material: z.string(),
     default_max_dry_temperature: z.number().optional(),
-    // The list indicators account for 2, 2 for ", everything above is it means there's data inside
-    serializedGeneric: z.string(),
-    serializedPrusa: z.string(),
-    serializedBambus: z.string(),
-    serializedOrca: z.string(),
-    serializedCura: z.string(),
   })
   .merge(slicerSettingsSchema);

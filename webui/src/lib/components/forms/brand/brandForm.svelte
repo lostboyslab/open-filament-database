@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { invalidateAll } from '$app/navigation';
   import { env } from '$env/dynamic/public';
   import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
-  import { pseudoEdit } from '$lib/pseudoEditor';
   import { realDelete } from '$lib/realDeleter';
   import { fileProxy } from 'sveltekit-superforms';
   import { stripOfIllegalChars } from '$lib/globalHelpers';
@@ -11,9 +9,29 @@
   import DeleteButton from '../components/deleteButton.svelte';
   import Form from '../components/form.svelte';
   import SubmitButton from '../components/submitButton.svelte';
+  import { superForm } from 'sveltekit-superforms';
+  import { zodClient } from 'sveltekit-superforms/adapters';
+  import { brandSchema } from '$lib/validation/filament-brand-schema';
 
   type formType = 'edit' | 'create';
-  let { form, errors, formType } = $props();
+  let { defaultForm, formType } = $props();
+
+  const {
+    form,
+    errors,
+    message,
+    enhance,
+  } = superForm(defaultForm, {
+    dataType: 'json',
+    resetForm: false,
+    invalidateAll: false,
+    clearOnSubmit: "none",
+    validationMethod: 'onblur',
+    validators: zodClient(brandSchema),
+    onResult: ({ result}) => {
+      console.log(result);
+    }
+  });
   
   const file = fileProxy(form, 'logo');
 
@@ -32,29 +50,11 @@
       }
     }
   }
-
-  const enhancedSubmit = () => {
-    return async ({ result, update }) => {
-      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
-
-      if (result.type === 'success' && !isLocal) {
-        const brandData = {
-          brand: $form.brand,
-        };
-
-        pseudoEdit('brand', $form.brand, brandData);
-        pseudoUndoDelete('brand', $form.brand);
-        await invalidateAll();
-      }
-
-      await update();
-    };
-  };
 </script>
 
 <Form
-  enhancedSubmit={enhancedSubmit}
   endpoint="brand"
+  enhance={enhance}
 >
   <TextField
     id="brand"

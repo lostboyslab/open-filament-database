@@ -71,7 +71,10 @@ export const actions = {
     throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${form.data.name}`);
   },
   variant: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(filamentVariantSchema));
+    let data = await request.formData();
+    data.color_name = data.name;
+
+    const form = await superValidate(data, zod(filamentVariantSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
@@ -80,15 +83,6 @@ export const actions = {
 
     try {
       let filteredData = removeUndefined(form.data);
-
-      let sizeData = JSON.parse(form.data.serializedSizes);
-      filteredData["sizes"] = removeUndefined(sizeData);
-
-      if (isValidJSON(form.data.serializedTraits)) {
-        filteredData['traits'] = removeUndefined(JSON.parse(form.data.serializedTraits));
-      } else {
-        filteredData['traits'] = {};
-      }
 
       filteredData['brandName'] = brand;
       filteredData['materialName'] = material;

@@ -12,31 +12,6 @@
   import { stripOfIllegalChars } from '$lib/globalHelpers.js';
   let { data }: PageProps = $props();
 
-  const {
-    form,
-    errors,
-    constraints,
-    delayed,
-    message,
-    enhance
-  } = superForm(data.brandForm, {
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(brandSchema),
-  });
-
-  const {
-    form: materialForm,
-    errors: materialErrors,
-    message: materialMessage,
-    enhance: materialEnhance,
-  } = superForm(data.materialForm, {
-    dataType: 'json',
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(filamentMaterialSchema),
-  });
-
   let materialKeys = Object.keys(data.brandData.materials ?? {});
 
   const websiteUrl = $derived(
@@ -83,10 +58,11 @@
       </a>
     </div>
 
-    <EditModal>
+    <EditModal
+      externalStyling="bg-yellow-600 hover:bg-yellow-700 border border-gray-300 dark:border-gray-700 mb-4 rounded-lg shadow transition-colors"
+    >
       <BrandForm
-        {form}
-        {errors}
+        defaultForm={data.brandForm}
         formType={'edit'}
       />
     </EditModal>
@@ -96,11 +72,12 @@
     <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Materials</h2>
 
     <EditModal
+      externalStyling="bg-blue-500 hover:bg-blue-700 border border-gray-300 dark:border-gray-700 mb-4 rounded-lg shadow transition-colors"
       btnType={'create'}
+      spanText="Add material"
     >
       <MaterialForm
-        form={materialForm}
-        errors={materialErrors}
+        defaultForm={data.materialForm}
         brandName={data.brandData.brand}
         formType={'create'}
       />

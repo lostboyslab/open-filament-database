@@ -1,35 +1,12 @@
 <script lang="ts">
-  import DownloadBtn from '$lib/components/downloadBtn.svelte';
   import EditModal from '$lib/components/editModal.svelte';
   import FilamentForm from '$lib/components/forms/filament/filamentForm.svelte';
   import FilamentItem from '$lib/components/items/filamentItem.svelte';
   import VariantForm from '$lib/components/forms/variant/VariantForm.svelte';
-  import { filamentSchema } from '$lib/validation/filament-schema.js';
-  import { filamentVariantSchema } from '$lib/validation/filament-variant-schema.js';
-  import { superForm } from 'sveltekit-superforms';
-  import { zodClient } from 'sveltekit-superforms/adapters';
   import { stripOfIllegalChars } from '$lib/globalHelpers.js';
 
   const { data } = $props();
   const colorKeys = Object.keys(data.filamentData.colors ?? {});
-
-  const { form, errors, message, enhance } = superForm(data.filamentForm, {
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(filamentSchema),
-  });
-
-  const {
-    form: variantForm,
-    errors: variantErrors,
-    message: variantMessage,
-    enhance: variantEnhance,
-  } = superForm(data.filamentVariantForm, {
-    dataType: 'json',
-    resetForm: false,
-    validationMethod: 'onblur',
-    validators: zodClient(filamentVariantSchema),
-  });
 </script>
 
 <svelte:head>
@@ -43,37 +20,36 @@
     Filament: {data.filamentData.name}
   </h1>
 
-  <EditModal>
-    <FilamentForm
-      form={form}
-      errors={errors}
-      brandName={stripOfIllegalChars(data.brandData.brand)}
-      materialName={data.materialData.material}
-      formType={'edit'} />
-  </EditModal>
-
-  <h2 class="text-2xl font-semibold mb-4">Colors & Sizes</h2>
-  <div class="space-y-6">
-    <div class="flex justify-between">
-      <EditModal
-      btnType={'create'}
+  <div class="flex space-x-2">
+    <EditModal
+      externalStyling="bg-yellow-600 hover:bg-yellow-700 border border-gray-300 dark:border-gray-700 mb-4 rounded-lg shadow transition-colors"
+      spanText={`Edit ${data.filamentData.name}`}
     >
-        <VariantForm
-          form={variantForm}
-          errors={variantErrors}
-          brandName={stripOfIllegalChars(data.brandData.brand)}
-          materialName={data.materialData.material}
-          filamentName={data.filamentData.name}
-          formType={'create'} />
-      </EditModal>
-      <DownloadBtn
+      <FilamentForm
+        defaultForm={data.filamentForm}
         brandName={stripOfIllegalChars(data.brandData.brand)}
         materialName={data.materialData.material}
-        filamentName={data.filamentData.name} />
-    </div>
+        formType={'edit'} />
+    </EditModal>
+    <EditModal
+      externalStyling="bg-blue-500 hover:bg-blue-700 border border-gray-300 dark:border-gray-700 mb-4 rounded-lg shadow transition-colors"
+      btnType={'create'}
+      spanText="Add variant"
+    >
+      <VariantForm
+        defaultForm={data.filamentVariantForm}
+        brandName={stripOfIllegalChars(data.brandData.brand)}
+        materialName={data.materialData.material}
+        filamentName={data.filamentData.name}
+        formType={'create'} />
+    </EditModal>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4">Variants</h2>
+  <div class="space-y-6">
 
     {#each colorKeys as colorKey}
-      {#if data.filamentData.colors[colorKey]}
+      {#if data?.filamentData?.colors?.[colorKey]}
         <FilamentItem
           color={data.filamentData.colors[colorKey]}
           brandName={stripOfIllegalChars(data.brandData.brand)}

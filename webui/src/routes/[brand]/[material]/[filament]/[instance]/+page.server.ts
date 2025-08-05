@@ -90,7 +90,10 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 
 export const actions = {
   variant: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(filamentVariantSchema));
+    let data = await request.formData();
+    data.color_name = data.name;
+
+    const form = await superValidate(data, zod(filamentVariantSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
@@ -100,17 +103,10 @@ export const actions = {
     try {
       const filteredFilament = removeUndefined(form.data);
       
-      let sizeData = JSON.parse(form.data.serializedSizes);
-      sizeData = removeUndefined(sizeData);
-
-      if (isValidJSON(form.data.serializedTraits)) {
-        filteredFilament.traits = JSON.parse(form.data.serializedTraits);
-      } else {
-        filteredFilament.traits = {};
-      }
+      console.log(filteredFilament);
 
       await updateColorVariant(brand, material, filament, form.data.color_name, filteredFilament);
-      await updateColorSize(brand, material, filament, form.data.color_name, sizeData);
+      await updateColorSize(brand, material, filament, form.data.color_name, filteredFilament.sizes);
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to update variant:', error);

@@ -11,10 +11,30 @@
   import SlicerSetting from './components/slicerSetting.svelte';
   import SubmitButton from '../components/submitButton.svelte';
   import DeleteButton from '../components/deleteButton.svelte';
+  import { superForm } from 'sveltekit-superforms';
+  import { zodClient } from 'sveltekit-superforms/adapters';
+  import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 
   type formType = 'edit' | 'create';
-  let { form, errors, formType, brandName } = $props();
-
+  let { defaultForm, formType, brandName } = $props();
+  
+  const {
+    form,
+    errors,
+    message,
+    enhance,
+  } = superForm(defaultForm, {
+    dataType: 'json',
+    resetForm: false,
+    invalidateAll: false,
+    clearOnSubmit: "none",
+    validationMethod: 'onblur',
+    validators: zodClient(filamentMaterialSchema),
+    onResult: ({ result}) => {
+      console.log(result);
+    }
+  });
+  
   async function handleDelete() {
     if (
       confirm(
@@ -30,39 +50,6 @@
       }
     }
   }
-
-  const enhancedSubmit = ({ formData }) => {
-    // Serialize data for transmittance to back end
-    formData.set("serializedGeneric", JSON.stringify($form.generic));
-    formData.set("serializedPrusa", JSON.stringify($form.prusa));
-    formData.set("serializedBambus", JSON.stringify($form.bambus));
-    formData.set("serializedOrca", JSON.stringify($form.orca));
-    formData.set("serializedCura", JSON.stringify($form.cura));
-
-    return async ({ result, update }) => {
-      const isLocal = env.PUBLIC_IS_LOCAL === 'true';
-
-      if (result.type === 'success' && !isLocal) {
-        // Get the current form data
-        const materialData = {
-          material: $form.material,
-          default_max_dry_temperature: $form.default_max_dry_temperature,
-          generic: $form.generic,
-          prusa: $form.prusa,
-          bambus: $form.bambus,
-          orca: $form.orca,
-          cura: $form.cura,
-        };
-
-        // Apply pseudo edit for web version
-        pseudoEdit('material', brandName, materialData);
-        pseudoUndoDelete('material', $form.material);
-        await invalidateAll();
-      }
-
-      await update();
-    };
-  };
 
   const slicerOptions = [
     { key: 'generic', label: 'Generic' },
@@ -102,8 +89,8 @@
 </script>
 
 <Form
-  enhancedSubmit={enhancedSubmit}
   endpoint="material"
+  enhance={enhance}
 >
   <TextField
     id="material"

@@ -5,7 +5,7 @@
   import PurchaseLink from './purchaseLink.svelte';
   import { writable } from 'svelte/store';
 
-  export let size, sizeIndex, removeSize;
+  export let size, sizeIndex, removeSize, errors;
   
   let tempLinks = writable([]);
   
@@ -43,7 +43,7 @@
   });
 </script>
 
-<div class="rounded-lg border border-gray-300 dark:border-gray-700 p-2 flex flex-col space-y-2">
+<div class="rounded-lg border border-gray-300 dark:border-gray-700 p-2 flex flex-col space-y-4">
   <div class="flex justify-between items-center">
     <h2 class="text-xl text-gray-600 dark:text-gray-400">
       <b>Size {sizeIndex + 1}</b>
@@ -70,6 +70,7 @@
       placeholder="1000"
       step="10"
       bind:formVar={size.filament_weight}
+      errorVar={$errors?.sizes?.[sizeIndex]?.filament_weight}
       required={true}
     />
 
@@ -80,6 +81,7 @@
       placeholder="1.75"
       step="0.05"
       bind:formVar={size.diameter}
+      errorVar={$errors?.sizes?.[sizeIndex]?.diameter}
       required={true}
     />
   </div>
@@ -92,6 +94,7 @@
       placeholder="250"
       step="10"
       bind:formVar={size.empty_spool_weight}
+      errorVar={$errors?.sizes?.[sizeIndex]?.empty_spool_weight}
     />
 
     <NumberField
@@ -101,6 +104,7 @@
       placeholder="100"
       step="10"
       bind:formVar={size.spool_core_diameter}
+      errorVar={$errors?.sizes?.[sizeIndex]?.spool_core_diameter}
     />
   </div>
   
@@ -111,6 +115,7 @@
       description="European Article Number - barcode identifier"
       placeholder="1234567890123"
       bind:formVar={size.ean}
+      errorVar={$errors?.sizes?.[sizeIndex]?.ean}
     />
 
     <TextField
@@ -119,12 +124,14 @@
       description="Article number - manufacturer's internal product code"
       placeholder="PLA-1000-BLK"
       bind:formVar={size.article_number}
+      errorVar={$errors?.sizes?.[sizeIndex]?.article_number}
     />
   </div>
 
   <DiscontinuedCheck
     description="Select if this size is discontinued"
     bind:formVar={size.discontinued}
+    errorVar={$errors?.sizes?.[sizeIndex]?.discontinued}
   />
 
 
@@ -144,6 +151,7 @@
         {#each $tempLinks as link, index (link.id)}
           <PurchaseLink
             bind:link={link.value}
+            errors={errors}
             purchaseIndex={index}
             sizeIndex={sizeIndex}
             removePurchaseLink={() => removePurchaseLink(index)}
