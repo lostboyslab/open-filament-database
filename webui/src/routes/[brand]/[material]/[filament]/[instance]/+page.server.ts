@@ -1,13 +1,13 @@
-import { error, fail } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { removeUndefined, updateColorSize, updateColorVariant } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
-import { env } from '$env/dynamic/public';
 import { refreshDatabase } from '$lib/dataCacher';
 import { isValidJSON } from '$lib/globalHelpers';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material, filament, instance } = params;
@@ -55,9 +55,6 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   }
   const colorData = filamentDataObj.colors[colorKey];
 
-  // Create forms with existing data
-  const sizeData = colorData.sizes && colorData.sizes.length > 0 ? colorData.sizes[0] : {};
-
   const defaultVariantData = {
     color_name: '',
     color_hex: '#000000',
@@ -92,104 +89,36 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 };
 
 export const actions = {
-  updateSize: async ({ request, params, cookies }) => {
-    /*
-    const form = await superValidate(request, zod(filamentSizeSchemas));
-    const { brand, material, filament, instance } = params;
-
-    if (!form.valid) {
-      return fail(400, { form });
-    }
-
-    // Check if this is a local environment
-    const isLocal = env.PUBLIC_IS_LOCAL === 'true';
-
-    if (!isLocal) {
-      // For web version, just return success without updating files
-      // The client-side pseudo edit will handle the local storage
-      setFlash(
-        { type: 'success', message: 'Size updated successfully (changes saved locally)!' },
-        cookies,
-      );
-      return { form, success: true };
-    }
-
-    try {
-      let sizeData = [];
-
-      if (isValidJSON(form.data.serializedSizes)) {
-        let tempSizesArr = JSON.parse(form.data.serializedSizes);
-
-        Array.from(tempSizesArr).forEach((size, si) => {
-          Object.keys(size).forEach((key) => {
-            if (!size[key]) {
-              delete size[key];
-            }
-
-            if (size[key] === "") {
-              delete size[key];
-            }
-          });
-          
-          tempSizesArr[si] = size;
-        });
-
-        sizeData = tempSizesArr;
-      } else {
-        throw error(500, `Invalid temp size err ${form.data.serializedSizes}`)
-      }
-
-      await updateColorSize(brand, material, filament, instance, sizeData);
-      await refreshDatabase();
-    } catch (error) {
-      console.error('Failed to update color size:', error);
-      setFlash({ type: 'error', message: 'Failed to update size. Please try again.' }, cookies);
-      return fail(500, { form });
-    }
-
-    setFlash({ type: 'success', message: 'Size updated successfully!' }, cookies);*/
-    return { success: true };
-  },
-
-  updateVariant: async ({ request, params, cookies }) => {
+  variant: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentVariantSchema));
-    const { brand, material, filament, instance } = params;
-
-    console.log(form);
+    const { brand, material, filament } = params;
 
     if (!form.valid) {
       return fail(400, { form });
     }
-
-    // Check if this is a local environment
-    const isLocal = env.PUBLIC_IS_LOCAL === 'true';
-
-    if (!isLocal) {
-      // For web version, just return success without updating files
-      // The client-side pseudo edit will handle the local storage
-      setFlash(
-        { type: 'success', message: 'Variant updated successfully (changes saved locally)!' },
-        cookies,
-      );
-      return { form, success: true };
-    }
-
+    
     try {
-      const filteredData = removeUndefined(form.data);
+      const filteredFilament = removeUndefined(form.data);
+      
+      let sizeData = JSON.parse(form.data.serializedSizes);
+      sizeData = removeUndefined(sizeData);
+
       if (isValidJSON(form.data.serializedTraits)) {
-        filteredData['traits'] = JSON.parse(filteredData.serializedTraits);
+        filteredFilament.traits = JSON.parse(form.data.serializedTraits);
       } else {
-        filteredData['traits'] = {};
+        filteredFilament.traits = {};
       }
-      await updateColorVariant(brand, material, filament, instance, filteredData);
+
+      await updateColorVariant(brand, material, filament, form.data.color_name, filteredFilament);
+      await updateColorSize(brand, material, filament, form.data.color_name, sizeData);
       await refreshDatabase();
     } catch (error) {
-      console.error('Failed to update color variant:', error);
-      setFlash({ type: 'error', message: 'Failed to update variant. Please try again.' }, cookies);
+      console.error('Failed to update variant:', error);
+      setFlash({ type: 'error', message: 'Variant to update filament. Please try again.' }, cookies);
       return fail(500, { form });
     }
 
     setFlash({ type: 'success', message: 'Variant updated successfully!' }, cookies);
-    return { form, type: 'success', redirect: `/${brand}/${material}/${filament}/${form.data.color_name}` };
-  },
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${filament}/${form.data.color_name}`);
+  }
 };

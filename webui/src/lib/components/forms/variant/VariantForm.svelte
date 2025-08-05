@@ -3,9 +3,11 @@
   import { pseudoEdit } from '$lib/pseudoEditor';
   import { invalidateAll } from '$app/navigation';
   import { pseudoUndoDelete } from '$lib/pseudoDeleter';
-  import { redirect } from '@sveltejs/kit';
   import { realDelete } from '$lib/realDeleter';
   import { pseudoDelete } from '$lib/pseudoDeleter';
+  import { traitsSchema } from '$lib/validation/filament-variant-schema';
+  import { capitalizeFirstLetter } from '$lib/globalHelpers';
+  import { writable } from 'svelte/store';
   import DiscontinuedCheck from '../components/discontinuedCheck.svelte';
   import Form from '../components/form.svelte';
   import DeleteButton from '../components/deleteButton.svelte';
@@ -13,10 +15,7 @@
   import TextField from '../components/textField.svelte';
   import HexPicker from './components/hexPicker.svelte';
   import Size from './components/size.svelte';
-  import { traitsSchema } from '$lib/validation/filament-variant-schema';
-  import { capitalizeFirstLetter } from '$lib/globalHelpers';
   import Trait from './components/trait.svelte';
-  import { writable } from 'svelte/store';
 
   type formType = 'edit' | 'create';
   let { form, errors, formType, brandName, materialName, filamentName, colorData = null } = $props();
@@ -54,11 +53,12 @@
   }
 
   const enhancedSubmit = ({ formData }) => {
+    // These are both required, unsure why color_hex dosen't get transmitted but ig we'll reaffirm it
+    formData.set("color_hex", $form.color_hex);
     formData.set("serializedSizes", JSON.stringify($form.sizes));
 
     if ($form.traits) {
-      let traitData = $form.traits;
-      formData.set("serializedTraits", JSON.stringify(traitData));
+      formData.set("serializedTraits", JSON.stringify($form.traits));
     }
 
     return async ({ result, update }) => {
@@ -72,52 +72,69 @@
           discontinued: $form.discontinued || undefined,
           traits: $form.traits || {},
         };
+
         pseudoEdit('filament', brandName, filamentData, materialName, filamentName);
         pseudoUndoDelete('filament', $form.name);
         await invalidateAll();
-      }
-
-      if (result?.redirect) {
-        redirect(303, result.redirect);
       }
 
       await update();
     };
   };
 
-  let tempTraits = {},
-      tempSizes = writable([
-        { id: 0, value: { filament_weight: undefined, diameter: undefined } }
-      ]);
+  let tempSizes;
+
+  if (colorData && colorData?.sizes) {
+    $form.sizes = colorData.sizes;
+    let convertSizes = [];
+
+    colorData.sizes.forEach((element, index) => {
+      convertSizes[index] = {
+        id : index,
+        value : structuredClone(element)
+      };
+    });
+
+    tempSizes = writable(
+      convertSizes,
+    );
+  } else {
+    tempSizes = writable([
+      { id: 0, value: { filament_weight: undefined, diameter: undefined } }
+    ]);
+  }
+
+  let tempTraits = writable({});
   $form.traits = {};
-  $form.sizes = [];
 
   tempSizes.subscribe((value) => {
-    $form.sizes = value;
+    //console.log(value);
+    $form.sizes = value.map((x) => x.value);
   });
 
   // Init all keys in writable and real data, create subscriptions
   Object.keys(traitsSchema.shape).forEach((trait) => {
-    tempTraits[trait] = writable(false);
-    if (!$form.traits[trait]) {
-      $form.traits[trait] = false;
-    }
-    tempTraits[trait].subscribe((value) => {
-      $form.traits[trait] = value;
+    let traitBool = $form.traits[trait] ? $form.traits[trait] : false;
+
+    $tempTraits[trait] = traitBool;
+    $form.traits[trait] = traitBool;
+
+    tempTraits.subscribe((value) => {
+      $form.traits = value;
     });
   });
 
-  $effect(() => {
-    console.log($form.sizes);
-  });
+  if (colorData?.variant) {
+    form.set(structuredClone(colorData.variant));
+  }
 </script>
 
 <Form
   enhancedSubmit={enhancedSubmit}
-  endpoint="instance"
+  endpoint="variant"
 >
-  <div class="flex space-x-4">
-    <div class="w-3/5">
+  <div class="flex space-x-4 flex-col md:flex-row">
+    <div class="mb-5 md:w-3/5">
       <h3 class="text-xl font-bold mb-4">{formType === 'edit' ? 'Edit' : 'Create'} Color Variant</h3>
 
       <TextField
@@ -125,7 +142,7 @@
         title="Color name"
         description="Enter the official color name as specified by the manufacturer"
         placeholder="e.g. Galaxy Black"
-        formVar={$form.color_name}
+        bind:formVar={$form.color_name}
         errorVar={$errors.color_name}
         required={true}
       />
@@ -135,13 +152,13 @@
         title="Color hex"
         description="Choose the color or enter the hex code that best represents this filament color"
         placeholder="#RRGGBB"
-        formVar={$form.color_hex}
+        bind:formVar={$form.color_hex}
         errorVar={$errors.color_hex}
         required={true}
       />
 
       <DiscontinuedCheck
-        formVar={$form.discontinued}
+        bind:formVar={$form.discontinued}
         errorVar={$errors.discontinued}
         description="Select if this colour/variant is discontinued"
       />
@@ -152,17 +169,17 @@
           Select all special properties that apply to this filament variant
         </p>
         <div class="grid grid-cols-2 gap-4">
-          {#each Object.keys(tempTraits) as trait}
+          {#each Object.keys(traitsSchema.shape) as trait}
             <Trait
               id={trait}
               title={capitalizeFirstLetter(trait)}
-              formVar={tempTraits[trait]} />
+              bind:formVar={$tempTraits[trait]} />
           {/each}
         </div>
       </fieldset>
     </div>
 
-    <fieldset class="w-2/5">
+    <fieldset class="md:w-2/5">
       {#if $tempSizes.length <= 0}
         <span class="text-red-600 text-xs">You need at least one size</span>
       {/if}

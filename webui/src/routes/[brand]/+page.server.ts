@@ -58,7 +58,7 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Brand updated successfully!' }, cookies);
-    redirect(303, `/${stripOfIllegalChars(form.data.brand)}/`);
+    throw redirect(303,`/${stripOfIllegalChars(form.data.brand)}/`);
   },
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
@@ -85,6 +85,6 @@ export const actions = {
     }
     
     setFlash({ type: 'success', message: 'Material created successfully!' }, cookies);
-    redirect(303, `/${brand}/${form.data.material}`);
+    throw redirect(303,`/${stripOfIllegalChars(brand)}/${form.data.material}`);
   },
 };

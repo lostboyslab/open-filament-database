@@ -4,6 +4,7 @@
   import { pseudoDelete, pseudoUndoDelete } from '$lib/pseudoDeleter';
   import { pseudoEdit } from '$lib/pseudoEditor';
   import { realDelete } from '$lib/realDeleter';
+  import { redirect } from '@sveltejs/kit';
   import DeleteButton from '../components/deleteButton.svelte';
   import DiscontinuedCheck from '../components/discontinuedCheck.svelte';
   import Form from '../components/form.svelte';
@@ -31,7 +32,6 @@
   }
 
   const enhancedSubmit = () => {
-
     return async ({ result, update }) => {
       const isLocal = env.PUBLIC_IS_LOCAL === 'true';
 
@@ -59,7 +59,7 @@
     title="Filament name"
     description='Enter the specific name or type of this filament material (e.g., "PLA+", "PETG", "ABS Pro")'
     placeholder="e.g. PLA+"
-    formVar={$form.name}
+    bind:formVar={$form.name}
     errorVar={$errors.name}
     required={true}
   />
@@ -69,7 +69,7 @@
     title="Diameter tolerance"
     description='Acceptable variation in filament diameter (typically ±0.02mm or ±0.03mm)'
     placeholder="e.g. 0.02"
-    formVar={$form.diameter_tolerance}
+    bind:formVar={$form.diameter_tolerance}
     errorVar={$errors.diameter_tolerance}
     required={true}
   />
@@ -79,7 +79,7 @@
     title="Density"
     description='Material density in grams per cubic centimeter (g/cm³)'
     placeholder="e.g. 1.24"
-    formVar={$form.density}
+    bind:formVar={$form.density}
     errorVar={$errors.density}
     required={true}
   />
@@ -89,13 +89,12 @@
     title="Max Dry Temperature"
     description='Maximum drying temperature (typically somewhere around 55-65°C)'
     placeholder="e.g. 55"
-    formVar={$form.max_dry_temperature}
+    bind:formVar={$form.max_dry_temperature}
     errorVar={$errors.max_dry_temperature}
-    required={true}
   />
 
   <DiscontinuedCheck
-    formVar={$form.discontinued}
+    bind:formVar={$form.discontinued}
     errorVar={$errors.discontinued}
     description="Select if this filament is discontinued"
   />
@@ -105,7 +104,7 @@
     title="Data sheet URL"
     description='Link to technical data sheet with material specifications'
     placeholder="https://www.example.com/datasheet.pdf"
-    formVar={$form.data_sheet_url}
+    bind:formVar={$form.data_sheet_url}
     errorVar={$errors.data_sheet_url}
   />
 
@@ -114,7 +113,7 @@
     title="Safety sheet URL"
     description='Link to Material Safety Data Sheet (MSDS) for handling and safety information'
     placeholder="https://www.example.com/msds.pdf"
-    formVar={$form.safety_sheet_url}
+    bind:formVar={$form.safety_sheet_url}
     errorVar={$errors.safety_sheet_url}
   />
 

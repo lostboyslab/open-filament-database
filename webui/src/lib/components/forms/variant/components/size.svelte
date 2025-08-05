@@ -6,13 +6,15 @@
   import { writable } from 'svelte/store';
 
   export let size, sizeIndex, removeSize;
-
+  
+  let tempLinks = writable([]);
+  
   function addPurchaseLink() {
+    console.log(`Adding purchase link`);
+
     if (!$tempLinks) {
-      tempLinks = writable([
-        { id: 0, value: { store_id: undefined, url: undefined, affiliate: false } }
-      ]);
-      return;
+      console.log(`tempLinks reinit`);
+      tempLinks = writable([]);
     }
 
     tempLinks.update(items => [
@@ -22,15 +24,22 @@
   }
 
   function removePurchaseLink(index) {
+    console.log(`Removing purchase link ${index + 1}`);
     tempLinks.update(items => items.filter((_, i) => i !== index));
   }
 
-  let tempLinks;
-  // To startup!
-  addPurchaseLink();
-
+  if (size.purchase_links) {
+    let test = structuredClone(size.purchase_links).map((x, i) => {
+        return {
+          id: i,
+          value: structuredClone(x)
+        }
+    });
+    tempLinks.set(structuredClone(test));
+  }
+  
   tempLinks.subscribe((value) => {
-    size.purchaseLinks = value;
+    size.purchase_links = value.map((x) => x.value);
   });
 </script>
 
@@ -134,7 +143,7 @@
       <div class="space-y-6">
         {#each $tempLinks as link, index (link.id)}
           <PurchaseLink
-            bind:link={$tempLinks[index].value}
+            bind:link={link.value}
             purchaseIndex={index}
             sizeIndex={sizeIndex}
             removePurchaseLink={() => removePurchaseLink(index)}

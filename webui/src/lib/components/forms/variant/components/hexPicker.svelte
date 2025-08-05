@@ -1,5 +1,5 @@
 <script>
-  let { id, title, description, placeholder, errorVar, formVar, required = false } = $props();
+  export let id, title, description, placeholder, errorVar, formVar, required = false;
 </script>
 
 <div class="mb-4">

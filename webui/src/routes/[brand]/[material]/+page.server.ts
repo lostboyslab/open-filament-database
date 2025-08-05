@@ -9,6 +9,7 @@ import {
   removeUndefined,
   updateMaterial,
 } from '$lib/server/helpers';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 import { filamentSchema } from '$lib/validation/filament-schema';
 import { refreshDatabase } from '$lib/dataCacher';
 import { setFlash } from 'sveltekit-flash-message/server';
@@ -73,7 +74,7 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Material updated successfully!' }, cookies);
-    return { form, success: true, redirect: `/${brand}/${form.data.material}` };
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${form.data.material}`);
   },
   filament: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentSchema));
@@ -94,6 +95,6 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
-    redirect(303, `/${brand}/${material}/${form.data.name}`);
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${form.data.name}`);
   },
 };

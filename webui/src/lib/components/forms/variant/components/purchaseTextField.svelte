@@ -13,7 +13,9 @@
     id={id}
     type="text"
     name={id}
+    aria-required={required ? "true" : "false"}
+    aria-describedby={`${id}-help`}
     placeholder={placeholder}
     class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-    bind:value={formVar} />
+    bind:value={formVar} >
 </div>

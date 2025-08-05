@@ -8,6 +8,7 @@ import { createColorFiles, removeUndefined, updateFilament } from '$lib/server/h
 import { setFlash } from 'sveltekit-flash-message/server';
 import { refreshDatabase } from '$lib/dataCacher';
 import { isValidJSON } from '$lib/globalHelpers';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material, filament } = params;
@@ -67,9 +68,9 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
-    return { form, success: true };
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${form.data.name}`);
   },
-  instance: async ({ request, params, cookies }) => {
+  variant: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentVariantSchema));
     const { brand, material, filament } = params;
 
@@ -80,33 +81,15 @@ export const actions = {
     try {
       let filteredData = removeUndefined(form.data);
 
-      if (isValidJSON(form.data.serializedSizes)) {
-        let tempSizesArr = JSON.parse(filteredData.serializedSizes);
-
-        Array.from(tempSizesArr).forEach((size, si) => {
-          Object.keys(size).forEach((key) => {
-            if (!size[key]) {
-              delete size[key];
-            }
-
-            if (size[key] === "") {
-              delete size[key];
-            }
-          });
-          
-          tempSizesArr[si] = size;
-        });
-
-        filteredData['sizes'] = tempSizesArr;
-      } else {
-        filteredData['sizes'] = [];
-      }
+      let sizeData = JSON.parse(form.data.serializedSizes);
+      filteredData["sizes"] = removeUndefined(sizeData);
 
       if (isValidJSON(form.data.serializedTraits)) {
-        filteredData['traits'] = JSON.parse(filteredData.serializedTraits);
+        filteredData['traits'] = removeUndefined(JSON.parse(form.data.serializedTraits));
       } else {
         filteredData['traits'] = {};
       }
+
       filteredData['brandName'] = brand;
       filteredData['materialName'] = material;
       filteredData['filamentName'] = filament;
@@ -121,6 +104,6 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Color updated successfully!' }, cookies);
-    return { form, type: 'success' };
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${filament}/${form.data.color_name}`);
   },
 };

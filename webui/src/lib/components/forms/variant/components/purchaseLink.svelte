@@ -1,8 +1,21 @@
 <script>
+  import { writable } from "svelte/store";
   import PurchaseCheck from "./purchaseCheck.svelte";
   import PurchaseTextField from "./purchaseTextField.svelte";
+  import { onMount } from "svelte";
 
   export let link, purchaseIndex, sizeIndex, removePurchaseLink;
+  let localLink = writable({});
+
+  onMount(() => {
+    localLink.set(structuredClone(link));
+  });
+
+  localLink.subscribe((value) => {
+    // If this print statement is removed links completely break...
+    console.log("changing link from: ", link, "to: ", value);
+    link = value;
+  });
 </script>
 
 <div
@@ -31,7 +44,7 @@
       id="sizes_{sizeIndex}_store_id_{purchaseIndex}"
       title="Store ID"
       placeholder="amazon-us"
-      bind:formVar={link.store_id}
+      bind:formVar={$localLink.store_id}
       required={true}
     />
 
@@ -39,7 +52,7 @@
       id="sizes_{sizeIndex}_url_{purchaseIndex}"
       title="Purchase URL"
       placeholder="https://www.store.com/product/12345"
-      bind:formVar={link.url}
+      bind:formVar={$localLink.url}
       required={true}
     />
 
@@ -47,14 +60,14 @@
       <PurchaseCheck
         id="sizes_{sizeIndex}_affiliate_{purchaseIndex}"
         title="Affiliate link"
-        bind:formVar={link.affiliate}
+        bind:formVar={$localLink.affiliate}
         required={true}
       />
 
       <PurchaseCheck
         id="sizes_{sizeIndex}_spool_refill_{purchaseIndex}"
         title="Is spool refill"
-        bind:formVar={link.spool_refill}
+        bind:formVar={$localLink.spool_refill}
       />
     </div>
 
@@ -63,14 +76,14 @@
         id="sizes_{sizeIndex}_ships_from_{purchaseIndex}"
         title="Ships from"
         placeholder="US"
-        bind:formVar={link.ships_from}
+        bind:formVar={$localLink.ships_from}
       />
 
       <PurchaseTextField
         id="sizes_{sizeIndex}_ships_to_{purchaseIndex}"
         title="Ships to"
         placeholder="EU"
-        bind:formVar={link.ships_to}
+        bind:formVar={$localLink.ships_to}
       />
     </div>
   </div>

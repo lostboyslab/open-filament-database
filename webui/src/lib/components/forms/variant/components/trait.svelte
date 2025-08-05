@@ -1,5 +1,5 @@
 <script>
-  let { id, formVar, title} = $props();
+  export let id, formVar, title;
 </script>
 
 <div class="flex items-center gap-2">
@@ -8,6 +8,6 @@
     type="checkbox"
     name={id}
     class="accent-blue-600 w-4 h-4"
-    bind:checked={$formVar} />
+    bind:checked={formVar} />
   <label for={id} class="font-medium text-sm">{title}</label>
 </div>

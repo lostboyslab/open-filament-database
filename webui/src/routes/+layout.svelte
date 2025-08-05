@@ -99,7 +99,7 @@
 
         await updateFlash(page);
       }}>
-        Refresh Data
+        Refresh DB Data
       </button>
     {/if}
   </footer>
