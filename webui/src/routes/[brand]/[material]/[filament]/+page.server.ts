@@ -72,8 +72,6 @@ export const actions = {
   },
   variant: async ({ request, params, cookies }) => {
     let data = await request.formData();
-    data.color_name = data.name;
-
     const form = await superValidate(data, zod(filamentVariantSchema));
     const { brand, material, filament } = params;
 

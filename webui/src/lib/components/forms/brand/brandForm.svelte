@@ -61,7 +61,7 @@
     title="Brand Name"
     description='Enter the official name of the filament manufacturer (e.g., "Prusa", "Hatchbox")'
     placeholder="e.g. Prusa"
-    formVar={$form.brand}
+    bind:formVar={$form.brand}
     errorVar={$errors.brand}
     required={true}
   />
@@ -71,7 +71,7 @@
     title="Website"
     description='Official website URL of the brand'
     placeholder="https://www.example.com"
-    formVar={$form.website}
+    bind:formVar={$form.website}
     errorVar={$errors.website}
     required={true}
   />
@@ -81,7 +81,7 @@
     title="Origin"
     description='Country or region where the brand is based'
     placeholder="e.g. US, DK"
-    formVar={$form.origin}
+    bind:formVar={$form.origin}
     errorVar={$errors.origin}
     required={true} 
   />
@@ -90,8 +90,8 @@
     <LogoUpload
       id="logo"
       title="Logo"
-      file={$file}
-      errorVar={$errors.file}
+      bind:file={$file}
+      errorVar={$errors.logo}
       required={true}
     />
   {/if}

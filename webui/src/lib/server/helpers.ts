@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import type { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import type { filamentSchema } from '$lib/validation/filament-schema';
 import { stripOfIllegalChars, isEmptyObject, isValidJSON } from '$lib/globalHelpers';
+import { env } from '$env/dynamic/public';
 
 export const removeUndefined = (obj: any): any => {
   if (Array.isArray(obj)) {
@@ -343,7 +344,8 @@ export const createFilament = async (
 };
 
 export async function createColorFiles(formData: any) {
-  const DATA_DIR_FILAMENT = path.resolve('../data');
+  const DATA_DIR_FILAMENT = path.resolve(env.PUBLIC_DATA_PATH);
+  console.log(formData);
   const colorFolder = path.join(
     DATA_DIR_FILAMENT,
     formData.brandName,
@@ -352,12 +354,15 @@ export async function createColorFiles(formData: any) {
     formData.color_name,
   );
 
+  console.log(colorFolder);
+
   if (!fs.existsSync(colorFolder)) fs.mkdirSync(colorFolder, { recursive: true });
 
   // --- 2. Prepare sizes.json (list of objects) ---
   // Traits are grouped under a "traits" object
   if (formData['sizes']) {
     const sizesPath = path.join(colorFolder, 'sizes.json');
+    console.log(sizesPath);
     fs.writeFileSync(sizesPath, JSON.stringify(formData['sizes'], null, 2), 'utf-8');
   }
   // --- 2. Prepare variant.json (single object) ---

@@ -66,6 +66,8 @@ export async function DELETE({ request }) {
       return json({ error: 'Invalid path' }, { status: 400 });
     }
 
+    console.log(`Attemption deletion of path ${targetPath}`);
+
     const deleted = deleteFolderRecursive(targetPath);
 
     if (deleted) {

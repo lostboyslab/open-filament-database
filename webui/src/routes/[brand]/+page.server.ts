@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { brandSchema } from '$lib/validation/filament-brand-schema';
-import { createMaterial, updateBrand } from '$lib/server/helpers';
+import { createMaterial, removeUndefined, updateBrand } from '$lib/server/helpers';
 import { stripOfIllegalChars } from '$lib/globalHelpers';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import { refreshDatabase } from '$lib/dataCacher';
@@ -69,14 +69,9 @@ export const actions = {
     }
 
     try {
-      let submitData = form.data;
-      submitData.generic = JSON.parse(submitData.serializedGeneric);
-      submitData.prusa = JSON.parse(submitData.serializedPrusa);
-      submitData.bambus = JSON.parse(submitData.serializedBambus);
-      submitData.orca = JSON.parse(submitData.serializedOrca);
-      submitData.cura = JSON.parse(submitData.serializedCura);
+      let filteredData = removeUndefined(form.data);
 
-      await createMaterial(brand, submitData);
+      await createMaterial(brand, filteredData);
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to create material:', error);

@@ -18,6 +18,7 @@
   });
 
   // We're not passing the errors below bc... then everythign breaks at random :D
+  //$: console.log($errors?.sizes?.[sizeIndex]?.purchase_links?.[purchaseIndex]?.url?.[0]);
 </script>
 
 <div
@@ -47,6 +48,7 @@
       title="Store ID"
       placeholder="amazon-us"
       bind:formVar={$localLink.store_id}
+      errorVar={$errors?.sizes?.[sizeIndex]?.purchase_links?.[purchaseIndex]?.store_id?.[0]}
       required={true}
     />
 
@@ -55,6 +57,7 @@
       title="Purchase URL"
       placeholder="https://www.store.com/product/12345"
       bind:formVar={$localLink.url}
+      errorVar={$errors?.sizes?.[sizeIndex]?.purchase_links?.[purchaseIndex]?.url?.[0]}
       required={true}
     />
 
@@ -63,6 +66,7 @@
         id="sizes_{sizeIndex}_affiliate_{purchaseIndex}"
         title="Affiliate link"
         bind:formVar={$localLink.affiliate}
+        errorVar={$errors?.sizes?.[sizeIndex]?.purchase_links?.[purchaseIndex]?.affiliate?.[0]}
         required={true}
       />
 
@@ -70,6 +74,7 @@
         id="sizes_{sizeIndex}_spool_refill_{purchaseIndex}"
         title="Is spool refill"
         bind:formVar={$localLink.spool_refill}
+        errorVar={$errors?.sizes?.[sizeIndex]?.purchase_links?.[purchaseIndex]?.spool_refill?.[0]}
       />
     </div>
 
@@ -79,6 +84,7 @@
         title="Ships from"
         placeholder="US"
         bind:formVar={$localLink.ships_from}
+        errorVar={$errors?.sizes?.[sizeIndex]?.purchase_links?.[purchaseIndex]?.ships_from?.[0]}
       />
 
       <PurchaseTextField
@@ -86,6 +92,7 @@
         title="Ships to"
         placeholder="EU"
         bind:formVar={$localLink.ships_to}
+        errorVar={$errors?.sizes?.[sizeIndex]?.purchase_links?.[purchaseIndex]?.ships_to?.[0]}
       />
     </div>
   </div>

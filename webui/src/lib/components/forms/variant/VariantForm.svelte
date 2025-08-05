@@ -16,6 +16,7 @@
   import Trait from './components/trait.svelte';
   import { superForm } from 'sveltekit-superforms';
   import { zodClient } from 'sveltekit-superforms/adapters';
+  import { stripOfIllegalChars } from '$lib/globalHelpers';
 
   type formType = 'edit' | 'create';
   let { defaultForm, formType, brandName, materialName, filamentName, colorData = null } = $props();
@@ -46,9 +47,9 @@
       const isLocal = env.PUBLIC_IS_LOCAL === 'true';
 
       if (isLocal) {
-        await realDelete('instance', colorData.name, brandName, materialName, filamentName);
+        await realDelete('instance', colorData.name, stripOfIllegalChars(brandName), materialName, filamentName);
       } else {
-        pseudoDelete('instance', colorData.name, brandName, materialName, filamentName);
+        pseudoDelete('instance', colorData.name, stripOfIllegalChars(brandName), materialName, filamentName);
       }
     }
   }
@@ -97,9 +98,7 @@
   
   if (colorData?.variant) {
     form.set(structuredClone(colorData.variant));
-    $form.name = colorData.variant.color_name;
     $form.sizes = structuredClone(colorData.sizes);
-    console.log($form);
   }
   
   let tempTraits = writable({});
@@ -126,8 +125,8 @@
         title="Color name"
         description="Enter the official color name as specified by the manufacturer"
         placeholder="e.g. Galaxy Black"
-        bind:formVar={$form.name}
-        errorVar={$errors.name}
+        bind:formVar={$form.color_name}
+        errorVar={$errors.color_name}
         required={true}
       />
 

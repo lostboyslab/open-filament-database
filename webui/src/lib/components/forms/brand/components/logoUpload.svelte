@@ -1,5 +1,5 @@
 <script>
-  let { id, title, errorVar, file, required = false } = $props();
+  export let id, title, errorVar, file, required = false;
 </script>
 
 

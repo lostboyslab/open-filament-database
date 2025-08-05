@@ -1,4 +1,4 @@
-import { object } from "zod";
+import { browser } from '$app/environment';
 
 const illegal_characters = [
   "#","%","&","{","}","\\","<",
@@ -67,3 +67,50 @@ export const isValidJSON = (jsonString: string): boolean => {
 export const capitalizeFirstLetter = (val: string) => {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 };
+
+/*
+D:/SP/open-filament-database/webui/src/lib/globalHelpers.ts:85
+      throw new Error("Unsupported file type in Node.js (must be Buffer or Uint8Array)");
+            ^
+
+Error: Unsupported file type in Node.js (must be Buffer or Uint8Array)
+    at getImageDimensions (D:/SP/open-filament-database/webui/src/lib/globalHelpers.ts:85:13)
+
+Node.js v24.5.0
+*/
+export const getImageDimensions = async (file) => {
+  if (!browser) {
+    // Use 'sharp' in Node.js
+    const sharp = await import('sharp');
+
+    let buffer;
+    if (Buffer.isBuffer(file)) {
+      buffer = file;
+    } else if (file instanceof Uint8Array) {
+      buffer = Buffer.from(file);
+    } else {
+      throw new Error('Unsupported file type in Node.js (must be Buffer or Uint8Array)');
+    }
+
+    const metadata = await sharp(buffer).metadata();
+    return {
+      width: metadata.width,
+      height: metadata.height,
+      format: metadata.format,
+    };
+  } else {
+    // Use <img> in Browser
+    return new Promise((resolve, reject) => {
+      const blob = file instanceof Blob ? file : new Blob([file]);
+      const img = new Image();
+
+      img.onload = () => {
+        resolve({ width: img.width, height: img.height });
+      };
+      img.onerror = reject;
+
+      const url = URL.createObjectURL(blob);
+      img.src = url;
+    });
+  }
+}

@@ -68,7 +68,6 @@
       title="Weight (g)"
       description='Net weight of the filament material (including spool)'
       placeholder="1000"
-      step="10"
       bind:formVar={size.filament_weight}
       errorVar={$errors?.sizes?.[sizeIndex]?.filament_weight}
       required={true}
@@ -79,7 +78,6 @@
       title="Diameter (mm)"
       description='Filament diameter (typically 1.75mm or 2.85mm)'
       placeholder="1.75"
-      step="0.05"
       bind:formVar={size.diameter}
       errorVar={$errors?.sizes?.[sizeIndex]?.diameter}
       required={true}
@@ -92,7 +90,6 @@
       title="Spool weight (g)"
       description='Weight of the empty spool without any filament'
       placeholder="250"
-      step="10"
       bind:formVar={size.empty_spool_weight}
       errorVar={$errors?.sizes?.[sizeIndex]?.empty_spool_weight}
     />
@@ -102,7 +99,6 @@
       title="Spool core diameter (mm)"
       description='The diameter of the core of the spool'
       placeholder="100"
-      step="10"
       bind:formVar={size.spool_core_diameter}
       errorVar={$errors?.sizes?.[sizeIndex]?.spool_core_diameter}
     />
