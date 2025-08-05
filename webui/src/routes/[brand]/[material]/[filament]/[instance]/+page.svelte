@@ -28,7 +28,7 @@
 <div class="max-w-6xl mx-auto p-6">
   <!-- Main Color Card -->
   <div
-    class="border rounded-lg p-8 bg-white border-gray-200 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors">
+    class="border rounded-lg p-8 bg-white border-gray-200 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors mb-2">
     <!-- Header Section -->
     <div class="flex items-center justify-between mb-8">
       <div class="flex items-center gap-4">
