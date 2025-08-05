@@ -6,7 +6,6 @@ import { removeUndefined, updateColorSize, updateColorVariant } from '$lib/serve
 import { setFlash } from 'sveltekit-flash-message/server';
 import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
 import { refreshDatabase } from '$lib/dataCacher';
-import { isValidJSON } from '$lib/globalHelpers';
 import { stripOfIllegalChars } from '$lib/globalHelpers';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
@@ -68,6 +67,9 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     },
   };
 
+  // Create forms with existing data
+  const sizeData = colorData.sizes && colorData.sizes.length > 0 ? colorData.sizes : {};
+
   const variantData = {
     ...defaultVariantData,
     ...colorData.variant,
@@ -75,6 +77,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
       ...defaultVariantData.traits,
       ...(colorData.variant?.traits || {}),
     },
+    sizes: (structuredClone(sizeData) || [])
   };
 
   const variantForm = await superValidate(variantData, zod(filamentVariantSchema));
@@ -102,8 +105,6 @@ export const actions = {
     
     try {
       const filteredFilament = removeUndefined(form.data);
-      
-      console.log(filteredFilament);
 
       await updateColorVariant(brand, material, filament, form.data.color_name, filteredFilament);
       await updateColorSize(brand, material, filament, form.data.color_name, filteredFilament.sizes);

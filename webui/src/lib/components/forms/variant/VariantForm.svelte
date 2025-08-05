@@ -97,8 +97,9 @@
   
   if (colorData?.variant) {
     form.set(structuredClone(colorData.variant));
-    console.log($form);
     $form.name = colorData.variant.color_name;
+    $form.sizes = structuredClone(colorData.sizes);
+    console.log($form);
   }
   
   let tempTraits = writable({});

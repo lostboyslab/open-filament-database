@@ -21,6 +21,8 @@
       class="w-10 h-10 border-2 border-gray-300 dark:border-gray-600 rounded cursor-pointer"
       aria-invalid={errorVar ? 'true' : undefined}
       bind:value={formVar}
+      autocomplete="off"
+      aria-autocomplete="none"
       style="padding:0;" />
     <input
       type="text"

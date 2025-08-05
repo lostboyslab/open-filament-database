@@ -10,6 +10,8 @@
       type="checkbox"
       name={`${idPrefix}discontinued`}
       class="accent-blue-600 w-4 h-4 mr-2"
+      autocomplete="off"
+      aria-autocomplete="none"
       bind:checked={formVar} />
 
       <label for={`${idPrefix}discontinued`} class="inline-block font-medium">
