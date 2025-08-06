@@ -1,6 +1,7 @@
 import { json } from '@sveltejs/kit';
 import fs from 'node:fs';
 import path from 'node:path';
+import { refreshDatabase } from '$lib/dataCacher';
 
 const DATA_DIR = path.resolve('../data');
 
@@ -65,9 +66,12 @@ export async function DELETE({ request }) {
       return json({ error: 'Invalid path' }, { status: 400 });
     }
 
+    console.log(`Attemption deletion of path ${targetPath}`);
+
     const deleted = deleteFolderRecursive(targetPath);
 
     if (deleted) {
+      await refreshDatabase();
       return json({ success: true, message: `${type} "${name}" deleted successfully` });
     } else {
       return json({ error: `${type} "${name}" not found` }, { status: 404 });

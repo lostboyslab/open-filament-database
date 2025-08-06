@@ -3,7 +3,7 @@
 
   const crumbs = $derived(page.url.pathname.split('/').map(decodeURIComponent).filter(Boolean));
 
- const baseUrl = $derived(page.url.origin);
+  const baseUrl = $derived(page.url.origin);
   const urlPath = (index: number) => {
     return '/' + crumbs.slice(0, index + 1).map(encodeURIComponent).join('/');
   };

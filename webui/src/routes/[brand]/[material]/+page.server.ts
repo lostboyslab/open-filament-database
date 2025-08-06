@@ -9,7 +9,8 @@ import {
   removeUndefined,
   updateMaterial,
 } from '$lib/server/helpers';
-import { baseFilamentSchema } from '$lib/validation/filament-schema';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
+import { filamentSchema } from '$lib/validation/filament-schema';
 import { refreshDatabase } from '$lib/dataCacher';
 import { setFlash } from 'sveltekit-flash-message/server';
 
@@ -31,7 +32,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 
   const currentMaterial = brandData.materials[material];
 
-  const filamentForm = await superValidate(zod(baseFilamentSchema));
+  const filamentForm = await superValidate(zod(filamentSchema));
 
   const materialKey = Object.keys(brandData.materials).find(
     (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedMaterial,
@@ -71,11 +72,12 @@ export const actions = {
       setFlash({ type: 'error', message: 'Failed to update material. Please try again.' }, cookies);
       return fail(500, { form });
     }
+
     setFlash({ type: 'success', message: 'Material updated successfully!' }, cookies);
-    return { form, success: true, redirect: `/${brand}/${form.data.material}` };
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${form.data.material}`);
   },
   filament: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(baseFilamentSchema));
+    const form = await superValidate(request, zod(filamentSchema));
     const { brand, material } = params;
 
     if (!form.valid) {
@@ -88,15 +90,11 @@ export const actions = {
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to update filament:', error);
-      setFlash(
-        { type: 'error', message: 'Failed to update fiilament. Please try again.' },
-        cookies,
-      );
+      setFlash({ type: 'error', message: 'Failed to update fiilament. Please try again.' }, cookies);
       fail(500, { form });
     }
-    const filamentPath = `/${brand}/${material}/${form.data.name}`;
 
     setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
-    redirect(303, filamentPath);
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${form.data.name}`);
   },
 };

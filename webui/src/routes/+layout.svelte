@@ -3,11 +3,15 @@
   import Breadcrumb from '$lib/components/breadcrumb.svelte';
   import '../app.css';
   import type { LayoutProps } from './$types';
-  import { getFlash } from 'sveltekit-flash-message';
+  import { getFlash, updateFlash } from 'sveltekit-flash-message';
   import { page } from '$app/state';
+  import { env } from '$env/dynamic/public';
+  const isLocal = env.PUBLIC_IS_LOCAL === 'true';
 
-  const flash = getFlash(page);
+  let flash = getFlash(page);
   let { children }: LayoutProps = $props();
+
+  let currentYear = new Date().getFullYear();
 </script>
 
 {#if $flash}
@@ -72,7 +76,7 @@
 
 <div
   class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors">
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-12">
     <nav class="sm:px-6 lg:px-8 flex gap-4 align-center">
       <BackBtn />
       <Breadcrumb />
@@ -80,7 +84,25 @@
     {@render children()}
   </main>
 
-  <footer class="bg-gray-900 dark:bg-gray-800 text-white text-center p-3 mt-5 shadow-inner">
-    © 2025 SimplyPrint – All rights reserved
+  <footer
+    class="bg-gray-900 dark:bg-gray-800 text-white text-center p-2 mt-5 shadow-inner"
+    style="position: fixed; bottom: 0; width: 100vw; display: inline;"
+  >
+    © {currentYear} Open Filament Database – All rights reserved
+
+    {#if isLocal}
+      <button
+        style="float: right;"
+        class="bg-red-900"
+        onclick={async () => {
+        const response = await fetch('/api/refreshData', {
+          method: 'POST'
+        });
+
+        await updateFlash(page);
+      }}>
+        Refresh DB Data
+      </button>
+    {/if}
   </footer>
 </div>

@@ -1,11 +1,14 @@
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import { baseFilamentSchema, filamentSchema } from '$lib/validation/filament-schema';
+import { filamentSchema } from '$lib/validation/filament-schema';
+import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
 import { createColorFiles, removeUndefined, updateFilament } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { refreshDatabase } from '$lib/dataCacher';
+import { isValidJSON } from '$lib/globalHelpers';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material, filament } = params;
@@ -33,8 +36,8 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   if (!filamentKey) throw error(404, 'Filament not found');
   const filamentDataObj = materialData.filaments[filamentKey];
 
-  const filamentForm = await superValidate(filamentDataObj, zod(baseFilamentSchema));
-  const filamentVariantForm = await superValidate(zod(filamentSchema));
+  const filamentForm = await superValidate(filamentDataObj, zod(filamentSchema));
+  const filamentVariantForm = await superValidate(zod(filamentVariantSchema));
 
   return {
     brandData,
@@ -47,7 +50,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 
 export const actions = {
   filament: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(baseFilamentSchema));
+    const form = await superValidate(request, zod(filamentSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
@@ -65,11 +68,11 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Filament updated successfully!' }, cookies);
-    return { form, success: true };
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${form.data.name}`);
   },
-  instance: async ({ request, params, cookies }) => {
+  variant: async ({ request, params, cookies }) => {
     let data = await request.formData();
-    const form = await superValidate(data, zod(filamentSchema));
+    const form = await superValidate(data, zod(filamentVariantSchema));
     const { brand, material, filament } = params;
 
     if (!form.valid) {
@@ -78,23 +81,6 @@ export const actions = {
 
     try {
       let filteredData = removeUndefined(form.data);
-
-      let tempArr = JSON.parse(form.data.serializedSizes);
-
-      tempArr.filter((li, i) => {
-        Object.keys(li).forEach((key) => {
-          if (!li[key]) delete li[key];
-        });
-
-        if (li) {
-          tempArr[i] = li;
-          return false;
-        }
-
-        return true;
-      });
-
-      filteredData['sizes'] = tempArr;
 
       filteredData['brandName'] = brand;
       filteredData['materialName'] = material;
@@ -110,6 +96,6 @@ export const actions = {
     }
 
     setFlash({ type: 'success', message: 'Color updated successfully!' }, cookies);
-    return { form, success: true };
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${filament}/${form.data.color_name}`);
   },
 };

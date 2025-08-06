@@ -4,10 +4,9 @@ import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { removeUndefined, updateColorSize, updateColorVariant } from '$lib/server/helpers';
 import { setFlash } from 'sveltekit-flash-message/server';
-import { filamentSizeSchema } from '$lib/validation/filament-size-schema';
 import { filamentVariantSchema } from '$lib/validation/filament-variant-schema';
-import { env } from '$env/dynamic/public';
 import { refreshDatabase } from '$lib/dataCacher';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { brand, material, filament, instance } = params;
@@ -55,15 +54,9 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   }
   const colorData = filamentDataObj.colors[colorKey];
 
-  // Create forms with existing data
-  const sizeData = colorData.sizes && colorData.sizes.length > 0 ? colorData.sizes[0] : {};
-
   const defaultVariantData = {
     color_name: '',
     color_hex: '#000000',
-    url: '',
-    affiliate: false,
-    sku: '',
     traits: {
       translucent: false,
       glow: false,
@@ -74,6 +67,9 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     },
   };
 
+  // Create forms with existing data
+  const sizeData = colorData.sizes && colorData.sizes.length > 0 ? colorData.sizes : {};
+
   const variantData = {
     ...defaultVariantData,
     ...colorData.variant,
@@ -81,9 +77,9 @@ export const load: PageServerLoad = async ({ params, parent }) => {
       ...defaultVariantData.traits,
       ...(colorData.variant?.traits || {}),
     },
+    sizes: (structuredClone(sizeData) || [])
   };
 
-  const sizeForm = await superValidate(sizeData, zod(filamentSizeSchema));
   const variantForm = await superValidate(variantData, zod(filamentVariantSchema));
 
   return {
@@ -91,79 +87,35 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     materialData,
     filamentData: filamentDataObj,
     colorData,
-    sizeForm,
     variantForm,
   };
 };
 
 export const actions = {
-  updateSize: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(filamentSizeSchema));
-    const { brand, material, filament, instance } = params;
+  variant: async ({ request, params, cookies }) => {
+    let data = await request.formData();
+    data.color_name = data.name;
+
+    const form = await superValidate(data, zod(filamentVariantSchema));
+    const { brand, material, filament } = params;
 
     if (!form.valid) {
       return fail(400, { form });
     }
-
-    // Check if this is a local environment
-    const isLocal = env.PUBLIC_IS_LOCAL === 'true';
-
-    if (!isLocal) {
-      // For web version, just return success without updating files
-      // The client-side pseudo edit will handle the local storage
-      setFlash(
-        { type: 'success', message: 'Size updated successfully (changes saved locally)!' },
-        cookies,
-      );
-      return { form, success: true };
-    }
-
+    
     try {
-      const filteredData = removeUndefined(form.data);
-      await updateColorSize(brand, material, filament, instance, filteredData);
+      const filteredFilament = removeUndefined(form.data);
+
+      await updateColorVariant(brand, material, filament, form.data.color_name, filteredFilament);
+      await updateColorSize(brand, material, filament, form.data.color_name, filteredFilament.sizes);
       await refreshDatabase();
     } catch (error) {
-      console.error('Failed to update color size:', error);
-      setFlash({ type: 'error', message: 'Failed to update size. Please try again.' }, cookies);
-      return fail(500, { form });
-    }
-
-    setFlash({ type: 'success', message: 'Size updated successfully!' }, cookies);
-    return { form, success: true };
-  },
-
-  updateVariant: async ({ request, params, cookies }) => {
-    const form = await superValidate(request, zod(filamentVariantSchema));
-    const { brand, material, filament, instance } = params;
-
-    if (!form.valid) {
-      return fail(400, { form });
-    }
-
-    // Check if this is a local environment
-    const isLocal = env.PUBLIC_IS_LOCAL === 'true';
-
-    if (!isLocal) {
-      // For web version, just return success without updating files
-      // The client-side pseudo edit will handle the local storage
-      setFlash(
-        { type: 'success', message: 'Variant updated successfully (changes saved locally)!' },
-        cookies,
-      );
-      return { form, success: true };
-    }
-
-    try {
-      const filteredData = removeUndefined(form.data);
-      await updateColorVariant(brand, material, filament, instance, filteredData);
-      await refreshDatabase();
-    } catch (error) {
-      console.error('Failed to update color variant:', error);
-      setFlash({ type: 'error', message: 'Failed to update variant. Please try again.' }, cookies);
+      console.error('Failed to update variant:', error);
+      setFlash({ type: 'error', message: 'Variant to update filament. Please try again.' }, cookies);
       return fail(500, { form });
     }
 
     setFlash({ type: 'success', message: 'Variant updated successfully!' }, cookies);
-    return { form, success: true };
-  },
+    throw redirect(303, `/${stripOfIllegalChars(brand)}/${material}/${filament}/${form.data.color_name}`);
+  }
 };

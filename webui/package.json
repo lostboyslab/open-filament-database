@@ -9,7 +9,8 @@
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+		"generate:schemas": "node scripts/generate-zod-schemas.ts"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^4.0.0",
@@ -18,7 +19,10 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@tailwindcss/vite": "^4.0.0",
+		"@types/node": "^24.1.0",
 		"eslint-config-prettier": "^10.1.2",
+		"json-schema-to-zod": "^2.6.1",
+		"sv-tooltip": "^0.2.5",
 		"svelte": "^5.20.2",
 		"svelte-check": "^4.0.0",
 		"sveltekit-flash-message": "^2.4.6",
@@ -29,7 +33,11 @@
 		"zod": "^3.24.2"
 	},
 	"dependencies": {
+		"@fortawesome/free-brands-svg-icons": "^7.0.0",
+		"@fortawesome/free-regular-svg-icons": "^7.0.0",
+		"@fortawesome/free-solid-svg-icons": "^7.0.0",
 		"@sveltestrap/sveltestrap": "^7.1.0",
-		"archiver": "^7.0.1"
+		"archiver": "^7.0.1",
+		"svelte-fa": "^4.0.4"
 	}
 }

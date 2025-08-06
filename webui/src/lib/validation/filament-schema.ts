@@ -1,11 +1,9 @@
 import { z } from 'zod';
-import { filamentVariantSchema } from './filament-variant-schema';
-import { filamentSizeSchemas } from './filament-size-schema';
 
-export const baseFilamentSchema = z.object({
+export const filamentSchema = z.object({
   name: z.string(),
-  diameter_tolerance: z.number().optional(),
-  density: z.number(),
+  diameter_tolerance: z.coerce.number().positive(),
+  density: z.coerce.number().positive(),
   max_dry_temperature: z.number().int().optional(),
   discontinued: z.boolean().default(false),
   data_sheet_url: z
@@ -23,7 +21,3 @@ export const baseFilamentSchema = z.object({
     }, 'URL must use HTTP or HTTPS protocol')
     .optional(),
 });
-
-
-export const filamentSchema = filamentSizeSchemas
-.merge(filamentVariantSchema);

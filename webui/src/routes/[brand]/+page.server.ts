@@ -3,7 +3,8 @@ import type { PageServerLoad } from './$types';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { brandSchema } from '$lib/validation/filament-brand-schema';
-import { createMaterial, updateBrand } from '$lib/server/helpers';
+import { createMaterial, removeUndefined, updateBrand } from '$lib/server/helpers';
+import { stripOfIllegalChars } from '$lib/globalHelpers';
 import { filamentMaterialSchema } from '$lib/validation/filament-material-schema';
 import { refreshDatabase } from '$lib/dataCacher';
 import { setFlash } from 'sveltekit-flash-message/server';
@@ -22,9 +23,6 @@ export const load: PageServerLoad = async ({ params, parent, cookies }) => {
   }
 
   const brandData = filamentData.brands[brandKey];
-  const materialKey = Object.keys(brandData.materials).find(
-    (key) => key.toLowerCase().replace(/\s+/g, '') === normalizedBrand,
-  );
 
   const formData = {
     brand: brandData.brand,
@@ -58,25 +56,30 @@ export const actions = {
       setFlash({ type: 'error', message: 'Failed to update brand. Please try again.' }, cookies);
       return fail(500, { form });
     }
+
     setFlash({ type: 'success', message: 'Brand updated successfully!' }, cookies);
-    redirect(303, `/${form.data.brand}/`);
+    throw redirect(303,`/${stripOfIllegalChars(form.data.brand)}/`);
   },
   material: async ({ request, params, cookies }) => {
     const form = await superValidate(request, zod(filamentMaterialSchema));
     const { brand } = params;
+
     if (!form.valid) {
       fail(400, { form });
     }
 
     try {
-      await createMaterial(brand, form.data);
+      let filteredData = removeUndefined(form.data);
+
+      await createMaterial(brand, filteredData);
       await refreshDatabase();
     } catch (error) {
       console.error('Failed to create material:', error);
       setFlash({ type: 'error', message: 'Failed to create material. Please try again.' }, cookies);
       return fail(500, { form });
     }
+    
     setFlash({ type: 'success', message: 'Material created successfully!' }, cookies);
-    return { form, redirect: `/${brand}/${form.data.material}`, success: true };
+    throw redirect(303,`/${stripOfIllegalChars(brand)}/${form.data.material}`);
   },
 };
