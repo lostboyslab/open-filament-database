@@ -40,7 +40,5 @@
     "temperature": "230",
     "filament_vendor": "Generic",
     "filament_spool_weight": "230",
-    "filament_infill_max_speed": "0",
-    "filament_infill_max_crossing_speed": "140",
     "renamed_from": "\"Generic HIPS @MMU2\""
 }

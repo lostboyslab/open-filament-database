@@ -38,6 +38,5 @@
     "max_fan_speed": "15",
     "min_fan_speed": "15",
     "temperature": "255",
-    "filament_vendor": "Filatech",
-    "filament_abrasive": "1"
+    "filament_vendor": "Filatech"
 }

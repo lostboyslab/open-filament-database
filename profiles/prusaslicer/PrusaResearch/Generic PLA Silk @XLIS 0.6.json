@@ -44,8 +44,6 @@
     "filament_travel_ramping_lift": "1",
     "filament_travel_max_lift": "0.6",
     "filament_travel_slope": "1",
-    "filament_infill_max_speed": "0",
-    "filament_infill_max_crossing_speed": "0",
     "filament_purge_multiplier": "81.25%",
     "filament_stamping_distance": "45",
     "filament_stamping_loading_speed": "29",

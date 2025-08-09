@@ -40,7 +40,5 @@
     "temperature": "255",
     "renamed_from": "\"Plasty Mladec ABS\"",
     "filament_vendor": "Filament PM",
-    "filament_spool_weight": "230",
-    "filament_infill_max_speed": "0",
-    "filament_infill_max_crossing_speed": "140"
+    "filament_spool_weight": "230"
 }

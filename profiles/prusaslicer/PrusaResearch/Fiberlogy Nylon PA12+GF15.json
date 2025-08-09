@@ -40,6 +40,5 @@
     "temperature": "265",
     "filament_vendor": "Fiberlogy",
     "filament_spool_weight": "330",
-    "filament_retract_lift": "0.2",
-    "filament_abrasive": "1"
+    "filament_retract_lift": "0.2"
 }

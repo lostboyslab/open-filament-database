@@ -41,8 +41,6 @@
     "renamed_from": "\"Plasty Mladec ABS @MINI\"",
     "filament_vendor": "Filament PM",
     "filament_spool_weight": "230",
-    "filament_infill_max_speed": "0",
-    "filament_infill_max_crossing_speed": "140",
     "filament_retract_length": "2.7",
     "filament_retract_speed": "nil",
     "filament_deretract_speed": "nil",
