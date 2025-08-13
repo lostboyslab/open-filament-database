@@ -84,6 +84,18 @@ def validate_json_files():
         brand_file = _brand_dir.joinpath("brand.json")
         if brand_file.exists():
             failed_validation |= not validate_json_file(brand_file, BRAND_SCHEMA)
+            brandData = get_json_from_file(brand_file)
+            logoName = brandData["logo"]
+
+            if "/" in logoName:
+                print("/ exists in logo path, only use file name.", brandData)
+                failed_validation = True
+            
+            logoFile = _brand_dir.joinpath(logoName)
+
+            if not logoFile.exists():
+                print("Missing", logoFile)
+                failed_validation = True
         else:
             print("Missing", brand_file)
             failed_validation = True
