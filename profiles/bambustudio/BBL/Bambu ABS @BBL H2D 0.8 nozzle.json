@@ -37,7 +37,7 @@
         "30"
     ],
     "fan_max_speed": [
-        "80"
+        "60"
     ],
     "fan_min_speed": [
         "10"
@@ -228,7 +228,7 @@
         "1"
     ],
     "slow_down_layer_time": [
-        "3"
+        "12"
     ],
     "slow_down_min_speed": [
         "20"

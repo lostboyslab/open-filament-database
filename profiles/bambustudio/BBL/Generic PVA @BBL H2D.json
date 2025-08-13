@@ -215,8 +215,8 @@
         "3"
     ],
     "retraction_distances_when_ec": [
-        "10",
-        "10"
+        "0",
+        "0"
     ],
     "supertack_plate_temp": [
         "35"
