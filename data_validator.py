@@ -214,6 +214,20 @@ def validate_folder_names():
                                   f"does not match the value of 'color_name' ({variant_name}) of", variant_file.name)
                             failed_validation = True
 
+    for _store_dir in Path("./stores").iterdir():
+        if not _store_dir.is_dir():
+            continue
+
+        # Validate brand folder name
+        store_file = _store_dir.joinpath("store.json")
+
+        if store_file.exists():
+            store_data = get_json_from_file(store_file)
+            store_id = cleanse_folder_name(store_data.get("id", ""))
+            if _store_dir.name != store_id:
+                print("The name of the folder", _store_dir,
+                    f"does not match the value of 'id' ({store_id}) of", brand_file.name)
+                failed_validation = True
 
 def validate_store_ids():
     global failed_validation
