@@ -39,6 +39,7 @@
     "min_fan_speed": "15",
     "temperature": "255",
     "filament_vendor": "Filatech",
+    "filament_abrasive": "1",
     "filament_retract_length": "2.7",
     "filament_retract_speed": "nil",
     "filament_deretract_speed": "nil",

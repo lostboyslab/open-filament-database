@@ -43,6 +43,7 @@
     "filament_retract_lift": "nil",
     "filament_vendor": "Extrudr",
     "filament_spool_weight": "230",
+    "filament_abrasive": "1",
     "filament_retract_speed": "45",
     "filament_deretract_speed": "25",
     "filament_retract_before_travel": "1"

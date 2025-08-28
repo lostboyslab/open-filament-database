@@ -42,5 +42,6 @@
     "filament_retract_length": "nil",
     "filament_retract_lift": "nil",
     "filament_vendor": "addnorth",
-    "filament_spool_weight": "0"
+    "filament_spool_weight": "0",
+    "filament_abrasive": "1"
 }

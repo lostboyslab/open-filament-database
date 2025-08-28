@@ -42,6 +42,7 @@
     "filament_deretract_speed": "20",
     "filament_retract_lift": "0",
     "filament_wipe": "0",
+    "renamed_from": "\"Filatech FilaFlex40\"",
     "filament_vendor": "Filatech",
     "filament_retract_before_travel": "2",
     "filament_retract_speed": "60",

@@ -43,5 +43,6 @@
     "filament_retract_speed": "nil",
     "filament_retract_lift": "nil",
     "filament_retract_before_travel": "nil",
-    "filament_wipe": "nil"
+    "filament_wipe": "nil",
+    "filament_abrasive": "1"
 }

@@ -38,5 +38,6 @@
     "max_fan_speed": "15",
     "min_fan_speed": "15",
     "temperature": "250",
-    "filament_vendor": "Spectrum"
+    "filament_vendor": "Spectrum",
+    "filament_abrasive": "1"
 }

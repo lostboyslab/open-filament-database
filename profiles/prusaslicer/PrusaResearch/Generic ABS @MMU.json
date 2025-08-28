@@ -16,7 +16,7 @@
     "filament_unload_time": "12",
     "filament_ramming_parameters": "\"120 110 5.32258 5.45161 5.67742 6 6.48387 7.12903 7.90323 8.70968 9.3871 9.83871 10.0968 10.2258| 0.05 5.30967 0.45 5.50967 0.95 6.1871 1.45 7.39677 1.95 9.05484 2.45 10 2.95 10.3098 3.45 13.0839 3.95 7.6 4.45 7.6 4.95 7.6\";",
     "filament_minimal_purge_on_wipe_tower": "15",
-    "filament_cost": "27.82",
+    "filament_cost": "26.99",
     "filament_density": "1.08",
     "filament_diameter": "1.75",
     "filament_notes": "\"\"",
@@ -40,5 +40,7 @@
     "temperature": "255",
     "filament_vendor": "Generic",
     "filament_spool_weight": "230",
+    "filament_infill_max_speed": "0",
+    "filament_infill_max_crossing_speed": "140",
     "renamed_from": "\"Generic ABS @MMU2\""
 }

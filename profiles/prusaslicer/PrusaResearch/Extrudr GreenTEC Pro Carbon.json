@@ -40,5 +40,6 @@
     "min_fan_speed": "30",
     "temperature": "225",
     "filament_vendor": "Extrudr",
-    "filament_spool_weight": "230"
+    "filament_spool_weight": "230",
+    "filament_abrasive": "1"
 }

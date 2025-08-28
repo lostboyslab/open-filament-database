@@ -43,6 +43,7 @@
     "filament_retract_lift": "nil",
     "filament_vendor": "ColorFabb",
     "filament_spool_weight": "236",
+    "filament_abrasive": "1",
     "filament_retract_speed": "45",
     "filament_deretract_speed": "25",
     "filament_retract_before_travel": "1"

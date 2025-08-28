@@ -41,5 +41,6 @@
     "temperature": "240",
     "filament_retract_length": "nil",
     "filament_retract_lift": "0.3",
-    "filament_vendor": "Kimya"
+    "filament_vendor": "Kimya",
+    "filament_abrasive": "1"
 }

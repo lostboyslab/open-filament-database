@@ -41,5 +41,6 @@
     "temperature": "245",
     "filament_retract_length": "1",
     "filament_retract_lift": "0.2",
-    "filament_vendor": "Filament PM"
+    "filament_vendor": "Filament PM",
+    "filament_abrasive": "1"
 }

@@ -1,7 +1,7 @@
 {
     "cooling": "1",
     "compatible_printers": "",
-    "compatible_printers_condition": "printer_notes=~/.*MK4.*/ and nozzle_diameter[0]==0.8",
+    "compatible_printers_condition": "printer_model=~/(MK4|MK4IS|MK4ISMMU3|MK3.9|MK3.9MMU3)/ and nozzle_diameter[0]==0.8",
     "end_filament_gcode": "\"; Filament-specific end gcode\"",
     "extrusion_multiplier": "1.1",
     "filament_loading_speed": "28",
@@ -42,10 +42,12 @@
     "filament_deretract_speed": "20",
     "filament_retract_lift": "0",
     "filament_wipe": "0",
+    "renamed_from": "\"Filatech FilaFlex40\"",
     "filament_vendor": "Filatech",
     "filament_retract_before_travel": "2",
     "filament_retract_speed": "60",
     "full_fan_speed_layer": "6",
+    "filament_retract_layer_change": "0",
     "idle_temperature": "70",
     "filament_travel_max_lift": "0.6"
 }

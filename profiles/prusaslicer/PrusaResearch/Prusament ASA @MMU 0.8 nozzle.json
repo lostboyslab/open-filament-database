@@ -40,5 +40,7 @@
     "temperature": "260",
     "filament_vendor": "Prusa Polymers",
     "filament_spool_weight": "193",
+    "filament_infill_max_speed": "0",
+    "filament_infill_max_crossing_speed": "140",
     "renamed_from": "\"Prusament ASA @MMU2 0.8 nozzle\""
 }
