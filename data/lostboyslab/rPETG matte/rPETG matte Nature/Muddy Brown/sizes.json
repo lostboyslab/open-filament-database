@@ -9,7 +9,8 @@
         "store_id": "lostboyslab",
         "url": "https://www.lostboyslab.shop/collections/materials/products/3d-filament-rpetg-matte-ncs-muddy-brown",
         "ships_from": "eu",
-        "ships_to": "eu"
+        "ships_to": "eu",
+        "affiliate": false
       }
     ]
   }

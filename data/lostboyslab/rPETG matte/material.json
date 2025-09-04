@@ -2,7 +2,7 @@
   "material": "rPETG matte",
   "default_max_dry_temperature": 55,
   "default_slicer_settings": {
-    "prusa": {
+    "prusaslicer": {
       "profile_name": "LBL/rPETG/matte",
       "first_layer_bed_temp": 85,
       "first_layer_nozzle_temp": 240,
