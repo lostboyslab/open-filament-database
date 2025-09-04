@@ -9,7 +9,8 @@
         "store_id": "lostboyslab",
         "url": "https://www.lostboyslab.shop/collections/materials/products/3d-filament-rpetg-matte-ncs-eclipse-black",
         "ships_from": "EU",
-        "ships_to": "EU"
+        "ships_to": "EU",
+        "affiliate": false
       }
     ]
   }
